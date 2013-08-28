@@ -25,3 +25,15 @@ public test bool denominatorTest() {
     && abs(exp(1) - E()) < ps
     && abs(exp(2) - E() * E()) < eps;
     }
+    
+ public test bool floorTest() { 
+     return floor(0.0) == 0
+     && floor(1.0) == 1
+     && floor(1.1) == 1
+	 && floor(1.5) == 1
+	 && floor(1.9) == 1
+	 && floor(-1.0) == -1
+	 && floor(-1.1) == -2
+     && floor(-1.5) == -2
+	 && floor(-1.9) == -2;
+	 }

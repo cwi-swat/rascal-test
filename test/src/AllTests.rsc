@@ -15,4 +15,4 @@ import tests::Sets;
 import tests::SolvedIssues;
 import tests::Strings;
 import tests::Tuples;
-
+import tests::Mathtests;
