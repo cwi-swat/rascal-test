@@ -1,4 +1,4 @@
-module tests::ListTests
+module tests::library::ListTests
 
 import List;
 	
@@ -161,9 +161,12 @@ import List;
 		public test bool q() = sort([1, 2, 3]) == [1,2,3];
 		public test bool q() = sort([1, 2, 3], bool(int a, int b){return a < b;}) == [1,2,3];
 		public test bool q() = sort([1, 2, 3], bool(int a, int b){return a > b;}) == [3,2,1];
-// public test bool q() {try { sort([1, 2, 3], bool(int a, int b){return a <= b;}); throw "Should fail";  catch IllegalArgument(_,_): ;}
-// public test bool q() {try { sort([1, 0, 1], bool(int a, int b){return a <= b;}); throw "Should fail";  catch IllegalArgument(_,_): ;}
-	
+		
+@expected{IllegalArgument}
+        public test bool q() {sort([1, 2, 3], bool(int a, int b){return a <= b;}); return false ;}
+        
+@expected{IllegalArgument}
+        public test bool q() {sort([1, 0, 1], bool(int a, int b){return a <= b;});  return false;}
 
 // tail
 		public test bool q() = List::tail([1]) == [];
@@ -208,11 +211,7 @@ import List;
 		public test bool q() = toMapUnique([]) == ();
 		public test bool q() = List::toMapUnique([<1,10>, <2,20>]) == (1:10, 2:20);
 
-	
-	
-// 	(expected=Throw.class)
-// toMapUniqueError
-		
+@expected{MultipleKey}		
 		public test bool q() {List::toMapUnique([<1,10>, <1,20>]) == (1:10, 2:20);}
 
 	
@@ -235,17 +234,15 @@ import List;
 		public test bool q() = List::toString([1]) == "[1]";
 		public test bool q() = List::toString([1, 2]) == "[1,2]";
 
-/*
-	(expected = UnexpectedType.class) 
-	public void listExpressions1() {
-		runTest("{ value n = 1; list[int] l = [ *[n, n] ]; ");
+
+@expected{UnexpectedType}
+// listExpressions1
+		public test bool q(){ value n = 1; list[int] l = [ *[n, n] ];}
 	
+@expected{UnexpectedType}
+// listExpressions2 
+		public test bool q() {value n = 1; list[int] l = [ 1, *[n, n], 2 ];}
 	
-	(expected = UnexpectedType.class) 
-	public void listExpressions2() {
-		runTest("{ value n = 1; list[int] l = [ 1, *[n, n], 2 ]; ");
-	
-*/
 	
 // listExpressions3
 	public test bool q() { 

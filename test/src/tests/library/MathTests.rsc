@@ -1,4 +1,4 @@
-module tests::MathTests
+module tests::library::MathTests
 import util::Math;
 
 real eps = 0.000001;

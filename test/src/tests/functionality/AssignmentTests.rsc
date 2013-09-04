@@ -1,4 +1,4 @@
-module tests::AssignmentTests
+module tests::functionality::AssignmentTests
 
 	
 @expected{UndeclaredVariable}

@@ -1,4 +1,4 @@
-module tests::SetTests
+module tests::library::SetTests
 import Set;
 import Exception;
 
