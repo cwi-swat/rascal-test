@@ -14,7 +14,10 @@ import Exception;
 		public test bool q() {str S = Set::getOneFrom({"abc","def"}); return  (S == "abc") || (S == "def");}
 		public test bool q() {try{Set::getOneFrom({});return false;} catch EmptySet(): return true;}
 	
-	
+@expected{EmptySet}
+	public test bool getOneFromError() {
+		getOneFrom({});return false;
+	}
 	
 // isEmpty
 		public test bool q() = isEmpty({});
@@ -61,8 +64,11 @@ import Exception;
 //	takeOneFrom
 		public test bool q() {<E, SI> = Set::takeOneFrom({1}); return (E == 1) && (SI == {}) ;}
 		public test bool q() {<E, SI> = Set::takeOneFrom({1,2}); return ((E == 1) && (SI == {2})) || ((E == 2) && (SI == {1}));}
-        public test bool q() {try{Set::takeOneFrom({});return false;} catch EmptySet(): return true;}
         
+  @expected{EmptySet}
+	public test bool takeOneFromError() {
+		getOneFrom({});return false;
+	}      
 // toList
 		public test bool q() = Set::toList({}) == [];
 		public test bool q() = toList({}) == [];
@@ -81,6 +87,11 @@ import Exception;
 		public test bool q() = toMapUnique({}) == ();
 		public test bool q() = Set::toMapUnique({<1, "a">}) == (1 : "a");
 		public test bool q() = Set::toMapUnique({<1, "a">, <2, "b">}) == (1 : "a", 2 : "b");
+		
+	@expected{MultipleKey}
+	public void toMapUniqueError(){
+		toMapUnique({<1,10>,<1,20>}) == (1:20);		
+	}
 	
 // testToString 
 		public test bool q() = Set::toString({}) == "{}";

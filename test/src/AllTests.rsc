@@ -16,3 +16,5 @@ import tests::SolvedIssues;
 import tests::Strings;
 import tests::Tuples;
 import tests::Mathtests;
+import tests::CallTests;
+import tests::AssigmentTests;

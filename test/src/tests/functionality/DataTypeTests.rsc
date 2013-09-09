@@ -417,7 +417,7 @@ loc Loc2 = |file:///home/paulk/pico2.trm|(0,1,<2,3>,<4,5>);
 		public test bool q() = Loc.path == "/home/paulk/pico.trm";
 		
 		
-		//public test bool q() = { loc Loc = " + Loc + "; Loc.uri == \"file:///home/paulk/pico.trm\";}
+		//public test bool q() = { loc Loc = " + Loc + "; Loc.uri == "file:///home/paulk/pico.trm";}
 		//public test bool q() = { loc Loc = " + Loc + "; Loc.offset == 0;}
 		//public test bool q() = { loc Loc = " + Loc + "; Loc.length == 1;}
 		//public test bool q() = { loc Loc = " + Loc + "; Loc.begin.line == 2;}
@@ -425,7 +425,7 @@ loc Loc2 = |file:///home/paulk/pico2.trm|(0,1,<2,3>,<4,5>);
 		//public test bool q() = { loc Loc = " + Loc + "; Loc.end.line == 4;}
 		//public test bool q() = { loc Loc = " + Loc + "; Loc.end.column == 5;}
 		//
-		//public test bool q() = { loc Loc = " + Loc + "; Loc.uri = \"file:///home/paulk/pico2.trm\"; Loc.uri == \"file:///home/paulk/pico2.trm\";}
+		//public test bool q() = { loc Loc = " + Loc + "; Loc.uri = "file:///home/paulk/pico2.trm"; Loc.uri == "file:///home/paulk/pico2.trm";}
 		//public test bool q() = { loc Loc = " + Loc + "; Loc.offset = 10; Loc.offset == 10;}
 		//public test bool q() = { loc Loc = " + Loc + "; Loc.length = 11; Loc.length == 11;}
 		//public test bool q() = { loc Loc = " + Loc + "; Loc.end.line = 14; Loc.end.line == 14;}
@@ -433,7 +433,7 @@ loc Loc2 = |file:///home/paulk/pico2.trm|(0,1,<2,3>,<4,5>);
 		//public test bool q() = { loc Loc = " + Loc + "; Loc.begin.column = 13; Loc.begin.column == 13;}
 		//public test bool q() = { loc Loc = " + Loc + "; Loc.end.column = 15; Loc.end.column == 15;}
 		//
-		//public test bool q() = {loc Loc = " + Loc + "; Loc = Loc[uri= \"file:///home/paulk/pico.trm\"]; Loc == |file:///home/paulk/pico.trm|(0,1,<2,3>,<4,5>);}
+		//public test bool q() = {loc Loc = " + Loc + "; Loc = Loc[uri= "file:///home/paulk/pico.trm"]; Loc == |file:///home/paulk/pico.trm|(0,1,<2,3>,<4,5>);}
 		//public test bool q() = {loc Loc = " + Loc + "; Loc = Loc[offset = 10]; Loc == |file:///home/paulk/pico.trm|(10,1,<2,3>,<4,5>);}
 		//public test bool q() = {loc Loc = " + Loc + "; Loc = Loc[length = 11]; Loc ==  |file:///home/paulk/pico.trm|(0,11,<2,3>,<4,5>);}
 		//public test bool q() = {loc Loc = " + Loc + "; Loc = Loc[begin = <1,4>]; Loc == |file:///home/paulk/pico.trm|(0,1,<1,4>,<4,5>);}
@@ -823,59 +823,59 @@ data TYPESET = SET(str name) | SUBTYPES(TYPESET tset) | INTERSECT(set[TYPESET] t
 	
 //	private void simpTests(){
 //	
-//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({  })), SET(\"s1\") }))",
-//							"INTERSECT({ SUBTYPES(INTERSECT({  })), SET(\"s1\") })
+//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({  })), SET("s1") }))",
+//							"INTERSECT({ SUBTYPES(INTERSECT({  })), SET("s1") })
 //
-//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({SET(\"s1\")  })), SET(\"s2\") }))",
-//		   	    			"INTERSECT({ SUBTYPES(INTERSECT({SET(\"s1\") })), SET(\"s2\") })
+//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({SET("s1")  })), SET("s2") }))",
+//		   	    			"INTERSECT({ SUBTYPES(INTERSECT({SET("s1") })), SET("s2") })
 //
-//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({ SET(\"s1\") })), SET(\"s1\") }))",
-//		        			"INTERSECT({ SUBTYPES(INTERSECT({             })), SET(\"s1\") });
+//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({ SET("s1") })), SET("s1") }))",
+//		        			"INTERSECT({ SUBTYPES(INTERSECT({             })), SET("s1") });
 //	
-//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({ SET(\"s1\") })), SET(\"s1\"), SET(\"s2\")  }))",
-//							"INTERSECT({ SUBTYPES(INTERSECT({             })), SET(\"s1\"), SET(\"s2\")  });
+//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({ SET("s1") })), SET("s1"), SET("s2")  }))",
+//							"INTERSECT({ SUBTYPES(INTERSECT({             })), SET("s1"), SET("s2")  });
 //	
-//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({ SET(\"s1\") })), SET(\"s2\"), SET(\"s1\")  }))",
-//							"INTERSECT({ SUBTYPES(INTERSECT({             })), SET(\"s2\"), SET(\"s1\")  });
+//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({ SET("s1") })), SET("s2"), SET("s1")  }))",
+//							"INTERSECT({ SUBTYPES(INTERSECT({             })), SET("s2"), SET("s1")  });
 //
 //
 //
-//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({ SET(\"s1\"), SET(\"s2\") })), SET(\"s3\") }))",
-//               				"INTERSECT({ SUBTYPES(INTERSECT({ SET(\"s1\"), SET(\"s2\") })), SET(\"s3\") });
+//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SET("s2") })), SET("s3") }))",
+//               				"INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SET("s2") })), SET("s3") });
 //	
-//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({ SET(\"s1\"), SET(\"s2\") })), SET(\"s3\"), SET(\"s4\") }))",
-//   		    		  		"INTERSECT({ SUBTYPES(INTERSECT({ SET(\"s1\"), SET(\"s2\") })), SET(\"s3\"), SET(\"s4\")  });
+//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SET("s2") })), SET("s3"), SET("s4") }))",
+//   		    		  		"INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SET("s2") })), SET("s3"), SET("s4")  });
 //
 //
-//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({ SET(\"s1\"), SET(\"s3\") })), SET(\"s1\") }))",
-//							"INTERSECT({ SUBTYPES(INTERSECT({              SET(\"s3\") })), SET(\"s1\") });
+//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SET("s3") })), SET("s1") }))",
+//							"INTERSECT({ SUBTYPES(INTERSECT({              SET("s3") })), SET("s1") });
 //
-//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({ SUBTYPES(SET(\"s3\"))})), SET(\"s3\") }))",
-//            				"INTERSECT({ SUBTYPES(INTERSECT({ SUBTYPES(SET(\"s3\"))})), SET(\"s3\") });
+//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({ SUBTYPES(SET("s3"))})), SET("s3") }))",
+//            				"INTERSECT({ SUBTYPES(INTERSECT({ SUBTYPES(SET("s3"))})), SET("s3") });
 //
-//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({ SET(\"s70\"), SET(\"s4\")})), SET(\"s70\") }))",
-//            				"INTERSECT({ SUBTYPES(INTERSECT({               SET(\"s4\")})), SET(\"s70\") });
+//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({ SET("s70"), SET("s4")})), SET("s70") }))",
+//            				"INTERSECT({ SUBTYPES(INTERSECT({               SET("s4")})), SET("s70") });
 //
-//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({ SET(\"s1\"), SUBTYPES(SET(\"s3\")) })), SET(\"s1\") }))",
-//             				"INTERSECT({ SUBTYPES(INTERSECT({              SUBTYPES(SET(\"s3\")) })), SET(\"s1\") });
+//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SUBTYPES(SET("s3")) })), SET("s1") }))",
+//             				"INTERSECT({ SUBTYPES(INTERSECT({              SUBTYPES(SET("s3")) })), SET("s1") });
 //
-//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({ SET(\"s1\"), SUBTYPES(SET(\"s3\")) })), SUBTYPES(SET(\"s2\")), SET(\"s1\") }))",   
-//            				"INTERSECT({ SUBTYPES(INTERSECT({              SUBTYPES(SET(\"s3\")) })), SUBTYPES(SET(\"s2\")), SET(\"s1\") });
+//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SUBTYPES(SET("s3")) })), SUBTYPES(SET("s2")), SET("s1") }))",   
+//            				"INTERSECT({ SUBTYPES(INTERSECT({              SUBTYPES(SET("s3")) })), SUBTYPES(SET("s2")), SET("s1") });
 //
-//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({ SET(\"s1\"), SUBTYPES(SET(\"s2\")) })), SUBTYPES(SET(\"s2\")), SET(\"s1\") }))",
-//            				"INTERSECT({ SUBTYPES(INTERSECT({                                    })), SUBTYPES(SET(\"s2\")), SET(\"s1\") });	
+//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SUBTYPES(SET("s2")) })), SUBTYPES(SET("s2")), SET("s1") }))",
+//            				"INTERSECT({ SUBTYPES(INTERSECT({                                    })), SUBTYPES(SET("s2")), SET("s1") });	
 //
-//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({ SUBTYPES(SET(\"s3\")), SUBTYPES(SET(\"s2\")) })), SUBTYPES(SET(\"s2\")) }))",
-//            				"INTERSECT({ SUBTYPES(INTERSECT({ SUBTYPES(SET(\"s3\"))                        })), SUBTYPES(SET(\"s2\")) });
+//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({ SUBTYPES(SET("s3")), SUBTYPES(SET("s2")) })), SUBTYPES(SET("s2")) }))",
+//            				"INTERSECT({ SUBTYPES(INTERSECT({ SUBTYPES(SET("s3"))                        })), SUBTYPES(SET("s2")) });
 //
-//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({ SET(\"s1\"), SUBTYPES(SET(\"s2\")), SUBTYPES(SET(\"s3\")) })), SUBTYPES(SET(\"s2\")), SET(\"s1\") }))",
-//             				"INTERSECT({ SUBTYPES(INTERSECT({                                     SUBTYPES(SET(\"s3\")) })), SUBTYPES(SET(\"s2\")), SET(\"s1\") });
+//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SUBTYPES(SET("s2")), SUBTYPES(SET("s3")) })), SUBTYPES(SET("s2")), SET("s1") }))",
+//             				"INTERSECT({ SUBTYPES(INTERSECT({                                     SUBTYPES(SET("s3")) })), SUBTYPES(SET("s2")), SET("s1") });
 //
-//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({ SET(\"s1\"), SET(\"s2\"), SET(\"s3\"), SET(\"s5\") })), SET(\"s6\"), SET(\"s2\"), SET(\"s7\"), SET(\"s1\") }))",
-//            				"INTERSECT({ SUBTYPES(INTERSECT({                           SET(\"s3\"), SET(\"s5\") })), SET(\"s6\"), SET(\"s2\"), SET(\"s7\"), SET(\"s1\") });
+//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SET("s2"), SET("s3"), SET("s5") })), SET("s6"), SET("s2"), SET("s7"), SET("s1") }))",
+//            				"INTERSECT({ SUBTYPES(INTERSECT({                           SET("s3"), SET("s5") })), SET("s6"), SET("s2"), SET("s7"), SET("s1") });
 //
-//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({ SET(\"s1\"), SUBTYPES(SET(\"s2\")), SET(\"s3\"), SET(\"s5\") })), SET(\"s6\"), SUBTYPES(SET(\"s2\")), SET(\"s7\"), SET(\"s1\"), SET(\"s3\") }))",
-//							"INTERSECT({ SUBTYPES(INTERSECT({                                                  SET(\"s5\") })), SET(\"s6\"), SUBTYPES(SET(\"s2\")), SET(\"s7\"), SET(\"s1\"), SET(\"s3\") });
+//	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SUBTYPES(SET("s2")), SET("s3"), SET("s5") })), SET("s6"), SUBTYPES(SET("s2")), SET("s7"), SET("s1"), SET("s3") }))",
+//							"INTERSECT({ SUBTYPES(INTERSECT({                                                  SET("s5") })), SET("s6"), SUBTYPES(SET("s2")), SET("s7"), SET("s1"), SET("s3") });
 //
 //	}
 
@@ -883,56 +883,56 @@ data TYPESET = SET(str name) | SUBTYPES(TYPESET tset) | INTERSECT(set[TYPESET] t
 	
 	// private void funTests(){
 		
-		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({  })), SET("s1") }) ==
-						   INTERSECT({ SUBTYPES(INTERSECT({  })), SET("s1") });
-
-		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({SET("s1")  })), SET("s2") })==
-			   	    	   INTERSECT({ SUBTYPES(INTERSECT({SET("s1") })),  SET("s2") });
-
-		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({ SET("s1") })), SET("s1") })==
-			        	   INTERSECT({ SUBTYPES(INTERSECT({             })), SET("s1") });
-		
-		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({ SET("s1") })), SET("s1"), SET("s2")  })==
-						   INTERSECT({ SUBTYPES(INTERSECT({             })), SET("s1"), SET("s2")  });
-
-		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({ SET("s1") })), SET("s2"), SET("s1")  })==
-						   INTERSECT({ SUBTYPES(INTERSECT({             })), SET("s2"), SET("s1")  });
-
-		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SET("s2") })), SET("s3") })==
-	               		   INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SET("s2") })), SET("s3") });
-		
-		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SET("s2") })), SET("s3"), SET("s4") })==
-        		   		    INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SET("s2") })), SET("s3"), SET("s4")  });
-
-		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SET("s3") })), SET("s1") })==
-						   INTERSECT({ SUBTYPES(INTERSECT({              SET("s3") })), SET("s1") });
-
-		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({ SUBTYPES(SET("s3"))})), SET("s3") })==
-	            		   INTERSECT({ SUBTYPES(INTERSECT({ SUBTYPES(SET("s3"))})), SET("s3") });
-
-		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({ SET("s70"), SET("s4")})), SET("s70") })==
-	            		   INTERSECT({ SUBTYPES(INTERSECT({               SET("s4")})), SET("s70") });
-
-		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SUBTYPES(SET("s3")) })), SET("s1") })==
-	             		   INTERSECT({ SUBTYPES(INTERSECT({              SUBTYPES(SET("s3")) })), SET("s1") });
-
-		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SUBTYPES(SET("s3")) })), SUBTYPES(SET("s2")), SET("s1") })== 
-	            		   INTERSECT({ SUBTYPES(INTERSECT({              SUBTYPES(SET("s3")) })), SUBTYPES(SET("s2")), SET("s1") });
-
-		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SUBTYPES(SET("s2")) })), SUBTYPES(SET("s2")), SET("s1") })==
-	            		   INTERSECT({ SUBTYPES(INTERSECT({                                    })), SUBTYPES(SET("s2")), SET("s1") });	
-
-		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({ SUBTYPES(SET("s3")), SUBTYPES(SET("s2")) })), SUBTYPES(SET("s2")) })==
-	            		   INTERSECT({ SUBTYPES(INTERSECT({ SUBTYPES(SET("s3"))                        })), SUBTYPES(SET("s2")) });
-
-		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SUBTYPES(SET("s2")), SUBTYPES(SET("s3")) })), SUBTYPES(SET("s2")), SET("s1") })==
-	             		   INTERSECT({ SUBTYPES(INTERSECT({                                     SUBTYPES(SET("s3")) })), SUBTYPES(SET("s2")), SET("s1") });
-
-		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SET("s2"), SET("s3"), SET("s5") })), SET("s6"), SET("s2"), SET("s7"), SET("s1") })==
-	            		   INTERSECT({ SUBTYPES(INTERSECT({                           SET("s3"), SET("s5") })), SET("s6"), SET("s2"), SET("s7"), SET("s1") });
-
-		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SUBTYPES(SET("s2")), SET("s3"), SET("s5") })), SET("s6"), SUBTYPES(SET("s2")), SET("s7"), SET("s1"), SET("s3") })==
-						   INTERSECT({ SUBTYPES(INTERSECT({                                                  SET("s5") })), SET("s6"), SUBTYPES(SET("s2")), SET("s7"), SET("s1"), SET("s3") });
+//		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({  })), SET("s1") }) ==
+//						   INTERSECT({ SUBTYPES(INTERSECT({  })), SET("s1") });
+//
+//		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({SET("s1")  })), SET("s2") })==
+//			   	    	   INTERSECT({ SUBTYPES(INTERSECT({SET("s1") })),  SET("s2") });
+//
+//		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({ SET("s1") })), SET("s1") })==
+//			        	   INTERSECT({ SUBTYPES(INTERSECT({             })), SET("s1") });
+//		
+//		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({ SET("s1") })), SET("s1"), SET("s2")  })==
+//						   INTERSECT({ SUBTYPES(INTERSECT({             })), SET("s1"), SET("s2")  });
+//
+//		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({ SET("s1") })), SET("s2"), SET("s1")  })==
+//						   INTERSECT({ SUBTYPES(INTERSECT({             })), SET("s2"), SET("s1")  });
+//
+//		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SET("s2") })), SET("s3") })==
+//	               		   INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SET("s2") })), SET("s3") });
+//		
+//		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SET("s2") })), SET("s3"), SET("s4") })==
+//        		   		    INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SET("s2") })), SET("s3"), SET("s4")  });
+//
+//		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SET("s3") })), SET("s1") })==
+//						   INTERSECT({ SUBTYPES(INTERSECT({              SET("s3") })), SET("s1") });
+//
+//		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({ SUBTYPES(SET("s3"))})), SET("s3") })==
+//	            		   INTERSECT({ SUBTYPES(INTERSECT({ SUBTYPES(SET("s3"))})), SET("s3") });
+//
+//		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({ SET("s70"), SET("s4")})), SET("s70") })==
+//	            		   INTERSECT({ SUBTYPES(INTERSECT({               SET("s4")})), SET("s70") });
+//
+//		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SUBTYPES(SET("s3")) })), SET("s1") })==
+//	             		   INTERSECT({ SUBTYPES(INTERSECT({              SUBTYPES(SET("s3")) })), SET("s1") });
+//
+//		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SUBTYPES(SET("s3")) })), SUBTYPES(SET("s2")), SET("s1") })== 
+//	            		   INTERSECT({ SUBTYPES(INTERSECT({              SUBTYPES(SET("s3")) })), SUBTYPES(SET("s2")), SET("s1") });
+//
+//		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SUBTYPES(SET("s2")) })), SUBTYPES(SET("s2")), SET("s1") })==
+//	            		   INTERSECT({ SUBTYPES(INTERSECT({                                    })), SUBTYPES(SET("s2")), SET("s1") });	
+//
+//		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({ SUBTYPES(SET("s3")), SUBTYPES(SET("s2")) })), SUBTYPES(SET("s2")) })==
+//	            		   INTERSECT({ SUBTYPES(INTERSECT({ SUBTYPES(SET("s3"))                        })), SUBTYPES(SET("s2")) });
+//
+//		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SUBTYPES(SET("s2")), SUBTYPES(SET("s3")) })), SUBTYPES(SET("s2")), SET("s1") })==
+//	             		   INTERSECT({ SUBTYPES(INTERSECT({                                     SUBTYPES(SET("s3")) })), SUBTYPES(SET("s2")), SET("s1") });
+//
+//		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SET("s2"), SET("s3"), SET("s5") })), SET("s6"), SET("s2"), SET("s7"), SET("s1") })==
+//	            		   INTERSECT({ SUBTYPES(INTERSECT({                           SET("s3"), SET("s5") })), SET("s6"), SET("s2"), SET("s7"), SET("s1") });
+//
+//		public test bool q() = INTERSECT({ SUBTYPES(INTERSECT({ SET("s1"), SUBTYPES(SET("s2")), SET("s3"), SET("s5") })), SET("s6"), SUBTYPES(SET("s2")), SET("s7"), SET("s1"), SET("s3") })==
+//						   INTERSECT({ SUBTYPES(INTERSECT({                                                  SET("s5") })), SET("s6"), SUBTYPES(SET("s2")), SET("s7"), SET("s1"), SET("s3") });
 
 //		}
 
@@ -1029,14 +1029,14 @@ data TYPESET = SET(str name) | SUBTYPES(TYPESET tset) | INTERSECT(set[TYPESET] t
 //		// converted to a set.
 //		//
 //		public test bool q() = {R = for({*S1, *S2} := {100, 200}) append <S1, S2>; {*R} == {<{200,100}, {}>, <{200}, {100}>, <{100}, {200}>, <{}, {200,100}>};}
-//		public test bool q() = {R = for({*int S1, *S2} := {100, \"a\"})  append <S1, S2>; R == [<{100}, {\"a\"}>, <{},{100,\"a\"}>];}
-//		public test bool q() = {R = for({*int S1, *str S2} := {100, \"a\"}) append <S1, S2>; R == [<{100}, {\"a\"}>];}
+//		public test bool q() = {R = for({*int S1, *S2} := {100, "a"})  append <S1, S2>; R == [<{100}, {"a"}>, <{},{100,"a"}>];}
+//		public test bool q() = {R = for({*int S1, *str S2} := {100, "a"}) append <S1, S2>; R == [<{100}, {"a"}>];}
 //		
-//		public test bool q() = {R = for({*str S1, *S2} := {100, \"a\"})  append <S1, S2>; R == [<{\"a\"},{100}>, <{},{100,\"a\"}>];}
-//		public test bool q() = {R = for({*str S1, *int S2} := {100, \"a\"})  append <S1, S2>; R == [<{\"a\"},{100}>];}
+//		public test bool q() = {R = for({*str S1, *S2} := {100, "a"})  append <S1, S2>; R == [<{"a"},{100}>, <{},{100,"a"}>];}
+//		public test bool q() = {R = for({*str S1, *int S2} := {100, "a"})  append <S1, S2>; R == [<{"a"},{100}>];}
 //		
-//		public test bool q() = !({*str S1, *str S2} := {100, \"a\"};
-//		public test bool q() = !({*int S1, *int S2} := {100, \"a\"};
+//		public test bool q() = !({*str S1, *str S2} := {100, "a"};
+//		public test bool q() = !({*int S1, *int S2} := {100, "a"};
 //
 //	}
 
@@ -1172,29 +1172,28 @@ data TYPESET = SET(str name) | SUBTYPES(TYPESET tset) | INTERSECT(set[TYPESET] t
 		
 		public test bool q() {map[str,list[int]] m = ("a": [1,2], "b": [], "c": [4,5,6]); return m["a"] == [1,2];}
 //	}
-/*	
+
 	 @expected{UndeclaredVariable}
 	    public void UndefinedMapElementError1(){
-	    	runTest("(X:2);");
+	    	(X:2);return false;
 	    }
 	 
 	 @expected{UndeclaredVariable}
 	    public void UndefinedMapElementError2(){
-	    	runTest("(1:Y);");
+	    	(1:Y);return false;
 	    }
 	 
 	 @expected{Throw}
 	 public void NoKeyError(){
-		 runTest("(1:10, 2:20)[3];");
+		 (1:10, 2:20)[3];return false;
 	 }
 	 
 	 @expected{Throw}  // MultipleKey
 	 public void MultipleKeyError(){
-		 runTest("(1:10, 1:10);");
+		 (1:10, 1:10);return false;
 	 }
 	
-	@Test
-	public void testTuple() {
+	// @Test public void testTuple() {
 		
 		public test bool q() = <1, 2.5, true> == <1, 2.5, true>;
 		public test bool q() = <1, 2.5, true> != <0, 2.5, true>;
@@ -1207,62 +1206,59 @@ data TYPESET = SET(str name) | SUBTYPES(TYPESET tset) | INTERSECT(set[TYPESET] t
 		public test bool q() = <1,2>         >= <1>;
 		public test bool q() = <1,2>         >= <1,2>;
 		public test bool q() = <1,2>         >= <1, 1>;
-		public test bool q() = <1,\"def\">   >= <1, \"abc\">;
+		public test bool q() = <1,"def">   >= <1, "abc">;
 		public test bool q() = <1, [2,3,4]>  >= <1, [2,3]>;
 		public test bool q() = <1, [2,3]>    >= <1, [2,3]>;
 		
-		public test bool q() = !(<1>          > <1>;
+		public test bool q() = !(<1>          > <1>);
 		public test bool q() = <2>           > <1>;
 		public test bool q() = <1,2>         > <1>;
-		public test bool q() = !(<1,2>        > <1,2>;
+		public test bool q() = !(<1,2>        > <1,2>);
 		public test bool q() = <1,2>         > <1, 1>;
-		public test bool q() = <1,\"def\">   > <1, \"abc\">;
+		public test bool q() = <1,"def">   > <1, "abc">;
 		public test bool q() = <1, [2,3,4]>  > <1, [2,3]>;
-		public test bool q() = !(<1, [2,3]>   > <1, [2,3]>;
+		public test bool q() = !(<1, [2,3]>   > <1, [2,3]>);
 		
 		public test bool q() = <1>           <= <1>;
 		public test bool q() = <1>           <= <2>;
 		public test bool q() = <1>           <= <1,2>;
 		public test bool q() = <1,2>         <= <1,2>;
 		public test bool q() = <1,1>         <= <1, 2>;
-		public test bool q() = <1,\"abc\">   <= <1, \"def\">;
+		public test bool q() = <1,"abc">   <= <1, "def">;
 		public test bool q() = <1, [2,3]>    <= <1, [2,3,4]>;
 		public test bool q() = <1, [2,3]>    <= <1, [2,3]>;
 		
-		public test bool q() = !(<1>          < <1>;
+		public test bool q() = !(<1>          < <1>);
 		public test bool q() = <1>           < <2>;
 		public test bool q() = <1>           < <1,2>;
-		public test bool q() = !(<1,2>        < <1,2>;
+		public test bool q() = !(<1,2>        < <1,2>);
 		public test bool q() = <1,1>         < <1, 2>;
-		public test bool q() = <1,\"abc\">   < <1, \"def\">;
+		public test bool q() = <1,"abc">   < <1, "def">;
 		public test bool q() = <1, [2,3]>    < <1, [2,3,4]>;
-		public test bool q() = !(<1, [2,3]>   < <1, [2,3]>;
+		public test bool q() = !(<1, [2,3]>   < <1, [2,3]>);
 		
-		public test bool q() = <1, \"a\", true> + <1.5, \"def\"> == <1, \"a\", true> + <1.5, \"def\">;
-	}
-	
+		public test bool q() = <1, "a", true> + <1.5, "def"> == <1, "a", true> + <1.5, "def">;
+	// }
 	 @expected{UndeclaredVariable}
 	    public void UndefinedTupleElementError1(){
-	    	runTest("<1,X,3>;");
+	    	<1,X,3>;return false;
 	    }
 	
-	@Test
-	public void namedTuple()  {
+// @Test public void namedTuple()  {
 		
-		public test bool q() = {tuple[int key, str val] T = <1, \"abc\">; T.key == 1;}
-		public test bool q() = {tuple[int key, str val] T = <1, \"abc\">; T.val == \"abc\";}
+		public test bool q() {tuple[int key, str val] T = <1, "abc">; return T.key == 1;}
+		public test bool q() {tuple[int key, str val] T = <1, "abc">; return T.val == "abc";}	
 		
-		
-	}
+// }
 	
-	@expected{UndeclaredField}
-	public void tupleError1(){
-		runTest("{tuple[int key, str val] T = <1, \"abc\">; T.zip == \"abc\";}");
+@expected{UndeclaredField}
+	public test bool tupleError1(){
+	 tuple[int key, str val] T = <1, "abc">; return T.zip == "abc";
 	}
 	
 	@expected{UninitializedVariable}
 	public void tupleError2(){
-		runTest("{tuple[int key, str val] T; T.key;}");
+		tuple[int key, str val] T; T.key;return false;
 	}
 	
 
@@ -1278,7 +1274,7 @@ data TYPESET = SET(str name) | SUBTYPES(TYPESET tset) | INTERSECT(set[TYPESET] t
 		public test bool q() = {<1,2,3,4>, <4,5,6,7>} == {<4,5,6,7>, <1,2,3,4>};
 		
 		public test bool q() = {} != {<1,2>, <3,4>};
-		public test bool q() = !({<1,2>, <3,4>} == {};
+		public test bool q() = !({<1,2>, <3,4>}) == {};
 		
 		public test bool q() = {<1, {1,2,3}>, <2, {2,3,4}>} ==  {<1, {1,2,3}>, <2, {2,3,4}>};
 		public test bool q() = {<1, {1,2,3}>, <2, {2,3,4}>} ==  {<2, {2,3,4}>, <1, {1,2,3}>};
@@ -1310,7 +1306,7 @@ data TYPESET = SET(str name) | SUBTYPES(TYPESET tset) | INTERSECT(set[TYPESET] t
 		public test bool q() = {} o {<10,100>, <20,200>} == {};
 		public test bool q() = {<1,10>,<2,20>} o {<10,100>, <20,200>} == {<1,100>, <2,200>};
 		
-		public test bool q() = {<1, \"a\">, <2, \"b\">} * {<false, 0>, <true, 1>} == {<<1,\"a\">,<false,0>>,<<2,\"b\">,<false,0>>,<<1,\"a\">,<true,1>>,<<2,\"b\">,<true,1>>};
+		public test bool q() = {<1, "a">, <2, "b">} * {<false, 0>, <true, 1>} == {<<1,"a">,<false,0>>,<<2,"b">,<false,0>>,<<1,"a">,<true,1>>,<<2,"b">,<true,1>>};
 
 		public test bool q() = {<1,2>} join {<2,3>} == {<1,2,2,3>};
 		public test bool q() = {<1,2>} join {} == {};
@@ -1333,142 +1329,136 @@ data TYPESET = SET(str name) | SUBTYPES(TYPESET tset) | INTERSECT(set[TYPESET] t
 		
 		public test bool q() = {<1,2>, <2,3>, <3,4>, <4,2>, <4,5>}* == {<1,2>, <2,3>, <3,4>, <4,2>, <4,5>, <1, 3>, <2, 4>, <3, 2>, <3, 5>, <4, 3>, <1, 4>, <2, 2>, <2, 5>, <3, 3>, <4, 4>, <1, 5>, <1, 1>, <5, 5>};
 	}
-	
+
 	@expected{UndeclaredVariable}
-	public void UndeRelationElementError1(){
-		runTest("{<1,10>, <X,20>};");
+	public test bool UndeRelationElementError1(){
+		{<1,10>, <X,20>};return false;
 	}
 	
 	@expected{UndeclaredVariable}
-	public void UndefinedRelationElementError2(){
-		runTest("{<1,10>, <10, Y>};");
+	public test bool UndefinedRelationElementError2(){
+		{<1,10>, <10, Y>};return false;
 	}
 	
 	@expected{UndeclaredVariable}
-	public void UndefinedRelationElementError3(){
-		runTest("{<1,10>, T, <3,30>};");
+	public test bool UndefinedRelationElementError3(){
+		{<1,10>, T, <3,30>};return false;
 	}
 
 	
-	@expected{UnexpectedType}
-	public void compError() {
-		runTest("1 o 3;");
+	@expected{UnsupportedOperation}
+	public test bool compError() {
+		1 o 3;return false;
 	}
 
-	
-	@expected{UnexpectedType}
-	public void closError1() {
-		runTest("1*;");
+
+	@expected{UnsupportedOperation}
+	public test bool closError1() {
+		1*;return false;
 	}
 	
-	@expected{UnexpectedType}
-	public void closError2() {
-		runTest("1+;");
+	@expected{UnsupportedOperation}
+	public test bool closError2() {
+		1+;return false;
 	}
 	
-	@Test
-	public void namedRelation1() {
-		
-		public test bool q() = {rel[int from, int to] R = {<1,10>, <2,20>}; R.from == {1,2};}
-		public test bool q() = {rel[int from, int to] R = {<1,10>, <2,20>}; R.to == {10,20};}
-	}
+// @Test public void namedRelation1() {
+		public test bool q() {rel[int from, int to] R = {<1,10>, <2,20>}; return R.from == {1,2};}
+		public test bool q() {rel[int from, int to] R = {<1,10>, <2,20>}; return R.to == {10,20};}
+//	}
 	@expected{UndeclaredField}
 	public void namedRelationError(){
-		runTest("{rel[int from, int to] R = {<1,10>, <2,20>}; R.zip == {10,20};}");
+		{rel[int from, int to] R = {<1,10>, <2,20>}; R.zip == {10,20};}return false;
+	}
+
+data NODE1 = val(value V) | f() | f(NODE1 a);
+	public test bool good()  {
+		return f(val(1)) == f(val(1));
+	}
+
+data NODE = i(int I) | s(str x)  | st(set[NODE] s) | l(list[NODE]) | m(map[NODE,NODE] m) | f() | f(NODE a) | f(NODE a, NODE b) | g() | g(NODE a) | g(NODE a,NODE b);
+	
+//	@Test public void node()  
+		public test bool q()=f() == f();
+		public test bool q()=f() != g();
+		public test bool q() {NODE n = f(); NODE m = g(); return n != m;}
+		public test bool q()=f(i(1)) == f(i(1));
+		public test bool q()=f(i(1)) != g(i(1));
+		public test bool q() {NODE n = f(i(1)); NODE m = g(i(1)); return n != m;}
+		public test bool q()=f(i(1),i(2)) == f(i(1),i(2));
+		public test bool q()=f(i(1),i(2)) != f(i(1),i(3));
+		public test bool q() { NODE n = f(i(1),i(2)); NODE m = f(i(1),i(3)); return n != m;}
+		public test bool q()=f(i(1),g(i(2),i(3))) == f(i(1),g(i(2),i(3)));
+		public test bool q()=f(i(1),g(i(2),i(3))) != f(i(1),g(i(2),i(4)));
+		public test bool q() {NODE n = f(i(1),g(i(2),i(3))); NODE m = f(i(1),g(i(2),i(4))); return n != m;}
+		public test bool q()=f(i(1),g(i(2),st({i(3),i(4),i(5)}))) == f(i(1),g(i(2),st({i(3),i(4),i(5)})));
+		public test bool q() { NODE n = f(i(1),g(i(2),st({i(3),i(4),i(5)}))); NODE m = f(i(1),g(i(2),st({i(3),i(4),i(5),i(6)}))); return n != m;}
+		public test bool q()=f(i(1),g(i(2),l([i(3),i(4),i(5)]))) == f(i(1),g(i(2),l([i(3),i(4),i(5)])));
+		public test bool q() { NODE n = f(i(1),g(i(2),l([i(3),i(4),i(5)]))); NODE m = f(i(1),g(i(2),l([i(3),i(4),i(5),i(6)]))); return  n != m;}
+		public test bool q()=f(i(1),g(i(2),m((i(3):i(3),i(4):i(4),i(5):i(5))))) == f(i(1),g(i(2),m((i(3):i(3),i(4):i(4),i(5):i(5)))));
+		public test bool q() {NODE n = f(i(1),g(i(2),m((i(3):i(3),i(4):i(4),i(5):i(5))))); NODE x = f(i(1),g(i(2),m((i(3):i(3),i(4):i(4),i(5):i(0))))); return n != x;}
+
+		public test bool q()=f()                       <= f();
+		public test bool q()=f()                       <= g();
+		public test bool q()=f()                       <= f(i(1));
+		public test bool q()=f(i(1))                   <= f(i(1));
+		public test bool q()=f(i(1), i(2))             <= f(i(1), i(3));
+		public test bool q()=f(i(1), i(2))             <= g(i(1), i(3));
+		public test bool q()=f(i(1), s("abc"))       <= f(i(1), s("def"));
+		public test bool q()=f(i(1), l([i(2), i(3)]))  <= f(i(1), l([i(2),i(3),i(4)]));
+		public test bool q()=f(i(1), l([i(2), i(3)]))  <= f(i(1), l([i(2),i(3)]));
+		
+		public test bool q()=!(f()                      < f());
+		public test bool q()=f()                       < g();
+		public test bool q()=f()                       < f(i(1));
+		public test bool q()=!(f(i(1))                  < f(i(1)));
+		public test bool q()=f(i(1), i(2))             < f(i(1), i(3));
+		public test bool q()=f(i(1), i(2))             < g(i(1), i(3));
+		public test bool q()=f(i(1), s("abc"))       < f(i(1), s("def"));
+		public test bool q()=f(i(1), l([i(2), i(3)]))  < f(i(1), l([i(2),i(3),i(4)]));
+		public test bool q()=!(f(i(1), l([i(2), i(3)])) < f(i(1), l([i(2),i(3)])));
+		
+		public test bool q()=f()                          >= f();
+		public test bool q()=g()                          >= f();
+		public test bool q()=f(i(1))                      >= f();
+		public test bool q()=f(i(1))                      >= f(i(1));
+		public test bool q()=f(i(1), i(3))                >= f(i(1), i(2));
+		public test bool q()=g(i(1), i(2))                >= f(i(1), i(3));
+		public test bool q()=f(i(1), s("def"))          >= f(i(1), s("abc"));
+		public test bool q() =f(i(1), l([i(2),i(3),i(4)])) >= f(i(1), l([i(2),i(3)]));
+		public test bool q()=f(i(1), l([i(2), i(3)]))     >= f(i(1), l([i(2),i(3)]));
+		
+		public test bool q()=!(f()                         > f());
+		public test bool q()=g()                          > f();
+		public test bool q()=f(i(1))                      > f();
+		public test bool q()=!(f(i(1))                     > f(i(1)));
+		public test bool q()=f(i(1), i(3))                > f(i(1), i(2));
+		public test bool q()=g(i(1), i(2))                > f(i(1), i(3));
+		public test bool q()=f(i(1), s("def"))          > f(i(1), s("abc"));
+		public test bool q()=  f(i(1), l([i(2),i(3),i(4)])) > f(i(1), l([i(2),i(3)]));
+		public test bool q()=!(f(i(1), l([i(2), i(3)]))    > f(i(1), l([i(2),i(3)])));
+// 	}
+
+data D = d(int ival);
+
+@expected{UninitializedVariable}
+	public test bool UndefinedDataTypeAccess1(){
+		D someD; someD.ival;return false;
+	}
+
+@expected{UninitializedVariable}
+	public test bool UndefinedDataTypeAccess2(){
+		D someD; someD.ival = 3; return false;
 	}
 	
-	@Test
-	public void good()  {
-		prepare("data NODE = val(value V) | f() | f(NODE a);");
+// @Test public void undefined()  {
 		
-		assertTrue(runTestInSameEvaluator("f(val(1)) == f(val(1));
-	}
+		public test bool q() {int T; return (T ? 13) == 13;}
+		public test bool q() {T = (1:10); return (T[1] ? 13) == 10;}
+		public test bool q() {T = (1:10); return (T[2] ? 13) == 13;}
+		
+		public test bool q() {T = (1:10); return T[1] ? == true;}
+		public test bool q() {T = (1:10); return T[2] ? == false;}
 	
-	@Test
-	public void node()  {
-		prepare("data NODE = i(int I) | s(str x)  | st(set[NODE] s) | l(list[NODE]) | m(map[NODE,NODE] m) | f() | f(NODE a) | f(NODE a, NODE b) | g() | g(NODE a) | g(NODE a,NODE b);");
-		
-		assertTrue(runTestInSameEvaluator("f() == f();
-		assertTrue(runTestInSameEvaluator("f() != g();
-		public test void q() {NODE n = f(); NODE m = g(); n != m;}
-		assertTrue(runTestInSameEvaluator("f(i(1)) == f(i(1));
-		assertTrue(runTestInSameEvaluator("f(i(1)) != g(i(1));
-		public test void q() {NODE n = f(i(1)); NODE m = g(i(1)); n != m;}
-		assertTrue(runTestInSameEvaluator("f(i(1),i(2)) == f(i(1),i(2));
-		assertTrue(runTestInSameEvaluator("f(i(1),i(2)) != f(i(1),i(3));
-		public test void q() { NODE n = f(i(1),i(2)); NODE m = f(i(1),i(3)); n != m;}
-		assertTrue(runTestInSameEvaluator("f(i(1),g(i(2),i(3))) == f(i(1),g(i(2),i(3)));
-		assertTrue(runTestInSameEvaluator("f(i(1),g(i(2),i(3))) != f(i(1),g(i(2),i(4)));
-		public test void q() {NODE n = f(i(1),g(i(2),i(3))); NODE m = f(i(1),g(i(2),i(4))); n != m;}
-		assertTrue(runTestInSameEvaluator("f(i(1),g(i(2),st({i(3),i(4),i(5)}))) == f(i(1),g(i(2),st({i(3),i(4),i(5)})));
-		public test void q() { NODE n = f(i(1),g(i(2),st({i(3),i(4),i(5)}))); NODE m = f(i(1),g(i(2),st({i(3),i(4),i(5),i(6)}))); n != m;}
-		assertTrue(runTestInSameEvaluator("f(i(1),g(i(2),l([i(3),i(4),i(5)]))) == f(i(1),g(i(2),l([i(3),i(4),i(5)])));
-		public test void q() { NODE n = f(i(1),g(i(2),l([i(3),i(4),i(5)]))); NODE m = f(i(1),g(i(2),l([i(3),i(4),i(5),i(6)]))); n != m;}
-		assertTrue(runTestInSameEvaluator("f(i(1),g(i(2),m((i(3):i(3),i(4):i(4),i(5):i(5))))) == f(i(1),g(i(2),m((i(3):i(3),i(4):i(4),i(5):i(5)))));
-		public test void q() {NODE n = f(i(1),g(i(2),m((i(3):i(3),i(4):i(4),i(5):i(5))))); NODE x = f(i(1),g(i(2),m((i(3):i(3),i(4):i(4),i(5):i(0))))); n != x;}
-		
-		assertTrue(runTestInSameEvaluator("f()                       <= f();
-		assertTrue(runTestInSameEvaluator("f()                       <= g();
-		assertTrue(runTestInSameEvaluator("f()                       <= f(i(1));
-		assertTrue(runTestInSameEvaluator("f(i(1))                   <= f(i(1));
-		assertTrue(runTestInSameEvaluator("f(i(1), i(2))             <= f(i(1), i(3));
-		assertTrue(runTestInSameEvaluator("f(i(1), i(2))             <= g(i(1), i(3));
-		assertTrue(runTestInSameEvaluator("f(i(1), s(\"abc\"))       <= f(i(1), s(\"def\
-		assertTrue(runTestInSameEvaluator("f(i(1), l([i(2), i(3)]))  <= f(i(1), l([i(2),i(3),i(4)]));
-		assertTrue(runTestInSameEvaluator("f(i(1), l([i(2), i(3)]))  <= f(i(1), l([i(2),i(3)]));
-		
-		assertFalse(runTestInSameEvaluator("f()                      < f();
-		assertTrue(runTestInSameEvaluator("f()                       < g();
-		assertTrue(runTestInSameEvaluator("f()                       < f(i(1));
-		assertFalse(runTestInSameEvaluator("f(i(1))                  < f(i(1));
-		assertTrue(runTestInSameEvaluator("f(i(1), i(2))             < f(i(1), i(3));
-		assertTrue(runTestInSameEvaluator("f(i(1), i(2))             < g(i(1), i(3));
-		assertTrue(runTestInSameEvaluator("f(i(1), s(\"abc\"))       < f(i(1), s(\"def\
-		assertTrue(runTestInSameEvaluator("f(i(1), l([i(2), i(3)]))  < f(i(1), l([i(2),i(3),i(4)]));
-		assertFalse(runTestInSameEvaluator("f(i(1), l([i(2), i(3)])) < f(i(1), l([i(2),i(3)]));
-		
-		assertTrue(runTestInSameEvaluator("f()                          >= f();
-		assertTrue(runTestInSameEvaluator("g()                          >= f();
-		assertTrue(runTestInSameEvaluator("f(i(1))                      >= f();
-		assertTrue(runTestInSameEvaluator("f(i(1))                      >= f(i(1));
-		assertTrue(runTestInSameEvaluator("f(i(1), i(3))                >= f(i(1), i(2));
-		assertTrue(runTestInSameEvaluator("g(i(1), i(2))                >= f(i(1), i(3));
-		assertTrue(runTestInSameEvaluator("f(i(1), s(\"def\"))          >= f(i(1), s(\"abc\
-		assertTrue(runTestInSameEvaluator("f(i(1), l([i(2),i(3),i(4)])) >= f(i(1), l([i(2),i(3)]));
-		assertTrue(runTestInSameEvaluator("f(i(1), l([i(2), i(3)]))     >= f(i(1), l([i(2),i(3)]));
-		
-		assertFalse(runTestInSameEvaluator("f()                         > f();
-		assertTrue(runTestInSameEvaluator("g()                          > f();
-		assertTrue(runTestInSameEvaluator("f(i(1))                      > f();
-		assertFalse(runTestInSameEvaluator("f(i(1))                     > f(i(1));
-		assertTrue(runTestInSameEvaluator("f(i(1), i(3))                > f(i(1), i(2));
-		assertTrue(runTestInSameEvaluator("g(i(1), i(2))                > f(i(1), i(3));
-		assertTrue(runTestInSameEvaluator("f(i(1), s(\"def\"))          > f(i(1), s(\"abc\
-		assertTrue(runTestInSameEvaluator("f(i(1), l([i(2),i(3),i(4)])) > f(i(1), l([i(2),i(3)]));
-		assertFalse(runTestInSameEvaluator("f(i(1), l([i(2), i(3)]))    > f(i(1), l([i(2),i(3)]));
-	}
-	
-	@expected{UninitializedVariable}
-	public void UndefinedDataTypeAccess1(){
-		prepare("data D = d(int ival);");
-		runTestInSameEvaluator("{D someD; someD.ival;}");
-	}
-	
-	@expected{UninitializedVariable}
-	public void UndefinedDataTypeAccess2(){
-		prepare("data D = d(int ival);");
-		runTestInSameEvaluator("{D someD; someD.ival = 3;}");
-	}
-	
-	@Test
-	public void undefined()  {
-		
-		public test bool q() = {int T; (T ? 13) == 13;}
-		public test bool q() = {T = (1:10); (T[1] ? 13) == 10;}
-		public test bool q() = {T = (1:10); (T[2] ? 13) == 13;}
-		
-		public test bool q() = {T = (1:10); T[1] ? == true;}
-		public test bool q() = {T = (1:10); T[2] ? == false;}
-	
-	}
-*/
+//	}
+
