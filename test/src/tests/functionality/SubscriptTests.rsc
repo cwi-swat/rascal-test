@@ -61,147 +61,132 @@ module tests::functionality::SubscriptTests
 	public test bool WrongListAssignment(){
 		list[int] L = [0,1,2,3]; L[2] = "abc";return false;
 	}
-/*
-	@Test
-	public test boolmap() {
-		public test bool assertTrue() {(1:10, 2:20, 3:30)[1] == 10;}
-		public test bool assertTrue() {(1:10, 2:20, 3:30)[2] == 20;}
-		public test bool assertTrue() {(1:10, 2:20, 3:30)[3] == 30;}
+
+//	//@Test public test boolmap() {
+		public test bool assertTrue() = (1:10, 2:20, 3:30)[1] == 10;
+		public test bool assertTrue() = (1:10, 2:20, 3:30)[2] == 20;
+		public test bool assertTrue() = (1:10, 2:20, 3:30)[3] == 30;
 
 		// assertTruerunWithError("(1:10, 2:20, 3:30)[4] == 30;", "xxx"));
 
-		public test bool assertTrue() {{map[int,int] M = (1:10, 2:20, 3:30); M[1] = 100; M == (1:100, 2:20, 3:30);}}
-		public test bool assertTrue() {{map[int,int] M = (1:10, 2:20, 3:30); M[2] = 200; M == (1:10, 2:200, 3:30);}}
-		public test bool assertTrue() {{map[int,int] M = (1:10, 2:20, 3:30); M[3] = 300; M == (1:10, 2:20, 3:300);}}
-		public test bool assertTrue() {{map[int,int] M = (1:10, 2:20, 3:30); M[4] = 400; M == (1:10, 2:20, 3:30, 4:400);}}
+		public test bool assertTrue() {map[int,int] M = (1:10, 2:20, 3:30); M[1] = 100; return M == (1:100, 2:20, 3:30);}
+		public test bool assertTrue() {map[int,int] M = (1:10, 2:20, 3:30); M[2] = 200; return M == (1:10, 2:200, 3:30);}
+		public test bool assertTrue() {map[int,int] M = (1:10, 2:20, 3:30); M[3] = 300; return M == (1:10, 2:20, 3:300);}
+		public test bool assertTrue() {map[int,int] M = (1:10, 2:20, 3:30); M[4] = 400; return M == (1:10, 2:20, 3:30, 4:400);}
+//	//}
+
+	@expected{UnexpectedType}
+	public test bool WrongMapIndex1(){
+		map[int,int] M = (1:10,2:20); M["abc"];return false;
 	}
 	
-	@expected{StaticError.class}
-	public test boolWrongMapIndex1(){
-		runTest("{map[int,int] M = (1:10,2:20); M[\"abc\"];}");
+	@expected{UnexpectedType}
+	public test bool WrongMapIndex2(){
+		map[int,int] M  = (1:10,2:20); M["abc"] = 3;return false;
 	}
 	
-	@expected{StaticError.class}
-	public test boolWrongMapIndex2(){
-		runTest("{map[int,int] M  = (1:10,2:20); M[\"abc\"] = 3;}");
+	@expected{UninitializedVariable}
+	public test bool UninitializedMapVariable1() {
+		map[int,int] M; M[4]; return false;
 	}
 	
-	@expected{UninitializedVariable.class}
-	public test boolUninitializedMapVariable1(){
-		runTest("{map[int,int] M; M[4];}");
+	@expected{UninitializedVariable}
+	public test bool UninitializedMapVariable2(){
+		map[int,int] M; M[4] = 44; return false;
 	}
 	
-	@expected{UninitializedVariable.class}
-	public test boolUninitializedMapVariable2(){
-		runTest("{map[int,int] M; M[4] = 44;}");
-	}
-	
-	@expected{StaticError.class}
-	public test boolWrongMapAssignment(){
+	@expected{UndeclaredVariable}
+	public test bool WrongMapAssignment(){
 		runTest("{map[int,int] M = (1:10,2:20); M[2] = \"abc\";}");
 	}
 
-	@Test
-	public test booltuple() {
-		assertTrue(runTest("<0, \"a\", 3.5>[0] == 0;"));
-		assertTrue(runTest("<0, \"a\", 3.5>[1] == \"a\";"));
-		assertTrue(runTest("<0, \"a\", 3.5>[2] == 3.5;"));
+//	@Test public test booltuple() {
+		public test bool  assertTrue()=<0, "a", 3.5>[0] == 0;
+		public test bool  assertTrue()=<0, "a", 3.5>[1] == "a";
+		public test bool  assertTrue()=<0, "a", 3.5>[2] == 3.5;
+//	}
+
+	@expected{UninitializedVariable}
+	public test bool UninitializedTupleVariable1(){
+		tuple[int,int] T; T[1];return false;
 	}
 	
-	@expected{UninitializedVariable.class}
-	public test boolUninitializedTupleVariable1(){
-		runTest("{tuple[int,int] T; T[1];}");
+	@expected{UninitializedVariable}
+	public test bool UninitializedTupleVariable2(){
+		tuple[int,int] T; T[1] = 10; return false;
 	}
 	
-	@expected{UninitializedVariable.class}
-	public test boolUninitializedTupleVariable2(){
-		runTest("{tuple[int,int] T; T[1] = 10;}");
+	@expected{IndexOutOfBounds}
+	public test bool tupleBoundsError(){
+		<0, "a", 3.5>[3] == 3.5;
 	}
 	
-	@expected{Throw.class}
-	public test booltupleBoundsError(){
-		runTest("<0, \"a\", 3.5>[3] == 3.5;");
+	@expected{UnsupportedSubscript}
+	public test bool tupleIndexError(){
+		<0, "a", 3.5>["abc"];return false;
 	}
 	
-	@expected{StaticError.class}
-	public test booltupleIndexError(){
-		runTest("<0, \"a\", 3.5>[\"abc\"];");
-	}
-	
-	@expected{StaticError.class}
-	public test booltupleAssignmentError(){
-		runTest("{T = <0, \"a\", 3.5>[\"abc\"]; T[1] = 3;}");
+	@expected{UnsupportedSubscript}
+	public test bool tupleAssignmentError(){
+		T = <0, "a", 3.5>["abc"]; T[1] = 3; return false;
 	}
 
-	@Test
-	public test boolrelation() {
-		assertTrue(runTest("{<1, \"a\">, <2, \"b\">}[0] == {};"));
-		assertTrue(runTest("{<1, \"a\">, <2, \"b\">}[1] == {\"a\"};"));
-		assertTrue(runTest("{<1, \"a\">, <2, \"b\">}[2] == {\"b\"};"));
+//	@Test  public test boolrelation() {
+		public test bool assertTrue()= {<1, "a">, <2, "b">}[0] == {};
+		public test bool assertTrue()={<1, "a">, <2, "b">}[1] == {"a"};
+		public test bool assertTrue()={<1, "a">, <2, "b">}[2] == {"b"};
 
-		assertTrue(runTest("{<1, \"a\">, <2, \"b\">, <1, \"abc\">}[1] == {\"a\", \"abc\"};"));
+		public test bool  assertTrue()={<1, "a">, <2, "b">, <1, "abc">}[1] == {"a", "abc"};
 
-		assertTrue(runTest("{<1, \"a\", 10>, <2, \"b\", 20>, <1, \"abc\", 100>}[0] == {};"));
-		assertTrue(runTest("{<1, \"a\", 10>, <2, \"b\", 20>, <1, \"abc\", 100>}[1] == {<\"a\", 10>, <\"abc\", 100>};"));
-		assertTrue(runTest("{<1, \"a\", 10>, <2, \"b\", 20>, <1, \"abc\", 100>}[2] == {<\"b\", 20>};"));
-		assertTrue(runTest("{<1, \"a\", 10>, <2, \"b\", 20>, <1, \"abc\", 100>}[{1,2}] == {<\"a\", 10>, <\"b\", 20>, <\"abc\", 100>};"));
+		public test bool  assertTrue()={<1, "a", 10>, <2, "b", 20>, <1, "abc", 100>}[0] == {};
+		public test bool  assertTrue()={<1, "a", 10>, <2, "b", 20>, <1, "abc", 100>}[1] == {<"a", 10>, <"abc", 100>};
+		public test bool  assertTrue()={<1, "a", 10>, <2, "b", 20>, <1, "abc", 100>}[2] == {<"b", 20>};
+		public test bool  assertTrue()={<1, "a", 10>, <2, "b", 20>, <1, "abc", 100>}[{1,2}] == {<"a", 10>, <"b", 20>, <"abc", 100>};
 	
-		assertTrue(runTest("{<1, \"a\", 10>, <2, \"b\", 20>, <1, \"abc\", 100>}[1,_] == {10, 100};"));
-	}
-	
-	@expected{UninitializedVariable.class}
-	public test boolUninitializedRelVariable1(){
-		runTest("{rel[int,int] R; R[1];}");
-	}
-	
-	@expected{UninitializedVariable.class}
-	public test boolUninitializedRelVariable2(){
-		runTest("{rel[int,int] R; R[1,2];}");
+		public test bool assertTrue()={<1, "a", 10>, <2, "b", 20>, <1, "abc", 100>}[1,_] == {10, 100};
+//	}
+
+	@expected{UninitializedVariable}
+	public test bool UninitializedRelVariable1(){
+		rel[int,int] R; R[1];return false;
 	}
 	
-	@expected{UninitializedVariable.class}
-	public test boolUninitializedRelVariable3(){
-		runTest("{rel[int,int] R; R[1] = 10;}");
-	}
-
-	@Test
-	public test boolrelationMultiIndex() {
-		assertTrue(runTest("{<1,\"a\",1.0>,<2,\"b\",2.0>,<3,\"c\",3.0>}[0] == {};"));
-		assertTrue(runTest("{<1,\"a\",1.0>,<2,\"b\",2.0>,<3,\"c\",3.0>}[1] == {<\"a\",1.0>};"));
-		assertTrue(runTest("{<1,\"a\",1.0>,<2,\"b\",2.0>,<3,\"c\",3.0>}[2, \"b\"] == {2.0};"));
-
-		public test bool assertTrue() {{<1,10,10.5>, <2,20,20.5>, <3,20,30.5>, <2,10,100.5>}[{1},{10,20}] == {10.5};}
-	}
-
-	@Test
-	public test boolnode() {
-
-		prepare("data NODE = f(int a, str b, real c);");
-
-		assertTrue(runTestInSameEvaluator("f(0, \"a\", 3.5)[0] == 0;"));
-		assertTrue(runTestInSameEvaluator("f(0, \"a\", 3.5)[1] == \"a\";"));
-		assertTrue(runTestInSameEvaluator("f(0, \"a\", 3.5)[2] == 3.5;"));
-		assertTrue(runTestInSameEvaluator("{NODE T = f(0, \"a\", 3.5); T[0] = 10; T == f(10, \"a\", 3.5);}"));
+	@expected{UninitializedVariable}
+	public test bool UninitializedRelVariable2(){
+		rel[int,int] R; R[1,2];return false;
 	}
 	
-	@expected{Throw.class}
-	public test boolnodeBoundsError(){
-		prepare("data NODE = f(int a, str b, real c);");
-		
-		runTestInSameEvaluator("f(0, \"a\", 3.5)[3] == 3.5;");
+	@expected{UninitializedVariable}
+	public test bool UninitializedRelVariable3(){
+		rel[int,int] R; R[1] = 10; return false;
+	}
+
+//	@Test public test bool relationMultiIndex() {
+		public test bool assertTrue()={<1,"a",1.0>,<2,"b",2.0>,<3,"c",3.0>}[0] == {};
+		public test bool assertTrue()={<1,"a",1.0>,<2,"b",2.0>,<3,"c",3.0>}[1] == {<"a",1.0>};
+		public test bool assertTrue()={<1,"a",1.0>,<2,"b",2.0>,<3,"c",3.0>}[2, "b"] == {2.0};
+		public test bool assertTrue()= {<1,10,10.5>, <2,20,20.5>, <3,20,30.5>, <2,10,100.5>}[{1},{10,20}] == {10.5};
+//	}
+
+
+//	@Test public test boolnode() {
+		public test bool assertTrue()= f(0, "a", 3.5)[0] == 0;
+		public test bool assertTrue()= f(0, "a", 3.5)[1] == "a";
+		public test bool assertTrue()= f(0, "a", 3.5)[2] == 3.5;
+		public test bool assertTrue() {NODE T = f(0, "a", 3.5); T[0] = 10; return  T == f(10, "a", 3.5);}
+//	}
+	
+	@expected{IndexOutOfBounds}
+	public test bool nodeBoundsError() = f(0, "a", 3.5)[3] == 3.5;
+	
+	
+	@expected{UnexpectedType}
+	public test bool nodeIndexError() {
+		f(0, "a", 3.5)["abc"];return false;
 	}
 	
-	@expected{StaticError.class}
-	public test boolnodeIndexError(){
-		prepare("data NODE = f(int a, str b, real c);");
-		
-		runTestInSameEvaluator("f(0, \"a\", 3.5)[\"abc\"];");
+	@expected{UnexpectedType}
+	public test bool nodeAssignmentError(){
+		NODE N = f(0, "a", 3.5); N.b = 3; return false;
 	}
-	
-	@expected{StaticError.class}
-	public test boolnodeAssignmentError(){
-		prepare("data NODE = f(int a, str b, real c);");
-		
-		runTestInSameEvaluator("{NODE N = f(0, \"a\", 3.5); N.b = 3;}");
-	}
-*/
+data NODE = f(int a, str b, real c);
