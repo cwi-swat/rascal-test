@@ -820,280 +820,259 @@ public test bool noMatchStringBoolError2(){
 //	public void noMatchTupleArityError(){
 		public test bool assertTrue() = <1> !:= <1,2>;
 //	}
-/*
-	@Test
-	public void matchTuple() {
 
-		public test bool assertTrue() {<1>           := <1>;}
-		assertTrue(runTest("<1, "abc">  := <1, "abc">;"));
-		public test bool assertTrue() = !(<2>          := <1>;)
-		public test bool assertTrue() {<2>           !:= <1>;}
+//	@Test public void matchTuple() {
+
+		public test bool assertTrue() = <1> := <1>;
+		public test bool assertTrue() = <1, "abc">  := <1, "abc">;
+		public test bool assertTrue() = !(<2>  := <1>);
+		public test bool assertTrue() = <2> !:= <1>;
 		
-		public bool assertFalse() = "<1, "abc"> := <1, "def">;"));
-		assertTrue(runTest("<1, "abc">  !:= <1, "def">;"));
+		public test bool assertTrue() = <1, "abc"> !:= <1, "def">;
+		public test bool assertTrue() = <1, "abc"> !:= <1, "def">;
 		
-		assertTrue(runTest("<_, "abc">  := <1, "abc">;"));
-		assertTrue(runTest("<1, _>        := <1, "abc">;"));
-		assertTrue(runTest("<_, _>        := <1, "abc">;"));
-	}
+		public test bool assertTrue() = <_, "abc">  := <1, "abc">;
+		public test bool assertTrue() = <1, _>        := <1, "abc">;
+		public test bool assertTrue() = <_, _>        := <1, "abc">;
+//	}
 	
-	@Test
-	public void matchTupleExternalVar(){
-		public test bool assertTrue() {{tuple[int,int] T; T := <1,2> && T[0] == 1 && T[1] == 2;}}
-	}
+//	@Test public void matchTupleExternalVar(){
+		public test bool assertTrue() {tuple[int,int] T; return T := <1,2> && T[0] == 1 && T[1] == 2;}
+//	}
 
-	@Test
-	public void matchVariable() {
-
-		prepare("data F = f(int N);");
-
+//	@Test public void matchVariable() {
 		public test bool assertTrue() = (n1 := 1) && (n1 == 1);
-		public test bool assertTrue() = {int n2 = 1; (n2 := 1) && (n2 == 1);}
-		public test bool assertTrue() = {int n3 = 1; (n3 !:= 2) && (n3 == 1);}
+		public test bool assertTrue() {int n2 = 1;return  (n2 := 1) && (n2 == 1);}
+		public test bool assertTrue()  {int n3 = 1; return (n3 !:= 2) && (n3 == 1);}
 
 		public test bool assertTrue() = (f(n5) := f(1)) && (n5 == 1);
-		public test bool assertTrue() = {int n6 = 1; (f(n6) := f(1)) && (n6 == 1);}
+		public test bool assertTrue() {int n6 = 1; return (f(n6) := f(1)) && (n6 == 1);}
 		
-		assertTrue(runTestInSameEvaluator("(f(_) := f(1));
-	}
+		public test bool assertTrue() = f(_) := f(1);
+//	}
 	
-	@Test
-	public void matchTypedVariableBecomes() {
-		public test bool assertTrue() {{int N : 3 := 3 && N == 3;}}
-		public test bool assertTrue() {{list[int] L1 : [int N, *int L2, int M] := [1,2,3] && L1 == [1,2,3] && N == 1 && L2 == [2] && M == 3;}}
-		public test bool assertTrue() {{[1, list[int] L: [int N], 2] := [1,[2],2] && L == [2];}}
-		public test bool assertTrue() {{[1, list[int] L1: [*int L2, int N], 5] := [1,[2,3,4],5] && L1 == [2,3,4] && L2==[2,3] && N ==4;}}
-		public test bool assertTrue() {{[1, list[int] L1: [*int L2, int N], L1] := [1,[2,3,4],[2,3,4]] && L1 == [2,3,4] && L2==[2,3] && N ==4;}}
-	}
+//	@Test  public void matchTypedVariableBecomes() {
+		public test bool assertTrue() = int N : 3 := 3 && N == 3;
+		public test bool assertTrue() = list[int] L1 : [int N, *int L2, int M] := [1,2,3] && L1 == [1,2,3] && N == 1 && L2 == [2] && M == 3;
+		public test bool assertTrue() = [1, list[int] L: [int N], 2] := [1,[2],2] && L == [2];
+		public test bool assertTrue() = [1, list[int] L1: [*int L2, int N], 5] := [1,[2,3,4],5] && L1 == [2,3,4] && L2==[2,3] && N ==4;
+		public test bool assertTrue() = [1, list[int] L1: [*int L2, int N], L1] := [1,[2,3,4],[2,3,4]] && L1 == [2,3,4] && L2==[2,3] && N ==4;
+//	}
 	
-	@Test(expected=StaticError.class)
-	public void typedVariableBecomesWrongType(){
-		public test bool assertTrue() {{str N : 3 := 3; N == 3;}}
-	}
+// @expected{UndefinedType} Doesn't work
+//	public void typedVariableBecomesWrongType(){
+//		public test bool assertTrue() {str N : 3 := 3; return false;}
+//	}
 	
-	@Test
-	public void redeclaredTypedVariableBecomesShadowsAnother(){
-		public test bool assertTrue() {{int N = 5; int N : 3 := 3 && N == 3;}}
-	}
+//	@Test
+//	public void redeclaredTypedVariableBecomesShadowsAnother(){
+		public test bool assertTrue() {int N = 5; return int N : 3 := 3 && N == 3;}
+//	}
 	
-	@Ignore("we can't find this bug anymore due to pattern dispatch") @Test(expected=StaticError.class)
-	public void doubleTypedVariableBecomes(){
-		public test bool assertTrue() {{[int N : 3, int N : 4] := [3,4] && N == 3;}}
-	}
+	//@Ignore("we can't find this bug anymore due to pattern dispatch") @Test(expected=StaticError.class)
+	//public void doubleTypedVariableBecomes(){
+	//	public test bool assertTrue() {{[int N : 3, int N : 4] := [3,4] && N == 3;}}
+	//}
 	
-	@Test
-	public void matchVariableBecomes() {
-		public test bool assertTrue() {{N : 3 := 3 && N == 3;}}
-		public test bool assertTrue() {{L1 : [int N, *int L2, int M] := [1,2,3] && L1 == [1,2,3] && N == 1 && L2 == [2] && M == 3;}}
-		public test bool assertTrue() {{[1, L: [int N], 2] := [1,[2],2] && L == [2];}}
-		public test bool assertTrue() {{[1, L1: [*int L2, int N], 5] := [1,[2,3,4],5] && L1 == [2,3,4] && L2==[2,3] && N ==4;}}
-		public test bool assertTrue() {{[1, L1: [*int L2, int N], L1] := [1,[2,3,4],[2,3,4]] && L1 == [2,3,4] && L2==[2,3] && N ==4;}}
-	}
-	
-	public void variableBecomesEquality(){
-		public test bool assertTrue() = !({int N = 5; N : 3 := 3 && N == 3;})
-		public test bool assertTrue() {{int N = 3; N : 3 := 3 && N == 3;}}
-	}
+//	@Test public void matchVariableBecomes() {
+		public test bool assertTrue() = N : 3 := 3 && N == 3;
+		public test bool assertTrue() = L1 : [int N, *int L2, int M] := [1,2,3] && L1 == [1,2,3] && N == 1 && L2 == [2] && M == 3;
+		public test bool assertTrue() = [1, L: [int N], 2] := [1,[2],2] && L == [2];
+		public test bool assertTrue() = [1, L1: [*int L2, int N], 5] := [1,[2,3,4],5] && L1 == [2,3,4] && L2==[2,3] && N ==4;
+		public test bool assertTrue() = [1, L1: [*int L2, int N], L1] := [1,[2,3,4],[2,3,4]] && L1 == [2,3,4] && L2==[2,3] && N ==4;
+//	}
+
+//	public void variableBecomesEquality(){
+        
+		public test bool assertTrue() {int N = 5; return N : 3 !:= 3 && N != 3;}
+		public test bool assertTrue() {int N = 3; return N : 3 := 3 && N == 3;}
+//	}
 	
 	public void doubleVariableBecomes(){
-		public test bool assertTrue() = !({[N : 3, N : 4] := [3,4] && N == 3;})
-		public test bool assertTrue() {{[N : 3, N : 3] := [3,3] && N == 3;}}
+		public test bool assertTrue() = !(([N : 3, N : 4] := [3,4]) && N == 3);
+		public test bool assertTrue() = [N : 3, N : 3] := [3,3] && N == 3;
 	}
-	
-	@Test(expected=StaticError.class)
-	public void UndeclaredTypeError(){
-		runTest("STRANGE X := 123;");
-	}
-	
-	@Test
-	public void antiPattern(){
-		public test bool assertTrue() {{!4 := 3;}}
-		public test bool assertTrue() = !({!3 := 3;})
-		
-		public test bool assertTrue() {{![1,2,3] := [1,2,4];}}
-		public test bool assertTrue() = !({![1,2,3] := [1,2,3];})
-	}
-	
-	@Test(expected=UndeclaredVariable.class)
-	public void antiPatternDoesNotDeclare() {
-		runTest("{![1,int X,3] := [1,2,4] && (X ? 10) == 10;}");
-	}
-	
-	@Test
-	public void descendant1(){
-		public test bool assertTrue() {/int N := 1 && N == 1;}
-		public test bool assertTrue() {!/int N := true;}
-		
-		public test bool assertTrue() = !(/int N := [];)
-		public test bool assertTrue() {/int N := [1] && N == 1;}
 
-		public test bool assertTrue() {/int N := [1,2,3,2] && N > 2;}
-		public test bool assertTrue() {!/4 := [1,2,3,2];}
-		public test bool assertTrue() {/int N := (1 : 10) && (N == 1 || N == 10);}
-	
-		public test bool assertTrue() = !(/int N := {};)
-		public test bool assertTrue() {/int N := {1} && N == 1;}
-		public test bool assertTrue() {/int N := {<false,1>} && N == 1;}
-		
-		assertTrue(runTest("/int N := ("a" : 1) && N == 1;"));
-		assertTrue(runTest("/int N := <"a", 1> && N == 1;"));
-		
-		public test bool assertTrue() {{[1, /int N, 3] := [1, [1,2,3,2], 3] && N == 1;}}
-		public test bool assertTrue() {{[1, /int N, 3] := [1, [1,2,3,2], 3] && N == 2;}}	
+	@expected{UndefinedType}
+	public bool UndeclaredTypeError()  {
+		STRANGE X := 123; return false;
 	}
 	
-	@Test
-	public void descendant2(){
-		prepare("data F = f(F left, F right) | g(int N);");
-		public test bool assertTrue() = /g(2) := f(g(1),f(g(2),g(3)));"));
+//	@Test public void antiPattern(){
+		public test bool assertTrue() = !4 := 3;
+		public test bool assertTrue() = (!(!3 := 3));	
+		public test bool assertTrue() = ![1,2,3] := [1,2,4];
+		public test bool assertTrue() = !(![1,2,3] := [1,2,3]);
+//	}
+	
+@expected{UndeclaredVariable}
+	public test bool antiPatternDoesNotDeclare() {
+		![1,int X,3] := [1,2,4] && (X ? 10) == 10; return false;
+	}
+	
+//	@Test  public void descendant1(){
+		public test bool assertTrue() = /int N := 1 && N == 1;
+		public test bool assertTrue() =  !/int N := true;
+		
+		public test bool assertTrue() = !(/int N := []);
+		public test bool assertTrue() = /int N := [1] && N == 1;
+
+		public test bool assertTrue() = /int N := [1,2,3,2] && N > 2;
+		public test bool assertTrue() = !/4 := [1,2,3,2];
+		public test bool assertTrue() = /int N := (1 : 10) && (N == 1 || N == 10);
+	
+		public test bool assertTrue() = !(/int N := {});
+		public test bool assertTrue() = /int N := {1} && N == 1;
+		public test bool assertTrue() = /int N := {<false,1>} && N == 1;
+		
+		public test bool assertTrue() = /int N := ("a" : 1) && N == 1;
+		public test bool assertTrue() = /int N := <"a", 1> && N == 1;
+		
+		public test bool assertTrue() = [1, /int N, 3] := [1, [1,2,3,2], 3] && N == 1;
+		public test bool assertTrue() = [1, /int N, 3] := [1, [1,2,3,2], 3] && N == 2;	
+//	}
+	
+//	@Test public void descendant2
+// prepare("data F = f(F left, F right) | g(int N);");
+		public test bool assertTrue() = /g(2) := f(g(1),f(g(2),g(3)));
 		public test bool assertTrue() = [1, /g(2), 3] := [1, f(g(1),f(g(2),g(3))), 3];
 		public test bool assertTrue() = [1, !/g(5), 3] := [1, f(g(1),f(g(2),g(3))), 3];
 		
 		public test bool assertTrue() = [1, /f(/g(2), _), 3] := [1, f(g(1),f(g(2),g(3))), 3];
 		public test bool assertTrue() = [1, /f(/g(2),/g(3)), 3] := [1, f(g(1),f(g(2),g(3))), 3];
-		public test bool assertTrue() = [1, F outer: /f(/F inner: g(2), _), 3] := [1, f(g(1),f(g(2),g(3))), 3] && outer == f(g(1),f(g(2),g(3))) && inner == g(2);
+		// Goes wrong Bert Lisser
+		// public test bool assertTrue() = [1, F outer: /f(/F inner: g(2), _), 3] := [1, f(g(1),f(g(2),g(3))), 3] && outer == f(g(1),f(g(2),g(3))) && inner == g(2);
 			
-		public test bool assertTrue() = {[1, /g(int N1), 3] := [1, f(g(1),f(g(2),g(3))), 3] && N1 == 1;}
-		public test bool assertTrue() = {[1, /g(int N2), 3] := [1, f(g(1),f(g(2),g(3))), 3] && N2 == 2;}
-		public test bool assertTrue() = {[1, /g(int N3), 3] := [1, f(g(1),f(g(2),g(3))), 3] && N3 == 3;}
-	}
+		public test bool assertTrue() = [1, /g(int N1), 3] := [1, f(g(1),f(g(2),g(3))), 3] && N1 == 1;
+		public test bool assertTrue() = [1, /g(int N2), 3] := [1, f(g(1),f(g(2),g(3))), 3] && N2 == 2;
+		public test bool assertTrue() = [1, /g(int N3), 3] := [1, f(g(1),f(g(2),g(3))), 3] && N3 == 3;
+//	}
 	
-	@Test
-	public void descendant3(){
+//	@Test public void descendant3(){
 		public test bool assertTrue() = [n | /int n <- [1,2,3]] == [1,2,3];
 		public test bool assertTrue() = [b | /bool b <- [true,false,true]] == [true,false,true];
-		assertTrue(runTestInSameEvaluator("[s | /str s <- ["a","b"]] == ["a","b"];"));
+		public test bool assertTrue() = [s | /str s <- ["a","b"]] == ["a","b"];
 		
 		public test bool assertTrue() = {n | /int n <- {1,2,3}} == {1,2,3};
 		public test bool assertTrue() = {n | /int n <- {<1,2,3>}} == {1,2,3};
-		assertTrue(runTestInSameEvaluator("{v | /value v <- {<1,"b",true>}} == {1,"b",true, <1,"b",true>};"));
-	}
+		public test bool assertTrue() = {v | /value v <- {<1,"b",true>}} == {1,"b",true, <1,"b",true>};
+//	}
 	
 	//
 	// The following test requires deeper analysis of the data signature
 	///
-	@Ignore @Test(expected=StaticError.class)
-	public void descendantWrongType(){
-		prepare("data F = f(F left, F right) | g(int N);");
-		public test bool assertTrue() = /true := f(g(1),f(g(2),g(3)));
+	//@Ignore @Test(expected=StaticError.class)
+	//public void descendantWrongType(){
+	//	prepare("data F = f(F left, F right) | g(int N);");
+	//	public test bool assertTrue() = /true := f(g(1),f(g(2),g(3)));
+	//}
+	
+//@Test public void listCount1(){
+//		String cnt = 
+//		      "int cnt(list[int] L){" +
+//		      "  int count = 0;" +
+//		      "  while ([int N, *int Ns] := L) { " +
+//		      "         count = count + 1;" +
+//		      "         L = tail(L);" +
+//		      "  }" +
+//		      "  return count;" +
+//		      "}";
+//	
+//		prepare("import List;");
+//		assertTrue(runTestInSameEvaluator("{" + cnt + "cnt([1,2,3]) == 3;}"));
+//	}
+	
+	//@Test
+	//public void listCount2(){
+	//	String cnt = 
+	//	      "int cnt(list[int] L){" +
+	//	      "  int count = 0;" +
+	//	      "  while ([int N, *int _] := L) { " +
+	//	      "         count = count + 1;" +
+	//	      "         L = tail(L);" +
+	//	      "  }" +
+	//	      "  return count;" +
+	//	      "}";
+	//
+	//	prepare("import List;");
+	//	assertTrue(runTestInSameEvaluator("{" + cnt + "cnt([1,2,3]) == 3;}"));
+	//}
+	
+	//@Test
+	//public void listCount3(){
+	//	String cnt = 
+	//	      "int cnt(list[int] L){" +
+	//	      "  int count = 0;" +
+	//	      "  while ([N, *int _] := L) { " +
+	//	      "         count = count + 1;" +
+	//	      "         L = tail(L);" +
+	//	      "  }" +
+	//	      "  return count;" +
+	//	      "}";
+	//
+	//	prepare("import List;");
+	//	assertTrue(runTestInSameEvaluator("{" + cnt + "cnt([1,2,3]) == 3;}"));
+	//}
+	
+	public test bool setCount1(){
+		      int cnt(set[int] S){ 
+		        int count = 0; 
+		        while ({int N, *int Ns} := S) {  
+		               count = count + 1; 
+		               S = S - {N}; 
+		        } 
+		        return count;
+		      };
+	 return cnt({1,2,3}) == 3;
+	 }
+
+public test bool setCount2(){
+		      int cnt(set[int] S){ 
+		        int count = 0; 
+		        while ({int N, *int _} := S) {  
+		               count = count + 1; 
+		               S = S - {N}; 
+		        } 
+		        return count; 
+		      };
+	return cnt({1,2,3}) == 3;
 	}
 	
-	@Test
-	public void listCount1(){
-		String cnt = 
-		      "int cnt(list[int] L){" +
-		      "  int count = 0;" +
-		      "  while ([int N, *int Ns] := L) { " +
-		      "         count = count + 1;" +
-		      "         L = tail(L);" +
-		      "  }" +
-		      "  return count;" +
-		      "}";
+	//@Test
+	//public void setCount3(){
+	//	String cnt = 
+	//	      int cnt(set[int] S){ +
+	//	        int count = 0; +
+	//	        while ({N, *int _} := S) {  +
+	//	               count = count + 1; +
+	//	               S = S - {N}; +
+	//	        } +
+	//	        return count; +
+	//	      };
+	//
+	//	assertTrue(runTestInSameEvaluator({ + cnt + cnt({1,2,3}) == 3;}
+	//}
 	
-		prepare("import List;");
-		assertTrue(runTestInSameEvaluator("{" + cnt + "cnt([1,2,3]) == 3;}"));
+	//@Test public void nodeMatchBacktracking() {
+	//	prepare("import List;");
+	//	runTestInSameEvaluator("{ x = for("f"({int a, int b, *set[int] c}) := "f"({1,2,3,4})) append <a,b>; size(x) == 12;}"); 
+	//}
+	//
+	//@Test
+	//public void tupleMatchBacktracking() {
+	//	prepare("import List;");
+	//	runTestInSameEvaluator("{ x = for(<{int a, int b, *set[int] c}> := <{1,2,3,4}>) append <a,b>; size(x) == 12;}"); 
+	//}
+	
+	 public test bool switchListOnValue() {
+	      value yy = []; switch(yy) { case [] : return true; default: return false; }
 	}
 	
-	@Test
-	public void listCount2(){
-		String cnt = 
-		      "int cnt(list[int] L){" +
-		      "  int count = 0;" +
-		      "  while ([int N, *int _] := L) { " +
-		      "         count = count + 1;" +
-		      "         L = tail(L);" +
-		      "  }" +
-		      "  return count;" +
-		      "}";
-	
-		prepare("import List;");
-		assertTrue(runTestInSameEvaluator("{" + cnt + "cnt([1,2,3]) == 3;}"));
+	public test bool switchSetOnValue() {
+		value yy = {}; switch(yy) { case {} : return true; default: return false; }
 	}
-	
-	@Test
-	public void listCount3(){
-		String cnt = 
-		      "int cnt(list[int] L){" +
-		      "  int count = 0;" +
-		      "  while ([N, *int _] := L) { " +
-		      "         count = count + 1;" +
-		      "         L = tail(L);" +
-		      "  }" +
-		      "  return count;" +
-		      "}";
-	
-		prepare("import List;");
-		assertTrue(runTestInSameEvaluator("{" + cnt + "cnt([1,2,3]) == 3;}"));
-	}
-	
-	@Test
-	public void setCount1(){
-		String cnt = 
-		      "int cnt(set[int] S){" +
-		      "  int count = 0;" +
-		      "  while ({int N, *int Ns} := S) { " +
-		      "         count = count + 1;" +
-		      "         S = S - {N};" +
-		      "  }" +
-		      "  return count;" +
-		      "}";
-	
-		assertTrue(runTestInSameEvaluator("{" + cnt + "cnt({1,2,3}) == 3;}"));
-	}
-	
-	@Test
-	public void setCount2(){
-		String cnt = 
-		      "int cnt(set[int] S){" +
-		      "  int count = 0;" +
-		      "  while ({int N, *int _} := S) { " +
-		      "         count = count + 1;" +
-		      "         S = S - {N};" +
-		      "  }" +
-		      "  return count;" +
-		      "}";
-	
-		assertTrue(runTestInSameEvaluator("{" + cnt + "cnt({1,2,3}) == 3;}"));
-	}
-	
-	@Test
-	public void setCount3(){
-		String cnt = 
-		      "int cnt(set[int] S){" +
-		      "  int count = 0;" +
-		      "  while ({N, *int _} := S) { " +
-		      "         count = count + 1;" +
-		      "         S = S - {N};" +
-		      "  }" +
-		      "  return count;" +
-		      "}";
-	
-		assertTrue(runTestInSameEvaluator("{" + cnt + "cnt({1,2,3}) == 3;}
-	}
-	
-	@Test
-	public void nodeMatchBacktracking() {
-		prepare("import List;");
-		runTestInSameEvaluator("{ x = for("f"({int a, int b, *set[int] c}) := "f"({1,2,3,4})) append <a,b>; size(x) == 12;}"); 
-	}
-	
-	@Test
-	public void tupleMatchBacktracking() {
-		prepare("import List;");
-		runTestInSameEvaluator("{ x = for(<{int a, int b, *set[int] c}> := <{1,2,3,4}>) append <a,b>; size(x) == 12;}"); 
-	}
-	
-	@Test 
-	public void switchListOnValue() {
-		runTest("{ value yy = []; switch(yy) { case [] : true; default: false; } }");
-	}
-	
-	@Test 
-	public void switchSetOnValue() {
-		runTest("{ value yy = {}; switch(yy) { case {} : true; default: false; } }");
-	}
-*/
-data DATA = a() | b() | c() | d() | e(int N) | f(list[DATA] L) | f(set[DATA] S)| s(set[DATA] S)|g(int N)|h(int N);
+data DATA = a() | b() | c() | d() | e(int N) | f(list[DATA] L) | f(set[DATA] S)| s(set[DATA] S)|g(int N)|h(int N)|
+       f(DATA left, DATA right);
 data F = f(int N) | f(int N, int M) | f(int N, value f, bool B) | g(str S);
 data F1 = f1(int N, int M = 10, bool B = false) | f1(str S);
 data PAIR = a1() | b1() | c1() | d1() | pair(PAIR q1, PAIR q2) | s1(set[PAIR] S) | l1(list[PAIR] L);
