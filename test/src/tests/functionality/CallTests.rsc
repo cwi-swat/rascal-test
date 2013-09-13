@@ -3,7 +3,7 @@ module tests::functionality::CallTests
 	
 @expected{UndeclaredVariable}
 // callError1
-		public test bool  q() {zap(1,2);return false;}
+		public test bool  assertTrue() {zap(1,2);return false;}
 /*	
 
 // qualifiedNameType
@@ -17,7 +17,7 @@ module tests::functionality::CallTests
 */	
 @expected{ArgumentsMismatch}
 // callError2
-	public test bool q() {
+	public test bool assertTrue() {
 	     int f(int n) {return 2*n;}  
 	     f("abc");
 	     return false;
@@ -26,44 +26,44 @@ module tests::functionality::CallTests
 	
 @expected{UndeclaredModule}
 // callError3
-		public test bool  q() {zip::zap(1,2);return false;}
+		public test bool  assertTrue() {zip::zap(1,2);return false;}
 	
 
 @expected{UnsupportedOperation}
 // callError4 
-		public test bool  q() {zap = 10; zap(1,2);return false;}
+		public test bool  assertTrue() {zap = 10; zap(1,2);return false;}
 
 
 @expected{UnexpectedType}
 // callError5
-		public test bool  q() {int f(){return "a";} f();return false;}
+		public test bool  assertTrue() {int f(){return "a";} f();return false;}
 
 	
 @expected{MissingReturn}
 // callError6
-		public test bool  q() { int f(){ } f();return false;}
+		public test bool  assertTrue() { int f(){ } f();return false;}
 
 /*	
 	@Ignore("can't check this anymore due to pattern dispatch") @expected{StaticError.}
 	public void callError7() {
-		public test bool  q() {{ int f(int n) {return "a";}  int f(value v) {return "a";} }");
+		public test bool  assertTrue() {{ int f(int n) {return "a";}  int f(value v) {return "a";} }");
 	}
 */
 	
 @expected{UndeclaredVariable}
 // callError8() 
-	public test bool  q() {int f(int n) {return n;} f(undef);return false;}
+	public test bool  assertTrue() {int f(int n) {return n;} f(undef);return false;}
 
 	
 	
 //	public void voidFun() {
-		public test bool q() {void f(){ } f(); return true;}
+		public test bool assertTrue() {void f(){ } f(); return true;}
 //	}
 
 // public void fac() {
 //		String fac = "int fac(int n){ return (n <= 0) ? 1 : (n * fac(n - 1));}";
 		
-		public test bool  q() {
+		public test bool  assertTrue() {
 		     int fac(int n){ return (n <= 0) ? 1 : (n * fac(n - 1));}
 		     return fac(0) == 1 && fac(1)==1 && fac(2)== 2 && 
 		       fac(3)==6 && fac(4)==24;
@@ -76,7 +76,7 @@ module tests::functionality::CallTests
            }
 
 //	 public void facNotTailRec() {
-		public test bool  q() {
+		public test bool  assertTrue() {
 		      return facQ(0) == 1 && facQ(1)==1 && facQ(2)== 2 && 
 		       facQ(3)==6 && facQ(4)==24;	      
 		      }
@@ -89,16 +89,16 @@ module tests::functionality::CallTests
 		String fac = "int fac(int n) { if (n == 0) { return 1; } int z = n; int m = fac(n - 1); return z * m; }";
 		// "m" used to be "n", but now we forbid redeclarations.
 		
-		public test bool  q() {{" + fac + " fac(0) == 1;}"));
-		public test bool  q() {{" + fac + " fac(1) == 1;}"));
-		public test bool  q() {{" + fac + " fac(2) == 2;}"));
-		public test bool  q() {{" + fac + " fac(3) == 6;}"));
-		public test bool  q() {{" + fac + " fac(4) == 24;}"));
+		public test bool  assertTrue() {{" + fac + " fac(0) == 1;}"));
+		public test bool  assertTrue() {{" + fac + " fac(1) == 1;}"));
+		public test bool  assertTrue() {{" + fac + " fac(2) == 2;}"));
+		public test bool  assertTrue() {{" + fac + " fac(3) == 6;}"));
+		public test bool  assertTrue() {{" + fac + " fac(4) == 24;}"));
 	}
 */	
 //	 public void higherOrder() {
 		
-        public test bool  q() {
+        public test bool  assertTrue() {
           int add(int a, int b) { return a + b; };
           int doSomething(int (int a, int b) F) { return F(1,2); }; 
           int sub(int a, int b) { return a - b; }
@@ -110,7 +110,7 @@ module tests::functionality::CallTests
 // }
 	
 //  public void closures() {
-		public test bool  q() {
+		public test bool  assertTrue() {
 		    int x = 1;
 		    int f(int (int i) g, int j) { return g(j);}
 		if (f(int (int i) { return i + 1; }, 0) != 1) return false;
@@ -139,29 +139,29 @@ module tests::functionality::CallTests
 		String add1 = "int add(int i...) { return i[0]; }";
 		String add2 = "int add(int i, int j...) { return i + j[0]; }";
 		
-		public test bool  q() {{" + add0 + " add() == 0; }"));
-		public test bool  q() {{" + add0 + " add([]) == 0; }"));
-		public test bool  q() {{" + add0 + " add(0) == 0; }"));
-		public test bool  q() {{" + add0 + " add([0]) == 0; }"));
-		public test bool  q() {{" + add0 + " add(0,1,2) == 0; }"));
-		public test bool  q() {{" + add0 + " add([0,1,2]) == 0; }"));
+		public test bool  assertTrue() {{" + add0 + " add() == 0; }"));
+		public test bool  assertTrue() {{" + add0 + " add([]) == 0; }"));
+		public test bool  assertTrue() {{" + add0 + " add(0) == 0; }"));
+		public test bool  assertTrue() {{" + add0 + " add([0]) == 0; }"));
+		public test bool  assertTrue() {{" + add0 + " add(0,1,2) == 0; }"));
+		public test bool  assertTrue() {{" + add0 + " add([0,1,2]) == 0; }"));
 		
-		public test bool  q() {{" + add1 + " add(0) == 0; }"));
-		public test bool  q() {{" + add1 + " add([0]) == 0; }"));
-		public test bool  q() {{" + add1 + " add(0,1,2) == 0; }"));
-		public test bool  q() {{" + add1 + " add([0,1,2]) == 0; }"));
+		public test bool  assertTrue() {{" + add1 + " add(0) == 0; }"));
+		public test bool  assertTrue() {{" + add1 + " add([0]) == 0; }"));
+		public test bool  assertTrue() {{" + add1 + " add(0,1,2) == 0; }"));
+		public test bool  assertTrue() {{" + add1 + " add([0,1,2]) == 0; }"));
 		
-		public test bool  q() {{" + add2 + " add(1,2) == 3; }"));
-		public test bool  q() {{" + add2 + " add(1,[2]) == 3; }"));
-		public test bool  q() {{" + add2 + " add(1,2,3) == 3; }"));
-		public test bool  q() {{" + add2 + " add(1,[2,3]) == 3; }"));
+		public test bool  assertTrue() {{" + add2 + " add(1,2) == 3; }"));
+		public test bool  assertTrue() {{" + add2 + " add(1,[2]) == 3; }"));
+		public test bool  assertTrue() {{" + add2 + " add(1,2,3) == 3; }"));
+		public test bool  assertTrue() {{" + add2 + " add(1,[2,3]) == 3; }"));
 	}
 */	
 
 // public void sideEffect() {
 		
 		
-		public test bool  q() {
+		public test bool  assertTrue() {
 		     void One() { called = called + 1; return; }
 		     int called = 0;  
 		     One(); 
@@ -172,17 +172,17 @@ module tests::functionality::CallTests
 // }
 	
 // public void max1() {
-		public test bool  q() { 
+		public test bool  assertTrue() { 
 		    int max(int a, int b) { return a > b ? a : b; } 
 		    return max(3,4) == 4;
 		    }
-		public test bool q() { 
+		public test bool assertTrue() { 
 		    int max(int a, int b) { return a > b ? a : b; } 
 		    real max(real a, real b) { return a > b ? a : b; }
 		    return max(3,4) == 4 && max(3.0,4.0) == 4.0;
 		    }
 		    
-		public test bool q() { 
+		public test bool assertTrue() { 
 		    int max(int a, int b) { return a > b ? a : b; } 
 		    real max(real a, real b) { return a > b ? a : b; }
 		    &T max(&T a, &T b) { return a > b ? a : b; }
@@ -194,35 +194,35 @@ module tests::functionality::CallTests
 	
 //	 public void ident() {
 		
-		 public test bool  q() {
+		 public test bool  assertTrue() {
 		             &T ident(&T x){ return x; }
 		            return ident(true) == true;
 		            }        
-		 public test bool  q() {
+		 public test bool  assertTrue() {
 		             &T ident(&T x){ return x; }
 		            return ident(4) == 4;
 		            }
-		 public test bool  q() {
+		 public test bool  assertTrue() {
 		             &T ident(&T x){ return x; }
 		            return ident(4.5) == 4.5;
 		            }
-		 public test bool  q() {
+		 public test bool  assertTrue() {
 		             &T ident(&T x){ return x; }
 		            return ident("abc") == "abc";
 		            }
-		 // public test bool  q() {
+		 // public test bool  assertTrue() {
 		 //            &T ident(&T x){ return x; }
 		  //          return ident(f(1)) == f(1);
 		 //          }
-		 public test bool  q() {
+		 public test bool  assertTrue() {
 		             &T ident(&T x){ return x; }
 		            return ident([1,2,3]) == [1,2,3];
 		            }
-		 public test bool  q() {
+		 public test bool  assertTrue() {
 		             &T ident(&T x){ return x; }
 		            return ident({1,2,3}) == {1,2,3};
 		            }
-		  public test bool  q() {
+		  public test bool  assertTrue() {
 		             &T ident(&T x){ return x; }
 		            return ident((1:10,2:20,3:30)) == (1:10,2:20,3:30);
 		            }
@@ -231,7 +231,7 @@ module tests::functionality::CallTests
 
 
 // public void map() {
-	public test bool  q() {
+	public test bool  assertTrue() {
 		map[&K,&V] put(map[&K,&V] m, &K k, &V v) { m[k] = v; return m; }
 		return put((),1,"1") == (1:"1");
 	}
@@ -241,8 +241,8 @@ module tests::functionality::CallTests
 		
 		String add = "list[&T] java add(&T elm, list[&T] lst) { return lst.insert(elm); }";
 		
-		public test bool  q() {{" + add + " add(1, [2,3]) == [1,2,3];}"));
-		public test bool  q() {{" + add + " add("a", ["b","c"]) == ["a","b", "c"];}"));
+		public test bool  assertTrue() {{" + add + " add(1, [2,3]) == [1,2,3];}"));
+		public test bool  assertTrue() {{" + add + " add("a", ["b","c"]) == ["a","b", "c"];}"));
 	}
 	
 	@Ignore
@@ -250,20 +250,20 @@ module tests::functionality::CallTests
 		
 		String putAt = "list[&T] java putAt(&T elm, int n, list[&T] lst){return lst.put(n.intValue(), elm);}";
 		
-		public test bool  q() {{" + putAt + " putAt(1, 0, [2,3]) == [1,3];}"));
+		public test bool  assertTrue() {{" + putAt + " putAt(1, 0, [2,3]) == [1,3];}"));
 	}
 */
 
 data X = x() | y() | z();	
 //	 public void dispatchTest1() {
-public test bool  q() { 
+public test bool  assertTrue() { 
 		public int f(x()) = 1;
 		public int f(y()) = 2;
 		public int f(z()) = 3;
 		return [f(x()),f(y()),f(z())] == [1,2,3];
 	}
 	
-public test bool  q() { 
+public test bool  assertTrue() { 
 		public int f(x()) = 1;
 		public int f(y()) = 2;
 		public int f(z()) = 3;
@@ -283,13 +283,13 @@ public test bool  q() {
 //	}
 	
 //	 public void keywordTest1(){
-	 public test bool  q() { 
+	 public test bool  assertTrue() { 
 		int incr(int x, int delta=1) = x + delta;
 		return incr(3) == 4 && incr(3, delta=2) == 5;
 	}
 
 	
-	public test bool  q() { 
+	public test bool  assertTrue() { 
 		int sum(int x = 0, int y = 0) = x + y;
 		return sum() == 0 && sum(x=5, y=7) == 5+7 &&
 		sum(y=7,x=5)== 5+7;
@@ -308,7 +308,7 @@ data Figure (real shrink = 1.0, str fillColor = "white", str lineColor = "black"
 | ellipse(Figure inner = emptyFigure()) 
 | box(Figure inner = emptyFigure());
 	//  public void keywordTest4(){
-public test bool  q() { 
+public test bool  assertTrue() { 
 		if(!(emptyFigure().fillColor == "white")) return false;
 		if(!(emptyFigure(shrink=0.5).fillColor == "white")) return false;
 		if(!(emptyFigure(lineColor="red").fillColor == "white")) return false;
@@ -327,7 +327,7 @@ public test bool  q() {
 
 	@expected{ArgumentsMismatch}
 // public void keywordError1() {
-	public test bool  q() { 
+	public test bool  assertTrue() { 
 		int incr(int x, int delta=1) = x + delta;
 		incr(delta=3);
 		return false;
@@ -335,7 +335,7 @@ public test bool  q() {
 //	}
 
 @expected{ArgumentsMismatch}	
-	public test bool  q() { 
+	public test bool  assertTrue() { 
 		int incr(int x, int delta=1) = x + delta;
 		incr(1, 3);
 		return false;
@@ -343,14 +343,14 @@ public test bool  q() {
 	
 @expected{UnexpectedKeywordArgumentType}
 // public void keywordError3() {
-	    public test bool  q() { 
+	    public test bool  assertTrue() { 
 		int incr(int x, int delta=1) = x + delta;
 		incr(3, delta="a");
 		return false;
 	}
 
 @expected{UndeclaredKeywordParameter}	
-	public test bool  q() { 
+	public test bool  assertTrue() { 
 		int incr(int x, int delta=1) = x + delta;
 		incr(3, d=5);
 		return false;
@@ -361,7 +361,7 @@ public test bool  q() {
 	
 @expected{NoKeywordParameters}
 // public void keywordError5() {
-public test bool  q() { 
+public test bool  assertTrue() { 
 		int add1(int x) = x + 1;
 		add1(3, delta=5);
 		return false;
@@ -370,7 +370,7 @@ public test bool  q() {
 data D = d(int x, int y = 3);
 @expected{ArgumentsMismatch}
 // public void keywordInConstructorError1() {
-		public test bool  q() { 
+		public test bool  assertTrue() { 
 		d();
 		return false;
 	}
@@ -378,7 +378,7 @@ data D = d(int x, int y = 3);
 	
 @expected{ArgumentsMismatch}
 	// public void keywordInConstructorError2() {
-	public test bool  q() { 
+	public test bool  assertTrue() { 
 		d(y=4);
 		return false;
 	}
@@ -387,7 +387,7 @@ data D = d(int x, int y = 3);
 @expected{ArgumentsMismatch}
    
 //	public void keywordInConstructorError3() {
-	public test bool  q() { 
+	public test bool  assertTrue() { 
 		d(1,4);
 		return false;
 	}
@@ -395,7 +395,7 @@ data D = d(int x, int y = 3);
 	
 @expected{ArgumentsMismatch}
 	// public void keywordInConstructorError4() {
-		public test bool  q() { 
+		public test bool  assertTrue() { 
 		d(1,y="a");
 		return false;
 	    }
@@ -404,7 +404,7 @@ data D = d(int x, int y = 3);
 	
 @expected{UndeclaredKeywordParameter}
 //	public void keywordInConstructorError5() {
-		public test bool  q() { 
+		public test bool  assertTrue() { 
 		d(1,z=4);
 		return false;
 	    }
@@ -414,7 +414,7 @@ data D1 = d1(int x);
 
 @expected{NoKeywordParameters}
 //	public void keywordInConstructorError6() {
-		public test bool  q() { 
+		public test bool  assertTrue() { 
 		d1(1,y=4);
 		return false;
 	    }
@@ -424,23 +424,23 @@ data POINT = point(int x, int y, str color = "red");
 // public void keywordMatchTest1(){
 		
 		
-		public test bool q() =point(_,_,_) !:= point(1,2);
-		public test bool q() =point(_,_,"red") !:= point(1,2);
-		public test bool q() =point(_,_,"green") !:= point(1,2, color="green");
-		public test bool q() =point(_,_,color="green") := point(1,2, color="green");
-		public test bool q() =point(1,2) := point(1,2);
-		public test bool q() =point(1,2) !:= point(1,3);
-		public test bool q() =point(1,2) := point(1,2,color="red");
-		public test bool q() =point(1,2,color="red") := point(1,2,color="red");
-		public test bool q() =point(1,2,color="green") !:= point(1,2);
-		public test bool q() =point(1,2,color="green") !:= point(1,2);
+		public test bool assertTrue() =point(_,_,_) !:= point(1,2);
+		public test bool assertTrue() =point(_,_,"red") !:= point(1,2);
+		public test bool assertTrue() =point(_,_,"green") !:= point(1,2, color="green");
+		public test bool assertTrue() =point(_,_,color="green") := point(1,2, color="green");
+		public test bool assertTrue() =point(1,2) := point(1,2);
+		public test bool assertTrue() =point(1,2) !:= point(1,3);
+		public test bool assertTrue() =point(1,2) := point(1,2,color="red");
+		public test bool assertTrue() =point(1,2,color="red") := point(1,2,color="red");
+		public test bool assertTrue() =point(1,2,color="green") !:= point(1,2);
+		public test bool assertTrue() =point(1,2,color="green") !:= point(1,2);
 //	}
 
 data POINT1 = point1(int x, int y, int z = 3, list[str] colors = []);	
 //	public void keywordMatchTest2(){
-		public test bool q() =point1(_, _, colors=["blue"]) := point1(1,2, colors=["blue"]);
-		public test bool q() =point1(_, _, colors=[*_,"blue",*_]) := point1(1,2, colors=["red","green","blue"]);
-		public test bool q() =point1(_, _, colors=[*_,*X,*_,*X, *_]) := point1(1,2, colors=["red","blue","green","blue"]);
+		public test bool assertTrue() =point1(_, _, colors=["blue"]) := point1(1,2, colors=["blue"]);
+		public test bool assertTrue() =point1(_, _, colors=[*_,"blue",*_]) := point1(1,2, colors=["red","green","blue"]);
+		public test bool assertTrue() =point1(_, _, colors=[*_,*X,*_,*X, *_]) := point1(1,2, colors=["red","blue","green","blue"]);
 //	}
 	
 	
