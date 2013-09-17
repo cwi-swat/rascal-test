@@ -8,7 +8,7 @@
  * Contributors:
 
  *   * Anastasia Izmaylova - A.Izmaylova@cwi.nl - CWI
-  *  * Bert Lisser - Bert.Lisser@cwi.nl - CWI
+ *   * Bert Lisser - Bert.Lisser@cwi.nl - CWI
 *******************************************************************************/
 module tests::functionality::FunctionCompositionTests
 
