@@ -1,31 +1,6 @@
  module tests::functionality::AssignmentTests
   
   	
-  @expected{UndeclaredVariable}
-  // public void testUninit() {
-  		public test bool testUninit1() {zzz;return false;}
-  //	}
-  	
-  	@expected{UnexpectedType}
-  //	public void assignmentError1() {
-  		public test bool AssignmentError1() {int n = 3; n = true;return false;}
-  //	}
-  
-  	@expected{UnexpectedType}
-  //	public void assignmentError2() {
-  		public test bool AssignmentError2() {{int i = true;}return false;}
-  //	}
-  	@expected{UnexpectedType}
-  //	public void assignmentError3() {
-  		public test bool AssignmentError3() {int i = true;return false;}
-  //	}
-  
-  	@expected{UnexpectedType}
-  //	public void assignmentError4() {
-  		public test bool AssignmentError4() {{int n = 3; n = true;}return false;}
-  //	}
-  
-  	
   // @Test public void testSimple() {
   		public test bool testSimple1() {bool b = true; return b == true;}
   		public test bool testSimple2() {b = true; return b == true;}
@@ -40,25 +15,7 @@
   		public test bool testInteger6() {N ?= 2; return N==2;}
   //	}
   	
-  	@expected{UninitializedVariable}
-  //	public void integerError1(){
-  		public test bool integerError1() {N += 2;return false;}
-  //	}
   	
-  	@expected{UninitializedVariable}
-  //	public void integerError2(){
-  		public test bool integerError2() {N -= 2;return false;}
-  //	}
-  
-  	@expected{UninitializedVariable}
-  //	public void integerError3(){
-  		public test bool integerError3() {N *= 2;return false;}
-  //	}
-  	
-  	@expected{UninitializedVariable}
-  // public void integerError4(){
-  		public test bool integerError4() {N /= 2;return false;}
-  // 	}
   	
   //	@Test public void testTuple() {
   		public test bool testTuple1() {int a = 1; int b = 2; <a, b> = <b, a>; return (a == 2) && (b == 1);}
@@ -87,10 +44,7 @@
   		public test bool testList12() {list[list[int]] L = [[1,2,3],[10,20,30]]; L[0] ?= [4]; return  L==[[1,2,3],[10,20,30]];}
   //	}
   
-  	@expected{UnexpectedType}
-  //	public void errorList(){
-  		public test bool errorList1() {list[int] L = {1,2,3}; L *= [4]; return L==[<1,4>,<2,4>,<3,4>];}
-  //	}
+  
   	
   //	@Test public void testMap1() {
   		public test bool testMap1() {map[int,int] M = (); return M == ();}
@@ -102,11 +56,6 @@
   		public test bool testMap6() {                               M ?= (3:30); return M==(3:30);}
   //	}
   	
-  	@expected{UnexpectedType}
-  //	public void errorMap(){
-  		public test bool errorMap1() {map[int,list[int]] M = (0:[1,2,3],1:[10,20,30]); M[0] *= [4]; 
-  		    return M==(0:[<1,4>,<2,4>,<3,4>],1:[10,20,30]);
-  		    }
   
   //	}
   	
@@ -128,10 +77,7 @@
   		public test bool testSet6() {                       L ?= {4}; return L=={4};}
   //	}
   	
-  	@expected{UnexpectedType}
-  //	public void errorSet(){
-  		public test bool errorSet1() {set[int] L = {1,2,3}; L *= {4}; return L=={<1,4>,<2,4>,<3,4>};}
-  //	}
+ 
   
    data D = listfield(list[int] ints) | intfield(int i);
   	
@@ -186,45 +132,6 @@
   		if (X @ pos != 3) return false;
   		return true;
   	}
-  
-  
-  @expected{UninitializedVariable}
-  //	public void annotationError1(){
-  	public test bool annotationError1() {	
-  	  X @ pos = 1;
-  	  return false;
-  	  }
-  //	}
-  	
-  @expected{UninitializedVariable}
-  	// public void annotationError2(){
-  	public test bool annotationError2() {	
-  	  F X;
-  	  X @ pos += 1;
-  	  return false;
-  	  }
-  	  
-  @expected{UninitializedVariable}
-  	public test bool uninitializedVariable1() {	
-  	  F X;
-  	  X @ pos -= 1;
-  	  return false;
-  	  }
-  	  
-  @expected{UninitializedVariable}
-  	public test bool uninitializedVariable2() {	
-  	  F X;
-  	  X @ pos *= 1;
-  	  return false;
-  	  }	
-  	  
-  @expected{UninitializedVariable}
-      public test bool uninitializedVariable3() {	
-  	  F X;
-  	  X @ pos /= 1;
-  	  return false;
-  	  }			
-  //	}
   	
   // public void assigningClosureToVariableBug877() {
   	public test bool assigningClosureToVariableBug8771() {	

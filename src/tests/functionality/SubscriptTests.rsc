@@ -16,44 +16,44 @@ module tests::functionality::SubscriptTests
 
 //	@Test public test boollist() {
 
-		public test bool assertTrue() =[0,1,2,3][0] == 0;
-		public test bool assertTrue() = [0,1,2,3][1] == 1;
-		public test bool assertTrue() = [0,1,2,3][2] == 2;
-		public test bool assertTrue() = [0,1,2,3][3] == 3;
+		public test bool listTest() =[0,1,2,3][0] == 0;
+		public test bool listTest() = [0,1,2,3][1] == 1;
+		public test bool listTest() = [0,1,2,3][2] == 2;
+		public test bool listTest() = [0,1,2,3][3] == 3;
 
-		public test bool assertTrue() {list[int] L = [0,1,2,3]; L[0] = 10; return L == [10,1,2,3];}
-		public test bool assertTrue() {list[int] L = [0,1,2,3]; L[1] = 11; return L == [0,11,2,3];}
-		public test bool assertTrue() {list[int] L = [0,1,2,3]; L[2] = 22; return L == [0,1,22,3];}
-		public test bool assertTrue() {list[int] L = [0,1,2,3]; L[3] = 33; return L == [0,1,2,33];}
+		public test bool listTest() {list[int] L = [0,1,2,3]; L[0] = 10; return L == [10,1,2,3];}
+		public test bool listTest() {list[int] L = [0,1,2,3]; L[1] = 11; return L == [0,11,2,3];}
+		public test bool listTest() {list[int] L = [0,1,2,3]; L[2] = 22; return L == [0,1,22,3];}
+		public test bool listTest() {list[int] L = [0,1,2,3]; L[3] = 33; return L == [0,1,2,33];}
 //	}
 	
 	@expected{IndexOutOfBounds}
-	public test bool listError1(){
+	public test bool listError(){
 		[0,1,2,3][4] == 3;
 	}
 	
 	@expected{IndexOutOfBounds}
-	public test bool listError2(){
+	public test bool listError(){
 		list[int] L = [0,1,2,3]; L[4] = 44; L == [0,1,2,3,44]; return false;
 	}
 	
 	@expected{UninitializedVariable}
-	public test bool UninitializedListVariable1(){
+	public test bool UninitializedListVariable(){
 		list[int] L; L[4]; return false;
 	}
 	
 	@expected{UninitializedVariable}
-	public test bool UninitializedListVariable2(){
+	public test bool UninitializedListVariable(){
 		list[int] L; L[4] = 44;return false;
 	}
 	
 	@expected{UnexpectedType}
-	public test bool WrongListIndex1(){
+	public test bool WrongListIndex(){
 		list[int] L = [0,1,2,3]; L["abc"]; return false;
 	}
 	
 	@expected{UnsupportedSubscript}
-	public test bool WrongListIndex2(){
+	public test bool WrongListIndex(){
 		list[int] L = [0,1,2,3]; L["abc"] = 44;return false;
 	}
 	
@@ -63,35 +63,35 @@ module tests::functionality::SubscriptTests
 	}
 
 //	//@Test public test boolmap() {
-		public test bool assertTrue() = (1:10, 2:20, 3:30)[1] == 10;
-		public test bool assertTrue() = (1:10, 2:20, 3:30)[2] == 20;
-		public test bool assertTrue() = (1:10, 2:20, 3:30)[3] == 30;
+		public test bool mapTest() = (1:10, 2:20, 3:30)[1] == 10;
+		public test bool mapTest() = (1:10, 2:20, 3:30)[2] == 20;
+		public test bool mapTest() = (1:10, 2:20, 3:30)[3] == 30;
 
-		// assertTruerunWithError("(1:10, 2:20, 3:30)[4] == 30;", "xxx"));
+		// mapTestrunWithError("(1:10, 2:20, 3:30)[4] == 30;", "xxx"));
 
-		public test bool assertTrue() {map[int,int] M = (1:10, 2:20, 3:30); M[1] = 100; return M == (1:100, 2:20, 3:30);}
-		public test bool assertTrue() {map[int,int] M = (1:10, 2:20, 3:30); M[2] = 200; return M == (1:10, 2:200, 3:30);}
-		public test bool assertTrue() {map[int,int] M = (1:10, 2:20, 3:30); M[3] = 300; return M == (1:10, 2:20, 3:300);}
-		public test bool assertTrue() {map[int,int] M = (1:10, 2:20, 3:30); M[4] = 400; return M == (1:10, 2:20, 3:30, 4:400);}
+		public test bool mapTest() {map[int,int] M = (1:10, 2:20, 3:30); M[1] = 100; return M == (1:100, 2:20, 3:30);}
+		public test bool mapTest() {map[int,int] M = (1:10, 2:20, 3:30); M[2] = 200; return M == (1:10, 2:200, 3:30);}
+		public test bool mapTest() {map[int,int] M = (1:10, 2:20, 3:30); M[3] = 300; return M == (1:10, 2:20, 3:300);}
+		public test bool mapTest() {map[int,int] M = (1:10, 2:20, 3:30); M[4] = 400; return M == (1:10, 2:20, 3:30, 4:400);}
 //	//}
 
 	@expected{UnexpectedType}
-	public test bool WrongMapIndex1(){
+	public test bool WrongMapIndex(){
 		map[int,int] M = (1:10,2:20); M["abc"];return false;
 	}
 	
 	@expected{UnexpectedType}
-	public test bool WrongMapIndex2(){
+	public test bool WrongMapIndex(){
 		map[int,int] M  = (1:10,2:20); M["abc"] = 3;return false;
 	}
 	
 	@expected{UninitializedVariable}
-	public test bool UninitializedMapVariable1() {
+	public test bool UninitializedMapVariable() {
 		map[int,int] M; M[4]; return false;
 	}
 	
 	@expected{UninitializedVariable}
-	public test bool UninitializedMapVariable2(){
+	public test bool UninitializedMapVariable(){
 		map[int,int] M; M[4] = 44; return false;
 	}
 	
@@ -100,19 +100,19 @@ module tests::functionality::SubscriptTests
 		runTest("{map[int,int] M = (1:10,2:20); M[2] = \"abc\";}");
 	}
 
-//	@Test public test booltuple() {
-		public test bool  assertTrue()=<0, "a", 3.5>[0] == 0;
-		public test bool  assertTrue()=<0, "a", 3.5>[1] == "a";
-		public test bool  assertTrue()=<0, "a", 3.5>[2] == 3.5;
+//	@Test public test bool tuple() {
+		public test bool  tupleTest()=<0, "a", 3.5>[0] == 0;
+		public test bool  tupleTest()=<0, "a", 3.5>[1] == "a";
+		public test bool  tupleTest()=<0, "a", 3.5>[2] == 3.5;
 //	}
 
 	@expected{UninitializedVariable}
-	public test bool UninitializedTupleVariable1(){
+	public test bool UninitializedTupleVariable(){
 		tuple[int,int] T; T[1];return false;
 	}
 	
 	@expected{UninitializedVariable}
-	public test bool UninitializedTupleVariable2(){
+	public test bool UninitializedTupleVariable(){
 		tuple[int,int] T; T[1] = 10; return false;
 	}
 	
@@ -132,48 +132,48 @@ module tests::functionality::SubscriptTests
 	}
 
 //	@Test  public test boolrelation() {
-		public test bool assertTrue()= {<1, "a">, <2, "b">}[0] == {};
-		public test bool assertTrue()={<1, "a">, <2, "b">}[1] == {"a"};
-		public test bool assertTrue()={<1, "a">, <2, "b">}[2] == {"b"};
+		public test bool relationTest()= {<1, "a">, <2, "b">}[0] == {};
+		public test bool relationTest()={<1, "a">, <2, "b">}[1] == {"a"};
+		public test bool relationTest()={<1, "a">, <2, "b">}[2] == {"b"};
 
-		public test bool  assertTrue()={<1, "a">, <2, "b">, <1, "abc">}[1] == {"a", "abc"};
+		public test bool  relationTest()={<1, "a">, <2, "b">, <1, "abc">}[1] == {"a", "abc"};
 
-		public test bool  assertTrue()={<1, "a", 10>, <2, "b", 20>, <1, "abc", 100>}[0] == {};
-		public test bool  assertTrue()={<1, "a", 10>, <2, "b", 20>, <1, "abc", 100>}[1] == {<"a", 10>, <"abc", 100>};
-		public test bool  assertTrue()={<1, "a", 10>, <2, "b", 20>, <1, "abc", 100>}[2] == {<"b", 20>};
-		public test bool  assertTrue()={<1, "a", 10>, <2, "b", 20>, <1, "abc", 100>}[{1,2}] == {<"a", 10>, <"b", 20>, <"abc", 100>};
+		public test bool  relationTest()={<1, "a", 10>, <2, "b", 20>, <1, "abc", 100>}[0] == {};
+		public test bool  relationTest()={<1, "a", 10>, <2, "b", 20>, <1, "abc", 100>}[1] == {<"a", 10>, <"abc", 100>};
+		public test bool  relationTest()={<1, "a", 10>, <2, "b", 20>, <1, "abc", 100>}[2] == {<"b", 20>};
+		public test bool  relationTest()={<1, "a", 10>, <2, "b", 20>, <1, "abc", 100>}[{1,2}] == {<"a", 10>, <"b", 20>, <"abc", 100>};
 	
-		public test bool assertTrue()={<1, "a", 10>, <2, "b", 20>, <1, "abc", 100>}[1,_] == {10, 100};
+		public test bool relationTest()={<1, "a", 10>, <2, "b", 20>, <1, "abc", 100>}[1,_] == {10, 100};
 //	}
 
 	@expected{UninitializedVariable}
-	public test bool UninitializedRelVariable1(){
+	public test bool UninitializedRelVariable(){
 		rel[int,int] R; R[1];return false;
 	}
 	
 	@expected{UninitializedVariable}
-	public test bool UninitializedRelVariable2(){
+	public test bool UninitializedRelVariable(){
 		rel[int,int] R; R[1,2];return false;
 	}
 	
 	@expected{UninitializedVariable}
-	public test bool UninitializedRelVariable3(){
+	public test bool UninitializedRelVariable(){
 		rel[int,int] R; R[1] = 10; return false;
 	}
 
 //	@Test public test bool relationMultiIndex() {
-		public test bool assertTrue()={<1,"a",1.0>,<2,"b",2.0>,<3,"c",3.0>}[0] == {};
-		public test bool assertTrue()={<1,"a",1.0>,<2,"b",2.0>,<3,"c",3.0>}[1] == {<"a",1.0>};
-		public test bool assertTrue()={<1,"a",1.0>,<2,"b",2.0>,<3,"c",3.0>}[2, "b"] == {2.0};
-		public test bool assertTrue()= {<1,10,10.5>, <2,20,20.5>, <3,20,30.5>, <2,10,100.5>}[{1},{10,20}] == {10.5};
+		public test bool relationMultiIndex()={<1,"a",1.0>,<2,"b",2.0>,<3,"c",3.0>}[0] == {};
+		public test bool relationMultiIndex()={<1,"a",1.0>,<2,"b",2.0>,<3,"c",3.0>}[1] == {<"a",1.0>};
+		public test bool relationMultiIndex()={<1,"a",1.0>,<2,"b",2.0>,<3,"c",3.0>}[2, "b"] == {2.0};
+		public test bool relationMultiIndex()= {<1,10,10.5>, <2,20,20.5>, <3,20,30.5>, <2,10,100.5>}[{1},{10,20}] == {10.5};
 //	}
 
 
 //	@Test public test boolnode() {
-		public test bool assertTrue()= f(0, "a", 3.5)[0] == 0;
-		public test bool assertTrue()= f(0, "a", 3.5)[1] == "a";
-		public test bool assertTrue()= f(0, "a", 3.5)[2] == 3.5;
-		public test bool assertTrue() {NODE T = f(0, "a", 3.5); T[0] = 10; return  T == f(10, "a", 3.5);}
+		public test bool nodeTest()= f(0, "a", 3.5)[0] == 0;
+		public test bool nodeTest()= f(0, "a", 3.5)[1] == "a";
+		public test bool nodeTest()= f(0, "a", 3.5)[2] == 3.5;
+		public test bool nodeTest() {NODE T = f(0, "a", 3.5); T[0] = 10; return  T == f(10, "a", 3.5);}
 //	}
 	
 	@expected{IndexOutOfBounds}

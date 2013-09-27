@@ -13,18 +13,18 @@ module tests::functionality::ProjectionTests
 *******************************************************************************/
 
 //	@Test public void empty() {
-		public test bool assertTrue()={}<0> == {};
-		public test bool assertTrue()={}<1> == {};
+		public test bool empty1()={}<0> == {};
+		public test bool empty2()={}<1> == {};
 //	}
 	
 //	@Test public void nonEmpty() {
-		public test bool assertTrue()={<1,2>}<0> == {1};
-		public test bool assertTrue()={<1,2>}<1> == {2};
+		public test bool nonEmpty1()={<1,2>}<0> == {1};
+		public test bool nonEmpty2()={<1,2>}<1> == {2};
 //	}
 	
 @expected{IndexOutOfBounds}
 //	public void outOfBounds() {
-		public test bool  assertTrue()={<1,2>}<2> == {2};
+		public test bool outOfBounds()={<1,2>}<2> == {2};
 //	}
 	
 
