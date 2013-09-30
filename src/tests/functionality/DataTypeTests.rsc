@@ -935,116 +935,116 @@
   		return {1,2,3} + true=={1,2,3,true};
   	}
       
-  		public test bool assertTrue3() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {S1} == {{1,2}};}
-  		public test bool assertTrue4() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {*S1} == {1,2};}
+  		public test bool testSet3() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {S1} == {{1,2}};}
+  		public test bool testSet4() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {*S1} == {1,2};}
   		
-  		public test bool assertTrue5() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {S1,3} == {{1,2},3};}
-  		public test bool assertTrue6() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {*S1,3} == {1,2,3};}
+  		public test bool testSet5() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {S1,3} == {{1,2},3};}
+  		public test bool testSet6() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {*S1,3} == {1,2,3};}
   		
-  		public test bool assertTrue7() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {S1,S2} == {{1,2},{3,4}};}
-  		public test bool assertTrue8() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {*S1,S2} == {1,2,{3,4}};}
-  		public test bool assertTrue9() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {S1,*S2} == {{1,2},3,4};}
-  		public test bool assertTrue10() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {*S1,*S2} == {1,2,3,4};}
+  		public test bool testSet7() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {S1,S2} == {{1,2},{3,4}};}
+  		public test bool testSet8() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {*S1,S2} == {1,2,{3,4}};}
+  		public test bool testSet9() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {S1,*S2} == {{1,2},3,4};}
+  		public test bool testSet10() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {*S1,*S2} == {1,2,3,4};}
   	
   		
-  		public test bool assertTrue11() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {S1,S2,5} == {{1,2},{3,4},5};}
-  		public test bool assertTrue12() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {*S1,S2,5} == {1,2,{3,4},5};}
-  		public test bool assertTrue13() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {S1,*S2,5} == {{1,2},3,4,5};}
-  		public test bool assertTrue14() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {*S1,*S2,5} == {1,2,3,4,5};}
+  		public test bool testSet11() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {S1,S2,5} == {{1,2},{3,4},5};}
+  		public test bool testSet12() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {*S1,S2,5} == {1,2,{3,4},5};}
+  		public test bool testSet13() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {S1,*S2,5} == {{1,2},3,4,5};}
+  		public test bool testSet14() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {*S1,*S2,5} == {1,2,3,4,5};}
   		
-  		public test bool assertTrue15() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {{S1}} == {{{1,2}}};}
+  		public test bool testSet15() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {{S1}} == {{{1,2}}};}
   		
-  		public test bool assertTrue16() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {{*S1}}   == {{1,2}};}
-  		public test bool assertTrue17() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {*{*S1}} == {1,2};}
+  		public test bool testSet16() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {{*S1}}   == {{1,2}};}
+  		public test bool testSet17() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {*{*S1}} == {1,2};}
   		
-  		public test bool assertTrue18() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {{S1},3} == {{{1,2}},3};}
-  		public test bool assertTrue19() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {*{S1},3} == {{1,2},3};}
-  		public test bool assertTrue20() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {*{*S1},3} == {1,2,3};}
+  		public test bool testSet18() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {{S1},3} == {{{1,2}},3};}
+  		public test bool testSet19() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {*{S1},3} == {{1,2},3};}
+  		public test bool testSet20() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {*{*S1},3} == {1,2,3};}
   		
-  		public test bool assertTrue21() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {*{*S1},2} == {1,2};}
+  		public test bool testSet21() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {*{*S1},2} == {1,2};}
   	
-  		public test bool assertTrue22() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {{S1},{S2}} == {{{1,2}},{{3,4}}};}
-  		public test bool assertTrue23() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {*{S1},{S2}} == {{1,2},{{3,4}}};}
-  		public test bool assertTrue24() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {{S1},*{S2}} == {{{1,2}},{3,4}};}
-  		public test bool assertTrue25() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {*{S1},*{S2}} == {{1,2},{3,4}};}
-  		public test bool assertTrue26() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {*{*S1},*{*S2}} == {1,2,3,4};}
+  		public test bool testSet22() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {{S1},{S2}} == {{{1,2}},{{3,4}}};}
+  		public test bool testSet23() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {*{S1},{S2}} == {{1,2},{{3,4}}};}
+  		public test bool testSet24() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {{S1},*{S2}} == {{{1,2}},{3,4}};}
+  		public test bool testSet25() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {*{S1},*{S2}} == {{1,2},{3,4}};}
+  		public test bool testSet26() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {*{*S1},*{*S2}} == {1,2,3,4};}
   		
   		
-  		public test bool assertTrue27() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {S1,{S2}} == {{1,2},{{3,4}}};}
-  		public test bool assertTrue28() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {S1,{*S2}} == {{1,2},{3,4}};}
-  		public test bool assertTrue29() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {S1,*{*S2}} == {{1,2},3,4};}
+  		public test bool testSet27() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {S1,{S2}} == {{1,2},{{3,4}}};}
+  		public test bool testSet28() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {S1,{*S2}} == {{1,2},{3,4}};}
+  		public test bool testSet29() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {S1,*{*S2}} == {{1,2},3,4};}
   		
   		
-  		public test bool assertTrue30() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {S1,{S2},5} == {{1,2},{{3,4}},5};}
-  		public test bool assertTrue31() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {S1,{*S2},5} == {{1,2},{3,4},5};}
-  		public test bool assertTrue32() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {S1,*{*S2},5} == {{1,2},3,4,5};}
-  		public test bool assertTrue33() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {*S1,*{*S2},5} == {1,2,3,4,5};}
+  		public test bool testSet30() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {S1,{S2},5} == {{1,2},{{3,4}},5};}
+  		public test bool testSet31() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {S1,{*S2},5} == {{1,2},{3,4},5};}
+  		public test bool testSet32() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {S1,*{*S2},5} == {{1,2},3,4,5};}
+  		public test bool testSet33() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; return {*S1,*{*S2},5} == {1,2,3,4,5};}
   		
-  		public test bool assertTrue34() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; set[set[set[int]]] S3 = {{S1}}; return S3 == {{{1,2}}};}
+  		public test bool testSet34() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; set[set[set[int]]] S3 = {{S1}}; return S3 == {{{1,2}}};}
   		
-  		public test bool assertTrue35() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; set[value] S3 = {{S1},3}; return S3 == {{{1,2}},3};}
-  		public test bool assertTrue36() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; set[set[set[int]]] S3 = {{S1},{S2}};return  S3 == {{{1,2}},{{3,4}}};}
-  		public test bool assertTrue37() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; set[value] S3 = {S1,{S2}}; return S3 == {{1,2},{{3,4}}};}
-  		public test bool assertTrue38() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; set[value] S3 = {S1,{S2},5}; return S3 == {{1,2},{{3,4}},5};}
+  		public test bool testSet35() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; set[value] S3 = {{S1},3}; return S3 == {{{1,2}},3};}
+  		public test bool testSet36() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; set[set[set[int]]] S3 = {{S1},{S2}};return  S3 == {{{1,2}},{{3,4}}};}
+  		public test bool testSet37() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; set[value] S3 = {S1,{S2}}; return S3 == {{1,2},{{3,4}}};}
+  		public test bool testSet38() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; set[value] S3 = {S1,{S2},5}; return S3 == {{1,2},{{3,4}},5};}
   	
   
-  	@Test public void testListInSetSplicing() {
-  		public test bool assertTrue39() {list[int] L1 = [1,2]; set[int] S2 = {3,4}; return {L1,S2,5} == {[1,2],{3,4},5};}
-  		public test bool assertTrue40() {list[int] L1 = [1,2]; set[int] S2 = {3,4}; return {*L1,S2,5} == {1,2,{3,4},5};}
-  		public test bool assertTrue41() {list[int] L1 = [1,2]; set[int] S2 = {3,4}; return {L1,*S2,5} == {[1,2],3,4,5};}
-  		public test bool assertTrue42() {list[int] L1 = [1,2]; set[int] S2 = {3,4}; return {*L1,*S2,5} == {1,2,3,4,5};}
-  	}
+  	// @Test public void testListInSetSplicing() {
+  		public test bool testListInSplicing39() {list[int] L1 = [1,2]; set[int] S2 = {3,4}; return {L1,S2,5} == {[1,2],{3,4},5};}
+  		public test bool testListInSplicing40() {list[int] L1 = [1,2]; set[int] S2 = {3,4}; return {*L1,S2,5} == {1,2,{3,4},5};}
+  		public test bool testListInSplicing41() {list[int] L1 = [1,2]; set[int] S2 = {3,4}; return {L1,*S2,5} == {[1,2],3,4,5};}
+  		public test bool testListInSplicing42() {list[int] L1 = [1,2]; set[int] S2 = {3,4}; return {*L1,*S2,5} == {1,2,3,4,5};}
+  	// }
   	
   //	@Test public void testMap()  {
   		
-  		public test bool assertTrue43() = () == ();
-  		public test bool assertTrue44() = (1:10) != ();
-  		public test bool assertTrue45() = (1:10) == (1:10);
-  		public test bool assertTrue46() = (1:10) != (2:20);
+  		public test bool testMap43() = () == ();
+  		public test bool testMap44() = (1:10) != ();
+  		public test bool testMap45() = (1:10) == (1:10);
+  		public test bool testMap46() = (1:10) != (2:20);
   		
-  		public test bool assertTrue47() = () + () == ();
-  		public test bool assertTrue48() = (1:10) + () == (1:10);
-  		public test bool assertTrue49() = (1:10) + (2:20) == (1:10, 2:20);
-  		public test bool assertTrue50() = (1:10, 2:20) + (2:25) == (1:10, 2:25);
+  		public test bool testMap47() = () + () == ();
+  		public test bool testMap48() = (1:10) + () == (1:10);
+  		public test bool testMap49() = (1:10) + (2:20) == (1:10, 2:20);
+  		public test bool testMap50() = (1:10, 2:20) + (2:25) == (1:10, 2:25);
   		
-  		public test bool assertTrue51() = () - () == ();
-  		public test bool assertTrue52() = (1:10, 2:20) - () == (1:10,2:20);
-  		public test bool assertTrue53() = (1:10, 2:20) - (2:20) == (1:10);
-  		public test bool assertTrue54() = (1:10, 2:20) - (2:25) == (1:10); // This is current behaviour; is this ok?
+  		public test bool testMap51() = () - () == ();
+  		public test bool testMap52() = (1:10, 2:20) - () == (1:10,2:20);
+  		public test bool testMap53() = (1:10, 2:20) - (2:20) == (1:10);
+  		public test bool testMap54() = (1:10, 2:20) - (2:25) == (1:10); // This is current behaviour; is this ok?
   	
-  		public test bool assertTrue55() = () & () == ();
-  		public test bool assertTrue56() = (1:10) & () == ();
-  		public test bool assertTrue57() = (1:10, 2:20, 3:30, 4:40) & (2:20, 4:40, 5:50) == (2:20, 4:40);
-  		public test bool assertTrue58() = (1:10, 2:20, 3:30, 4:40) & (5:50, 6:60) == ();
+  		public test bool testMap55() = () & () == ();
+  		public test bool testMap56() = (1:10) & () == ();
+  		public test bool testMap57() = (1:10, 2:20, 3:30, 4:40) & (2:20, 4:40, 5:50) == (2:20, 4:40);
+  		public test bool testMap58() = (1:10, 2:20, 3:30, 4:40) & (5:50, 6:60) == ();
   		
-  		public test bool assertTrue59() = () <= ();
-  		public test bool assertTrue60() = () <= (1:10);
-  		public test bool assertTrue61() = (1:10) <= (1:10);
-  		public test bool assertTrue62() = (1:10) <= (1:10, 2:20);
+  		public test bool testMap59() = () <= ();
+  		public test bool testMap60() = () <= (1:10);
+  		public test bool testMap61() = (1:10) <= (1:10);
+  		public test bool testMap62() = (1:10) <= (1:10, 2:20);
   		
-  		public test bool assertTrue63() = !(() < ());
-  		public test bool assertTrue64() = () < (1:10);
-  		public test bool assertTrue65() = !((1:10) < (1:10));
-  		public test bool assertTrue66() = (1:10) < (1:10, 2:20);
+  		public test bool testMap63() = !(() < ());
+  		public test bool testMap64() = () < (1:10);
+  		public test bool testMap65() = !((1:10) < (1:10));
+  		public test bool testMap66() = (1:10) < (1:10, 2:20);
   		
-  		public test bool assertTrue67() = () >= ();
-  		public test bool assertTrue68() = (1:10) >= ();
-  		public test bool assertTrue69() = (1:10) >= (1:10);
-  		public test bool assertTrue70() = (1:10, 2:20) >= (1:10);
+  		public test bool testMap67() = () >= ();
+  		public test bool testMap68() = (1:10) >= ();
+  		public test bool testMap69() = (1:10) >= (1:10);
+  		public test bool testMap70() = (1:10, 2:20) >= (1:10);
   		
-  		public test bool assertTrue71() = !(() > ());
-  		public test bool assertTrue72() = (1:10) > ();
-  		public test bool assertTrue73() = !((1:10) > (1:10));
-  		public test bool assertTrue74() = (1:10, 2:20) > (1:10);
+  		public test bool testMap71() = !(() > ());
+  		public test bool testMap72() = (1:10) > ();
+  		public test bool testMap73() = !((1:10) > (1:10));
+  		public test bool testMap74() = (1:10, 2:20) > (1:10);
   		
   		
-  		public test bool assertTrue75() = 1 in (1:10, 2:20);
-  		public test bool assertTrue76() = !(3 in (1:10, 2:20));
+  		public test bool testMap75() = 1 in (1:10, 2:20);
+  		public test bool testMap76() = !(3 in (1:10, 2:20));
   		
-  		public test bool assertTrue77() = 3 notin (1:10, 2:20);
-  		public test bool assertTrue78() = !(2 notin (1:10, 2:20));
+  		public test bool testMap77() = 3 notin (1:10, 2:20);
+  		public test bool testMap78() = !(2 notin (1:10, 2:20));
   		
-  		public test bool assertTrue79() {map[str,list[int]] m = ("a": [1,2], "b": [], "c": [4,5,6]); return m["a"] == [1,2];}
+  		public test bool testMap79() {map[str,list[int]] m = ("a": [1,2], "b": [], "c": [4,5,6]); return m["a"] == [1,2];}
   //	}
  
   	 
@@ -1061,132 +1061,128 @@
   	
   	// @Test public void testTuple() {
   		
-  		public test bool assertTrue80() = <1, 2.5, true> == <1, 2.5, true>;
-  		public test bool assertTrue81() = <1, 2.5, true> != <0, 2.5, true>;
-  		public test bool assertTrue82() = <{1,2}, 3> == <{2,1}, 3>;
-  		public test bool assertTrue83() = <1, {2,3}> == <1, {3,2}>;
-  		public test bool assertTrue84() = <{1,2}, {3,4}> == <{2,1},{4,3}>;
+  		public test bool testTuple80() = <1, 2.5, true> == <1, 2.5, true>;
+  		public test bool testTuple81() = <1, 2.5, true> != <0, 2.5, true>;
+  		public test bool testTuple82() = <{1,2}, 3> == <{2,1}, 3>;
+  		public test bool testTuple83() = <1, {2,3}> == <1, {3,2}>;
+  		public test bool testTuple84() = <{1,2}, {3,4}> == <{2,1},{4,3}>;
   		
-  		public test bool assertTrue85() = <1>           >= <1>;
-  		public test bool assertTrue86() = <2>           >= <1>;
-  		public test bool assertTrue87() = <1,2>         >= <1>;
-  		public test bool assertTrue88() = <1,2>         >= <1,2>;
-  		public test bool assertTrue89() = <1,2>         >= <1, 1>;
-  		public test bool assertTrue90() = <1,"def">   >= <1, "abc">;
-  		public test bool assertTrue91() = <1, [2,3,4]>  >= <1, [2,3]>;
-  		public test bool assertTrue92() = <1, [2,3]>    >= <1, [2,3]>;
+  		public test bool testTuple85() = <1>           >= <1>;
+  		public test bool testTuple86() = <2>           >= <1>;
+  		public test bool testTuple87() = <1,2>         >= <1>;
+  		public test bool testTuple88() = <1,2>         >= <1,2>;
+  		public test bool testTuple89() = <1,2>         >= <1, 1>;
+  		public test bool testTuple90() = <1,"def">   >= <1, "abc">;
+  		public test bool testTuple91() = <1, [2,3,4]>  >= <1, [2,3]>;
+  		public test bool testTuple92() = <1, [2,3]>    >= <1, [2,3]>;
   		
-  		public test bool assertTrue93() = !(<1>          > <1>);
-  		public test bool assertTrue94() = <2>           > <1>;
-  		public test bool assertTrue95() = <1,2>         > <1>;
-  		public test bool assertTrue96() = !(<1,2>        > <1,2>);
-  		public test bool assertTrue97() = <1,2>         > <1, 1>;
-  		public test bool assertTrue98() = <1,"def">   > <1, "abc">;
-  		public test bool assertTrue99() = <1, [2,3,4]>  > <1, [2,3]>;
-  		public test bool assertTrue100() = !(<1, [2,3]>   > <1, [2,3]>);
+  		public test bool testTuple93() = !(<1>          > <1>);
+  		public test bool testTuple94() = <2>           > <1>;
+  		public test bool testTuple95() = <1,2>         > <1>;
+  		public test bool testTuple96() = !(<1,2>        > <1,2>);
+  		public test bool testTuple97() = <1,2>         > <1, 1>;
+  		public test bool testTuple98() = <1,"def">   > <1, "abc">;
+  		public test bool testTuple99() = <1, [2,3,4]>  > <1, [2,3]>;
+  		public test bool testTuple100() = !(<1, [2,3]>   > <1, [2,3]>);
   		
-  		public test bool assertTrue101() = <1>           <= <1>;
-  		public test bool assertTrue102() = <1>           <= <2>;
-  		public test bool assertTrue103() = <1>           <= <1,2>;
-  		public test bool assertTrue104() = <1,2>         <= <1,2>;
-  		public test bool assertTrue105() = <1,1>         <= <1, 2>;
-  		public test bool assertTrue106() = <1,"abc">   <= <1, "def">;
-  		public test bool assertTrue107() = <1, [2,3]>    <= <1, [2,3,4]>;
-  		public test bool assertTrue108() = <1, [2,3]>    <= <1, [2,3]>;
+  		public test bool testTuple101() = <1>           <= <1>;
+  		public test bool testTuple102() = <1>           <= <2>;
+  		public test bool testTuple103() = <1>           <= <1,2>;
+  		public test bool testTuple104() = <1,2>         <= <1,2>;
+  		public test bool testTuple105() = <1,1>         <= <1, 2>;
+  		public test bool testTuple106() = <1,"abc">   <= <1, "def">;
+  		public test bool testTuple107() = <1, [2,3]>    <= <1, [2,3,4]>;
+  		public test bool testTuple108() = <1, [2,3]>    <= <1, [2,3]>;
   		
-  		public test bool assertTrue109() = !(<1>          < <1>);
-  		public test bool assertTrue110() = <1>           < <2>;
-  		public test bool assertTrue111() = <1>           < <1,2>;
-  		public test bool assertTrue112() = !(<1,2>        < <1,2>);
-  		public test bool assertTrue113() = <1,1>         < <1, 2>;
-  		public test bool assertTrue114() = <1,"abc">   < <1, "def">;
-  		public test bool assertTrue115() = <1, [2,3]>    < <1, [2,3,4]>;
-  		public test bool assertTrue116() = !(<1, [2,3]>   < <1, [2,3]>);
+  		public test bool testTuple109() = !(<1>          < <1>);
+  		public test bool testTuple110() = <1>           < <2>;
+  		public test bool testTuple111() = <1>           < <1,2>;
+  		public test bool testTuple112() = !(<1,2>        < <1,2>);
+  		public test bool testTuple113() = <1,1>         < <1, 2>;
+  		public test bool testTuple114() = <1,"abc">   < <1, "def">;
+  		public test bool testTuple115() = <1, [2,3]>    < <1, [2,3,4]>;
+  		public test bool testTuple116() = !(<1, [2,3]>   < <1, [2,3]>);
   		
-  		public test bool assertTrue117() = <1, "a", true> + <1.5, "def"> == <1, "a", true> + <1.5, "def">;
+  		public test bool testTuple117() = <1, "a", true> + <1.5, "def"> == <1, "a", true> + <1.5, "def">;
   	// }
   	 
   	
   // @Test public void namedTuple()  {
   		
-  		public test bool assertTrue118() {tuple[int key, str val] T = <1, "abc">; return T.key == 1;}
-  		public test bool assertTrue119() {tuple[int key, str val] T = <1, "abc">; return T.val == "abc";}	
+  		public test bool testNamedTuple118() {tuple[int key, str val] T = <1, "abc">; return T.key == 1;}
+  		public test bool testNamedTuple119() {tuple[int key, str val] T = <1, "abc">; return T.val == "abc";}	
   		
   // }
   	
-  	@Test
-  	public void testRelation1()  {
+ // 	@Test public void testRelation1()  {
+  		public test bool testRelation120() = {} == {};
+  		public test bool testRelation121() = {<1,10>} == {<1,10>};
+  		public test bool testRelation122() = {<1,2,3>} == {<1,2,3>};
+  		public test bool testRelation123() = {<1,10>, <2,20>} == {<1,10>, <2,20>};
+  		public test bool testRelation124() = {<1,10>, <2,20>, <3,30>} == {<1,10>, <2,20>, <3,30>};
+  		public test bool testRelation125() = {<1,2,3>, <4,5,6>} == {<4,5,6>, <1,2,3>};
+  		public test bool testRelation126() = {<1,2,3,4>, <4,5,6,7>} == {<4,5,6,7>, <1,2,3,4>};
   		
-  		public test bool assertTrue120() = {} == {};
-  		public test bool assertTrue121() = {<1,10>} == {<1,10>};
-  		public test bool assertTrue122() = {<1,2,3>} == {<1,2,3>};
-  		public test bool assertTrue123() = {<1,10>, <2,20>} == {<1,10>, <2,20>};
-  		public test bool assertTrue124() = {<1,10>, <2,20>, <3,30>} == {<1,10>, <2,20>, <3,30>};
-  		public test bool assertTrue125() = {<1,2,3>, <4,5,6>} == {<4,5,6>, <1,2,3>};
-  		public test bool assertTrue126() = {<1,2,3,4>, <4,5,6,7>} == {<4,5,6,7>, <1,2,3,4>};
+  		public test bool testRelation127() = {} != {<1,2>, <3,4>};
+  		public test bool testRelation128() = !({<1,2>, <3,4>} == {});
   		
-  		public test bool assertTrue127() = {} != {<1,2>, <3,4>};
-  		public test bool assertTrue128() = !({<1,2>, <3,4>}) == {};
+  		public test bool testRelation129() = {<1, {1,2,3}>, <2, {2,3,4}>} ==  {<1, {1,2,3}>, <2, {2,3,4}>};
+  		public test bool testRelation130() = {<1, {1,2,3}>, <2, {2,3,4}>} ==  {<2, {2,3,4}>, <1, {1,2,3}>};
+  		public test bool testRelation131() = {<1, {1,2,3}>, <2, {2,3,4}>} ==  {<2, {4,3,2}>, <1, {2,1,3}>};
   		
-  		public test bool assertTrue129() = {<1, {1,2,3}>, <2, {2,3,4}>} ==  {<1, {1,2,3}>, <2, {2,3,4}>};
-  		public test bool assertTrue130() = {<1, {1,2,3}>, <2, {2,3,4}>} ==  {<2, {2,3,4}>, <1, {1,2,3}>};
-  		public test bool assertTrue131() = {<1, {1,2,3}>, <2, {2,3,4}>} ==  {<2, {4,3,2}>, <1, {2,1,3}>};
+  		public test bool testRelation132() = {<1,10>} + {} == {<1,10>};
+  		public test bool testRelation133() = {} + {<1,10>}  == {<1,10>};
+  		public test bool testRelation134() = {<1,10>} + {<2,20>} == {<1,10>, <2,20>};
+  		public test bool testRelation135() = {<1,10>, <2,20>} + {<3,30>} == {<1,10>, <2,20>, <3,30>};
+  		public test bool testRelation136() = {<1,10>, <2,20>} + {<2,20>, <3,30>} == {<1,10>, <2,20>, <3,30>};
   		
-  		public test bool assertTrue132() = {<1,10>} + {} == {<1,10>};
-  		public test bool assertTrue133() = {} + {<1,10>}  == {<1,10>};
-  		public test bool assertTrue134() = {<1,10>} + {<2,20>} == {<1,10>, <2,20>};
-  		public test bool assertTrue135() = {<1,10>, <2,20>} + {<3,30>} == {<1,10>, <2,20>, <3,30>};
-  		public test bool assertTrue136() = {<1,10>, <2,20>} + {<2,20>, <3,30>} == {<1,10>, <2,20>, <3,30>};
+  		public test bool testRelation137() = {<1,10>} - {} == {<1,10>};
+  		public test bool testRelation138() = {} - {<1,10>}  == {};
+  		public test bool testRelation139() = {<1,10>, <2,20>} - {<2,20>, <3,30>} == {<1,10>};
   		
-  		public test bool assertTrue137() = {<1,10>} - {} == {<1,10>};
-  		public test bool assertTrue138() = {} - {<1,10>}  == {};
-  		public test bool assertTrue139() = {<1,10>, <2,20>} - {<2,20>, <3,30>} == {<1,10>};
+  		public test bool testRelation140() = {<1,10>} & {} == {};
+  		public test bool testRelation141() = {} & {<1,10>}  == {};
+  		public test bool testRelation142() = {<1,10>, <2,20>} & {<2,20>, <3,30>} == {<2,20>};
+  		public test bool testRelation143() = {<1,2,3,4>, <2,3,4,5>} & {<2,3,4,5>,<3,4,5,6>} == {<2,3,4,5>};
   		
-  		public test bool assertTrue140() = {<1,10>} & {} == {};
-  		public test bool assertTrue141() = {} & {<1,10>}  == {};
-  		public test bool assertTrue142() = {<1,10>, <2,20>} & {<2,20>, <3,30>} == {<2,20>};
-  		public test bool assertTrue143() = {<1,2,3,4>, <2,3,4,5>} & {<2,3,4,5>,<3,4,5,6>} == {<2,3,4,5>};
+  		public test bool testRelation144() = <2,20> in {<1,10>, <2,20>, <3,30>};
+  		public test bool testRelation145() = <1,2,3> in {<1,2,3>, <4,5,6>};
   		
-  		public test bool assertTrue144() = <2,20> in {<1,10>, <2,20>, <3,30>};
-  		public test bool assertTrue145() = <1,2,3> in {<1,2,3>, <4,5,6>};
+  		public test bool testRelation146() = <4,40> notin {<1,10>, <2,20>, <3,30>};
+  		public test bool testRelation147() = <1,2,4> notin {<1,2,3>, <4,5,6>};
   		
-  		public test bool assertTrue146() = <4,40> notin {<1,10>, <2,20>, <3,30>};
-  		public test bool assertTrue147() = <1,2,4> notin {<1,2,3>, <4,5,6>};
+  		public test bool testRelation148() = {} o {} == {};
+  		public test bool testRelation149() = {<1,10>,<2,20>} o {} == {};
+  		public test bool testRelation150() = {} o {<10,100>, <20,200>} == {};
+  		public test bool testRelation151() = {<1,10>,<2,20>} o {<10,100>, <20,200>} == {<1,100>, <2,200>};
   		
-  		public test bool assertTrue148() = {} o {} == {};
-  		public test bool assertTrue149() = {<1,10>,<2,20>} o {} == {};
-  		public test bool assertTrue150() = {} o {<10,100>, <20,200>} == {};
-  		public test bool assertTrue151() = {<1,10>,<2,20>} o {<10,100>, <20,200>} == {<1,100>, <2,200>};
-  		
-  		public test bool assertTrue152() = {<1, "a">, <2, "b">} * {<false, 0>, <true, 1>} == {<<1,"a">,<false,0>>,<<2,"b">,<false,0>>,<<1,"a">,<true,1>>,<<2,"b">,<true,1>>};
+  		public test bool testRelation152() = {<1, "a">, <2, "b">} * {<false, 0>, <true, 1>} == {<<1,"a">,<false,0>>,<<2,"b">,<false,0>>,<<1,"a">,<true,1>>,<<2,"b">,<true,1>>};
   
-  		public test bool assertTrue153() = {<1,2>} join {<2,3>} == {<1,2,2,3>};
-  		public test bool assertTrue154() = {<1,2>} join {} == {};
-  		public test bool assertTrue155() = {} join {<2,3>} == {};
-  		public test bool assertTrue156() = {} join {} == {};
-  		public test bool assertTrue157() = {<1,2>} join {3} == {<1,2,3>};
-  		public test bool assertTrue158() = {<1,2>} join {3, 4} == {<1,2,3>, <1,2,4>};
-  		public test bool assertTrue159() = {1} join {2} == {<1,2>};
-  		public test bool assertTrue160() = {1,2,3} join {2} == {<1,2>, <2,2>, <3,2>};
+  		public test bool testRelation153() = {<1,2>} join {<2,3>} == {<1,2,2,3>};
+  		public test bool testRelation154() = {<1,2>} join {} == {};
+  		public test bool testRelation155() = {} join {<2,3>} == {};
+  		public test bool testRelation156() = {} join {} == {};
+  		public test bool testRelation157() = {<1,2>} join {3} == {<1,2,3>};
+  		public test bool testRelation158() = {<1,2>} join {3, 4} == {<1,2,3>, <1,2,4>};
+  		public test bool testRelation159() = {1} join {2} == {<1,2>};
+  		public test bool testRelation160() = {1,2,3} join {2} == {<1,2>, <2,2>, <3,2>};
   		
   
-  		public test bool assertTrue161() = {} + == {};
-  		public test bool assertTrue162() = {} * == {};
+  		public test bool testRelation161() = {} + == {};
+  		public test bool testRelation162() = {} * == {};
   		
-  		public test bool assertTrue163() = {<1,2>, <2,3>, <3,4>} + == {<1,2>, <2,3>, <3,4>, <1, 3>, <2, 4>, <1, 4>};
+  		public test bool testRelation163() = {<1,2>, <2,3>, <3,4>} + == {<1,2>, <2,3>, <3,4>, <1, 3>, <2, 4>, <1, 4>};
   		
-  		public test bool assertTrue164() = {<1,2>, <2,3>, <3,4>} * == {<1,2>, <2,3>, <3,4>, <1, 3>, <2, 4>, <1, 4>, <1, 1>, <2, 2>, <3, 3>, <4, 4>};
+  		public test bool testRelation164() = {<1,2>, <2,3>, <3,4>} * == {<1,2>, <2,3>, <3,4>, <1, 3>, <2, 4>, <1, 4>, <1, 1>, <2, 2>, <3, 3>, <4, 4>};
   		
-  		public test bool assertTrue165() = {<1,2>, <2,3>, <3,4>, <4,2>, <4,5>}+ ==	{<1,2>, <2,3>, <3,4>, <4,2>, <4,5>, <1, 3>, <2, 4>, <3, 2>, <3, 5>, <4, 3>, <1, 4>, <2, 2>, <2, 5>, <3, 3>, <4, 4>, <1, 5>};
+  		public test bool testRelation165() = {<1,2>, <2,3>, <3,4>, <4,2>, <4,5>}+ ==	{<1,2>, <2,3>, <3,4>, <4,2>, <4,5>, <1, 3>, <2, 4>, <3, 2>, <3, 5>, <4, 3>, <1, 4>, <2, 2>, <2, 5>, <3, 3>, <4, 4>, <1, 5>};
   		
-  		public test bool assertTrue166() = {<1,2>, <2,3>, <3,4>, <4,2>, <4,5>}* == {<1,2>, <2,3>, <3,4>, <4,2>, <4,5>, <1, 3>, <2, 4>, <3, 2>, <3, 5>, <4, 3>, <1, 4>, <2, 2>, <2, 5>, <3, 3>, <4, 4>, <1, 5>, <1, 1>, <5, 5>};
-  	}
-  
-  	
-  	
+  		public test bool testRelation166() = {<1,2>, <2,3>, <3,4>, <4,2>, <4,5>}* == {<1,2>, <2,3>, <3,4>, <4,2>, <4,5>, <1, 3>, <2, 4>, <3, 2>, <3, 5>, <4, 3>, <1, 4>, <2, 2>, <2, 5>, <3, 3>, <4, 4>, <1, 5>, <1, 1>, <5, 5>};
+ // 	}
+    	
   // @Test public void namedRelation1() {
-  		public test bool assertTrue167() {rel[int from, int to] R = {<1,10>, <2,20>}; return R.from == {1,2};}
-  		public test bool assertTrue168() {rel[int from, int to] R = {<1,10>, <2,20>}; return R.to == {10,20};}
+  		public test bool namedRelation167() {rel[int from, int to] R = {<1,10>, <2,20>}; return R.from == {1,2};}
+  		public test bool namedRelation168() {rel[int from, int to] R = {<1,10>, <2,20>}; return R.to == {10,20};}
   //	}
   
   
@@ -1198,75 +1194,75 @@
   data NODE = i(int I) | s(str x)  | st(set[NODE] s) | l(list[NODE]) | m(map[NODE,NODE] m) | f() | f(NODE a) | f(NODE a, NODE b) | g() | g(NODE a) | g(NODE a,NODE b);
   	
   //	@Test public void node()  
-  		public test bool assertTrue169()=f() == f();
-  		public test bool assertTrue170()=f() != g();
-  		public test bool assertTrue171() {NODE n = f(); NODE m = g(); return n != m;}
-  		public test bool assertTrue172()=f(i(1)) == f(i(1));
-  		public test bool assertTrue173()=f(i(1)) != g(i(1));
-  		public test bool assertTrue174() {NODE n = f(i(1)); NODE m = g(i(1)); return n != m;}
-  		public test bool assertTrue175()=f(i(1),i(2)) == f(i(1),i(2));
-  		public test bool assertTrue176()=f(i(1),i(2)) != f(i(1),i(3));
-  		public test bool assertTrue177() { NODE n = f(i(1),i(2)); NODE m = f(i(1),i(3)); return n != m;}
-  		public test bool assertTrue178()=f(i(1),g(i(2),i(3))) == f(i(1),g(i(2),i(3)));
-  		public test bool assertTrue179()=f(i(1),g(i(2),i(3))) != f(i(1),g(i(2),i(4)));
-  		public test bool assertTrue180() {NODE n = f(i(1),g(i(2),i(3))); NODE m = f(i(1),g(i(2),i(4))); return n != m;}
-  		public test bool assertTrue181()=f(i(1),g(i(2),st({i(3),i(4),i(5)}))) == f(i(1),g(i(2),st({i(3),i(4),i(5)})));
-  		public test bool assertTrue182() { NODE n = f(i(1),g(i(2),st({i(3),i(4),i(5)}))); NODE m = f(i(1),g(i(2),st({i(3),i(4),i(5),i(6)}))); return n != m;}
-  		public test bool assertTrue183()=f(i(1),g(i(2),l([i(3),i(4),i(5)]))) == f(i(1),g(i(2),l([i(3),i(4),i(5)])));
-  		public test bool assertTrue184() { NODE n = f(i(1),g(i(2),l([i(3),i(4),i(5)]))); NODE m = f(i(1),g(i(2),l([i(3),i(4),i(5),i(6)]))); return  n != m;}
-  		public test bool assertTrue185()=f(i(1),g(i(2),m((i(3):i(3),i(4):i(4),i(5):i(5))))) == f(i(1),g(i(2),m((i(3):i(3),i(4):i(4),i(5):i(5)))));
-  		public test bool assertTrue186() {NODE n = f(i(1),g(i(2),m((i(3):i(3),i(4):i(4),i(5):i(5))))); NODE x = f(i(1),g(i(2),m((i(3):i(3),i(4):i(4),i(5):i(0))))); return n != x;}
+  		public test bool node169()=f() == f();
+  		public test bool node170()=f() != g();
+  		public test bool node171() {NODE n = f(); NODE m = g(); return n != m;}
+  		public test bool node172()=f(i(1)) == f(i(1));
+  		public test bool node173()=f(i(1)) != g(i(1));
+  		public test bool node174() {NODE n = f(i(1)); NODE m = g(i(1)); return n != m;}
+  		public test bool node175()=f(i(1),i(2)) == f(i(1),i(2));
+  		public test bool node176()=f(i(1),i(2)) != f(i(1),i(3));
+  		public test bool node177() { NODE n = f(i(1),i(2)); NODE m = f(i(1),i(3)); return n != m;}
+  		public test bool node178()=f(i(1),g(i(2),i(3))) == f(i(1),g(i(2),i(3)));
+  		public test bool node179()=f(i(1),g(i(2),i(3))) != f(i(1),g(i(2),i(4)));
+  		public test bool node180() {NODE n = f(i(1),g(i(2),i(3))); NODE m = f(i(1),g(i(2),i(4))); return n != m;}
+  		public test bool node181()=f(i(1),g(i(2),st({i(3),i(4),i(5)}))) == f(i(1),g(i(2),st({i(3),i(4),i(5)})));
+  		public test bool node182() { NODE n = f(i(1),g(i(2),st({i(3),i(4),i(5)}))); NODE m = f(i(1),g(i(2),st({i(3),i(4),i(5),i(6)}))); return n != m;}
+  		public test bool node183()=f(i(1),g(i(2),l([i(3),i(4),i(5)]))) == f(i(1),g(i(2),l([i(3),i(4),i(5)])));
+  		public test bool node184() { NODE n = f(i(1),g(i(2),l([i(3),i(4),i(5)]))); NODE m = f(i(1),g(i(2),l([i(3),i(4),i(5),i(6)]))); return  n != m;}
+  		public test bool node185()=f(i(1),g(i(2),m((i(3):i(3),i(4):i(4),i(5):i(5))))) == f(i(1),g(i(2),m((i(3):i(3),i(4):i(4),i(5):i(5)))));
+  		public test bool node186() {NODE n = f(i(1),g(i(2),m((i(3):i(3),i(4):i(4),i(5):i(5))))); NODE x = f(i(1),g(i(2),m((i(3):i(3),i(4):i(4),i(5):i(0))))); return n != x;}
   
-  		public test bool assertTrue187()=f()                       <= f();
-  		public test bool assertTrue188()=f()                       <= g();
-  		public test bool assertTrue189()=f()                       <= f(i(1));
-  		public test bool assertTrue190()=f(i(1))                   <= f(i(1));
-  		public test bool assertTrue191()=f(i(1), i(2))             <= f(i(1), i(3));
-  		public test bool assertTrue192()=f(i(1), i(2))             <= g(i(1), i(3));
-  		public test bool assertTrue193()=f(i(1), s("abc"))       <= f(i(1), s("def"));
-  		public test bool assertTrue194()=f(i(1), l([i(2), i(3)]))  <= f(i(1), l([i(2),i(3),i(4)]));
-  		public test bool assertTrue195()=f(i(1), l([i(2), i(3)]))  <= f(i(1), l([i(2),i(3)]));
+  		public test bool node187()=f()                       <= f();
+  		public test bool node188()=f()                       <= g();
+  		public test bool node189()=f()                       <= f(i(1));
+  		public test bool node190()=f(i(1))                   <= f(i(1));
+  		public test bool node191()=f(i(1), i(2))             <= f(i(1), i(3));
+  		public test bool node192()=f(i(1), i(2))             <= g(i(1), i(3));
+  		public test bool node193()=f(i(1), s("abc"))       <= f(i(1), s("def"));
+  		public test bool node194()=f(i(1), l([i(2), i(3)]))  <= f(i(1), l([i(2),i(3),i(4)]));
+  		public test bool node195()=f(i(1), l([i(2), i(3)]))  <= f(i(1), l([i(2),i(3)]));
   		
-  		public test bool assertTrue196()=!(f()                      < f());
-  		public test bool assertTrue197()=f()                       < g();
-  		public test bool assertTrue198()=f()                       < f(i(1));
-  		public test bool assertTrue199()=!(f(i(1))                  < f(i(1)));
-  		public test bool assertTrue200()=f(i(1), i(2))             < f(i(1), i(3));
-  		public test bool assertTrue201()=f(i(1), i(2))             < g(i(1), i(3));
-  		public test bool assertTrue202()=f(i(1), s("abc"))       < f(i(1), s("def"));
-  		public test bool assertTrue203()=f(i(1), l([i(2), i(3)]))  < f(i(1), l([i(2),i(3),i(4)]));
-  		public test bool assertTrue204()=!(f(i(1), l([i(2), i(3)])) < f(i(1), l([i(2),i(3)])));
+  		public test bool node196()=!(f()                      < f());
+  		public test bool node197()=f()                       < g();
+  		public test bool node198()=f()                       < f(i(1));
+  		public test bool node199()=!(f(i(1))                  < f(i(1)));
+  		public test bool node200()=f(i(1), i(2))             < f(i(1), i(3));
+  		public test bool node201()=f(i(1), i(2))             < g(i(1), i(3));
+  		public test bool node202()=f(i(1), s("abc"))       < f(i(1), s("def"));
+  		public test bool node203()=f(i(1), l([i(2), i(3)]))  < f(i(1), l([i(2),i(3),i(4)]));
+  		public test bool node204()=!(f(i(1), l([i(2), i(3)])) < f(i(1), l([i(2),i(3)])));
   		
-  		public test bool assertTrue205()=f()                          >= f();
-  		public test bool assertTrue206()=g()                          >= f();
-  		public test bool assertTrue207()=f(i(1))                      >= f();
-  		public test bool assertTrue208()=f(i(1))                      >= f(i(1));
-  		public test bool assertTrue209()=f(i(1), i(3))                >= f(i(1), i(2));
-  		public test bool assertTrue210()=g(i(1), i(2))                >= f(i(1), i(3));
-  		public test bool assertTrue211()=f(i(1), s("def"))          >= f(i(1), s("abc"));
-  		public test bool assertTrue212() =f(i(1), l([i(2),i(3),i(4)])) >= f(i(1), l([i(2),i(3)]));
-  		public test bool assertTrue213()=f(i(1), l([i(2), i(3)]))     >= f(i(1), l([i(2),i(3)]));
+  		public test bool node205()=f()                          >= f();
+  		public test bool node206()=g()                          >= f();
+  		public test bool node207()=f(i(1))                      >= f();
+  		public test bool node208()=f(i(1))                      >= f(i(1));
+  		public test bool node209()=f(i(1), i(3))                >= f(i(1), i(2));
+  		public test bool node210()=g(i(1), i(2))                >= f(i(1), i(3));
+  		public test bool node211()=f(i(1), s("def"))          >= f(i(1), s("abc"));
+  		public test bool node212() =f(i(1), l([i(2),i(3),i(4)])) >= f(i(1), l([i(2),i(3)]));
+  		public test bool node213()=f(i(1), l([i(2), i(3)]))     >= f(i(1), l([i(2),i(3)]));
   		
-  		public test bool assertTrue214()=!(f()                         > f());
-  		public test bool assertTrue215()=g()                          > f();
-  		public test bool assertTrue216()=f(i(1))                      > f();
-  		public test bool assertTrue217()=!(f(i(1))                     > f(i(1)));
-  		public test bool assertTrue218()=f(i(1), i(3))                > f(i(1), i(2));
-  		public test bool assertTrue219()=g(i(1), i(2))                > f(i(1), i(3));
-  		public test bool assertTrue220()=f(i(1), s("def"))          > f(i(1), s("abc"));
-  		public test bool assertTrue221()=  f(i(1), l([i(2),i(3),i(4)])) > f(i(1), l([i(2),i(3)]));
-  		public test bool assertTrue222()=!(f(i(1), l([i(2), i(3)]))    > f(i(1), l([i(2),i(3)])));
+  		public test bool node214()=!(f()                         > f());
+  		public test bool node215()=g()                          > f();
+  		public test bool node216()=f(i(1))                      > f();
+  		public test bool node217()=!(f(i(1))                     > f(i(1)));
+  		public test bool node218()=f(i(1), i(3))                > f(i(1), i(2));
+  		public test bool node219()=g(i(1), i(2))                > f(i(1), i(3));
+  		public test bool node220()=f(i(1), s("def"))          > f(i(1), s("abc"));
+  		public test bool node221()=  f(i(1), l([i(2),i(3),i(4)])) > f(i(1), l([i(2),i(3)]));
+  		public test bool node222()=!(f(i(1), l([i(2), i(3)]))    > f(i(1), l([i(2),i(3)])));
   // 	}
   
   data D = d(int ival);
   	
   // @Test public void undefined()  {
-  		public test bool assertTrue223() {int T; return (T ? 13) == 13;}
-  		public test bool assertTrue224() {T = (1:10); return (T[1] ? 13) == 10;}
-  		public test bool assertTrue225() {T = (1:10); return (T[2] ? 13) == 13;}
+  		public test bool undefined223() {int T; return (T ? 13) == 13;}
+  		public test bool undefined224() {T = (1:10); return (T[1] ? 13) == 10;}
+  		public test bool undefined225() {T = (1:10); return (T[2] ? 13) == 13;}
   		
-  		public test bool assertTrue226() {T = (1:10); return T[1] ? == true;}
-  		public test bool assertTrue227() {T = (1:10); return T[2] ? == false;} 	
+  		public test bool undefined226() {T = (1:10); return T[1] ? == true;}
+  		public test bool undefined227() {T = (1:10); return T[2] ? == false;} 	
   //	}
   
  

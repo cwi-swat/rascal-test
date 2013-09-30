@@ -225,49 +225,11 @@
   		public test bool indexOutOfBoundsException1()=functionR();
   //	}
   
-  @expected{UndeclaredAnnotation}
-  
-  	//public void NoSuchAnnotationException(){
-  		public test bool noSuchAnnotationException1() = functionA();
-  	// }
-  	
   //	@Test public void PathNotFoundException(){	
   		public test bool pathNotFoundException1()=functionF();
   //	}
   
-  @expected{UnsupportedSubscriptArity}
-  //	public void SubscriptException(){
-  		public test bool assertTrue1()=functionB();
-  //	}
-  	
-  @expected{UndeclaredVariable}
   
-  //	public void UndefinedValueException(){
-  		public test bool undefinedValueException1()=functionC();
-  //	}
   	
-  @expected{UninitializedVariable}
-  //	public void UninitializedvariableException(){
-  		public test bool uninitializedvariableException1()=functionD();
-  //	}
-  	
-  @expected{UninitializedVariable}
-  //	public void UnknownExceptionError1(){
-  		public test bool assertTrue2()=functionE();
-  //	}
-  	
-  @expected{UndeclaredVariable}
-  //	public void UnknownExceptionError2(){
-  		public test bool assertTrue3()=ffunctionZ();
-  //	}
-  
-    	@expected{UnexpectedType}
-  // public test bool doWhileError() {
-  		public test bool doWhileError1() {do {n = 4;} while(3); return false;}
-  //	}
- 	
-  	@expected{UnexpectedType}
-  	// public test bool whileError() {
-  		public test bool whileError1() {while(3){n = 4;};return false;}
-  	// } 
+ 
  
