@@ -208,7 +208,7 @@ data D = d(int ival);
   	}
   	
   	@expected{UndeclaredField}
-  	public void namedRelationError1(){
+  	public test bool namedRelationError1(){
   		{rel[int from, int to] R = {<1,10>, <2,20>}; R.zip == {10,20};}return false;
   	}
   
