@@ -1,5 +1,6 @@
 module tests::IO
 
+import Exception;
 import IO;
 import ValueIO;
 

@@ -516,7 +516,7 @@
   		public test bool testList45() = 2 in [1, 2, 3];
   		public test bool testList46() = 3 notin [2, 4, 6];
   		
-  		public test bool testList47() = 2 > 3 ? [1,2] : [1,2,3] == [1,2,3];
+  		public test bool testList47() = (2 > 3 ? [1,2] : [1,2,3]) == [1,2,3];
   //	}
   
   	@expected{IndexOutOfBounds}
@@ -1051,12 +1051,12 @@
   	 
   	 @expected{Throw}
   	 public void NoKeyError1(){
-  		 (1:10, 2:20)[3];return false;
+  		 (1:10, 2:20)[3];return;
   	 }
   	 
   	 @expected{Throw}  // MultipleKey
   	 public void MultipleKeyError1(){
-  		 (1:10, 1:10);return false;
+  		 (1:10, 1:10);return;
   	 }
   	
   	// @Test public void testTuple() {
@@ -1126,7 +1126,7 @@
   		public test bool assertTrue126() = {<1,2,3,4>, <4,5,6,7>} == {<4,5,6,7>, <1,2,3,4>};
   		
   		public test bool assertTrue127() = {} != {<1,2>, <3,4>};
-  		public test bool assertTrue128() = !({<1,2>, <3,4>}) == {};
+  		public test bool assertTrue128() = !({<1,2>, <3,4>} == {});
   		
   		public test bool assertTrue129() = {<1, {1,2,3}>, <2, {2,3,4}>} ==  {<1, {1,2,3}>, <2, {2,3,4}>};
   		public test bool assertTrue130() = {<1, {1,2,3}>, <2, {2,3,4}>} ==  {<2, {2,3,4}>, <1, {1,2,3}>};
