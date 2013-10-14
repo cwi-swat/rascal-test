@@ -1,10 +1,4 @@
 module tests::functionality::AccumulatingTests
-
-	@expected{UnguardedAppend}
-	public test bool appendWithoutFor() {
-		append 3; return false;
-	}
-	
 	
 	public test bool testForWithAppend() {
 		return {for (x <- [1,2,3]) append x; } == [1,2,3];
@@ -48,11 +42,7 @@ module tests::functionality::AccumulatingTests
 		runTestInSameEvaluator("{ for (x <- [1,2,3]) f(); }");
 	}
 */	
-	@expected{UnguardedAppend}
-	public test bool testAppendHasLexicalScopingClosure() {
-		return {f = () { append 3; }; for (x <- [1,2,3]) { f(); }}
-			== [3,3,3];
-	}
+	
 
 
 	public test bool escapingClosureAppendToDevNull() {

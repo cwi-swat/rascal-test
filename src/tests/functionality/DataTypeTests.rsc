@@ -516,7 +516,7 @@
     		public test bool testList45() = 2 in [1, 2, 3];
     		public test bool testList46() = 3 notin [2, 4, 6];
     		
-    		public test bool testList47() = 2 > 3 ? [1,2] : [1,2,3] == [1,2,3];
+    		public test bool testList47() = (2 > 3 ? [1,2] : [1,2,3]) == [1,2,3];
     //	}
     
     	@expected{IndexOutOfBounds}
@@ -1051,12 +1051,12 @@
     	 
     	 @expected{Throw}
     	 public void NoKeyError1(){
-    		 (1:10, 2:20)[3];return false;
+    		 (1:10, 2:20)[3];return;
     	 }
     	 
     	 @expected{Throw}  // MultipleKey
     	 public void MultipleKeyError1(){
-    		 (1:10, 1:10);return false;
+    		 (1:10, 1:10);return;
     	 }
     	
     	// @Test public void testTuple() {
@@ -1185,12 +1185,13 @@
     		public test bool namedRelation2() {rel[int from, int to] R = {<1,10>, <2,20>}; return R.to == {10,20};}
     //	}
     
-    
+    /* Issue :f constructor overlaps with NODE */
+    /*
     data NODE1 = val(value V) | f() | f1(NODE1 a);
     	public test bool good1()  {
     		return f1(val(1)) == f1(val(1));
     	}
-    
+    */
     data NODE = i(int I) | s(str x)  | st(set[NODE] s) | l(list[NODE]) | m(map[NODE,NODE] m) | f() | f(NODE a) | f(NODE a, NODE b) | g() | g(NODE a) | g(NODE a,NODE b);
     	
     //	@Test public void node()  

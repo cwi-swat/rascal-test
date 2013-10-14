@@ -1,5 +1,6 @@
 module tests::Equality
 
+import Exception;
 import util::Math;
 import Set;
 import Map;

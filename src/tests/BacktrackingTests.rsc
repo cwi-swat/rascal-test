@@ -1,5 +1,6 @@
 module tests::BacktrackingTests
 
+import Exception;
 import List;
 import IO;
 

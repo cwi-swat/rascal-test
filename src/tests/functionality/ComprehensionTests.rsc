@@ -14,7 +14,9 @@
    *   * Arnold Lankamp - Arnold.Lankamp@cwi.nl
    *   * Bert Lisser - Bert.Lisser@cwi.nl - CWI
   *******************************************************************************/
-  import List;
+ 
+ import Exception;
+ import List;
   	
   //	@Test public void emptySetGeneratorError1(){
   		public test bool emptySetGeneratorError1()  = { X | int X <- {} } == {};
