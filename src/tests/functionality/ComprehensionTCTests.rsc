@@ -89,3 +89,19 @@ module tests::functionality::ComprehensionTCTests
   //	public void NoLeakFromNextGenerator2(){
   		public test bool NoLeakFromNextGenerator2()  = [<N,M> | int N <- [1 .. 3], ((N==1) ? true : M > 0), int M := N] == [<1,1>,<2,2>];
   //	}
+  
+   //	@Test public void emptyTupleGeneratorError1(){
+  		public test bool emptyTupleGeneratorError1()  = {<X,Y> | <int X, int Y> <- {}} == {} ;
+  //	}
+  	
+  //	@Test public void emptyTupleGeneratorError2(){
+  		public test bool emptyTupleGeneratorError2()  = {<X,Y> | <int X, int Y> <- []} == {} ;
+  //	}
+  	
+  //	@Test public void emptyTupleGeneratorError3(){
+  		public test bool emptyTupleGeneratorError3()  = {<X,Y> | int X <- {}, int Y <- {}} == {};
+  //	}
+  	
+  //	@Test public void emptyTupleGeneratorError4(){
+  		public test bool emptyTupleGeneratorError4()  = {<X,Y> | int X <- [], int Y <- []} == {};
+  //	}

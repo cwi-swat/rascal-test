@@ -160,7 +160,7 @@
   		public test bool all20()  = !(all(_ <- ()));
   		// This must be a bug
   		// public test bool all()  = all(i <- [1,2,3], (i % 2 == 0 || i % 2 == 1));
-  		public test bool all21()  = all(i <- [1,2,3], (i % 2 == 0 || i % 2 == 1)?true:false);
+  		public test bool all21()  = all(k <- [1,2,3], (k % 2 == 0 || k % 2 == 1)?true:false);
   //	}
   	
   
@@ -344,21 +344,7 @@
   		
   //	}
   	
-  //	@Test public void emptyTupleGeneratorError1(){
-  		public test bool emptyTupleGeneratorError1()  = {<X,Y> | <int X, int Y> <- {}} == {} ;
-  //	}
-  	
-  //	@Test public void emptyTupleGeneratorError2(){
-  		public test bool emptyTupleGeneratorError2()  = {<X,Y> | <int X, int Y> <- []} == {} ;
-  //	}
-  	
-  //	@Test public void emptyTupleGeneratorError3(){
-  		public test bool emptyTupleGeneratorError3()  = {<X,Y> | int X <- {}, int Y <- {}} == {};
-  //	}
-  	
-  //	@Test public void emptyTupleGeneratorError4(){
-  		public test bool emptyTupleGeneratorError4()  = {<X,Y> | int X <- [], int Y <- []} == {};
-  //	}
+ 
   	
   //	@Test public void relationComprehension() {	
   		
