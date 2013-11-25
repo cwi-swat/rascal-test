@@ -80,8 +80,8 @@ public test bool differentElement2(int i, rat r) = i == r ==> size({i,r}) == 2; 
 public test bool differentElement2(int i, real r) = i == r ==> size({i,r}) == 2; // yes, really 2.
 
 // map keys
-public test bool differentKeys(int i,real r) = (i:10,r:20)[toReal(i)]?0 == 0;
-public test bool differentKeys2(int i,rat r) = (i:10,r:20)[toRat(i,1)]?0 == 0;
+public test bool differentKeys(int i,real r) = ((i:10,r:20)[toReal(i)]?0) == 0;
+public test bool differentKeys2(int i,rat r) = ((i:10,r:20)[toRat(i,1)]?0) == 0;
 public test bool differentKeys3(int i) = size((i:10) + (toRat(i,1):20) + (toReal(i):30)) == 3;
 
 // == vs eq
