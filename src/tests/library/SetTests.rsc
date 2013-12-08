@@ -12,6 +12,7 @@
    *   * Paul Klint - Paul.Klint@cwi.nl - CWI
    *   * Bert Lisser - Bert.Lisser@cwi.nl - CWI
   *******************************************************************************/
+  import Exception;
   import Set;
   // getOneFrom
   		public test bool getOneFrom1() {int N = Set::getOneFrom({1});  return N == 1;}

@@ -52,3 +52,16 @@ public test bool assertError5() {
   public test bool ifThenElseError1() {
   		if("abc") {n = 4;} else {n=5;}; return false;
   	}
+  	
+  	
+ @expected{AssertionFailed}
+  	// public test bool assertError1() {
+  		public test bool assertError1() {assert 1 == 2;return false;}
+  	// }
+  	
+  @expected{IndexOutOfBounds}
+  public test bool indexOutOfBounds1() {
+  		rel[int,int] T =    R1;
+  		solve (T; -1)  T = T + (T o R1);
+  		return T =={<1,2>, <1,3>,<1,4>,<2,3>,<2,4>,<3,4>};
+  		}

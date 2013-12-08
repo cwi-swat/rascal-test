@@ -1,5 +1,6 @@
 module tests::Matching
 
+import Exception;
 import List;
 import IO;
 
