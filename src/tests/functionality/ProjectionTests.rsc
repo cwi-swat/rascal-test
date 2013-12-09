@@ -22,9 +22,4 @@ module tests::functionality::ProjectionTests
 		public test bool nonEmpty2()={<1,2>}<1> == {2};
 //	}
 	
-@expected{IndexOutOfBounds}
-//	public void outOfBounds() {
-		public test bool outOfBounds()={<1,2>}<2> == {2};
-//	}
-	
 

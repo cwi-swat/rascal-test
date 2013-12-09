@@ -27,26 +27,23 @@ module tests::functionality::RegExpTests
 		public test bool match()=/<x:\/>/ := "/" && x == "/";
 //	}
 	
-@expected{RedeclaredVariable}
-//	public void RedeclaredError(){
-		public test bool match() = (/<x:[a-z]+>-<x:[a-z]+>/ !:= "abc-abc") && (x == "abc");
-//	}
+
 	
 //	@Test public void matchWithLocalVariable(){
-		public test bool matchWithLocalVariable() { str x;          return (/<x:[a-z]+>/ := "abc") && (x == "abc");}
-		public test bool matchWithLocalVariable() { str x = "123"; return (/<x:[a-z]+>/ := "abc") && (x == "abc");}
-		public test bool matchWithLocalVariable() { str x = "123"; return (/<x:[a-z]+>/ := "abc"); (x == "123");}
+//		public test bool matchWithLocalVariable() { str x;          return (/<x:[a-z]+>/ := "abc") && (x == "abc");}
+//		public test bool matchWithLocalVariable() { str x = "123"; return (/<x:[a-z]+>/ := "abc") && (x == "abc");}
+//		public test bool matchWithLocalVariable() { str x = "123"; return (/<x:[a-z]+>/ := "abc"); (x == "123");}
 //	}
 	
 //	@Test public void matchWithLocalVariableOfNonStringType(){
-		public test bool matchWithLocalVariable() { int x;       return (/<x:[a-z]+>/ := "abc") && (x == "abc");}
-		public test bool matchWithLocalVariable() { int x = 123; return (/<x:[a-z]+>/ := "abc") && (x == "abc");}
-		public test bool matchWithLocalVariable() { int x = 123; return (/<x:[a-z]+>/ := "abc"); (x == 123);}
+//		public test bool matchWithLocalVariable() { int x;       return (/<x:[a-z]+>/ := "abc") && (x == "abc");}
+//		public test bool matchWithLocalVariable() { int x = 123; return (/<x:[a-z]+>/ := "abc") && (x == "abc");}
+//		public test bool matchWithLocalVariable() { int x = 123; return (/<x:[a-z]+>/ := "abc"); (x == 123);}
 //	}
 	
 //	@Test public void nomatchWithLocalVariable(){
-		public test bool nomatchWithLocalVariable() { str x = "123"; return (/<x:[a-z]+>/ !:= "abc" || x == "123");}
-		public test bool nomatchWithLocalVariable() { str x = "123"; (/<x:[a-z]+>/ !:= "abc");  return (x == "123");}
+//		public test bool nomatchWithLocalVariable() { str x = "123"; return (/<x:[a-z]+>/ !:= "abc" || x == "123");}
+//		public test bool nomatchWithLocalVariable() { str x = "123"; (/<x:[a-z]+>/ !:= "abc");  return (x == "123");}
 //	}
 	
 //	@Test public void repeatedInterpolation() {
