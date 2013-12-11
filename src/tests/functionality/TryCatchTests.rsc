@@ -15,7 +15,11 @@
    *   * Bert Lisser - Bert.Lisser@cwi.nl - CWI
   *******************************************************************************/
   import Exception;
-  import Prelude;
+  import List;
+  import Map;
+  import IO;
+  import util::Math;
+  //import Prelude;
   
   
   data NODEA = fA(int N);
@@ -127,13 +131,13 @@
   		  return false; 
   		}
   		
-  bool functionS() { 
-  		  try { 
-  		     getOneFrom({}); 
-  		  } catch EmptySet: 
-  		      return true; 
-  		  return false; 
-  		}
+  //bool functionS() { 
+  //		  try { 
+  //		     getOneFrom({}); 
+  //		  } catch EmptySet: 
+  //		      return true; 
+  //		  return false; 
+  //		}
   		
   bool functionR() { 
   		  try { 
@@ -179,7 +183,7 @@
   //	}
   	
   //	@Test public void emptySetException() {
-  		public test bool emptySetException1()=functionS();
+  //		public test bool emptySetException1()=functionS();
   //	}
   	
   //	@Test public void IndexOutOfBoundsException(){
