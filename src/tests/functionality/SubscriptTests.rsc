@@ -102,11 +102,11 @@ data NODE = f(int a, str b, real c);
 	}
 	
 
-	
-	@expected{UninitializedVariable}
-	public test bool UninitializedRelVariable(){
-		rel[int,int] R; R[1] = 10; return false;
-	}
+	// Changed: no support for relation updates
+	//@expected{UninitializedVariable}
+	//public test bool UninitializedRelVariable(){
+	//	rel[int,int] R; R[1] = 10; return false;
+	//}
 
 //	@Test public test bool relationMultiIndex() {
 		public test bool relationMultiIndex()={<1,"a",1.0>,<2,"b",2.0>,<3,"c",3.0>}[0] == {};
