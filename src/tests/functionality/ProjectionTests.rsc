@@ -13,8 +13,9 @@ module tests::functionality::ProjectionTests
 *******************************************************************************/
 
 //	@Test public void empty() {
-		public test bool empty1()={}<0> == {};
-		public test bool empty2()={}<1> == {};
+		/*changed: type incorrect */
+		//public test bool empty1()={}<0> == {};
+		//public test bool empty2()={}<1> == {};
 //	}
 	
 //	@Test public void nonEmpty() {

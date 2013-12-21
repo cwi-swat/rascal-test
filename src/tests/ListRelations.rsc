@@ -1,5 +1,6 @@
 module tests::ListRelations
 
+import Exception;
 import List;
 import ListRelation;
 

@@ -3,6 +3,7 @@ module tests::Matching
 import Exception;
 import List;
 import IO;
+import ParseTree;
 
 syntax A = a: "a";
 
