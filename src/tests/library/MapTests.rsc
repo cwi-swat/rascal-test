@@ -37,7 +37,7 @@
   //	@Test(expected=Throw.class) 
   //	public void invertError() {
   @expected{MultipleKey}
-  		public test bool invertError1()=invertUnique((1:10, 2:10));
+  		public test bool invertError1() { invertUnique((1:10, 2:10)); return true; }
   //	}
   	
   //	@Test public void invert(){
