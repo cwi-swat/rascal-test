@@ -265,12 +265,15 @@
   		runTestInSameEvaluator("varargs(1,2,3,4,q="b",z=5) == [2,3,4];"));
   	}
   */
+  
   /*comp*/
   //data Figure (real shrink = 1.0, str fillColor = "white", str lineColor = "black")  =  emptyFigure() 
   //| ellipse(Figure inner = emptyFigure()) 
   //| box(Figure inner = emptyFigure());
   //	//  public void keywordTest4(){
-  //public test bool  keywordTest2() { 
+  
+  @ignore{Keywords}
+  public test bool  keywordTest2() { 
   //		if(!(emptyFigure().fillColor == "white")) return false;
   //		if(!(emptyFigure(shrink=0.5).fillColor == "white")) return false;
   //		if(!(emptyFigure(lineColor="red").fillColor == "white")) return false;
@@ -285,7 +288,7 @@
   //		if(!(ellipse(inner=emptyFigure(fillColor="red")).fillColor == "white")) return false;
   //		if(!(ellipse(inner=emptyFigure(fillColor="red")).inner.fillColor == "red")) return false;
   //		return true;
-  //	}
+  	}
   
   
   //}
