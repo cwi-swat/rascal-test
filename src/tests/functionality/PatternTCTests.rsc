@@ -1,5 +1,9 @@
 module tests::functionality::PatternTCTests
 
+public test bool matchNestedList2() = !([[1]] := []);
+
+public test bool matchNestedSet2() = !({{1}} := {});
+
 data Bool = and(Bool, Bool) | t();
 data Prop = or(Prop, Prop) | f();
 

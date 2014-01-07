@@ -89,7 +89,6 @@
   
   //	@Test public void matchNestedList(){
   		public test bool matchNestedList1() = !([] := [[2]]);
-  		/*TC*/ //public test bool matchNestedList2() = !([[1]] := []);
   
   		public test bool matchNestedList3() = [] := [];
   		public test bool matchNestedList4() = [[1]] := [[1]];
@@ -111,7 +110,7 @@
   	
   //	@Test public void matchNestedSet(){
   		public test bool matchNestedSet1() = !({} := {{2}});
-  		/*TC*/ //public test bool matchNestedSet2() = !({{1}} := {});
+  		
   
   		public test bool matchNestedSet3() = {} := {};
   		public test bool matchNestedSet4() = {{1}} := {{1}};
@@ -165,33 +164,33 @@
   
 
   //	@Test public void matchListHasOrderedElement()  {	
-  		/*compiler*/ //public test bool matchListHasOrderedElement1() = hasOrderedElement([]) == false;
-  		/*compiler*/ //public test bool matchListHasOrderedElement2() = hasOrderedElement([1]) == false;
-  		/*compiler*/ //public test bool matchListHasOrderedElement3() = hasOrderedElement([1,2]) == false;
-  		/*compiler*/ //public test bool matchListHasOrderedElement4() = hasOrderedElement([1,2,1]) == true;
-  		/*compiler*/ //public test bool matchListHasOrderedElement5() = hasOrderedElement([1,2,3,4,3,2,1]) == true;
+  		@ignore{loops} public test bool matchListHasOrderedElement1() = hasOrderedElement([]) == false;
+  		@ignore{loops} public test bool matchListHasOrderedElement2() = hasOrderedElement([1]) == false;
+  		@ignore{loops} public test bool matchListHasOrderedElement3() = hasOrderedElement([1,2]) == false;
+  		@ignore{loops} public test bool matchListHasOrderedElement4() = hasOrderedElement([1,2,1]) == true;
+  		@ignore{loops} public test bool matchListHasOrderedElement5() = hasOrderedElement([1,2,3,4,3,2,1]) == true;
   //}
   	
   //	@Test public void matchListHasDuplicateElement()  {
-  		/*compiler*/ //public test bool matchListHasDuplicateElement1() = hasDuplicateElement([]) == false;
-  		/*compiler*/ //public test bool matchListHasDuplicateElement2() = hasDuplicateElement([1]) == false;
-  		/*compiler*/ //public test bool matchListHasDuplicateElement3() = hasDuplicateElement([1,2]) == false;
-  		/*compiler*/ //public test bool matchListHasDuplicateElement4() = hasDuplicateElement([1,1]) == true;
-  		/*compiler*/ //public test bool matchListHasDuplicateElement5() = hasDuplicateElement([1,2,3]) == false;
-  		/*compiler*/ //public test bool matchListHasDuplicateElement6() = hasDuplicateElement([1,2,3,1]) == true;
-  		/*compiler*/ //public test bool matchListHasDuplicateElement7() = hasDuplicateElement([1,2,3,2]) == true;
-  		/*compiler*/ //public test bool matchListHasDuplicateElement8() = hasDuplicateElement([1,2,3,3]) == true;
+  		@ignore{loops} public test bool matchListHasDuplicateElement1() = hasDuplicateElement([]) == false;
+  		@ignore{loops} public test bool matchListHasDuplicateElement2() = hasDuplicateElement([1]) == false;
+  		@ignore{loops} public test bool matchListHasDuplicateElement3() = hasDuplicateElement([1,2]) == false;
+  		@ignore{loops} public test bool matchListHasDuplicateElement4() = hasDuplicateElement([1,1]) == true;
+  		@ignore{loops} public test bool matchListHasDuplicateElement5() = hasDuplicateElement([1,2,3]) == false;
+  		@ignore{loops} public test bool matchListHasDuplicateElement6() = hasDuplicateElement([1,2,3,1]) == true;
+  		@ignore{loops} public test bool matchListHasDuplicateElement7() = hasDuplicateElement([1,2,3,2]) == true;
+  		@ignore{loops} public test bool matchListHasDuplicateElement8() = hasDuplicateElement([1,2,3,3]) == true;
   //	}
   
   //	@Test public void matchListIsDuo1()  {
-  		/*compiler*/ //public test bool matchListIsDuo1() = isDuo1([]) == true;
-  		/*compiler*/ //public test bool matchListIsDuo2() = isDuo1([1]) == false;
-  		/*compiler*/ //public test bool matchListIsDuo3() = isDuo1([1,1]) == true;
-  		/*compiler*/ //public test bool matchListIsDuo4() = isDuo1([1,2]) == false;
-  		/*compiler*/ //public test bool matchListIsDuo5() = isDuo1([1,2, 1]) == false;
-  		/*compiler*/ //public test bool matchListIsDuo6() = isDuo1([1,2, 1,2]) == true;
-  		/*compiler*/ //public test bool matchListIsDuo7() = isDuo1([1,2,3, 1,2]) == false;
-  		/*compiler*/ //public test bool matchListIsDuo8() = isDuo1([1,2,3, 1,2, 3]) == true;
+  		@ignore{loops} public test bool matchListIsDuo1() = isDuo1([]) == true;
+  		@ignore{loops} public test bool matchListIsDuo2() = isDuo1([1]) == false;
+  		@ignore{loops} public test bool matchListIsDuo3() = isDuo1([1,1]) == true;
+  		@ignore{loops} public test bool matchListIsDuo4() = isDuo1([1,2]) == false;
+  		@ignore{loops} public test bool matchListIsDuo5() = isDuo1([1,2, 1]) == false;
+  		@ignore{loops} public test bool matchListIsDuo6() = isDuo1([1,2, 1,2]) == true;
+  		@ignore{loops} public test bool matchListIsDuo7() = isDuo1([1,2,3, 1,2]) == false;
+  		@ignore{loops} public test bool matchListIsDuo8() = isDuo1([1,2,3, 1,2, 3]) == true;
   //	}
   		
   //	@Test public void matchListIsDuo2()  {
@@ -218,38 +217,38 @@
   
   // @Test public void matchListIsTrio1()  {
   		// prepare("import ListMatchingTests;");
-  		/*compiler*/ //public test bool matchListIsTrio1() = isTrio1([]) == true;
-  		/*compiler*/ //public test bool matchListIsTrio2() = isTrio1([1]) == false;
-  		/*compiler*/ //public test bool matchListIsTrio3() = isTrio1([1,1]) == false;
-  		/*compiler*/ //public test bool matchListIsTrio4() = isTrio1([1,1,1]) == true;
-  		/*compiler*/ //public test bool matchListIsTrio5() = isTrio1([2,1,1]) == false;
-  		/*compiler*/ //public test bool matchListIsTrio6() = isTrio1([1,2,1]) == false;
-  		/*compiler*/ //public test bool matchListIsTrio7() = isTrio1([1,1,2]) == false;
-  		/*compiler*/ //public test bool matchListIsTrio8() = isTrio1([1,2, 1,2, 1,2]) == true;
+  		@ignore{loops} public test bool matchListIsTrio1() = isTrio1([]) == true;
+  		@ignore{loops} public test bool matchListIsTrio2() = isTrio1([1]) == false;
+  		@ignore{loops} public test bool matchListIsTrio3() = isTrio1([1,1]) == false;
+  		@ignore{loops} public test bool matchListIsTrio4() = isTrio1([1,1,1]) == true;
+  		@ignore{loops} public test bool matchListIsTrio5() = isTrio1([2,1,1]) == false;
+  		@ignore{loops} public test bool matchListIsTrio6() = isTrio1([1,2,1]) == false;
+  		@ignore{loops} public test bool matchListIsTrio7() = isTrio1([1,1,2]) == false;
+  		@ignore{loops} public test bool matchListIsTrio8() = isTrio1([1,2, 1,2, 1,2]) == true;
   //	}
   	
   //	@Test public void matchListIsTrio2()  {
   //		prepare("import ListMatchingTests;");
-  		//public test bool matchListIsTrio9() = isTrio2([]) == true;
-  		//public test bool matchListIsTrio10() = isTrio2([1]) == false;
-  		//public test bool matchListIsTrio11() = isTrio2([1,1]) == false;
-  		//public test bool matchListIsTrio12() = isTrio2([1,1,1]) == true;
-  		//public test bool matchListIsTrio13() = isTrio2([2,1,1]) == false;
-  		//public test bool matchListIsTrio14() = isTrio2([1,2,1]) == false;
-  		//public test bool matchListIsTrio15() = isTrio2([1,1,2]) == false;
-  		//public test bool matchListIsTrio16() = isTrio2([1,2, 1,2, 1,2]) == true;
+  		public test bool matchListIsTrio9() = isTrio2([]) == true;
+  		public test bool matchListIsTrio10() = isTrio2([1]) == false;
+  		public test bool matchListIsTrio11() = isTrio2([1,1]) == false;
+  		public test bool matchListIsTrio12() = isTrio2([1,1,1]) == true;
+  		public test bool matchListIsTrio13() = isTrio2([2,1,1]) == false;
+  		public test bool matchListIsTrio14() = isTrio2([1,2,1]) == false;
+  		public test bool matchListIsTrio15() = isTrio2([1,1,2]) == false;
+  		public test bool matchListIsTrio16() = isTrio2([1,2, 1,2, 1,2]) == true;
   //	}
   	
   // 	@Test public void matchListIsTrio3()  {
   //		prepare("import ListMatchingTests;");
-  		//public test bool matchListIsTrio17() = isTrio3([]) == true;
-  		//public test bool matchListIsTrio18() = isTrio3([1]) == false;
-  		//public test bool matchListIsTrio19() = isTrio3([1,1]) == false;
-  		//public test bool matchListIsTrio20() = isTrio3([1,1,1]) == true;
-  		//public test bool matchListIsTrio21() = isTrio3([2,1,1]) == false;
-  		//public test bool matchListIsTrio22() = isTrio3([1,2,1]) == false;
-  		//public test bool matchListIsTrio23() = isTrio3([1,1,2]) == false;
-  		//public test bool matchListIsTrio24() = isTrio3([1,2, 1,2, 1,2]) == true;
+  		public test bool matchListIsTrio17() = isTrio3([]) == true;
+  		public test bool matchListIsTrio18() = isTrio3([1]) == false;
+  		public test bool matchListIsTrio19() = isTrio3([1,1]) == false;
+  		public test bool matchListIsTrio20() = isTrio3([1,1,1]) == true;
+  		public test bool matchListIsTrio21() = isTrio3([2,1,1]) == false;
+  		public test bool matchListIsTrio22() = isTrio3([1,2,1]) == false;
+  		public test bool matchListIsTrio23() = isTrio3([1,1,2]) == false;
+  		public test bool matchListIsTrio24() = isTrio3([1,2, 1,2, 1,2]) == true;
   // }
   
   /*** moved to PatternTestsList3   ***/
@@ -350,16 +349,16 @@
   
   		public test bool matchADT1() = f(1)                   := f(1);
   		public test bool matchADT2() = f(1, g("abc"), true) := f(1, g("abc"), true);
-  		/*TC*/ //public test bool matchADT3() = q(1) !:= f(1);
+  		public test bool matchADT3() = g("abc") !:= f(1);
   		public test bool matchADT4() = f(1, 2)!:= f(1);
   		public test bool matchADT5() = f(1, 2)!:= f(1);	
-  		/*TC*/ //public test bool matchADT6() = f(_):= f(1);
-  		/*TC*/ //public test bool matchADT7() = f(_,_):= f(1,2);
-  		/*TC*/ // public test bool matchADT8() = f(_,_,_):= f(1,2.5,true);
+  		public test bool matchADT6() = f(_):= f(1);
+  		public test bool matchADT7() = f(_,_):= f(1,2);
+  		public test bool matchADT8() = f(_,_,_):= f(1,2.5,true);
   //	}
   
   //	@Test public void matchADTWithKeywords() {
-  		/* Changed: TC*/
+  		/*TC*/
   		//public test bool matchADTwithKeywords1() = f1(1)                   := f1(1);
   		//public test bool matchADTwithKeywords2() = f1(1, M=10)             := f1(1);
   		//public test bool matchADTwithKeywords3() = f1(1, B=false, M=10)    := f1(1);
@@ -386,7 +385,7 @@
   //	@Test public void matchNodeWithKeywords() {
   	
   	/* changed: TC */
-  	 //  public test bool matchNodeWithKeywords1() ="f1"(1)                := "f1"(1);
+  	     //public test bool matchNodeWithKeywords1() ="f1"(1)                := "f1"(1);
   		//
   		//public test bool matchNodeWithKeywords2() ="f1"(1)               !:= "f1"(2);
   		//public test bool matchNodeWithKeywords3() ="f1"(1, M=10)          := "f1"(1, M=10);
@@ -561,13 +560,13 @@
   		public test bool matchListSetVariableScopes3() = {pair(PAIR D, b1()), D} := {pair(a1(),b1()), a1()} && D == a1();
   		public test bool matchListSetVariableScopes4() = {pair(PAIR D, b1()), D} !:= {pair(a1(),b1()), c1()};
   		
-  		/*TC*/ //public test bool matchListSetVariableScopes5() = {pair(s1(set[PAIR] S1), c1()), *S1} :=  {pair(s1({a1(), b1()}), c1()), a1(), b1()} && S1 == {a1(), b1()};
-  		/*TC*/ //public test bool matchListSetVariableScopes6() = {pair(s1(set[PAIR] S1), c1()), *S1} !:= {pair(s1({a1(), b1()}), c1()), a1(), d1()};
+  		/*TC*///public test bool matchListSetVariableScopes5() = {pair(s1(set[PAIR] S1), c1()), *S1} :=  {pair(s1({a1(), b1()}), c1()), a1(), b1()} && S1 == {a1(), b1()};
+  		/*TC*///public test bool matchListSetVariableScopes6() = {pair(s1(set[PAIR] S1), c1()), *S1} !:= {pair(s1({a1(), b1()}), c1()), a1(), d1()};
   		
   		public test bool matchListSetVariableScopes7() {list[PAIR] L1 = [a1(), b1()]; return [*L1, c1()] := [a1(), b1(), c1()];}
   		public test bool matchListSetVariableScopes8() {list[PAIR] L1 = [a1(), b1()]; return [*L1, c1()] !:= [a1(), d1(), c1()];}
   		
-  		/*TC*? //public test bool matchListSetVariableScopes9() = [pair(l1(list[PAIR] L1), c1()), *L1] := [pair(l1([a1(), b1()]), c1()), a1(), b1()];
+  		/*TC*/ //public test bool matchListSetVariableScopes9() = [pair(l1(list[PAIR] L1), c1()), *L1] := [pair(l1([a1(), b1()]), c1()), a1(), b1()];
   		/*TC*/ //public test bool matchListSetVariableScopes10() = [pair(l1(list[PAIR] L1), c1()), *L1] !:= [pair(l1([a1(), b1()]), c1()), a1(), d1()];
   		
   		public test bool matchListSetVariableScopes11() = [pair(PAIR L1, b1()), L1] := [pair(a1(), b1()), a1()];
@@ -628,10 +627,10 @@
   		public test bool matchVariable2() {int n2 = 1;return  (n2 := 1) && (n2 == 1);}
   		public test bool matchVariable3()  {int n3 = 1; return (n3 !:= 2) && (n3 == 1);}
   
-  		/*TC*/ // public test bool matchVariable4() = (f(n5) := f(1)) && (n5 == 1);
+  		public test bool matchVariable4() = (f(n5) := f(1)) && (n5 == 1);
   		public test bool matchVariable5() {int n6 = 1; return (f(n6) := f(1)) && (n6 == 1);}
   		
-  		/*TC*/ //public test bool matchVariable6() = f(_) := f(1);
+  		public test bool matchVariable6() = f(_) := f(1);
   //	}
   	
   //	@Test  public void matchTypedVariableBecomes() {
@@ -667,8 +666,8 @@
   
   //	public void variableBecomesEquality(){
           
-  		/*Comp*/ //public test bool matchVariableBecomesEquality1() {int N = 5; return N : 3 !:= 3 && N != 3;}
-  		/*Comp*/ //public test bool matchVariableBecomesEquality2() {int N = 3; return N : 3 := 3 && N == 3;}
+  		/*comp*///public test bool matchVariableBecomesEquality1() {int N = 5; return N : 3 !:= 3 && N != 3;}
+  		/*comp*///public test bool matchVariableBecomesEquality2() {int N = 3; return N : 3 := 3 && N == 3;}
   //	}
   	
   

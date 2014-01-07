@@ -155,8 +155,11 @@
   		
   		// The following were all asserTrue, how can this have worked?
   		
+  		@ignore{Changed semantics}
   		public test bool all18()  = !(all(_ <- []));
+  		@ignore{Changed semantics}
   		public test bool all19()  = !(all(_ <- {}));
+  		@ignore{Changed semantics}
   		public test bool all20()  = !(all(_ <- ()));
   		// This must be a bug
   		// public test bool all()  = all(i <- [1,2,3], (i % 2 == 0 || i % 2 == 1));

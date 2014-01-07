@@ -243,11 +243,11 @@
   //	}
   	
   //	 public void keywordTest1(){
-    /*comp*/
-  	// public test bool  keywordTest11() { 
-  	//	int incr(int x, int delta=1) = x + delta;
-  	//	return incr(3) == 4 && incr(3, delta=2) == 5;
-  	//}
+   
+  	 public test bool  keywordTest11() { 
+  		int incr(int x, int delta=1) = x + delta;
+  		return incr(3) == 4 && incr(3, delta=2) == 5;
+  	}
   
   	
   	public test bool  keywordTest1() { 
