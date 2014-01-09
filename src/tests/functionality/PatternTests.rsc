@@ -358,12 +358,12 @@
   //	}
   
   //	@Test public void matchADTWithKeywords() {
-  		/*TC*/
-  		//public test bool matchADTwithKeywords1() = f1(1)                   := f1(1);
-  		//public test bool matchADTwithKeywords2() = f1(1, M=10)             := f1(1);
-  		//public test bool matchADTwithKeywords3() = f1(1, B=false, M=10)    := f1(1);
-  		//public test bool matchADTwithKeywords4() = f1(1, M=20)             := f1(1, B=false, M=20);
-  		//public test bool matchADTwithKeywords5() = f1(1, M=X)             := f1(1, B=false, M=20) && X == 20;
+  		
+  		public test bool matchADTwithKeywords1() = f1(1)                   := f1(1);
+  		public test bool matchADTwithKeywords2() = f1(1, M=10)             := f1(1);
+  		public test bool matchADTwithKeywords3() = f1(1, B=false, M=10)    := f1(1);
+  		public test bool matchADTwithKeywords4() = f1(1, M=20)             := f1(1, B=false, M=20);
+  		/*TC*///public test bool matchADTwithKeywords5() = f1(1, M=X)             := f1(1, B=false, M=20) && X == 20;
   //	}
   	
   //	@Test public void matchNode() {
@@ -384,27 +384,27 @@
   
   //	@Test public void matchNodeWithKeywords() {
   	
-  	/* changed: TC */
-  	     //public test bool matchNodeWithKeywords1() ="f1"(1)                := "f1"(1);
-  		//
-  		//public test bool matchNodeWithKeywords2() ="f1"(1)               !:= "f1"(2);
-  		//public test bool matchNodeWithKeywords3() ="f1"(1, M=10)          := "f1"(1, M=10);
-  		//public test bool matchNodeWithKeywords4() ="f1"(1)                := "f1"(1, M=10);
-  		//public test bool matchNodeWithKeywords5() ="f1"(1, M=10)         !:= "f1"(1, M=20);
-  		//public test bool matchNodeWithKeywords6() ="f1"(1, M=10)         !:= "f1"(1);
-  		//public test bool matchNodeWithKeywords7() ="f1"(1, M=10)         !:= "f1"(1, B=false);
-  		//
-  		//
-  		//public test bool matchNodeWithKeywords8() ="f1"(1, B=false, M=10) := "f1"(1, M=10, B=false);
-  		//public test bool matchNodeWithKeywords9() ="f1"(1, M=20, B=false) := "f1"(1, B=false, M=20);
-  		//public test bool matchNodeWithKeywords10() ="f1"(1, M=20)          := "f1"(1, B=false, M=20);
-  		//public test bool matchNodeWithKeywords11() ="f1"(1)                := "f1"(1, B=false, M=20);
-  		//public test bool matchNodeWithKeywords12() ="f1"(1, B=false, M=10) !:= "f1"(1, M=20, B=false);
-  		//public test bool matchNodeWithKeywords13() ="f1"(1, M=10, B=false)!:= "f1"(1, B=false, M=20);
-  		//public test bool matchNodeWithKeywords14() ="f1"(1, M=_, B=false)  := "f1"(1, B=false, M=20);
-  		//public test bool matchNodeWithKeywords15() ="f1"(_, M=20, B=false) := "f1"(1, B=false, M=20);
-  		//
-  		//public test bool matchNodeWithKeywords16() = "f1"(1, M=X) := "f1"(1, B=false, M=20) && X == 20;
+  	
+  	     public test bool matchNodeWithKeywords1() ="f1"(1)                := "f1"(1);
+  		
+  		public test bool matchNodeWithKeywords2() ="f1"(1)               !:= "f1"(2);
+  		public test bool matchNodeWithKeywords3() ="f1"(1, M=10)          := "f1"(1, M=10);
+  		public test bool matchNodeWithKeywords4() ="f1"(1)                := "f1"(1, M=10);
+  		public test bool matchNodeWithKeywords5() ="f1"(1, M=10)         !:= "f1"(1, M=20);
+  		public test bool matchNodeWithKeywords6() ="f1"(1, M=10)         !:= "f1"(1);
+  		public test bool matchNodeWithKeywords7() ="f1"(1, M=10)         !:= "f1"(1, B=false);
+  		
+  		
+  		public test bool matchNodeWithKeywords8() ="f1"(1, B=false, M=10) := "f1"(1, M=10, B=false);
+  		public test bool matchNodeWithKeywords9() ="f1"(1, M=20, B=false) := "f1"(1, B=false, M=20);
+  		public test bool matchNodeWithKeywords10() ="f1"(1, M=20)          := "f1"(1, B=false, M=20);
+  		public test bool matchNodeWithKeywords11() ="f1"(1)                := "f1"(1, B=false, M=20);
+  		public test bool matchNodeWithKeywords12() ="f1"(1, B=false, M=10) !:= "f1"(1, M=20, B=false);
+  		public test bool matchNodeWithKeywords13() ="f1"(1, M=10, B=false)!:= "f1"(1, B=false, M=20);
+  		public test bool matchNodeWithKeywords14() ="f1"(1, M=_, B=false)  := "f1"(1, B=false, M=20);
+  		public test bool matchNodeWithKeywords15() ="f1"(_, M=20, B=false) := "f1"(1, B=false, M=20);
+  		
+  		/*TC*///public test bool matchNodeWithKeywords16() = "f1"(1, M=X) := "f1"(1, B=false, M=20) && X == 20;
   //	}
   	
   	
@@ -560,14 +560,14 @@
   		public test bool matchListSetVariableScopes3() = {pair(PAIR D, b1()), D} := {pair(a1(),b1()), a1()} && D == a1();
   		public test bool matchListSetVariableScopes4() = {pair(PAIR D, b1()), D} !:= {pair(a1(),b1()), c1()};
   		
-  		/*TC*///public test bool matchListSetVariableScopes5() = {pair(s1(set[PAIR] S1), c1()), *S1} :=  {pair(s1({a1(), b1()}), c1()), a1(), b1()} && S1 == {a1(), b1()};
-  		/*TC*///public test bool matchListSetVariableScopes6() = {pair(s1(set[PAIR] S1), c1()), *S1} !:= {pair(s1({a1(), b1()}), c1()), a1(), d1()};
+  		public test bool matchListSetVariableScopes5() = {pair(s1(set[PAIR] S1), c1()), *S1} :=  {pair(s1({a1(), b1()}), c1()), a1(), b1()} && S1 == {a1(), b1()};
+  		public test bool matchListSetVariableScopes6() = {pair(s1(set[PAIR] S1), c1()), *S1} !:= {pair(s1({a1(), b1()}), c1()), a1(), d1()};
   		
   		public test bool matchListSetVariableScopes7() {list[PAIR] L1 = [a1(), b1()]; return [*L1, c1()] := [a1(), b1(), c1()];}
   		public test bool matchListSetVariableScopes8() {list[PAIR] L1 = [a1(), b1()]; return [*L1, c1()] !:= [a1(), d1(), c1()];}
   		
-  		/*TC*/ //public test bool matchListSetVariableScopes9() = [pair(l1(list[PAIR] L1), c1()), *L1] := [pair(l1([a1(), b1()]), c1()), a1(), b1()];
-  		/*TC*/ //public test bool matchListSetVariableScopes10() = [pair(l1(list[PAIR] L1), c1()), *L1] !:= [pair(l1([a1(), b1()]), c1()), a1(), d1()];
+  		public test bool matchListSetVariableScopes9() = [pair(l1(list[PAIR] L1), c1()), *L1] := [pair(l1([a1(), b1()]), c1()), a1(), b1()];
+  		public test bool matchListSetVariableScopes10() = [pair(l1(list[PAIR] L1), c1()), *L1] !:= [pair(l1([a1(), b1()]), c1()), a1(), d1()];
   		
   		public test bool matchListSetVariableScopes11() = [pair(PAIR L1, b1()), L1] := [pair(a1(), b1()), a1()];
   		public test bool matchListSetVariableScopes12() = [pair(PAIR L1, b1()), L1] !:= [pair(a1(), b1()), d1()];

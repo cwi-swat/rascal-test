@@ -63,7 +63,7 @@ module tests::functionality::PatternTestsList3
   		public test bool matchSet65() = ({e(int X5)} !:= {a()});
   		
   		public test bool matchSet66() = ({e(int X3), g(X3)} := {e(3), g(3)}) && (X3 == 3);
-  		/*TC*///public test bool matchSet67() = ({e(X3), g(X3), h(X3)} := {e(3), h(3), g(3)}) && (X3 == 3);
+  		public test bool matchSet67() = ({e(X3), g(X3), h(X3)} := {e(3), h(3), g(3)}) && (X3 == 3);
   
   		public test bool matchSet68() = ({a(), s({a(), b(), DATA X6})} := {a(), s({a(),b(),c()})}) && (X6 == c());
   		public test bool matchSet69() = ({s({a(), b(), DATA X7}), a()} := {a(), s({a(),b(),c()})}) && (X7 == c());

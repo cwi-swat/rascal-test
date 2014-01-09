@@ -122,7 +122,7 @@
   		
   		
   		public test bool  sideEffect1() {
-  		 	 int called = 0;  								// changed order, since forward refs are no lonre allowed
+  		 	 int called = 0;  								// changed order, since forward refs are no longer allowed
   		     void One() { called = called + 1; return; }
   		     One(); 
   		     One(); 
@@ -170,10 +170,10 @@
   		             &T ident(&T x){ return x; }
   		            return ident("abc") == "abc";
   		            }
-  		 // public test bool  ident() {
-  		 //            &T ident(&T x){ return x; }
+  		  //public test bool  ident() {
+  		  //           &T ident(&T x){ return x; }
   		  //          return ident(f(1)) == f(1);
-  		 //          }
+  		  //         }
   		 public test bool  ident5() {
   		             &T ident(&T x){ return x; }
   		            return ident([1,2,3]) == [1,2,3];
@@ -266,57 +266,58 @@
   	}
   */
   
-  /*comp*/
-  //data Figure (real shrink = 1.0, str fillColor = "white", str lineColor = "black")  =  emptyFigure() 
-  //| ellipse(Figure inner = emptyFigure()) 
-  //| box(Figure inner = emptyFigure());
-  //	//  public void keywordTest4(){
   
-  @ignore{Keywords}
+  data Figure (real shrink = 1.0, str fillColor = "white", str lineColor = "black")  =  emptyFigure() 
+  | ellipse(Figure inner = emptyFigure()) 
+  | box(Figure inner = emptyFigure());
+  
+  ////	//  public void keywordTest4(){
+  //
+  
   public test bool  keywordTest2() { 
-  //		if(!(emptyFigure().fillColor == "white")) return false;
-  //		if(!(emptyFigure(shrink=0.5).fillColor == "white")) return false;
-  //		if(!(emptyFigure(lineColor="red").fillColor == "white")) return false;
-  //		if(!(emptyFigure(lineColor="red", shrink=0.5).fillColor == "white")) return false;
-  //		
-  //		if(!(emptyFigure(fillColor="red").fillColor == "red")) return false;
-  //		if(!(emptyFigure(shrink=0.5,fillColor="red").fillColor == "red")) return false;
-  //		if(!(emptyFigure(shrink=0.5,fillColor="red", lineColor="black").fillColor == "red")) return false;
-  //		if(!(emptyFigure(lineColor="red", shrink=0.5).fillColor == "white")) return false;
-  //		
-  //		if(!(ellipse().fillColor == "white")) return false;
-  //		if(!(ellipse(inner=emptyFigure(fillColor="red")).fillColor == "white")) return false;
-  //		if(!(ellipse(inner=emptyFigure(fillColor="red")).inner.fillColor == "red")) return false;
-  //		return true;
+  		if(!(emptyFigure().fillColor == "white")) return false;
+  		if(!(emptyFigure(shrink=0.5).fillColor == "white")) return false;
+  		if(!(emptyFigure(lineColor="red").fillColor == "white")) return false;
+  		if(!(emptyFigure(lineColor="red", shrink=0.5).fillColor == "white")) return false;
+  		
+  		if(!(emptyFigure(fillColor="red").fillColor == "red")) return false;
+  		if(!(emptyFigure(shrink=0.5,fillColor="red").fillColor == "red")) return false;
+  		if(!(emptyFigure(shrink=0.5,fillColor="red", lineColor="black").fillColor == "red")) return false;
+  		if(!(emptyFigure(lineColor="red", shrink=0.5).fillColor == "white")) return false;
+  		
+  		if(!(ellipse().fillColor == "white")) return false;
+  		/*TC*///if(!(ellipse(inner=emptyFigure(fillColor="red")).fillColor == "white")) return false;
+  		/*TC*///if(!(ellipse(inner=emptyFigure(fillColor="red")).inner.fillColor == "red")) return false;
+  		return true;
   	}
   
   
   //}
   data D = d(int x, int y = 3);
   
-  /*comp*/	
-  //data POINT = point(int x, int y, str color = "red");
-  //// public void keywordMatchTest1(){
-  //		
-  //		
-  //		public test bool keywordMatchTest1() =point(_,_,_) !:= point(1,2);
-  //		public test bool keywordMatchTest2() =point(_,_,"red") !:= point(1,2);
-  //		public test bool keywordMatchTest3() =point(_,_,"green") !:= point(1,2, color="green");
-  //		public test bool keywordMatchTest4() =point(_,_,color="green") := point(1,2, color="green");
-  //		public test bool keywordMatchTest5() =point(1,2) := point(1,2);
-  //		public test bool keywordMatchTest6() =point(1,2) !:= point(1,3);
-  //		public test bool keywordMatchTest7() =point(1,2) := point(1,2,color="red");
-  //		public test bool keywordMatchTest8() =point(1,2,color="red") := point(1,2,color="red");
-  //		public test bool keywordMatchTest9() =point(1,2,color="green") !:= point(1,2);
-  //		public test bool keywordMatchTest10() =point(1,2,color="green") !:= point(1,2);
-  ////	}
-  //
-  //data POINT1 = point1(int x, int y, int z = 3, list[str] colors = []);	
-  ////	public void keywordMatchTest2(){
-  //		public test bool keywordMatchTest11() =point1(_, _, colors=["blue"]) := point1(1,2, colors=["blue"]);
-  //		public test bool keywordMatchTest12() =point1(_, _, colors=[*_,"blue",*_]) := point1(1,2, colors=["red","green","blue"]);
-  //		public test bool keywordMatchTest13() =point1(_, _, colors=[*_,*X,*_,*X, *_]) := point1(1,2, colors=["red","blue","green","blue"]);
-  ////	}
+  	
+  data POINT = point(int x, int y, str color = "red");
+  // public void keywordMatchTest1(){
+  		
+  		
+  		public test bool keywordMatchTest1() =point(_,_,color=_) !:= point(1,2);
+  		public test bool keywordMatchTest2() =point(_,_,color="red") !:= point(1,2);
+  		public test bool keywordMatchTest3() =point(_,_,color="green") !:= point(1,2, color="green");
+  		public test bool keywordMatchTest4() =point(_,_,color="green") := point(1,2, color="green");
+  		public test bool keywordMatchTest5() =point(1,2) := point(1,2);
+  		public test bool keywordMatchTest6() =point(1,2) !:= point(1,3);
+  		public test bool keywordMatchTest7() =point(1,2) := point(1,2,color="red");
+  		public test bool keywordMatchTest8() =point(1,2,color="red") := point(1,2,color="red");
+  		public test bool keywordMatchTest9() =point(1,2,color="green") !:= point(1,2);
+  		public test bool keywordMatchTest10() =point(1,2,color="green") !:= point(1,2);
+  //	}
+  
+  data POINT1 = point1(int x, int y, int z = 3, list[str] colors = []);	
+  //	public void keywordMatchTest2(){
+  		public test bool keywordMatchTest11() =point1(_, _, colors=["blue"]) := point1(1,2, colors=["blue"]);
+  		public test bool keywordMatchTest12() =point1(_, _, colors=[*_,"blue",*_]) := point1(1,2, colors=["red","green","blue"]);
+  		public test bool keywordMatchTest13() =point1(_, _, colors=[*_,*X,*_,*X, *_]) := point1(1,2, colors=["red","blue","green","blue"]);
+  //	}
   	
   	
   
