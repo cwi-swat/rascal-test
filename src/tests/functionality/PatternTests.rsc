@@ -164,33 +164,33 @@
   
 
   //	@Test public void matchListHasOrderedElement()  {	
-  		@ignore{loops} public test bool matchListHasOrderedElement1() = hasOrderedElement([]) == false;
-  		@ignore{loops} public test bool matchListHasOrderedElement2() = hasOrderedElement([1]) == false;
-  		@ignore{loops} public test bool matchListHasOrderedElement3() = hasOrderedElement([1,2]) == false;
-  		@ignore{loops} public test bool matchListHasOrderedElement4() = hasOrderedElement([1,2,1]) == true;
-  		@ignore{loops} public test bool matchListHasOrderedElement5() = hasOrderedElement([1,2,3,4,3,2,1]) == true;
+  		public test bool matchListHasOrderedElement1() = hasOrderedElement([]) == false;
+  		public test bool matchListHasOrderedElement2() = hasOrderedElement([1]) == false;
+  		public test bool matchListHasOrderedElement3() = hasOrderedElement([1,2]) == false;
+  		public test bool matchListHasOrderedElement4() = hasOrderedElement([1,2,1]) == true;
+  		public test bool matchListHasOrderedElement5() = hasOrderedElement([1,2,3,4,3,2,1]) == true;
   //}
   	
   //	@Test public void matchListHasDuplicateElement()  {
-  		@ignore{loops} public test bool matchListHasDuplicateElement1() = hasDuplicateElement([]) == false;
-  		@ignore{loops} public test bool matchListHasDuplicateElement2() = hasDuplicateElement([1]) == false;
-  		@ignore{loops} public test bool matchListHasDuplicateElement3() = hasDuplicateElement([1,2]) == false;
-  		@ignore{loops} public test bool matchListHasDuplicateElement4() = hasDuplicateElement([1,1]) == true;
-  		@ignore{loops} public test bool matchListHasDuplicateElement5() = hasDuplicateElement([1,2,3]) == false;
-  		@ignore{loops} public test bool matchListHasDuplicateElement6() = hasDuplicateElement([1,2,3,1]) == true;
-  		@ignore{loops} public test bool matchListHasDuplicateElement7() = hasDuplicateElement([1,2,3,2]) == true;
-  		@ignore{loops} public test bool matchListHasDuplicateElement8() = hasDuplicateElement([1,2,3,3]) == true;
+  		public test bool matchListHasDuplicateElement1() = hasDuplicateElement([]) == false;
+  		public test bool matchListHasDuplicateElement2() = hasDuplicateElement([1]) == false;
+  		public test bool matchListHasDuplicateElement3() = hasDuplicateElement([1,2]) == false;
+  		public test bool matchListHasDuplicateElement4() = hasDuplicateElement([1,1]) == true;
+  		public test bool matchListHasDuplicateElement5() = hasDuplicateElement([1,2,3]) == false;
+  		public test bool matchListHasDuplicateElement6() = hasDuplicateElement([1,2,3,1]) == true;
+  		public test bool matchListHasDuplicateElement7() = hasDuplicateElement([1,2,3,2]) == true;
+  		public test bool matchListHasDuplicateElement8() = hasDuplicateElement([1,2,3,3]) == true;
   //	}
   
   //	@Test public void matchListIsDuo1()  {
-  		@ignore{loops} public test bool matchListIsDuo1() = isDuo1([]) == true;
-  		@ignore{loops} public test bool matchListIsDuo2() = isDuo1([1]) == false;
-  		@ignore{loops} public test bool matchListIsDuo3() = isDuo1([1,1]) == true;
-  		@ignore{loops} public test bool matchListIsDuo4() = isDuo1([1,2]) == false;
-  		@ignore{loops} public test bool matchListIsDuo5() = isDuo1([1,2, 1]) == false;
-  		@ignore{loops} public test bool matchListIsDuo6() = isDuo1([1,2, 1,2]) == true;
-  		@ignore{loops} public test bool matchListIsDuo7() = isDuo1([1,2,3, 1,2]) == false;
-  		@ignore{loops} public test bool matchListIsDuo8() = isDuo1([1,2,3, 1,2, 3]) == true;
+  		public test bool matchListIsDuo1() = isDuo1([]) == true;
+  		public test bool matchListIsDuo2() = isDuo1([1]) == false;
+  		public test bool matchListIsDuo3() = isDuo1([1,1]) == true;
+  		public test bool matchListIsDuo4() = isDuo1([1,2]) == false;
+  		public test bool matchListIsDuo5() = isDuo1([1,2, 1]) == false;
+  		public test bool matchListIsDuo6() = isDuo1([1,2, 1,2]) == true;
+  		public test bool matchListIsDuo7() = isDuo1([1,2,3, 1,2]) == false;
+  		public test bool matchListIsDuo8() = isDuo1([1,2,3, 1,2, 3]) == true;
   //	}
   		
   //	@Test public void matchListIsDuo2()  {
@@ -217,14 +217,14 @@
   
   // @Test public void matchListIsTrio1()  {
   		// prepare("import ListMatchingTests;");
-  		@ignore{loops} public test bool matchListIsTrio1() = isTrio1([]) == true;
-  		@ignore{loops} public test bool matchListIsTrio2() = isTrio1([1]) == false;
-  		@ignore{loops} public test bool matchListIsTrio3() = isTrio1([1,1]) == false;
-  		@ignore{loops} public test bool matchListIsTrio4() = isTrio1([1,1,1]) == true;
-  		@ignore{loops} public test bool matchListIsTrio5() = isTrio1([2,1,1]) == false;
-  		@ignore{loops} public test bool matchListIsTrio6() = isTrio1([1,2,1]) == false;
-  		@ignore{loops} public test bool matchListIsTrio7() = isTrio1([1,1,2]) == false;
-  		@ignore{loops} public test bool matchListIsTrio8() = isTrio1([1,2, 1,2, 1,2]) == true;
+  		public test bool matchListIsTrio1() = isTrio1([]) == true;
+  		public test bool matchListIsTrio2() = isTrio1([1]) == false;
+  		public test bool matchListIsTrio3() = isTrio1([1,1]) == false;
+  		public test bool matchListIsTrio4() = isTrio1([1,1,1]) == true;
+  		public test bool matchListIsTrio5() = isTrio1([2,1,1]) == false;
+  		public test bool matchListIsTrio6() = isTrio1([1,2,1]) == false;
+  		public test bool matchListIsTrio7() = isTrio1([1,1,2]) == false;
+  		public test bool matchListIsTrio8() = isTrio1([1,2, 1,2, 1,2]) == true;
   //	}
   	
   //	@Test public void matchListIsTrio2()  {
