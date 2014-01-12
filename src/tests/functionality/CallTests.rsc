@@ -300,9 +300,9 @@
   // public void keywordMatchTest1(){
   		
   		
-  		public test bool keywordMatchTest1() =point(_,_,color=_) !:= point(1,2);
-  		public test bool keywordMatchTest2() =point(_,_,color="red") !:= point(1,2);
-  		public test bool keywordMatchTest3() =point(_,_,color="green") !:= point(1,2, color="green");
+  		public test bool keywordMatchTest1() =point(_,_,color=_) := point(1,2); /*fixed*/
+  		public test bool keywordMatchTest2() =point(_,_,color="red") := point(1,2); /*fixed */
+  		public test bool keywordMatchTest3() =point(_,_,color="green") !:= point(1,2, color="red"); /* fixed */
   		public test bool keywordMatchTest4() =point(_,_,color="green") := point(1,2, color="green");
   		public test bool keywordMatchTest5() =point(1,2) := point(1,2);
   		public test bool keywordMatchTest6() =point(1,2) !:= point(1,3);
@@ -314,9 +314,9 @@
   
   data POINT1 = point1(int x, int y, int z = 3, list[str] colors = []);	
   //	public void keywordMatchTest2(){
-  		public test bool keywordMatchTest11() =point1(_, _, colors=["blue"]) := point1(1,2, colors=["blue"]);
-  		public test bool keywordMatchTest12() =point1(_, _, colors=[*_,"blue",*_]) := point1(1,2, colors=["red","green","blue"]);
-  		public test bool keywordMatchTest13() =point1(_, _, colors=[*_,*X,*_,*X, *_]) := point1(1,2, colors=["red","blue","green","blue"]);
+  		//@ignore{complex kw pattern} public test bool keywordMatchTest11() =point1(_, _, colors=["blue"]) := point1(1,2, colors=["blue"]);
+  		//@ignore{complex kw pattern} public test bool keywordMatchTest12() =point1(_, _, colors=[*_,"blue",*_]) := point1(1,2, colors=["red","green","blue"]);
+  		//@ignore{complex kw pattern} public test bool keywordMatchTest13() =point1(_, _, colors=[*_,*X,*_,*X, *_]) := point1(1,2, colors=["red","blue","green","blue"]);
   //	}
   	
   	
