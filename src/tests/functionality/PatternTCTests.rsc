@@ -1,5 +1,9 @@
 module tests::functionality::PatternTCTests
 
+public test bool matchNestedList2() = !([[1]] := []);
+
+public test bool matchNestedSet2() = !({{1}} := {});
+
 data Bool = and(Bool, Bool) | t();
 data Prop = or(Prop, Prop) | f();
 
@@ -213,6 +217,70 @@ data Prop = or(Prop, Prop) | f();
   	// public void matchSetStringError(){
   		public bool assertFalse2() = {1} := "a";
   	// }
+  	
+  	
+   //	public void matchListError1() {
+  		public test bool matchListError2() {list[int] x = [1,2,3]; return [1, *list[int] L, 2, list[int] M] !:= x;}
+  //	}
+  	
+  //	public void matchListError11() {
+  		public test bool matchListError3() = !([1, list[int] L, 2, list[int] L] := [1,2,3]);
+  //	}
+  	
+  //	public void matchListError2() {
+  		public test bool matchListError4() = !([1, list[str] L, 2] := [1,2,3]);
+  //	}	
+  	
+  	
+  		public void doubleVariableBecomes1(){
+  		public test bool doubleVariableBecomes2() = !(([N : 3, N : 4] := [3,4]) && N == 3);
+  		public test bool doubleVariableBecomes3() = [N : 3, N : 3] := [3,3] && N == 3;
+  	}
+  
+  	
+  	 //	public void matchListError4() {
+  		public test bool matchListError5()  {str S = "a"; return [1, S, 2] !:= [1,2,3];}
+  //	}
+  
+  
+  	
+  //	@Test public void matchListFalse3() {
+  		public test bool matchListFalse1() { list[value] l = [1,2,3]; return [1, str S, 2] !:= l;}
+  //	}
+  	
+  //	@Test(expected=StaticError.class)
+  //	@Ignore("this is disabled because such type check would break the visiting code")
+  //	public void matchListError3() {
+  //		runTest("{ list[int] x = [1,2,3] ; [1, str S, 2] := x;}");
+  //	}
+  	
+  	
+  //	public void matchListError4() {
+  		public test bool matchListError5()  {str S = "a"; return [1, S, 2] !:= [1,2,3];}
+  //	}
+  	
+  //	@Test(expected=StaticError.class)
+  //	@Ignore("this is disabled because such type check would break the visiting code")
+  //	public void matchListError42() {
+  //		runTest("{str S = "a"; list[int] x = [1,2,3]; [1, S, 2] := x;}");
+  //	}
+  	
+  //	public void matchListError5() {
+  		public test bool matchListError6() {list[str] S = ["a"]; return [1, S, 2] !:= [1,2,3];}
+  //	}
+  	
+  //	@Test(expected=StaticError.class)
+  //	@Ignore("this is disabled because such type check would break the visiting code")
+  //	public void matchListError55() {
+  //		runTest("{list[str] S = ["a"]; list[int] x = [1,2,3]; [1, S, 2] := x;}");
+  //	}
+  	
+  	public test bool matchListExternalVar1() {
+  		list[int] S; return [1, *S, 2] !:= [1,2,3] && S != [3];
+  	}
+  
+  	
+  	
   	
   	data DATA = a() | b() | c() | d() | e(int N) | f(list[DATA] L) | f(set[DATA] S)| s(set[DATA] S)|g(int N)|h(int N)|
          f(DATA left, DATA right);

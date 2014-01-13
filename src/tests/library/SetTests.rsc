@@ -12,6 +12,7 @@
    *   * Paul Klint - Paul.Klint@cwi.nl - CWI
    *   * Bert Lisser - Bert.Lisser@cwi.nl - CWI
   *******************************************************************************/
+  import Exception;
   import Set;
   // getOneFrom
   		public test bool getOneFrom1() {int N = Set::getOneFrom({1});  return N == 1;}
@@ -87,14 +88,14 @@
   	
   	
   // toMap
-  		public test bool toMap1() = Set::toMap({}) == ();
-  		public test bool toMap2()  =toMap({}) == ();
+  		/*TC*///public test bool toMap1() = Set::toMap({}) == ();
+  		/*TC*?//public test bool toMap2()  =toMap({}) == ();
   		public test bool toMap3() = Set::toMap({<1, "a">}) == (1 : {"a"});
   		public test bool toMap4() = Set::toMap({<1, "a">, <2, "b">, <1, "c">}) == (1 : {"a", "c"}, 2 : {"b"});
   	
   // toMapUniassertTrueue	
-  		public test bool toMapUnique1() = Set::toMapUnique({}) == ();
-  		public test bool toMapUnique2() = toMapUnique({}) == ();
+  		/*TC*///public test bool toMapUnique1() = Set::toMapUnique({}) == ();
+  		/*TC*///public test bool toMapUnique2() = toMapUnique({}) == ();
   		public test bool toMapUnique3() = Set::toMapUnique({<1, "a">}) == (1 : "a");
   		public test bool toMapUnique4() = Set::toMapUnique({<1, "a">, <2, "b">}) == (1 : "a", 2 : "b");
   		

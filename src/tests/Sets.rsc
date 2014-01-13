@@ -1,5 +1,6 @@
 module tests::Sets
 
+import Exception;
 import Set;
 import List;
 import Relation;

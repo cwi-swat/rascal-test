@@ -22,7 +22,8 @@ public test bool impl(bool b1, bool b2) = (b1 ==> b2) <==> !(b1 && !b2);
 
 public test bool tstArbBool() { b = arbBool() ; return b == true || b == false; }
 
-public test bool tstFromInt(int n) = fromInt(n) <==> (n != 0);
+
+/*no longer exists */ // public test bool tstFromInt(int n) = fromInt(n) <==> (n != 0);
 
 public test bool fromString1() = fromString("true") == true && fromString("false") == false;
 
@@ -39,5 +40,6 @@ public test bool shortCircuiting() {
 	try { return false ==> (1/0 == 0) && true || (1/0 == 0) && !(false && (1/0 == 0)); }
 	catch ArithmeticException(str _): { return false; }
 	}
+	
 /* From BooleanTests.java */
 

@@ -1,41 +1,49 @@
 module tests::functionality::ScopeTests
 
-	
-	public test bool localShadowing(){
-		int n = 2; return int n := 3;
-	}	
+	/*changed: we do not allow shadowing anymore */
+	//public test bool localShadowing(){
+	//	int n = 2; return int n := 3;
+	//}	
 
-	public test bool  localRedeclarationInt1(){
-		int n ; return int n := 3 && n == 3;
-	}
+	/*changed: we do not allow shadowing anymore */
+	//public test bool  localRedeclarationInt1(){
+	//	int n ; return int n := 3 && n == 3;
+	//}
 	
-	public test bool localRedeclarationInt2(){
-		int n; return [int n] := [3] && n == 3;
-	}
+	/*changed: we do not allow shadowing anymore */
+	//public test bool localRedeclarationInt2(){
+	//	int n; return [int n] := [3] && n == 3;
+	//}
 	
-	public test bool localShadowing2(){
-		int n; return [*int n] := [1,2,3] && n == [1,2,3];
-	}
+	/*changed: we do not allow shadowing anymore */
+	//public test bool localShadowing2(){
+	//	int n; return [*int n] := [1,2,3] && n == [1,2,3];
+	//}
 	
-	public test bool  localShadowingListMatch(){
-		list[int] n = [10,20]; return [*int n] := [1,2,3] && n == [1,2,3];
-	}
+	/*changed: we do not allow shadowing anymore */
+	//public test bool  localShadowingListMatch(){
+	//	list[int] n = [10,20]; return [*int n] := [1,2,3] && n == [1,2,3];
+	//}
 	
-	public test bool  localRedeclarationList(){
-		list[int] n; return [*int n] := [1,2,3] && n == [1,2,3];
-	}
+	/*changed: we do not allow shadowing anymore */
+	//public test bool  localRedeclarationList(){
+	//	list[int] n; return [*int n] := [1,2,3] && n == [1,2,3];
+	//}
 	
-	public test bool  localRedeclarationError9(){
-		int n; return /<n:[0-9]*>/ := "123";
-	}
+	/*changed: we do not allow shadowing anymore */
+	//public test bool  localRedeclarationError9(){
+	//	int n; return /<n:[0-9]*>/ := "123";
+	//}
 	
-	public test bool  localComprehensionShadowing(){
-		int n = 5; L = [n | int n <- [1 .. 10]]; return n==5;
-	}
+	/*changed: we do not allow shadowing anymore */
+	//public test bool  localComprehensionShadowing(){
+	//	int n = 5; L = [n | int n <- [1 .. 10]]; return n==5;
+	//}
 	
-	public test bool  localRedeclarationError10(){
-		int n; L = [n | int n <- [1 .. 10]]; return L == [1 .. 10];
-		}
+	/*changed: we do not allow shadowing anymore */
+	//public test bool  localRedeclarationError10(){
+	//	int n; L = [n | int n <- [1 .. 10]]; return L == [1 .. 10];
+	//	}
 
 	
 	//@expected{RedeclaredVariable})

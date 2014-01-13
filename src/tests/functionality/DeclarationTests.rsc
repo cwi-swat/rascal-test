@@ -27,15 +27,18 @@ module tests::functionality::DeclarationTests
 	    x = "1"; return x == "1";
 	}
 	
-	public test bool shadowingDeclaration1(){
-		int N = 1; {int N = 2;}; return N == 1;
-	}
+	/*changed*/
+	//public test bool shadowingDeclaration1(){
+	//	int N = 1; {int N = 2;}; return N == 1;
+	//}
 	
-	public test bool shadowingDeclaration2(){
-		N = 1; {int N = 2;}; return N == 1;
-	}
+	/*changed*/
+	//public test bool shadowingDeclaration2(){
+	//	N = 1; {int N = 2;}; return N == 1;
+	//}
 	
-	public test bool shadowingDeclaration4(){
-		int N = 3; return int N := 3;
-	}
+	/*changed*/
+	//public test bool shadowingDeclaration4(){
+	//	int N = 3; return int N := 3;
+	//}
 

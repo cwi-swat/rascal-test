@@ -12,7 +12,7 @@
  *   * Paul Klint - Paul.Klint@cwi.nl - CWI
  *   * Bert Lisser - Bert.Lisser@cwi.nl - CWI
 *******************************************************************************/
-  
+  import Exception;
   import List;
   	
   // delete		
@@ -175,12 +175,7 @@
   		public test bool sortWithCompare2() = sort([1, 2, 3], bool(int a, int b){return a < b;}) == [1,2,3];
   		public test bool sortWithCompare3() = sort([1, 2, 3], bool(int a, int b){return a > b;}) == [3,2,1];
   		
-  @expected{IllegalArgument}
-          public test bool sortWithCompare4() {sort([1, 2, 3], bool(int a, int b){return a <= b;}); return false ;}
-          
-  @expected{IllegalArgument}
-          public test bool sortWithCompare5() {sort([1, 0, 1], bool(int a, int b){return a <= b;});  return false;}
-  
+ 
   // tail
   		public test bool tail1() = List::tail([1]) == [];
   		public test bool tail2() = tail([1]) == [];
@@ -220,8 +215,8 @@
   		}
   	
   // toMap
-  		public test bool toMapUnique1() = List::toMapUnique([]) == ();
-  		public test bool toMapUnique2() = toMapUnique([]) == ();
+  		/*TC*///public test bool toMapUnique1() = List::toMapUnique([]) == ();
+  		/*TC*///public test bool toMapUnique2() = toMapUnique([]) == ();
   		public test bool toMapUnique3() = List::toMapUnique([<1,10>, <2,20>]) == (1:10, 2:20);
   
   @expected{MultipleKey}		
@@ -230,8 +225,8 @@
   	
   
   // toMap
-  		public test bool toMap5() = List::toMap([]) == ();
-  		public test bool toMap6() = toMap([]) == ();
+  		/*TC*///public test bool toMap5() = List::toMap([]) == ();
+  		/*TC*///public test bool toMap6() = toMap([]) == ();
   		public test bool toMap7() = List::toMap([<1,10>, <2,20>]) == (1:{10}, 2:{20});
   		public test bool toMap8() = List::toMap([<1,10>, <2,20>, <1,30>]) == (1:{10,30}, 2:{20});
   	

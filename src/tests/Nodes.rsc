@@ -1,5 +1,6 @@
 module tests::Nodes
 
+import Exception;
 import Node;
 import List;
 import util::Math;

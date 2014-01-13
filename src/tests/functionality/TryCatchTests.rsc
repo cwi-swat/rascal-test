@@ -15,7 +15,11 @@
    *   * Bert Lisser - Bert.Lisser@cwi.nl - CWI
   *******************************************************************************/
   import Exception;
-  import Prelude;
+  import List;
+  import Map;
+  import IO;
+  import util::Math;
+  //import Prelude;
   
   
   data NODEA = fA(int N);
@@ -102,6 +106,15 @@
   				return 0; 
   		}
   		
+  		 
+  bool functionF() {
+  		try {
+  		     S = readFile("DoesNotExist");
+  		} catch PathNotFound(loc location):
+  		        return true;
+  		 return false;
+  		}
+  		
   bool functionL() { 
   		  try { 
   		     head([]); 
@@ -118,66 +131,18 @@
   		  return false; 
   		}
   		
-  bool functionS() { 
-  		  try { 
-  		     getOneFrom({}); 
-  		  } catch EmptySet: 
-  		      return true; 
-  		  return false; 
-  		}
+  //bool functionS() { 
+  //		  try { 
+  //		     getOneFrom({}); 
+  //		  } catch EmptySet: 
+  //		      return true; 
+  //		  return false; 
+  //		}
   		
   bool functionR() { 
   		  try { 
   		     [0,1,2][3]; 
   		  } catch IndexOutOfBounds(int i): 
-  		      return true; 
-  		  return false; 
-  		}
-  		
-  bool functionA() {
-              NODEA l = fA(3);
-  		    l@pos;
-  		    return false;
-  		}
-  
-  bool functionF() {
-  		try {
-  		     S = readFile("DoesNotExist");
-  		} catch PathNotFound(loc location):
-  		        return true;
-  		 return false;
-  		}
-  		
-  bool functionB() { 
-  		  try { 
-  		      [1,2,3][1,2]; 
-  		  } catch SubscriptException(str e): 
-  		      return true; 
-  		  return false; 
-  		}
-  		
-  bool functionC() { 
-  		      X+3; 
-  		      return false; 
-  		}
-  		
-  bool functionD() { 
-  		      X[2] = 3; 
-  		      return false; 
-  		}
-  		
-  bool functionE() { 
-  		  try { 
-  		      X[2] = 3; 
-  		  } catch StrangeException e: 
-  		      return true; 
-  		  return false; 
-  		}
-  		
-  bool functionZ() { 
-  		  try { 
-  		      X[2] = 3; 
-  		  } catch StrangeException (str e): 
   		      return true; 
   		  return false; 
   		}
@@ -218,7 +183,7 @@
   //	}
   	
   //	@Test public void emptySetException() {
-  		public test bool emptySetException1()=functionS();
+  //		public test bool emptySetException1()=functionS();
   //	}
   	
   //	@Test public void IndexOutOfBoundsException(){

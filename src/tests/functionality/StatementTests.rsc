@@ -13,17 +13,14 @@
  *   * Bert Lisser - Bert.Lisser@cwi.nl - CWI
 *******************************************************************************/
  
-  
+ 
   
   //	@Test public test bool testAssert() {
          public test bool testAssert1() {return assert 3 > 2;}
   	   public test bool testAssert2() {return assert 3 > 2: "Yes assert succeeds";}
   //	}
   
-  	@expected{AssertionFailed}
-  	// public test bool assertError1() {
-  		public test bool assertError1() {assert 1 == 2;return false;}
-  	// }
+  	
   	
  
   	
@@ -83,7 +80,7 @@
   
   	
   data D = d(int i) | d();
- /*fails*/// D d(int i) { if (i % 2 == 0) fail d; else return d();}
+  //D d(int i) { if (i % 2 == 0) fail d; else return d();}
   // public test bool fail() {
   		public test bool fail1() = d(2) := d(2);
   		public test bool fail2() = d(3) == d();
@@ -111,7 +108,7 @@
   		     return n == 10;}
   //	}
   	
-  
+ 
 
   	
   //	@Test public test bool ifThenElse() {
@@ -136,17 +133,7 @@
   		  rel[int,int] T =    R1;
   		  solve (T)  T = T + (T o R1);
   		  return T =={<1,2>, <1,3>,<1,4>,<2,3>,<2,4>,<3,4>};
-      }
-  
- 
-  	
-  	
-  @expected{IndexOutOfBounds}
-  public test bool indexOutOfBounds1() {
-  		rel[int,int] T =    R1;
-  		solve (T; -1)  T = T + (T o R1);
-  		return T =={<1,2>, <1,3>,<1,4>,<2,3>,<2,4>,<3,4>};
-  		}	
+      }	
   	
   
   //public test bool solveMaximumUnboundedBug888() {
@@ -156,5 +143,5 @@
   //	}
   //	
   
-  
+ 
  

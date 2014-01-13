@@ -13,6 +13,7 @@ module tests::functionality::SubscriptTests
  *   * Bert Lisser - Bert.Lisser@cwi.nl - CWI
 *******************************************************************************/
 
+data NODE = f(int a, str b, real c);
 
 //	@Test public test boollist() {
 
@@ -47,21 +48,6 @@ module tests::functionality::SubscriptTests
 		list[int] L; L[4] = 44;return false;
 	}
 	
-	@expected{UnexpectedType}
-	public test bool WrongListIndex(){
-		list[int] L = [0,1,2,3]; L["abc"]; return false;
-	}
-	
-	@expected{UnsupportedSubscript}
-	public test bool WrongListIndex(){
-		list[int] L = [0,1,2,3]; L["abc"] = 44;return false;
-	}
-	
-	@expected{UnexpectedType}
-	public test bool WrongListAssignment(){
-		list[int] L = [0,1,2,3]; L[2] = "abc";return false;
-	}
-
 //	//@Test public test boolmap() {
 		public test bool mapTest() = (1:10, 2:20, 3:30)[1] == 10;
 		public test bool mapTest() = (1:10, 2:20, 3:30)[2] == 20;
@@ -75,15 +61,6 @@ module tests::functionality::SubscriptTests
 		public test bool mapTest() {map[int,int] M = (1:10, 2:20, 3:30); M[4] = 400; return M == (1:10, 2:20, 3:30, 4:400);}
 //	//}
 
-	@expected{UnexpectedType}
-	public test bool WrongMapIndex(){
-		map[int,int] M = (1:10,2:20); M["abc"];return false;
-	}
-	
-	@expected{UnexpectedType}
-	public test bool WrongMapIndex(){
-		map[int,int] M  = (1:10,2:20); M["abc"] = 3;return false;
-	}
 	
 	@expected{UninitializedVariable}
 	public test bool UninitializedMapVariable() {
@@ -95,41 +72,14 @@ module tests::functionality::SubscriptTests
 		map[int,int] M; M[4] = 44; return false;
 	}
 	
-	@expected{UndeclaredVariable}
-	public test bool WrongMapAssignment(){
-		runTest("{map[int,int] M = (1:10,2:20); M[2] = \"abc\";}");
-	}
 
 //	@Test public test bool tuple() {
 		public test bool  tupleTest()=<0, "a", 3.5>[0] == 0;
 		public test bool  tupleTest()=<0, "a", 3.5>[1] == "a";
 		public test bool  tupleTest()=<0, "a", 3.5>[2] == 3.5;
 //	}
+	
 
-	@expected{UninitializedVariable}
-	public test bool UninitializedTupleVariable(){
-		tuple[int,int] T; T[1];return false;
-	}
-	
-	@expected{UninitializedVariable}
-	public test bool UninitializedTupleVariable(){
-		tuple[int,int] T; T[1] = 10; return false;
-	}
-	
-	@expected{IndexOutOfBounds}
-	public test bool tupleBoundsError(){
-		<0, "a", 3.5>[3] == 3.5;
-	}
-	
-	@expected{UnsupportedSubscript}
-	public test bool tupleIndexError(){
-		<0, "a", 3.5>["abc"];return false;
-	}
-	
-	@expected{UnsupportedSubscript}
-	public test bool tupleAssignmentError(){
-		T = <0, "a", 3.5>["abc"]; T[1] = 3; return false;
-	}
 
 //	@Test  public test boolrelation() {
 		public test bool relationTest()= {<1, "a">, <2, "b">}[0] == {};
@@ -151,15 +101,12 @@ module tests::functionality::SubscriptTests
 		rel[int,int] R; R[1];return false;
 	}
 	
-	@expected{UninitializedVariable}
-	public test bool UninitializedRelVariable(){
-		rel[int,int] R; R[1,2];return false;
-	}
-	
-	@expected{UninitializedVariable}
-	public test bool UninitializedRelVariable(){
-		rel[int,int] R; R[1] = 10; return false;
-	}
+
+	// Changed: no support for relation updates
+	//@expected{UninitializedVariable}
+	//public test bool UninitializedRelVariable(){
+	//	rel[int,int] R; R[1] = 10; return false;
+	//}
 
 //	@Test public test bool relationMultiIndex() {
 		public test bool relationMultiIndex()={<1,"a",1.0>,<2,"b",2.0>,<3,"c",3.0>}[0] == {};
@@ -173,20 +120,11 @@ module tests::functionality::SubscriptTests
 		public test bool nodeTest()= f(0, "a", 3.5)[0] == 0;
 		public test bool nodeTest()= f(0, "a", 3.5)[1] == "a";
 		public test bool nodeTest()= f(0, "a", 3.5)[2] == 3.5;
-		public test bool nodeTest() {NODE T = f(0, "a", 3.5); T[0] = 10; return  T == f(10, "a", 3.5);}
+//		public test bool nodeTest() {NODE T = f(0, "a", 3.5); T[0] = 10; return  T == f(10, "a", 3.5);}
 //	}
 	
 	@expected{IndexOutOfBounds}
 	public test bool nodeBoundsError() = f(0, "a", 3.5)[3] == 3.5;
 	
 	
-	@expected{UnexpectedType}
-	public test bool nodeIndexError() {
-		f(0, "a", 3.5)["abc"];return false;
-	}
-	
-	@expected{UnexpectedType}
-	public test bool nodeAssignmentError(){
-		NODE N = f(0, "a", 3.5); N.b = 3; return false;
-	}
-data NODE = f(int a, str b, real c);
+

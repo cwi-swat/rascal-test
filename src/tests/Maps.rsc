@@ -1,5 +1,6 @@
 module tests::Maps
 
+import Exception;
 import Map;
 import Set;
 import List;

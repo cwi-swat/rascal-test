@@ -1,5 +1,6 @@
 module tests::Relations
 
+import Exception;
 import Set;
 import Relation;
 
@@ -8,19 +9,19 @@ import Relation;
 public test bool product(set[&A]X, set[&B] Y) =
   isEmpty(X) ==> isEmpty(X * Y) ||
   isEmpty(Y) ==> isEmpty(X * Y) ||
-  all(<x, y> <- X * Y, z <- range(X), <a, z> in X, <z, y> in Y);
+  all(<x, y> <- X * Y, z <- range(X * Y), <x, z> in X, <z, y> in Y);
   
 public test bool composition(rel[&A, &B]X, rel[&B, &C] Y) =
   isEmpty(X) ==> isEmpty(X o Y) ||
   isEmpty(Y) ==> isEmpty(X o Y) ||
-  all(<x, y> <- X o Y, z <- range(X), <a, z> in X, <z, y> in Y);
+  all(<x, y> <- X o Y, z <- range(X o Y), <x, z> in X, <z, y> in Y);
   
 public test bool selection(rel[&A fa, &B fb] X) =
   X.fa == domain(X) && X.fb == range(X) && X.fa == X<0> && X.fb == X<1>;
   
 public test bool \join(rel[&A, &B]X, rel[&B, &C, &D] Y) =
-  isEmpty(X) ==> X join Y == Y ||
-  isEmpty(Y) ==> X join Y == X ||
+  isEmpty(X) ==> size(X join Y) == size(Y) ||			// Note X join Y and Y cannot be compared in type system.
+  isEmpty(Y) ==> size(X join Y) == size(X) ||
   (X join Y)<0, 1> == X && (X join Y)<2,3,4> == Y;  
   
 public test bool subscription(rel[&A, &B, &C] X) =
