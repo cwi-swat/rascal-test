@@ -18,10 +18,10 @@
 	</scm>
 
 	<build>
-		<sourceDirectory>does-not-exist</sourceDirectory>
+		<sourceDirectory>src</sourceDirectory>
 		<resources>
 			<resource>
-				<directory>does-not-exist</directory>
+				<directory>src</directory>
 			</resource>
 		</resources>
 		<testSourceDirectory>src</testSourceDirectory>
