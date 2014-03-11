@@ -21,7 +21,11 @@
 		<sourceDirectory>src</sourceDirectory>
 		<resources>
 			<resource>
-				<directory>src</directory>
+			  <directory>src</directory>
+			  <includes>
+			    <include>**/*.java</include>
+			    <include>**/*.rsc</include>
+			  </includes>
 			</resource>
 		</resources>
 		<testSourceDirectory>src</testSourceDirectory>
