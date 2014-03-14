@@ -15,4 +15,7 @@ public test bool dynamicTypes10(){ return [tuple[str,str] _, *tuple[int,int] _] 
 public test bool dynamicTypes11(){ lrel[value a, value b] lr1 = [<"1","1">,<2,2>,<3,3>]; lrel[value a, value b] lr2 = [<2,2>,<3,3>]; 
        return lrel[int, int] _ := lr1 & lr2 && (lr1 & lr2).a == [2,3] && (lr2 & lr1).b == [2,3]; }
        
-public test bool dynamicTypes41(){ rel[value, value] lr = {<"1","1">,<2,2>,<3,3>}; return rel[int, int] _ := delete(lr, 0); }
+public test bool dynamicTypes41(){ 
+  lrel[value, value] lr = [<"1","1">,<2,2>,<3,3>]; 
+  return lrel[int, int] _ := delete(lr, 0); 
+}
