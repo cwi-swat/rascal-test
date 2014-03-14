@@ -1,5 +1,7 @@
 module tests::library::ListRelationsTests
 
+import List;
+
 public test bool dynamicTypes1(){ lrel[value, value] lr = [<"1","1">,<2,2>,<3,3>]; return lrel[int, int] _ := slice(lr, 1, 2);}
 public test bool dynamicTypes2(){ lrel[value, value] lr = [<"1","1">,<2,2>,<3,3>];return lrel[int, int] _ := lr - <"1","1">; }
 public test bool dynamicTypes3(){ lrel[value a, value b] lr = [<"1","1">,<2,2>,<3,3>]; return lrel[int, int] _ := lr - [<"1","1">] && (lr - [<"1","1">]).a == [2,3] && (lr - [<"1","1">]).b == [2,3]; }
