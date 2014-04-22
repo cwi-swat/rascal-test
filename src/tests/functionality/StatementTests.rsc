@@ -80,7 +80,7 @@
   
   	
   data D = d(int i) | d();
-  //D d(int i) { if (i % 2 == 0) fail d; else return d();}
+  D d(int i) { if (i % 2 == 0) fail d; else return d();}
   // public test bool fail() {
   		public test bool fail1() = d(2) := d(2);
   		public test bool fail2() = d(3) == d();
