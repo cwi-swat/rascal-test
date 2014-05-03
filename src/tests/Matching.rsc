@@ -16,15 +16,15 @@ test bool tstA(){
     return a() := pt && pt is a;
 }
 
-//test bool tstAs(){
-//    pt = parse(#As, "aaa");
-//    return as(al) := pt && pt is as && pt.alist == al;
-//}
+test bool tstAs(){
+    pt = parse(#As, "aaa");
+    return as(al) := pt && pt is as && pt.alist == al;
+}
 
-//test bool tstC(){
-//    pt = parse(#C, "axaaa");
-//    return c(A a, As as) := pt && pt.a == a && pt.as == as && size([x | x <- as.alist]) == 3;
-//}
+test bool tstC(){
+    pt = parse(#C, "axaaa");
+    return c(A a, As as) := pt && pt.a == a && pt.as == as && size([x | x <- as.alist]) == 3;
+}
 
 
 data T1 = \int() | \void() | string(str s);

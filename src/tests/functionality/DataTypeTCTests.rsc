@@ -211,4 +211,9 @@ data D = d(int ival);
   	public test bool namedRelationError1(){
   		{rel[int from, int to] R = {<1,10>, <2,20>}; R.zip == {10,20};}return false;
   	}
+  	
+  		public test bool undefined1() {int T; return (T ? 13) == 13;}
+  		
+  		  		public test bool testNumber() {num n = 5; return n % 2 == 1;}	
+    		public test bool assertTrue() {num n = 2; return 5 % n == 1;}	
   

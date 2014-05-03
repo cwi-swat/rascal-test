@@ -15,7 +15,8 @@
   
   import Boolean;
   
-  // public void arb() {
+  // arb
+  
   		public test bool arb1(){
   		      bool B = Boolean::arbBool(); 
   		      return (B == true) || (B == false);
@@ -24,29 +25,27 @@
   		     bool B = arbBool(); 
   		     return (B == true) || (B == false);
   		     }
-  //	}
   
-  //	@Test public void toInt() {
+  // toInt
   
   		public test bool toInt1()=Boolean::toInt(false) == 0;
   		public test bool toInt2()=Boolean::toInt(true) == 1;
   
   		public test bool toInt3()=toInt(false) == 0;
   		public test bool toInt4()=toInt(true) == 1;
-  //	}
   
-  //	@Test public void toReal() {
+  // toReal
+  
   		public test bool toReal1()=Boolean::toReal(false) == 0.0;
   		public test bool toReal2()=Boolean::toReal(true) == 1.0;
   
   		public test bool toReal3()=toReal(false) == 0.0;
   		public test bool toReal4()=toReal(true) == 1.0;
-  //	}
   
-  //	@Test public void testToString() {
+  // testToString
+  
   		public test bool testToString1()= Boolean::toString(false) == "false";
   		public test bool testToString2()= Boolean::toString(true) == "true";
   		public test bool testToString3()= toString(false) == "false";
   		public test bool testToString4()= toString(true) == "true";
-  //	}
  

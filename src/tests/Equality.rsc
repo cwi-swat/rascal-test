@@ -87,5 +87,5 @@ public test bool differentKeys3(int i) = size((i:10) + (toRat(i,1):20) + (toReal
 // == vs eq
 public test bool eqImpliesEquals(value x, value y) = eq(x,y) ==> (x == y);
 public test bool nonComparabilityImpliesNonEq(value x, value y) = !comparable(typeOf(x),typeOf(y)) ==> !eq(x,y);
-/*TC*///public test bool comparabilityImpliesEquivalence(value x, value y) = comparable(typeOf(x),typeOf(y)) ==> (eq(x,y) <==> x == y);
+public test bool comparabilityImpliesEquivalence(value x, value y) = comparable(typeOf(x),typeOf(y)) ==> (eq(x,y) <==> x == y);
 

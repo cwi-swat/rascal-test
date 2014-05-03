@@ -2,7 +2,7 @@ module tests::functionality::PatternTestsList3
 
  data DATA = a() | b() | c() | d() | e(int N) | f(list[DATA] L) | f(set[DATA] S)| s(set[DATA] S)|g(int N)|h(int N)| f(DATA left, DATA right);
  
-  // @Test public void matchList3()  {
+  // matchList3
   		public test bool matchList48() = [a(), b()] := [a(), b()];
   		public test bool matchList49() = ([DATA X1, b()] := [a(), b()]) && (X1 == a());
   
@@ -25,9 +25,8 @@ module tests::functionality::PatternTestsList3
   
   		public test bool matchList61() = ([DATA A3, f([A3, b(), *DATA SX2]), *SX2] !:= [d(), f([a(),b(),c()]), a()]);
   		public test bool matchList62() = ([DATA A4, f([A4, b(), *DATA SX3]), *SX3] !:= [c(), f([a(),b(),c()]), d()]);
-  //	}
   
-   //	@Test public void matchListSet() {
+   //	matchListSet
   
   		public test bool matchListSet1() = [a(), b()] := [a(), b()];
   		public test bool matchListSet2() = ([DATA X1, b()] := [a(), b()]) && (X1 == a());
@@ -47,11 +46,7 @@ module tests::functionality::PatternTestsList3
   		public test bool matchListSet11() = ([DATA A1, f({A1, b(), DATA X10})] := [a(), f({a(),b(),c()})]) && (A1 == a());
   		public test bool matchListSet12() = ({DATA A2, f([A2, b(), DATA X11])} := {a(), f([a(),b(),c()])}) && (A2 == a());
   
-  //	}
-  
-   //	@Test public void matchSet2() {
-  
-  		// prepare("data DATA = a() | b() | c() | d() | e(int N) | s(set[DATA] S) | g(int N) | h(int N);");
+   //	matchSet2
   
   		public test bool matchSet60() = {a(), b()} := {a(), b()};
   		public test bool matchSet61() = ({DATA X1, b()} := {a(), b()}) && (X1 == a());
@@ -83,4 +78,3 @@ module tests::functionality::PatternTestsList3
   		public test bool matchSet79() = ({s({DATA A9, b()}), A9} := {s({a(),b()}), a()});
   		public test bool matchSet80() = ({s({DATA A9, b()}), A9} := {s({a(),b()}), a()}) && (A9 == a());
   		public test bool matchSet81() = ({s({DATA A10, b(), *DATA SX6}), A10, *SX6} := {c(), s({a(),b(),c()}), a()}) && (A10 == a()) && (SX6 =={c()});
-  //	}

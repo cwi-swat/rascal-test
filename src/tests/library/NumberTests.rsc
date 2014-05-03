@@ -14,7 +14,7 @@
   *******************************************************************************/
   import util::Math;
   
-  //public void abs() {
+  // abs
   
   		public test bool abs1() = abs(0) == 0;
   		public test bool abs2() = abs(0r) == 0r;
@@ -25,14 +25,13 @@
   		public test bool abs7() = abs(3r2) == 3r2;
   		public test bool abs8() = abs(-1.5) == 1.5;
   		public test bool abs9() = abs(-3r2) == 3r2;
-  //	}
   
-  //	@Test public void arbInt() {
+  // arbInt
+  
   		public test bool absInt1() {int N = arbInt(10); return (N >= 0) && (N < 10);}
   		public test bool absInt2() {int N = arbInt(); return true;}
-  //	}
-  
-  //	@Test public void compare() {
+
+  // compare
   
   		public test bool compare1() = 1r1 == 1;
   		public test bool compare2() = 1r1 == 1.0;
@@ -58,9 +57,9 @@
   		public test bool compare19() = 3r2 > 2r2;
   		public test bool compare20() = 3r2 >= 2r2;
   		public test bool compare21() = 3r1 >= 2r2;
-  //	}
   
-  //	@Test public void arithPromotion() {
+  // arithPromotion
+  
   		public test bool arithPromotion1() = 2r4 + 1r2 == 1r;
   		public test bool arithPromotion2() = 2r4 - 1r2 == 0r;
   		public test bool arithPromotion3() = 2r4 * 1r2 == 1r4;
@@ -86,14 +85,13 @@
   		public test bool arithPromotion18() = 2.0 - 1r2 == 1.5;
   		public test bool arithPromotion19() = 2.0 * 1r2 == 1.0;
   		public test bool arithPromotion20() = 2.0 / 1r2 == 4.0;
-  //	}
   
-  	@Test
-  //	public void arbReal() {
+  // arbReal
+  
   		public test bool arbReal1() {real D = arbReal(); return (D >= 0.0) && (D <= 1.0);}
-  //	}
   
-  //	@Test public void max() {
+  // max
+  
   		public test bool testToString1() = max(3, 10) == 10;
   		public test bool testToString2() = max(10, 10) == 10;
   		public test bool testToString3() = max(3.0, 10.0) == 10.0;
@@ -101,9 +99,8 @@
   		
   		public test bool testToString5() = max(3.5, 10) == 10;
   		public test bool testToString6() = max(3, 10.5) == 10.5;
-  //	}
   
-  //	@Test public void min() {
+  // min
   
   		public test bool min1() = min(3, 10) == 3;
   		public test bool min2() = min(10, 10) == 10;
@@ -114,27 +111,23 @@
   		
   		public test bool min6() = min(3.5, 10) == 3.5;
   		public test bool min7() = min(3, 10.5) == 3;
-  
-  //	}
   	
-  //	@Test  public void toInt() {
+  // toInt
   
   		public test bool toInt1() = toInt(3) == 3;
   		public test bool toInt2() = toInt(3.14) == 3;
   		public test bool toInt3() = toInt(3r2) == 1;
   		public test bool toInt4() = toInt(4r2) == 2;
-  //	}
   
-  //	@Test public void toReal() {
+  // toReal
+  
   		public test bool toReal1() =  toReal(3) == 3.0;
   		public test bool toReal2() = toReal(3.14) == 3.14;
-  //	}
   
-  //	@Test public void testToString() {
+  // testToString
+  
   		public test bool testToString7() = toString(314) == "314";
   		public test bool testToString8() = toString(3.14) == "3.14";
   		public test bool testToString9() = toString(4r8) == "1r2";
-  
-  //	}
   
  

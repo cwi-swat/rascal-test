@@ -14,14 +14,10 @@
    *   * Arnold Lankamp - Arnold.Lankamp@cwi.nl
    *   * Bert Lisser - Bert.Lisser@cwi.nl - CWI
   *******************************************************************************/
-  	
 
-  //	public void voidFun() {
-  		public test bool assertTrue9() {void f(){ } f(); return true;}
-  //	}
+  // voidFun
   
-  // public void fac() {
-  //		String fac = "int fac(int n){ return (n <= 0) ? 1 : (n * fac(n - 1));}";
+  		public test bool assertTrue9() {void f(){ } f(); return true;}
   		
   		public test bool  assertTrue10() {
   		     int fac(int n){ return (n <= 0) ? 1 : (n * fac(n - 1));}
@@ -35,28 +31,41 @@
              int z = facQ(n-1); return z*n; 
              }
   
-  //	 public void facNotTailRec() {
+  // facNotTailRec
+  
   		public test bool  assertTrue11() {
   		      return facQ(0) == 1 && facQ(1)==1 && facQ(2)== 2 && 
   		       facQ(3)==6 && facQ(4)==24;	      
   		      }
-  	
-  		
-  /*
-  	
-  	 public void formalsAreLocal1() {
-  		
-  		String fac = "int fac(int n) { if (n == 0) { return 1; } int z = n; int m = fac(n - 1); return z * m; }";
-  		// "m" used to be "n", but now we forbid redeclarations.
-  		
-  		public test bool  assertTrue12() {{" + fac + " fac(0) == 1;}"));
-  		public test bool  assertTrue13() {{" + fac + " fac(1) == 1;}"));
-  		public test bool  assertTrue14() {{" + fac + " fac(2) == 2;}"));
-  		public test bool  assertTrue15() {{" + fac + " fac(3) == 6;}"));
-  		public test bool  assertTrue16() {{" + fac + " fac(4) == 24;}"));
-  	}
-  */	
-  //	 public void higherOrder() {
+  		      
+  // formalsAreLocal
+  
+  		public test bool formalsAreLocal11(){
+  		 int fac(int n) { if (n == 0) { return 1; } int z = n; int m = fac(n - 1); return z * m; }
+  		 return fac(0) == 1;
+  	 	}
+  	 	
+  	 	public test bool formalsAreLocal12(){
+  		 int fac(int n) { if (n == 0) { return 1; } int z = n; int m = fac(n - 1); return z * m; }
+  		 return fac(1) == 1;
+  	 	}
+  	 	
+  	 	public test bool formalsAreLocal13(){
+  		 int fac(int n) { if (n == 0) { return 1; } int z = n; int m = fac(n - 1); return z * m; }
+  		 return fac(2) == 2;
+  	 	}
+  	 	
+  	 	public test bool formalsAreLocal14(){
+  		 int fac(int n) { if (n == 0) { return 1; } int z = n; int m = fac(n - 1); return z * m; }
+  		 return fac(3) == 6;
+  	 	}
+  	 	
+  	 	public test bool formalsAreLocal15(){
+  		 int fac(int n) { if (n == 0) { return 1; } int z = n; int m = fac(n - 1); return z * m; }
+  		 return fac(4) == 24;
+  	 	}
+  
+  // higherOrder
   		
           public test bool  higherOrder1() {
             int add(int a, int b) { return a + b; };
@@ -66,10 +75,9 @@
             if (doSomething(sub) != -1) return false;
             return true;
   		}
-  		
-  // }
   	
-  //  public void closures() {
+  // closures
+  
   		public test bool  closures1() {
   		    int x = 1;
   		    int f(int (int i) g, int j) { return g(j);}
@@ -78,7 +86,6 @@
   	       return false;
   	    return true;
   	    }
-  //	}
   
   /*	
   	 public void closuresVariables1() {
@@ -93,34 +100,74 @@
   		runTestInSameEvaluator("getX();"));
   	}
   	
-  	 public void varArgs1() {
-  		
-  		String add0 = "int add(int i...) { return 0; }";
-  		String add1 = "int add(int i...) { return i[0]; }";
-  		String add2 = "int add(int i, int j...) { return i + j[0]; }";
-  		
-  		public test bool  assertTrue17() {{" + add0 + " add() == 0; }"));
-  		public test bool  assertTrue18() {{" + add0 + " add([]) == 0; }"));
-  		public test bool  assertTrue19() {{" + add0 + " add(0) == 0; }"));
-  		public test bool  assertTrue20() {{" + add0 + " add([0]) == 0; }"));
-  		public test bool  assertTrue21() {{" + add0 + " add(0,1,2) == 0; }"));
-  		public test bool  assertTrue22() {{" + add0 + " add([0,1,2]) == 0; }"));
-  		
-  		public test bool  assertTrue23() {{" + add1 + " add(0) == 0; }"));
-  		public test bool  assertTrue24() {{" + add1 + " add([0]) == 0; }"));
-  		public test bool  assertTrue25() {{" + add1 + " add(0,1,2) == 0; }"));
-  		public test bool  assertTrue26() {{" + add1 + " add([0,1,2]) == 0; }"));
-  		
-  		public test bool  assertTrue27() {{" + add2 + " add(1,2) == 3; }"));
-  		public test bool  assertTrue28() {{" + add2 + " add(1,[2]) == 3; }"));
-  		public test bool  assertTrue29() {{" + add2 + " add(1,2,3) == 3; }"));
-  		public test bool  assertTrue30() {{" + add2 + " add(1,[2,3]) == 3; }"));
-  	}
   */	
   
-  // public void sideEffect() {
-  		
-  		
+   // varArgs0
+   
+   		public test bool varArgs01(){
+   			int add(int i...) { return 0; }
+   			return add() == 0;
+   		}
+   		public test bool varArgs02(){
+   			int add(int i...) { return 0; }
+   			return add([]) == 0;
+   		}
+   		public test bool varArgs02(){
+   			int add(int i...) { return 0; }
+   			return add(0) == 0;
+   		}
+   		public test bool varArgs03(){
+   			int add(int i...) { return 0; }
+   			return add([0]) == 0;
+   		}
+   		public test bool varArgs04(){
+   			int add(int i...) { return 0; }
+   			return add(0,1,2) == 0;
+   		}
+   		public test bool varArgs05(){
+   			int add(int i...) { return 0; }
+   			return add([0,1,2]) == 0;
+   		}
+ // varArgs1
+   		
+   		public test bool varArgs11(){
+   			int add(int i...) { return i[0]; }
+   			return add(0) == 0;
+   		}
+   		public test bool varArgs12(){
+   			int add(int i...) { return i[0]; }
+   			return add([0]) == 0;
+   		}
+   		public test bool varArgs11(){
+   			int add(int i...) { return i[0]; }
+   			return add(0,1,2) == 0;
+   		}
+   		public test bool varArgs11(){
+   			int add(int i...) { return i[0]; }
+   			return add([0,1,2]) == 0;
+   		}
+   		
+   	// varArgs2
+   	
+   		public test bool varArgs21(){
+   			int add(int i, int j...) { return i + j[0]; }
+   			return add(1,2) == 3;
+   		}
+   		public test bool varArgs22(){
+   			int add(int i, int j...) { return i + j[0]; }
+   			return add(1,[2]) == 3;
+   		}
+   		public test bool varArgs23(){
+   			int add(int i, int j...) { return i + j[0]; }
+   			return add(1,2,3) == 3;
+   		}
+   		public test bool varArgs24(){
+   			int add(int i, int j...) { return i + j[0]; }
+   			return add(1,[2,3]) == 3;
+   		}
+  
+  // sideEffect
+  	
   		public test bool  sideEffect1() {
   		 	 int called = 0;  								// changed order, since forward refs are no longer allowed
   		     void One() { called = called + 1; return; }
@@ -129,9 +176,9 @@
   		     One(); 
   		     return called == 3;
   		     }
-  // }
   	
-  // public void max1() {
+  // max1
+  
   		public test bool  max1() { 
   		    int max(int a, int b) { return a > b ? a : b; } 
   		    return max(3,4) == 4;
@@ -149,10 +196,9 @@
   		//    return max(3,4) == 4 && max(3.0,4.0) == 4.0
   		//    && max("abc","def")=="def";
   		//    }
-  		
-  //	}
+
   	
-  //	 public void ident() {
+  // ident
   		
   		 public test bool  ident1() {
   		             &T ident(&T x){ return x; }
@@ -170,6 +216,7 @@
   		             &T ident(&T x){ return x; }
   		            return ident("abc") == "abc";
   		            }
+  		  /*TC*/
   		  //public test bool  ident() {
   		  //           &T ident(&T x){ return x; }
   		  //          return ident(f(1)) == f(1);
@@ -186,11 +233,10 @@
   		             &T ident(&T x){ return x; }
   		            return ident((1:10,2:20,3:30)) == (1:10,2:20,3:30);
   		            }
-  		
-  //	}
   
   
-  // public void map() {
+  // map
+  
   	public test bool  map1() {
   		map[&K,&V] put(map[&K,&V] m, &K k, &V v) { m[k] = v; return m; }
   		return put((),1,"1") == (1:"1");
@@ -215,7 +261,9 @@
   */
   
   data X = x() | y() | z();	
-  //	 public void dispatchTest1() {
+  
+  // dispatchTest1
+  
   public test bool  dispatchTest1() { 
   		public int f(x()) = 1;
   		public int f(y()) = 2;
@@ -230,7 +278,6 @@
   		public default int f(int x) = x;
   		return [f(x()),f(y()),f(z()), f(4)] == [1,2,3, 4];
   	}
-  // }
   
   //	@Ignore
   //	 public void dispatchTest3() {
@@ -242,7 +289,7 @@
   //		runTestInSameEvaluator("[f(`x`),f(`y`),f(`z`)] == [1,2,3]"));
   //	}
   	
-  //	 public void keywordTest1(){
+  //  keywordTest1
    
   	 public test bool  keywordTest11() { 
   		int incr(int x, int delta=1) = x + delta;
@@ -256,16 +303,22 @@
   		sum(y=7,x=5)== 5+7;
   	}
   
-  /*
-  	 public void keywordTest31(){
-  		prepare("list[int] varargs(int x, int y ..., int z = 0, str q = "a") = y;");
-  		runTestInSameEvaluator("varargs(1,2,3,4) == [2,3,4];"));
-  		runTestInSameEvaluator("varargs(1,2,3,4,q="b") == [2,3,4];"));
-  		runTestInSameEvaluator("varargs(1,2,3,4,z=5) == [2,3,4];"));
-  		runTestInSameEvaluator("varargs(1,2,3,4,q="b",z=5) == [2,3,4];"));
+  	public test bool keywordTest31(){
+  		list[int] varargs(int x, int y ..., int z = 0, str q = "a") = y;
+  		return varargs(1,2,3,4) == [2,3,4];
   	}
-  */
-  
+  	public test bool keywordTest32(){
+  		list[int] varargs(int x, int y ..., int z = 0, str q = "a") = y;
+  		return varargs(1,2,3,4,q="b") == [2,3,4];
+  	}
+  	public test bool keywordTest33(){
+  		list[int] varargs(int x, int y ..., int z = 0, str q = "a") = y;
+  		return varargs(1,2,3,4,z=5) == [2,3,4];
+  	}
+  	public test bool keywordTest34(){
+  		list[int] varargs(int x, int y ..., int z = 0, str q = "a") = y;
+  		return varargs(1,2,3,4,q="b",z=5) == [2,3,4];
+  	}
   
   data Figure (real shrink = 1.0, str fillColor = "white", str lineColor = "black")  =  emptyFigure() 
   | ellipse(Figure inner = emptyFigure()) 
@@ -291,15 +344,12 @@
   		return true;
   	}
   
-  
-  //}
   data D = d(int x, int y = 3);
   
-  	
   data POINT = point(int x, int y, str color = "red");
-  // public void keywordMatchTest1(){
-  		
-  		
+  
+  // keywordMatchTest1
+  	
   		public test bool keywordMatchTest1() =point(_,_,color=_) := point(1,2); /*fixed*/
   		public test bool keywordMatchTest2() =point(_,_,color="red") := point(1,2); /*fixed */
   		public test bool keywordMatchTest3() =point(_,_,color="green") !:= point(1,2, color="red"); /* fixed */
@@ -310,16 +360,12 @@
   		public test bool keywordMatchTest8() =point(1,2,color="red") := point(1,2,color="red");
   		public test bool keywordMatchTest9() =point(1,2,color="green") !:= point(1,2);
   		public test bool keywordMatchTest10() =point(1,2,color="green") !:= point(1,2);
-  //	}
   
   data POINT1 = point1(int x, int y, int z = 3, list[str] colors = []);	
-  //	public void keywordMatchTest2(){
-  		//@ignore{complex kw pattern} public test bool keywordMatchTest11() =point1(_, _, colors=["blue"]) := point1(1,2, colors=["blue"]);
-  		//@ignore{complex kw pattern} public test bool keywordMatchTest12() =point1(_, _, colors=[*_,"blue",*_]) := point1(1,2, colors=["red","green","blue"]);
-  		//@ignore{complex kw pattern} public test bool keywordMatchTest13() =point1(_, _, colors=[*_,*X,*_,*X, *_]) := point1(1,2, colors=["red","blue","green","blue"]);
-  //	}
-  	
-  	
   
+  // keywordMatchTest2
   
+  		/*TC*/// public test bool keywordMatchTest11() =point1(_, _, colors=["blue"]) := point1(1,2, colors=["blue"]);
+  		/*TC*/// public test bool keywordMatchTest12() =point1(_, _, colors=[*_,"blue",*_]) := point1(1,2, colors=["red","green","blue"]);
+  		/*TC*/// public test bool keywordMatchTest13() =point1(_, _, colors=[*_,*X,*_,*X, *_]) := point1(1,2, colors=["red","blue","green","blue"]);
  

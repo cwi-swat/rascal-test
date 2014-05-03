@@ -65,6 +65,12 @@ module tests::functionality::ComprehensionTCTests
   
   */
   
+   //	@expected{UnexpectedType}
+  //	public void nodeGeneratorTypeError(){
+  //		prepare("data TREE = i(int N) | f(TREE a,TREE b) | g(TREE a, TREE b);");
+  //		public test bool nodeGeneratorTypeError() = [N | int N <- f(i(1),g(i(2),i(3)))] == [];
+  //	}
+  
   @expected{UnexpectedType}
   	// public void anyError() {
   		public test bool anyError() {any(x <- [1,2,3], "abc");return false;}

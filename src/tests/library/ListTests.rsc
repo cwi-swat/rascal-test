@@ -15,17 +15,20 @@
   import Exception;
   import List;
   	
-  // delete		
+  // delete	
+  	
   		public test bool delete1() = delete([0,1,2], 0) == [1,2];
   		public test bool delete2() = delete([0,1,2], 1) == [0,2];
   		public test bool delete3() = delete([0,1,2], 2) == [0,1];
   
   // domain
+  
   		public test bool domain1() = domain([]) == {};
   		public test bool domain2()  = domain([1]) == {0};
   		public test bool domain3() = domain([1, 2]) == {0, 1};
   	
   // getOneFrom
+  
   		public test bool getOneFrom1() {int N = List::getOneFrom([1]); return N == 1;}
   		public test bool getOneFrom2() {int N = getOneFrom([1]); return N == 1;}
   		public test bool getOneFrom3() {int N = List::getOneFrom([1,2]); return  (N == 1) || (N == 2);}
@@ -34,6 +37,7 @@
   		public test bool getOneFrom6() {str S = List::getOneFrom(["abc","def"]); return  (S == "abc") || (S == "def");}
   
   // getOneFromError
+  
   @expected{EmptyList}
   	public test bool getOneFromError1() {
   		getOneFrom([]);
@@ -41,6 +45,7 @@
   	}
   
   // head
+  
   		public test bool head1() = List::head([1]) == 1;
   		public test bool head2() = head([1]) == 1;
   		public test bool head3() = List::head([1, 2]) == 1;
@@ -72,6 +77,7 @@
   
   		
   // insertAt
+  
   		public test bool insertAt1() =List::insertAt([], 0, 1) == [1];
   		public test bool insertAt2() =insertAt([], 0, 1) == [1];
   		public test bool insertAt3() =List::insertAt([2,3], 1, 1) == [2,1, 3];
@@ -79,25 +85,25 @@
   		public test bool insertAt5() =List::insertAt([2,3], 2, 1) == [2,3,1];
   		public test bool insertAt6() =insertAt([2,3], 2, 1) == [2, 3, 1];
   	
-  	
-  
   @expected{IndexOutOfBounds}
   	   public test bool insertAt7() {insertAt([1,2,3], 4, 5); return false;}
   	
   // isEmpty
+  
   	   public test bool isEmpty1()  =isEmpty([]);
   	   public test bool isEmpty2()  =isEmpty([1,2]) == false;
   	
-  
   // mapper 
+  
   	   public test bool mapper1() {int inc(int n) {return n + 1;} return mapper([1, 2, 3], inc) == [2, 3, 4];}
-  	
   
   // max
+  
   	   public test bool max1() = List::max([1, 2, 3, 2, 1]) == 3;
   	   public test bool max2() = max([1, 2, 3, 2, 1]) == 3;
   	
   // min
+  
   		public test bool min1() = List::min([1, 2, 3, 2, 1]) == 1;
   		public test bool min2() = min([1, 2, 3, 2, 1]) == 1;
   		
@@ -115,15 +121,15 @@
   		public test bool distribution3()  =distribution([1,2]) == (1:1, 2:1);
   		public test bool distribution4()  =distribution([1,2, 2]) == (1:1, 2:2);
   	
-  
-  	
   // reducer
+  
   		public test bool reducer1() {
   		     int add(int x, int y){return x + y;};
   		     return reducer([1, 2, 3, 4], add, 0) == 10;
   		}
   	
   // reverse 
+  
   		public test bool reverse1() = List::reverse([]) == [];
   		public test bool reverse2() = reverse([]) == [];
   		public test bool reverse3() = List::reverse([1]) == [1];
@@ -131,12 +137,14 @@
   
   	
   // size
+  
   		public test bool size1() = List::size([]) == 0;
   		public test bool size2() = size([]) == 0;
   		public test bool size3() = List::size([1]) == 1;
   		public test bool size4() = List::size([1,2,3]) == 3;
   	
   // slice
+  
   		public test bool slice1() = slice([1,2,3,4], 0, 0) == [];
   		public test bool slice2() = slice([1,2,3,4], 0, 1) == [1];
   		public test bool slice3() = slice([1,2,3,4], 0, 2) == [1,2];
@@ -149,7 +157,7 @@
   		public test bool slice10() = slice([1,2,3,4], 3, 1) == [4];
   	
   
-  // 	sort
+  // sort
   		public test bool sort1() =List::sort([]) == [];
   		public test bool sort2() =sort([]) == [];
   		public test bool sort3() =List::sort([1]) == [1];
@@ -163,20 +171,20 @@
   		public test bool sort11() =sort([1,1,0,1,1]) == [0,1,1,1,1];
   	
   // sum
+  
   		public test bool sum1() =sum([]) == 0;
   		public test bool sum2() =sum([1]) == 1;
   		public test bool sum3() =sum([1,2]) == 3;
   		public test bool sum4() =sum([1,2,3]) == 6;
   	
-  	
-  	
   // sortWithCompareFunction 	
+  
   		public test bool sortWithCompare1() = sort([1, 2, 3]) == [1,2,3];
   		public test bool sortWithCompare2() = sort([1, 2, 3], bool(int a, int b){return a < b;}) == [1,2,3];
   		public test bool sortWithCompare3() = sort([1, 2, 3], bool(int a, int b){return a > b;}) == [3,2,1];
-  		
  
   // tail
+  
   		public test bool tail1() = List::tail([1]) == [];
   		public test bool tail2() = tail([1]) == [];
   		public test bool tail3() = List::tail([1, 2]) == [2];
@@ -193,7 +201,6 @@
   		public test bool tail11() { L1 = [1,2]; L2 = [3]; return tail(tail(L1)) == tail(L2);}
   		public test bool tail12() { L1 = [1,2]; L2 = [3]; return {tail(tail(L1)), tail(L2)} == {[]};}
   			
-  
   @expected{EmptyList}
   	public test bool tail13() {
   		tail([]); return false;
@@ -204,7 +211,8 @@
   		tail([1,2,3], 4); return false;
   		}
   	
-  // takeOneFrom() 
+  // takeOneFrom
+  
   		public test bool takeOneFrom1() {<E, L> = takeOneFrom([1]); return (E == 1) && (L == []);}
   		public test bool takeOneFrom2() {<E, L> = List::takeOneFrom([1,2]); return ((E == 1) && (L == [2])) || ((E == 2) && (L == [1]));}
   	
@@ -215,18 +223,19 @@
   		}
   	
   // toMap
-  		/*TC*///public test bool toMapUnique1() = List::toMapUnique([]) == ();
-  		/*TC*///public test bool toMapUnique2() = toMapUnique([]) == ();
+  
+  		public test bool toMapUnique1() = List::toMapUnique([]) == ();
+  		public test bool toMapUnique2() = toMapUnique([]) == ();
   		public test bool toMapUnique3() = List::toMapUnique([<1,10>, <2,20>]) == (1:10, 2:20);
   
   @expected{MultipleKey}		
   		public test bool toMapUnique4() = List::toMapUnique([<1,10>, <1,20>]) == (1:10, 2:20);
-  
-  	
+
   
   // toMap
-  		/*TC*///public test bool toMap5() = List::toMap([]) == ();
-  		/*TC*///public test bool toMap6() = toMap([]) == ();
+  
+  		public test bool toMap5() = List::toMap([]) == ();
+  		public test bool toMap6() = toMap([]) == ();
   		public test bool toMap7() = List::toMap([<1,10>, <2,20>]) == (1:{10}, 2:{20});
   		public test bool toMap8() = List::toMap([<1,10>, <2,20>, <1,30>]) == (1:{10,30}, 2:{20});
   	
@@ -241,19 +250,9 @@
   		public test bool toString2() = toString([]) == "[]";
   		public test bool toString3() = List::toString([1]) == "[1]";
   		public test bool toString4() = List::toString([1, 2]) == "[1,2]";
-  
-   
- // @expected{UnexpectedType}
-  // listExpressions1
-  //		public test bool assertTrue(){ value n = 1; list[int] l = [ *[n, n] ];}
-  //
-  	
-  // @expected{UnexpectedType}
-  // listExpressions2 
-  //		public test bool assertTrue() {value n = 1; list[int] l = [ 1, *[n, n], 2 ];}
-  //	
   	
   // listExpressions3
+  
   	public test bool listExpressions1() { 
   		value n = 1; 
   		value s = "string"; 

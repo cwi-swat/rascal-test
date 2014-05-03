@@ -12,15 +12,14 @@ module tests::functionality::ProjectionTests
  *   * Bert Lisser - Bert.Lisser@cwi.nl - CWI
 *******************************************************************************/
 
-//	@Test public void empty() {
+// empty()
 		/*changed: type incorrect */
 		//public test bool empty1()={}<0> == {};
 		//public test bool empty2()={}<1> == {};
-//	}
+
 	
-//	@Test public void nonEmpty() {
+//	nonEmpty
 		public test bool nonEmpty1()={<1,2>}<0> == {1};
 		public test bool nonEmpty2()={<1,2>}<1> == {2};
-//	}
 	
 

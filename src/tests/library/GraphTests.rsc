@@ -14,47 +14,47 @@
   *******************************************************************************/
   import analysis::graphs::Graph;
   
-  //	@Test public void bottom() {
-  		/*TC*///public test bool bottom1() = bottom({}) == {};
+  // bottom
+  
+  		public test bool bottom1() = bottom({}) == {};
   		public test bool bottom2() = bottom({<1,2>, <1,3>, <2,4>, <3,4>}) == {4};
-  //	}
   
-  //	@Test public void predecessors(){
+  // predecessors
+  
   		public test bool predecessors1()=  predecessors({<1,2>, <1,3>, <2,4>, <3,4>}, 4) =={2, 3};
-  //	}
   
-  //	@Test  public void reachR() {
-  		/*TC*///public test bool reachR1() = reachR({}, {}, {}) == {};
+  // reachR()
+  
+  		public test bool reachR1() = reachR({}, {}, {}) == {};
   		public test bool reachR2() = reachR({<1,2>, <1,3>, <2,4>, <3,4>}, {1}, {}) =={};
   		public test bool reachR3() = reachR({<1,2>, <1,3>, <2,4>, <3,4>}, {1}, {1,2}) =={2};
   		public test bool reachR4() = reachR({<1,2>, <1,3>, <2,4>, <3,4>}, {1}, {1,2,3}) =={2,3};
   		public test bool reachR5() = reachR({<1,2>, <1,3>, <2,4>, <3,4>}, {1}, {1,2,4}) =={2, 4};
-  //	}
   
-  //	@Test public void reachX() {
-  		/*TC*///public test bool reachX1() = reachX({}, {}, {}) == {};
-  		// public test bool reachX() = reachX({<1,2>, <1,3>, <2,4>, <3,4>}, {1}, {}) =={2, 3, 4};
+  // reachX
+  
+  		public test bool reachX1() = reachX({}, {}, {}) == {};
+  		public test bool reachX() = reachX({<1,2>, <1,3>, <2,4>, <3,4>}, {1}, {}) =={2, 3, 4};
   		public test bool reachX2() = reachX({<1,2>, <1,3>, <2,4>, <3,4>}, {1}, {2}) =={3, 4};
-  		// public test bool reachX() reachX({<1,2>, <1,3>, <2,4>, <3,4>}, {1}, {2,3}) =={};
+  		public test bool reachX() = reachX({<1,2>, <1,3>, <2,4>, <3,4>}, {1}, {2,3}) =={};
   		public test bool reachX3() = reachX({<1,2>, <1,3>, <2,4>, <3,4>}, {1}, {4}) =={2, 3};
-  
   	
-  //	@Test public void reach(){
-  //		public test bool reach() = reach({}, {}, {}) == {};
+  // reach
+  
+  		public test bool reach0() = reach({}, {}) == {};
   		public test bool reach1() = reach({<1,2>, <1,3>, <2,4>, <3,4>}, {1}) =={1,2, 3, 4};
   		public test bool reach2() = reach({<1,2>, <1,3>, <2,4>, <3,4>}, {2}) =={2, 4};
   		public test bool reach3() = reach({<1,2>, <1,3>, <2,4>, <3,4>}, {3}) =={3, 4};
   		public test bool reach4() = reach({<1,2>, <1,3>, <2,4>, <3,4>}, {4}) =={4};
   		public test bool reach5() = reach({<1,2>, <1,3>, <2,4>, <3,4>}, {3,4}) =={3,4};
   		public test bool reach6() = reach({<1,2>, <1,3>, <2,4>, <3,4>}, {2,3}) =={2, 3,4};
-  //	}
   	
-  //	@Test public void successors(){
-  		public test bool successors1() = successors({<1,2>, <1,3>, <2,4>, <3,4>}, 1) =={2, 3};
-  //	}
+  // successors
   
-  //	@Test public void top() {
-  		/*TC*///public test bool top1() = top({}) == {};
+  		public test bool successors1() = successors({<1,2>, <1,3>, <2,4>, <3,4>}, 1) =={2, 3};
+  
+  // top
+  
+  		public test bool top1() = top({}) == {};
   		public test bool top2() = top({<1,2>, <1,3>, <2,4>, <3,4>}) == {1};
-  //	}
  

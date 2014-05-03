@@ -274,6 +274,49 @@ data Prop = or(Prop, Prop) | f();
   //	public void matchListError55() {
   //		runTest("{list[str] S = ["a"]; list[int] x = [1,2,3]; [1, S, 2] := x;}");
   //	}
+  
+   //	@Ignore @Test(expected=StaticError.class)
+  //	public void recursiveDataTypeNoPossibleHiddenRecursion() {
+  //		prepare("data Prop = f;");
+  //		prepareMore("data Bool = and(list[Prop], list[Prop]) | t();");
+  //		runTestInSameEvaluator("{p = or(t,t); and(t,t) := p;}");
+  //	}
+  
+  //@Ignore @Test(expected=StaticError.class)
+  	//public void NoDataDecl(){
+  	//	runTest("f(1) := 1;");
+  	//}
+  	
+  	//
+  	// The following test requires deeper analysis of the data signature
+  	///
+  	//@Ignore @Test(expected=StaticError.class)
+  	//public void descendantWrongType(){
+  	//	prepare("data F = f(F left, F right) | g(int N);");
+  	//	public test bool assertTrue() = /true := f(g(1),f(g(2),g(3)));
+  	//}
+  	
+  	////	@Ignore @Test(expected=StaticError.class)
+  ////	public void recursiveDataTypeNoPossibleMatchVertical() {
+  ////		prepare("data Bool = and(Bool, Bool) | t();");
+  ////		runTestInSameEvaluator("t := and(t,t);");
+  ////	}
+  
+   // @expected{UndefinedType} Doesn't work
+  //	public void typedVariableBecomesWrongType(){
+  //		public test bool assertTrue() {str N : 3 := 3; return false;}
+  //	}
+  	
+  //	@Test
+  //	public void redeclaredTypedVariableBecomesShadowsAnother(){
+  		/*TC*/ //public test bool redeclaredTypedVariableBecomesShadowsAnother1() {int N = 5; return int N : 3 := 3 && N == 3;}
+  //	}
+  	
+  	//@Ignore("we can't find this bug anymore due to pattern dispatch") @Test(expected=StaticError.class)
+  	//public void doubleTypedVariableBecomes(){
+  	//	public test bool assertTrue() {{[int N : 3, int N : 4] := [3,4] && N == 3;}}
+  	//}
+  	
   	
   	public test bool matchListExternalVar1() {
   		list[int] S; return [1, *S, 2] !:= [1,2,3] && S != [3];

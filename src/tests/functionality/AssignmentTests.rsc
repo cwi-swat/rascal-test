@@ -1,31 +1,29 @@
  module tests::functionality::AssignmentTests
   
   	
-  // @Test public void testSimple() {
+  // testSimple
+  
   		public test bool testSimple1() {bool b = true; return b == true;}
   		public test bool testSimple2() {b = true; return b == true;}
-  //	}
   	
-  // public void testInteger(){
+  // testInteger
+  
   		public test bool testInteger1() {int N = 3; N += 2; return N==5;}
   		public test bool testInteger2() {int N = 3; N -= 2; return N==1;}
   		public test bool testInteger3() {int N = 3; N *= 2; return N==6;}
   		public test bool testInteger4() {int N = 6; N /= 2; return N==3;}
   		public test bool testInteger5() {int N = 6; N ?= 2; return N==6;}
-  		public test bool testInteger6() {N ?= 2; return N==2;}
-  //	}
   	
-  	
-  	
-  //	@Test public void testTuple() {
+  // testTuple
+  
   		public test bool testTuple1() {int a = 1; int b = 2; <a, b> = <b, a>; return (a == 2) && (b == 1);}
   		public test bool testTuple2() {<a, b> = <1, 2>; return (a == 1) && (b == 2);}
   		public test bool testTuple3() {tuple[str name, int cnt] T = <"abc", 1>; T.name = "def"; return T.name == "def";}
   		public test bool testTuple4() {tuple[str name, int cnt] T = <"abc", 1>; return T[name = "def"] == <"def", 1>;}
-  //	}
   
   	
-  // @Test public void testList1() {
+  // testList1
+  
   		public test bool testList1() {list[int] L = []; return L == [];}
   		public test bool testList2() {list[int] L = [0,1,2]; L[1] = 10; return L == [0,10,2];}
   		public test bool testList3() {L = [0,1,2]; L[1] = 10; return L == [0,10,2];}
@@ -35,53 +33,44 @@
   		public test bool testList6() {list[int] L = [1,2,3]; L += [4]; return  L==[1,2,3,4];}
   		public test bool testList7() {list[int] L = [1,2,3]; L -= [2]; return  L==[1,3];}
   		public test bool testList8() {list[int] L = [1,2,3]; L ?= [4]; return  L==[1,2,3];}
-  		public test bool testList9() {                       L ?= [4]; return  L==[4];}
-  //	}
   	
-  //	@Test public void testList2() {
+  // testList2
+  
   		public test bool testList10() {list[list[int]] L = [[1,2,3],[10,20,30]]; L[0] += [4]; return  L==[[1,2,3,4],[10,20,30]];}
   		public test bool testList11() {list[list[int]] L = [[1,2,3],[10,20,30]]; L[0] -= [2]; return  L==[[1,3],[10,20,30]];}
   		public test bool testList12() {list[list[int]] L = [[1,2,3],[10,20,30]]; L[0] ?= [4]; return  L==[[1,2,3],[10,20,30]];}
-  //	}
-  
-  
   	
-  //	@Test public void testMap1() {
+  // testMap1
+  
   		public test bool testMap1() {map[int,int] M = (); return M == ();}
   		public test bool testMap2() {map[int,int] M = (1:10, 2:20);return  M == (1:10, 2:20);}
   		
   		public test bool testMap3() {map[int,int] M = (1:10, 2:20); M += (3:30); return M==(1:10, 2:20,3:30);}
   		public test bool testMap4() {map[int,int] M = (1:10, 2:20); M -= (2:20); return M==(1:10);}
   		public test bool testMap5() {map[int,int] M = (1:10, 2:20); M ?= (3:30); return M==(1:10, 2:20);}
-  		public test bool testMap6() {                               M ?= (3:30); return M==(3:30);}
-  //	}
   	
+  // testMap2
   
-  //	}
-  	
-  //	@Test public void testMap2() {
   		public test bool testMap7() {map[int,list[int]] M = (0:[1,2,3],1:[10,20,30]); M[0] += [4]; return M==(0:[1,2,3,4],1:[10,20,30]);}
   		public test bool testMap8() {map[int,list[int]] M = (0:[1,2,3],1:[10,20,30]); M[0] -= [2]; return M==(0:[1,3],1:[10,20,30]);}
   		public test bool testMap9() {map[int,list[int]] M = (0:[1,2,3],1:[10,20,30]); M[0] ?= [4]; return M==(0:[1,2,3],1:[10,20,30]);}
   		public test bool testMap10() {map[int, list[int]] M = (0:[1,2,3],1:[10,20,30]); M[2] ?= [4]; return M==(0:[1,2,3],1:[10,20,30], 2:[4]);}
   		
-  //	}
   	
-  //	@Test public void testSet() {
+  // testSet
+  
   		public test bool testSet1() {set[int] S = {}; return S == {};}
   		public test bool testSet2() {set[int] S = {0,1,2}; return S == {0, 1, 2};}
   		
   		public test bool testSet3() {set[int] L = {1,2,3}; L += {4}; return  L=={1,2,3,4};}
   		public test bool testSet4() {set[int] L = {1,2,3}; L -= {2}; return L=={1,3};}
   		public test bool testSet5() {set[int] L = {1,2,3}; L ?= {4}; return L=={1,2,3};}
-  		public test bool testSet6() {                       L ?= {4}; return L=={4};}
-  //	}
-  	
- 
+
   
    data D = listfield(list[int] ints) | intfield(int i);
   	
-  //	@Test public void testADT(){
+  // testADT
+  
           public test bool testADT1() {
               D d = listfield([1,2]); 
               d.ints += [3]; 
@@ -108,12 +97,12 @@
               if (d != intfield(2)) return false;
               return true;
               }
-  	// }
   	
   data F = f() | f(int n) | g(int n) | deep(F f);
   anno int F @ pos;
   
-  //	@Test public void testAnnotations(){
+  // testAnnotations
+  
   	public test bool testAnnotations1() {	
   		F X = f(); X @ pos = 1; 
   		if (X @ pos != 1) return false;
@@ -133,12 +122,12 @@
   		return true;
   	}
   	
-  // public void assigningClosureToVariableBug877() {
+  // assigningClosureToVariableBug877
+  
   	public test bool assigningClosureToVariableBug8771() {	
   	    bool() x = bool(){ return true; };
   		return x() == true;
   		}
-  // }
   	
   
   	

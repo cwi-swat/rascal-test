@@ -1,6 +1,7 @@
 module tests::functionality::AssignmentTCTests
 
-
+ data F = f() | f(int n) | g(int n) | deep(F f);
+ anno int F @ pos;
 	
   @expected{UndeclaredVariable}
   // public void testUninit() {
@@ -100,4 +101,9 @@ module tests::functionality::AssignmentTCTests
   	  return false;
   	  }			
   //	}
+  
+  //public test bool testInteger6() {N ?= 2; return N==2;}
+  //public test bool testList9() {                       L ?= [4]; return  L==[4];}
+  //public test bool testMap6() {                               M ?= (3:30); return M==(3:30);}
+  //public test bool testSet6() {                       L ?= {4}; return L=={4};}
   

@@ -35,15 +35,6 @@ module tests::functionality::AccumulatingTests
 			   == [[1,2,3],[1,2,3],[1,2,3]];
 	}
 
-/*
-	@expected{UnguardedAppend}
-	public test bool testAppendHasLexicalScopingFunction() {
-		prepare("public test bool f() { append 3; }");
-		runTestInSameEvaluator("{ for (x <- [1,2,3]) f(); }");
-	}
-*/	
-	
-
 
 	public test bool escapingClosureAppendToDevNull() {
 		int() f() { for (x <- [1,2,3]) { int g() { append x; return 4; } return g; }}

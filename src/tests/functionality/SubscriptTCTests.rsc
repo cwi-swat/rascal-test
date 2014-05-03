@@ -72,3 +72,35 @@ data NODE = f(int a, str b, real c);
 		rel[int,int] R; R[1,2];return false;
 	}
 	
+	@expected{UninitializedVariable}
+	public test bool UninitializedListVariable(){
+		list[int] L; L[4]; return false;
+	}
+	
+	@expected{UninitializedVariable}
+	public test bool UninitializedListVariable(){
+		list[int] L; L[4] = 44;return false;
+		}
+		
+			
+	@expected{UninitializedVariable}
+	public test bool UninitializedMapVariable() {
+		map[int,int] M; M[4]; return false;
+	}
+	
+	@expected{UninitializedVariable}
+	public test bool UninitializedMapVariable(){
+		map[int,int] M; M[4] = 44; return false;
+	}
+	
+	@expected{UninitializedVariable}
+	public test bool UninitializedRelVariable(){
+		rel[int,int] R; R[1];return false;
+	}
+	
+	// Changed: no support for relation updates
+	//@expected{UninitializedVariable}
+	//public test bool UninitializedRelVariable(){
+	//	rel[int,int] R; R[1] = 10; return false;
+	//}
+	

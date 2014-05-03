@@ -16,11 +16,10 @@
   *******************************************************************************/
   import Exception;
   import List;
+  import Set;
   import Map;
   import IO;
   import util::Math;
-  //import Prelude;
-  
   
   data NODEA = fA(int N);
   
@@ -87,8 +86,6 @@
   			} 
   		}
   		
-  		
-  		
   int divide(int x, int y) 
   		throws divide_by_zero 
   		{ 
@@ -131,13 +128,13 @@
   		  return false; 
   		}
   		
-  //bool functionS() { 
-  //		  try { 
-  //		     getOneFrom({}); 
-  //		  } catch EmptySet: 
-  //		      return true; 
-  //		  return false; 
-  //		}
+  bool functionS() { 
+  		  try { 
+  		     getOneFrom({}); 
+  		  } catch EmptySet(): 
+  		      return true; 
+  		  return false; 
+  		}
   		
   bool functionR() { 
   		  try { 
@@ -147,52 +144,52 @@
   		  return false; 
   		}
   	
-  // public void testClassify()  {
+  // testClassify
+  
   		public test bool testClassify1()=classify(3) == 1;
   		public test bool testClassify2()=classify(fA(3)) == 2;
   		public test bool testClassify3()=classify("abc") == 3;
   		public test bool testClassify4()=classify([1,2,3]) == 4;
-  //	}
   	
-  // public void testDuplicate()  {		
+  // testDuplicate
+  	
   		public test bool testDuplicate1()=duplicate(3) == 6;
   		public test bool testDuplicate2()=duplicate(fB(3)) == dB(fB(3),fB(3));
   		public test bool testDuplicate3()=duplicate("abc") == "abcabc";
   		public test bool testDuplicate4()=duplicate(3.5) == 3.5;
-  //	}
   	
-  //	@Test public void testDFin()  {	
+  // testDFin
+  
   		public test bool testDFin1()=dfin(3) == fin(6);
   		public test bool testDFin2()=dfin(fC(3)) == fin(dC(fC(3),fC(3)));
   		public test bool testDFin3()=dfin("abc") == fin("abcabc");
   		public test bool testDFin4()=dfin(3.5) == fin(3.5);
-  //	}
   	
-  //	@Test public void testDivide ()  {
+  // testDivide
   		public test bool testDivide1()=divide(3, 2) == 1;
   		public test bool testDivide2()=safeDivide(3, 2) == 1;
   		public test bool testDivide3()=safeDivide(3, 0) == 0;
-  //	}
   
-  //	@Test public void emptyListException(){
+  // emptyListException
+  
   		public test bool emptyListException1()=functionL();
-  //	}
   	
-  //	@Test public void emptyMapException(){
-  		public test bool emptyMapException1()=functionM();
-  //	}
-  	
-  //	@Test public void emptySetException() {
-  //		public test bool emptySetException1()=functionS();
-  //	}
-  	
-  //	@Test public void IndexOutOfBoundsException(){
-  		public test bool indexOutOfBoundsException1()=functionR();
-  //	}
+  // emptyMapException
   
-  //	@Test public void PathNotFoundException(){	
+  		public test bool emptyMapException1()=functionM();
+  	
+  // emptySetException
+  
+  		public test bool emptySetException1()=functionS();
+  	
+  // indexOutOfBoundsException
+  
+  		public test bool indexOutOfBoundsException1()=functionR();
+  
+  // pathNotFoundException
+  
   		public test bool pathNotFoundException1()=functionF();
-  //	}
+
   
   
   	

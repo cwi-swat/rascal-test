@@ -61,14 +61,6 @@ public test bool aliasAndADT2() =
 		     Transitions = {\<1,2,3\>}; true;
 		     ")==result(true);	
 
-// outofOrderDeclaration is not permitted 	
-	//public test bool  outofOrderDeclaration() =
-	//    eval("
-	//	    alias INTEGER0 = INTEGER1; alias INTEGER1 = int;
-	//	    INTEGER0 x = 0; x == 0;
-	//	    ")==result(true);	
-
-
 public test bool  transitiveAliasAcrossTuples() = eval("
 				 alias trans = tuple[str, str, str];	
 				 alias block = set[trans];

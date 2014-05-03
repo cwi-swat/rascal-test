@@ -61,9 +61,6 @@
   	
   //	@Test
   //	public void parameterized() {
-  //		public test bool parameterized() {a = tval(1); a == tval(1);}
-  //		parameterized(runTestInSameEvaluator("{b = tval("abc"); b == tval("abc");}
-  //		parameterized(runTestInSameEvaluator("{c = {tval("abc")}; c == {tval("abc")};}"));
   		
   		public test bool parameterized1() {Exp1[int] e = tval(1); return e == tval(1);}
   		public test bool parameterized2(){Exp1[str] f = tval("abc"); return f == tval("abc");}
@@ -72,8 +69,7 @@
   		// if the parameter is not bound by a constructor, the instantiated type equals the bound of the parameter, 
   		// any smaller types, like Exp1[int] would result in a type error
   		public test bool parameterized4() {a = tval(1); return a == tval(1);}
-  //		parameterized(runTestInSameEvaluator("{b = tval(\"abc\"); b == tval(\"abc\");}"));
-  //		parameterized(runTestInSameEvaluator("{c = {tval(\"abc\")}; c == {tval(\"abc\")};}"));
+  		public test bool parameterized4a() {b = tval("abc"); b == tval("abc");}
   		
   		public test bool parameterized5() {Exp1[int] e = tval(1); return e == tval(1);}
   		public test bool parameterized6(){Exp1[str] f = tval("abc"); return f == tval("abc");}
@@ -96,7 +92,6 @@
   //	}
   
   // public void parameterizedErrorTest() {
-  //	prepare("data Exp[&T] = tval(&T tval) | tval2(&T tval1, &T tval2) | ival(int x);");
   		public test bool parameterizedErrorTest1() {Exp1[int] h = ival(3); return h == ival(3);}
   //	}
   
@@ -118,36 +113,3 @@
   	
   
   
-  // Not possible to do local data definitions	
-  //	public void exactDoubleFieldIsAllowed()  {
-  //		boolFieldUpdate(true);
-  //	}
-  //	
-  //	@expected{s}
-  //public test bool doubleFieldError2()  {
-  //		 return true;
-  //	}
-  	
-  	//@expected{s}
-  	//public void doubleFieldError3() throws StaticError {
-  	//	runTest("data D = d(int n) | d(int v);");
-  	//}
-  	//
-  	//@expected{s}
-  	//public void doubleFieldError4() throws StaticError {
-  	//	prepare("alias INTEGER = int;");
-  	//	runTest("data D = d(int n) | d(INTEGER v);");
-  	//}
-  	//
-  	//public void exactDoubleDataDeclarationIsAllowed() throws StaticError {
-  	//	prepare("data D = d(int n) | e;");
-  	//	runTestInSameEvaluator("data D = d(int n);");
-  	//	boolFieldUpdate(true);
-  	//}
-  	//
-  	//@expected{s}
-  	//public void undeclaredTypeError1() throws UndeclaredField {
-  	//	runTest("data D = anE(E e);");
-  	//}
-  
- 

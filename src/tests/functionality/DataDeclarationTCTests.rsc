@@ -32,3 +32,37 @@ data Bool = btrue() | bfalse() | band(Bool left, Bool right) | bor(Bool left, Bo
   //	public void boolError() {	
   		public test bool boolFieldUpdate6() {Bool b = btrue(); return b.left == btrue();}
   //	}
+  
+    // Not possible to do local data definitions	
+  //	public void exactDoubleFieldIsAllowed()  {
+  //		boolFieldUpdate(true);
+  //	}
+  //	
+  //	@expected{s}
+  //public test bool doubleFieldError2()  {
+  //		 return true;
+  //	}
+  	
+  	//@expected{s}
+  	//public void doubleFieldError3() throws StaticError {
+  	//	runTest("data D = d(int n) | d(int v);");
+  	//}
+  	//
+  	//@expected{s}
+  	//public void doubleFieldError4() throws StaticError {
+  	//	prepare("alias INTEGER = int;");
+  	//	runTest("data D = d(int n) | d(INTEGER v);");
+  	//}
+  	//
+  	//public void exactDoubleDataDeclarationIsAllowed() throws StaticError {
+  	//	prepare("data D = d(int n) | e;");
+  	//	runTestInSameEvaluator("data D = d(int n);");
+  	//	boolFieldUpdate(true);
+  	//}
+  	//
+  	//@expected{s}
+  	//public void undeclaredTypeError1() throws UndeclaredField {
+  	//	runTest("data D = anE(E e);");
+  	//}
+  
+ 

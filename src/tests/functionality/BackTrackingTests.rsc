@@ -13,12 +13,12 @@
    *  *  Bert Lisser - Bert.Lisser@cwi.nl - CWI
   *******************************************************************************/
   
-  	// @Test public void testSimple(){
+  	// testSimple
+  	
   		public test bool testSimple1() = int i <- [1,4] && int k := i && k >= 4;
   		public test bool testSimple2() = int i <- [1,4] && int j <- [2,1] && int k := i + j && k >= 5;
-  	// }
   	
-  	// @Test public void testList() {
+  	// testList
   		
   		public test bool testList1() = ([*int L1, int N, *int L2] := [1,2,3,4]) && (N == 3) && 
   								(L1 == [1,2]) && (N == 3) && (L2 == [4]);
@@ -33,10 +33,8 @@
   		public test bool testList5() = [*int P, int N, *int Q]:= [1,2,3,2] && N > 1;
   		
   		public test bool testList6() = [1, [*int P, int N, *int Q], 3] := [1, [10,20], 3] && N > 10;
-  		
-  //	}
   	
-  //	@Test public void testSet() {
+  // testSet
   		
   		public test bool testSet1() = ({*int S1, int N} := {1,2,3,4}) && (N == 1);
   		public test bool testSet2() = ({*int S1, int N} := {1,2,3,4}) && (N == 2);
@@ -55,13 +53,13 @@
   		public test bool testSet12() = {*int S1, int N}:= {1,2,3,2} && N == 3;
   		
   		public test bool testSet13() = {1, {*int S1, int N, *int S2}, 3} := {1, {1,2,3}, 3};
-  //		public test bool testSet() = {1, {*int S1, int N, *int S2}, 3} := {1, {1,2,3}, 3} && N == 1;
-  //		public test bool testSet() = {1, {*int S1, int N, *int S2}, 3} := {1, {1,2,3}, 3} && N == 2;
-  //		public test bool testSet() = {1, {*int S1, int N, *int S2}, 3} := {1, {1,2,3}, 3} && N == 3;
-  //	}
+  		public test bool testSet() = {1, {*int S1, int N, *int S2}, 3} := {1, {1,2,3}, 3} && N == 1;
+  		public test bool testSet() = {1, {*int S1, int N, *int S2}, 3} := {1, {1,2,3}, 3} && N == 2;
+  		public test bool testSet() = {1, {*int S1, int N, *int S2}, 3} := {1, {1,2,3}, 3} && N == 3;
   	
-  //	@Test public void and(){
+  // and
+  
   		public test bool and1() = int i <- [0, 1] && ["a","b"][i] == "a";
   		public test bool and2() = int i <- [0, 1] && ["a","b"][i] == "b";
-  //	}
+
  

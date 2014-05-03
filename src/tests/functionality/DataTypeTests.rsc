@@ -16,7 +16,7 @@
     *******************************************************************************/
     
     
-    // @Test public void bool() {
+    // bool
     		
     		public test bool testBool1() = true == true;
     		public test bool testBool2() = !(true == false);
@@ -64,9 +64,9 @@
     		public test bool testBool35() = true   > false;
     		public test bool testBool36() = !(false > true);
     		public test bool testBool37() = !(true   > true);
-    //	}
     
-    //	@Test public void testInt() {		
+    //	testInt
+    
     		public test bool testInt1() = 1 == 1;
     		public test bool testInt2() = 1 != 2;
     		
@@ -128,17 +128,11 @@
     		public test bool testInt47() = !(1 > 2);
     		
     		public test bool testInt48() = (3 > 2 ? 3 : 2) == 3;
-    		
-    // 	}
     	
-    
-    
-    	
-    //	@Test public void valueEquals() {
+    //	valueEquals
     		public test bool assertTrue1()  {value x = 1.0; value y = 2; return x != y; }
-    //	}
     	
-    //	@Test public void real()	{		
+    //	testReal	
     		public test bool testReal1() = 1.0 == 1.0;
     		public test bool testReal2() = 1.0 != 2.0;
     		
@@ -250,9 +244,9 @@
     		
     		public test bool testReal85() = ((3.5 > 2) ? 3.5 : 2) == 3.5;
     		public test bool testReal86() = ((3.5 > 4) ? 3.5 : 2) == 2;
-    //	}
     	
-    //	@Test public void testNumber(){
+    //	testNumber
+    
     		public test bool testNumber1() {num n = 1; return n == 1;}
     		public test bool testNumber2() {num n = 1;  return 1 == n;}
     		
@@ -272,10 +266,6 @@
     		
     		public test bool testNumber11() {num n = 8; return n / 4 == 2;}	
     		public test bool testNumber12() {num n = 4; return 8 / n == 2;}	
-    		
-    //		public test bool testNumber() {num n = 5; return n % 2 == 1;}	
-    //		public test bool assertTrue() {num n = 2; return 5 % n == 1;}	
-    		
     	
     		public test bool testNumber13() {num n = 1; return n <= 2;}
     		public test bool testNumber14() {num n = 1; return 0 <= n;}
@@ -292,9 +282,9 @@
     		public test bool testNumber21() {num n = 1; return 2 > n;}
     		
     		public test bool testNumber22() {num n35 = 3.5; num n2 = 2; return ((n35 > n2) ? 3.5 : 2) == 3.5;}
-    //	}
     	
-    //	@Test public void testString() {	
+    //	testString
+    
     		public test bool testString1() = "" == "";
     		public test bool testString2() = "abc" != "";
     		public test bool testString3() = "abc" == "abc";
@@ -322,9 +312,9 @@
     		public test bool testString20() = "abc" > "";
     		public test bool testString21() = !("abc" > "abc");
     		public test bool testString22() = "def" > "abc";
-    //	}
     	
-    //	@Test public void stringEscapes() {
+    //	stringEscapes
+    
     		public test bool testStringEscapes1() = "\\b" == "\\b";
     		public test bool testStringEscapes2() = "\\t" == "\\t";
     		public test bool testStringEscapes3() = "\\n" == "\\n";
@@ -337,13 +327,12 @@
     		public test bool testStringEscapes9() = "\"\<" == "\"\<";
     		public test bool testStringEscapes10() = "\"\>" == "\"\>";
     		
-    		// public test bool assertTrue() = "\\a20" == " ";
-    		// public test bool assertTrue() = "\\U01F35D" == "🍝";
-    		// public test bool assertTrue() = "\\U01F35D" == "🍝";
-    		// public test bool assertTrue() = "\\u2713" == "✓";
-    //	}
+    		public test bool assertTrue() = "\a20" == " ";
+    		public test bool assertTrue() = "\U01F35D" == "🍝";
+    		public test bool assertTrue() = "\u2713" == "✓";
     	
-    //	@Test  public void stringInterpolation(){
+    //	stringInterpolation
+    
     		public test bool testStringInterpolation1() {str a = "abc"; return "1<a>2" == "1abc2";}
     		public test bool testStringInterpolation2() {int a = 789; return "1<a>2" == "17892";}
     		
@@ -360,11 +349,10 @@
     		public test bool testStringInterpolation11() {str a = "a\<c"; return "1<a>2" == "1a\<c2";}
     		public test bool testStringInterpolation12() {str a = "a\>c"; return "1<a>2" == "1a\>c2";}
     	
-    //	}
     loc Loc = |file:///home/paulk/pico.trm|(0,1,<2,3>,<4,5>);
     loc Loc2 = |file:///home/paulk/pico2.trm|(0,1,<2,3>,<4,5>);	
-    //	@Test public void testLocation() {
-    		
+    
+    // testLocation    		
     		
     		public test bool testLocation1() {Loc ; return true;}
     		public test bool testLocation2() =  Loc == Loc;
@@ -379,28 +367,19 @@
     		public test bool testLocation10() = Loc.end.column == 5;
     		public test bool testLocation11() = Loc.path == "/home/paulk/pico.trm";
     		
+    		public test bool assertTrue() { loc l = Loc; l.uri = "file:///home/paulk/pico2.trm"; l.uri == "file:///home/paulk/pico2.trm";}
+    		public test bool assertTrue() { loc l = Loc; l.offset = 10; l.offset == 10;}
+    		public test bool assertTrue() { loc l = Loc; l.length = 11; l.length == 11;}
+    		public test bool assertTrue() { loc l = Loc; l.end.line = 14; l.end.line == 14;}
+    		public test bool assertTrue() { loc l = Loc; l.begin.line = 1; l.begin.line == 1;}
+    		public test bool assertTrue() { loc l = Loc; l.begin.column = 13; l.begin.column == 13;}
+    		public test bool assertTrue() { loc l = Loc; l.end.column = 15; l.end.column == 15;}
     		
-    		//public test bool assertTrue() = { loc Loc = " + Loc + "; Loc.uri == "file:///home/paulk/pico.trm";}
-    		//public test bool assertTrue() = { loc Loc = " + Loc + "; Loc.offset == 0;}
-    		//public test bool assertTrue() = { loc Loc = " + Loc + "; Loc.length == 1;}
-    		//public test bool assertTrue() = { loc Loc = " + Loc + "; Loc.begin.line == 2;}
-    		//public test bool assertTrue() = { loc Loc = " + Loc + "; Loc.begin.column == 3;}
-    		//public test bool assertTrue() = { loc Loc = " + Loc + "; Loc.end.line == 4;}
-    		//public test bool assertTrue() = { loc Loc = " + Loc + "; Loc.end.column == 5;}
-    		//
-    		//public test bool assertTrue() = { loc Loc = " + Loc + "; Loc.uri = "file:///home/paulk/pico2.trm"; Loc.uri == "file:///home/paulk/pico2.trm";}
-    		//public test bool assertTrue() = { loc Loc = " + Loc + "; Loc.offset = 10; Loc.offset == 10;}
-    		//public test bool assertTrue() = { loc Loc = " + Loc + "; Loc.length = 11; Loc.length == 11;}
-    		//public test bool assertTrue() = { loc Loc = " + Loc + "; Loc.end.line = 14; Loc.end.line == 14;}
-    		//public test bool assertTrue() = { loc Loc = " + Loc + "; Loc.begin.line = 1; Loc.begin.line == 1;}
-    		//public test bool assertTrue() = { loc Loc = " + Loc + "; Loc.begin.column = 13; Loc.begin.column == 13;}
-    		//public test bool assertTrue() = { loc Loc = " + Loc + "; Loc.end.column = 15; Loc.end.column == 15;}
-    		//
-    		//public test bool assertTrue() = {loc Loc = " + Loc + "; Loc = Loc[uri= "file:///home/paulk/pico.trm"]; Loc == |file:///home/paulk/pico.trm|(0,1,<2,3>,<4,5>);}
-    		//public test bool assertTrue() = {loc Loc = " + Loc + "; Loc = Loc[offset = 10]; Loc == |file:///home/paulk/pico.trm|(10,1,<2,3>,<4,5>);}
-    		//public test bool assertTrue() = {loc Loc = " + Loc + "; Loc = Loc[length = 11]; Loc ==  |file:///home/paulk/pico.trm|(0,11,<2,3>,<4,5>);}
-    		//public test bool assertTrue() = {loc Loc = " + Loc + "; Loc = Loc[begin = <1,4>]; Loc == |file:///home/paulk/pico.trm|(0,1,<1,4>,<4,5>);}
-    		//public test bool assertTrue() = {loc Loc = " + Loc + "; Loc = Loc[end = <14,38>]; Loc ==  |file:///home/paulk/pico.trm|(0,1,<2,3>,<14,38>);}
+    		public test bool assertTrue() {loc l = Loc[uri= "file:///home/paulk/pico.trm"]; l == |file:///home/paulk/pico.trm|(0,1,<2,3>,<4,5>);}
+    		public test bool assertTrue() {loc l = Loc[offset = 10]; l == |file:///home/paulk/pico.trm|(10,1,<2,3>,<4,5>);}
+    		public test bool assertTrue() {loc l = Loc[length = 11]; l ==  |file:///home/paulk/pico.trm|(0,11,<2,3>,<4,5>);}
+    		public test bool assertTrue() {loc l = Loc[begin = <1,4>]; l == |file:///home/paulk/pico.trm|(0,1,<1,4>,<4,5>);}
+    		public test bool assertTrue() {loc l = Loc[end = <14,38>]; l ==  |file:///home/paulk/pico.trm|(0,1,<2,3>,<14,38>);}
     	
     		public test bool testLocation12() = |file:///home/paulk/pico.trm|(0,1,<2,3>,<4,5>) == |file:///home/paulk/pico.trm|(0,1,<2,3>,<4,5>);
     		public test bool testLocation13() = !(|file:///home/paulk/pico.trm|(0,1,<2,3>,<4,5>) == |file:///home/paulk/pico.trm|(0,2,<2,3>,<4,5>));
@@ -438,11 +417,9 @@
     		
     		public test bool testLocation38() = |file:///xxx|(45,1,<1,45>,<1,46>) <= |file:///xxx|(40,6,<1,40>,<1,46>);
     		public test bool testLocation39() = |file:///xxx|(45,1,<1,45>,<1,46>) <= |file:///xxx|(40,7,<1,40>,<1,47>);
+    	  	
+    //	testList
     	
-    //	}
-    	
-    
-    //	@Testb public void testList() {		
     		public test bool testList1() = [] == [];
     		public test bool testList2() = [] != [1];
     		public test bool testList3() = [1] == [1];
@@ -517,14 +494,14 @@
     		public test bool testList46() = 3 notin [2, 4, 6];
     		
     		public test bool testList47() = (2 > 3 ? [1,2] : [1,2,3]) == [1,2,3];
-    //	}
     
     	@expected{IndexOutOfBounds}
     	public test bool  SubscriptError11() {
     		[1,2][5];return false;
     	}
     	
-    //	@Test  public void listSplicing(){
+    //	listSplicing
+    
     		public test bool testListSplicing1() =  [1,2,3] == [1,2,3];
     		public test bool testListSplicing2() = [*1,2,3] == [1,2,3];
     		public test bool testListSplicing3() = [1,*2,3] == [1,2,3];
@@ -578,16 +555,15 @@
     		public test bool testListSplicing39() {list[int] L1 = [1,2]; list[int] L2 = [3,4]; list[list[list[int]]] L3 = [[L1],[L2]]; return L3 == [[[1,2]],[[3,4]]];}
     		public test bool testListSplicing40() {list[int] L1 = [1,2]; list[int] L2 = [3,4]; list[value] L3 = [L1,[L2]]; return L3 == [[1,2],[[3,4]]];}
     		public test bool testListSplicing41() {list[int] L1 = [1,2]; list[int] L2 = [3,4]; list[value] L3 = [L1,[L2],5]; return L3 == [[1,2],[[3,4]],5];}
-    //	}
     
-    //	@Test public void testSetInListSplicing() {
+    //	testSetInListSplicing
+    
     		public test bool testSetInListSplicing1() {list[int] L1 = [1,2]; set[int] S2 = {3,4}; return [L1,S2,5] == [[1,2],{3,4},5];}
     		public test bool testSetInListSplicing2() {list[int] L1 = [1,2]; set[int] S2 = {3,4}; return [*L1,S2,5] == [1,2,{3,4},5];}
     		public test bool testSetInListSplicing3() {list[int] L1 = [1,2]; set[int] S2 = {3,4}; return ([L1,*S2,5] == [[1,2],3,4,5]) || ([L1,*S2,5] == [[1,2],4,3,5]);}
     		public test bool testSetInListSplicing4() {list[int] L1 = [1,2]; set[int] S2 = {3,4}; return ([*L1,*S2,5] == [1,2,3,4,5]) || ([*L1,*S2,5] == [1,2,4,3,5]) ;}
-    //	}
     
-    //	@Test public void testRange() {
+    //	testRange
     		
     		public test bool testRange1() = [1 .. 1] == [];
     		public test bool testRange2() = [1 .. 2] == [1];
@@ -596,9 +572,8 @@
     		public test bool testRange5() = [1, 3 .. 10] == [1,3,5,7,9];
     		public test bool testRange6() = [1, -2 .. 10] == [];
     		public test bool testRange7() = [1, -3 .. -10] == [1,-3,-7];
-    //	}
     	
-    //	@Test public void testSet()  {
+    //	testSet
     		
     		public test bool testSet1() = {} == {};
     		public test bool testSet2() = {} != {1};
@@ -677,7 +652,6 @@
     		public test bool testSet60() = ((3 > 2) ? {1,2} : {1,2,3}) == {1,2};
     		
     		public test bool testSet61() = {<"a", [1,2]>, <"b", []>, <"c", [4,5,6]>} != {};
-    //	}
     
     /*
     	private boolean auxTest(String S1, String S2){
@@ -689,7 +663,8 @@
     	//
     	
     data TYPESET = SET(str name) | SUBTYPES(TYPESET tset) | INTERSECT(set[TYPESET] tsets);
-    //	@Test public void testSet(){
+    
+    //	testSet
     		
     		public test bool testSet62() = {INTERSECT({TYPESET t1, *TYPESET rest}), TYPESET t2} :=  {INTERSECT({SET("a"), SET("b")}), SET("c")};
     		public test bool testSet63() = {INTERSECT({TYPESET t1, *TYPESET rest}),  t1} :=  {INTERSECT({SET("a"), SET("b")}), SET("a")};
@@ -704,7 +679,6 @@
     
     		public test bool testSet67() = {<t1, rest> | {INTERSECT({TYPESET t1, *TYPESET rest}),  t1} :=  {INTERSECT({SET("a"), SET("b")}), SET("b")}}==
     				           {<SET("b"),{SET("a")}>};
-    //	}
     
     	//
     	// Anastassija's type constraint examples
@@ -988,14 +962,14 @@
     		public test bool testSet103() {set[int] S1 = {1,2}; set[int] S2 = {3,4}; set[value] S3 = {S1,{S2},5}; return S3 == {{1,2},{{3,4}},5};}
     	
     
-    	// @Test public void testListInSetSplicing() {
+    // testListInSetSplicing
+    
     		public test bool testListInSplicing1() {list[int] L1 = [1,2]; set[int] S2 = {3,4}; return {L1,S2,5} == {[1,2],{3,4},5};}
     		public test bool testListInSplicing2() {list[int] L1 = [1,2]; set[int] S2 = {3,4}; return {*L1,S2,5} == {1,2,{3,4},5};}
     		public test bool testListInSplicing3() {list[int] L1 = [1,2]; set[int] S2 = {3,4}; return {L1,*S2,5} == {[1,2],3,4,5};}
     		public test bool testListInSplicing4() {list[int] L1 = [1,2]; set[int] S2 = {3,4}; return {*L1,*S2,5} == {1,2,3,4,5};}
-    	// }
     	
-    //	@Test public void testMap()  {
+    //	testMap
     		
     		public test bool testMap1() = () == ();
     		public test bool testMap2() = (1:10) != ();
@@ -1045,9 +1019,7 @@
     		public test bool testMap36() = !(2 notin (1:10, 2:20));
     		
     		public test bool testMap37() {map[str,list[int]] m = ("a": [1,2], "b": [], "c": [4,5,6]); return m["a"] == [1,2];}
-    //	}
    
-    	 
     	 
     	 @expected{Throw}
     	 public void NoKeyError1(){
@@ -1059,7 +1031,7 @@
     		 (1:10, 1:10);return;
     	 }
     	
-    	// @Test public void testTuple() {
+    	// testTuple
     		
     		public test bool testTuple1() = <1, 2.5, true> == <1, 2.5, true>;
     		public test bool testTuple2() = <1, 2.5, true> != <0, 2.5, true>;
@@ -1104,17 +1076,14 @@
     		public test bool testTuple37() = !(<1, [2,3]>   < <1, [2,3]>);
     		
     		public test bool testTuple38() = <1, "a", true> + <1.5, "def"> == <1, "a", true> + <1.5, "def">;
-    	// }
-    	 
     	
-    // @Test public void namedTuple()  {
+    // namedTuple
     		
     		public test bool testNamedTuple1() {tuple[int key, str val] T = <1, "abc">; return T.key == 1;}
     		public test bool testNamedTuple2() {tuple[int key, str val] T = <1, "abc">; return T.val == "abc";}	
-    		
-    // }
     	
-   // 	@Test public void testRelation()  {
+   // 	testRelation
+   
     		public test bool testRelation1() = {} == {};
     		public test bool testRelation2() = {<1,10>} == {<1,10>};
     		public test bool testRelation3() = {<1,2,3>} == {<1,2,3>};
@@ -1178,12 +1147,11 @@
     		public test bool testRelation46() = {<1,2>, <2,3>, <3,4>, <4,2>, <4,5>}+ ==	{<1,2>, <2,3>, <3,4>, <4,2>, <4,5>, <1, 3>, <2, 4>, <3, 2>, <3, 5>, <4, 3>, <1, 4>, <2, 2>, <2, 5>, <3, 3>, <4, 4>, <1, 5>};
     		
     		public test bool testRelation47() = {<1,2>, <2,3>, <3,4>, <4,2>, <4,5>}* == {<1,2>, <2,3>, <3,4>, <4,2>, <4,5>, <1, 3>, <2, 4>, <3, 2>, <3, 5>, <4, 3>, <1, 4>, <2, 2>, <2, 5>, <3, 3>, <4, 4>, <1, 5>, <1, 1>, <5, 5>};
-   // 	}
       	
-    // @Test public void namedRelation() {
+    // namedRelation
+    
     		public test bool namedRelation1() {rel[int from, int to] R = {<1,10>, <2,20>}; return R.from == {1,2};}
     		public test bool namedRelation2() {rel[int from, int to] R = {<1,10>, <2,20>}; return R.to == {10,20};}
-    //	}
     
     /* Issue :f constructor overlaps with NODE */
     /*
@@ -1194,7 +1162,8 @@
     */
     data NODE = i(int I) | s(str x)  | st(set[NODE] s) | l(list[NODE]) | m(map[NODE,NODE] m) | f() | f(NODE a) | f(NODE a, NODE b) | g() | g(NODE a) | g(NODE a,NODE b);
     	
-    //	@Test public void node()  
+    //	node
+    
     		public test bool node1()=f() == f();
     		public test bool node2()=f() != g();
     		public test bool node3() {NODE n = f(); NODE m = g(); return n != m;}
@@ -1253,18 +1222,17 @@
     		public test bool node52()=f(i(1), s("def"))          > f(i(1), s("abc"));
     		public test bool node53()=  f(i(1), l([i(2),i(3),i(4)])) > f(i(1), l([i(2),i(3)]));
     		public test bool node54()=!(f(i(1), l([i(2), i(3)]))    > f(i(1), l([i(2),i(3)])));
-    // 	}
     
     data D = d(int ival);
     	
-    // @Test public void undefined()  {
-    		public test bool undefined1() {int T; return (T ? 13) == 13;}
+    // undefined
+    	
     		public test bool undefined2() {T = (1:10); return (T[1] ? 13) == 10;}
     		public test bool undefined3() {T = (1:10); return (T[2] ? 13) == 13;}
     		
     		public test bool undefined4() {T = (1:10); return T[1] ? == true;}
-    		public test bool undefined5() {T = (1:10); return T[2] ? == false;} 	
-    //	}
+    		public test bool undefined5() {T = (1:10); return T[2] ? == false;}
+
     
    
  

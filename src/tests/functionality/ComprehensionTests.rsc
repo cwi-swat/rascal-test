@@ -161,8 +161,7 @@
   		public test bool all19()  = !(all(_ <- {}));
   		@ignore{Changed semantics}
   		public test bool all20()  = !(all(_ <- ()));
-  		// This must be a bug
-  		// public test bool all()  = all(i <- [1,2,3], (i % 2 == 0 || i % 2 == 1));
+  		
   		public test bool all21()  = all(k <- [1,2,3], (k % 2 == 0 || k % 2 == 1)?true:false);
   //	}
   	
@@ -428,11 +427,6 @@
   		public test bool nodeGenerator13() = [N | /int N <- f(i(1),g(i(2),i(3)))] == [1,2,3];
   //	}
   	
-  //	@expected{UnexpectedType}
-  //	public void nodeGeneratorTypeError(){
-  //		prepare("data TREE = i(int N) | f(TREE a,TREE b) | g(TREE a, TREE b);");
-  //		public test bool nodeGeneratorTypeError() = [N | int N <- f(i(1),g(i(2),i(3)))] == [];
-  //	}
   	
   //	@Test public void regularGenerators() {
   		

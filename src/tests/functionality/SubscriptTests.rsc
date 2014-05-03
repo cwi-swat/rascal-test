@@ -15,7 +15,7 @@ module tests::functionality::SubscriptTests
 
 data NODE = f(int a, str b, real c);
 
-//	@Test public test boollist() {
+//	boollist
 
 		public test bool listTest() =[0,1,2,3][0] == 0;
 		public test bool listTest() = [0,1,2,3][1] == 1;
@@ -26,7 +26,6 @@ data NODE = f(int a, str b, real c);
 		public test bool listTest() {list[int] L = [0,1,2,3]; L[1] = 11; return L == [0,11,2,3];}
 		public test bool listTest() {list[int] L = [0,1,2,3]; L[2] = 22; return L == [0,1,22,3];}
 		public test bool listTest() {list[int] L = [0,1,2,3]; L[3] = 33; return L == [0,1,2,33];}
-//	}
 	
 	@expected{IndexOutOfBounds}
 	public test bool listError(){
@@ -38,50 +37,29 @@ data NODE = f(int a, str b, real c);
 		list[int] L = [0,1,2,3]; L[4] = 44; L == [0,1,2,3,44]; return false;
 	}
 	
-	@expected{UninitializedVariable}
-	public test bool UninitializedListVariable(){
-		list[int] L; L[4]; return false;
-	}
-	
-	@expected{UninitializedVariable}
-	public test bool UninitializedListVariable(){
-		list[int] L; L[4] = 44;return false;
-	}
-	
-//	//@Test public test boolmap() {
+//	boolmap
+
 		public test bool mapTest() = (1:10, 2:20, 3:30)[1] == 10;
 		public test bool mapTest() = (1:10, 2:20, 3:30)[2] == 20;
 		public test bool mapTest() = (1:10, 2:20, 3:30)[3] == 30;
 
-		// mapTestrunWithError("(1:10, 2:20, 3:30)[4] == 30;", "xxx"));
+		
+		@expected{NoSuchKey}
+		public test bool mapTest() = (1:10, 2:20, 3:30)[4] == 30;
 
 		public test bool mapTest() {map[int,int] M = (1:10, 2:20, 3:30); M[1] = 100; return M == (1:100, 2:20, 3:30);}
 		public test bool mapTest() {map[int,int] M = (1:10, 2:20, 3:30); M[2] = 200; return M == (1:10, 2:200, 3:30);}
 		public test bool mapTest() {map[int,int] M = (1:10, 2:20, 3:30); M[3] = 300; return M == (1:10, 2:20, 3:300);}
 		public test bool mapTest() {map[int,int] M = (1:10, 2:20, 3:30); M[4] = 400; return M == (1:10, 2:20, 3:30, 4:400);}
-//	//}
-
-	
-	@expected{UninitializedVariable}
-	public test bool UninitializedMapVariable() {
-		map[int,int] M; M[4]; return false;
-	}
-	
-	@expected{UninitializedVariable}
-	public test bool UninitializedMapVariable(){
-		map[int,int] M; M[4] = 44; return false;
-	}
 	
 
-//	@Test public test bool tuple() {
+//	tuple
 		public test bool  tupleTest()=<0, "a", 3.5>[0] == 0;
 		public test bool  tupleTest()=<0, "a", 3.5>[1] == "a";
 		public test bool  tupleTest()=<0, "a", 3.5>[2] == 3.5;
-//	}
-	
 
+//	boolrelation
 
-//	@Test  public test boolrelation() {
 		public test bool relationTest()= {<1, "a">, <2, "b">}[0] == {};
 		public test bool relationTest()={<1, "a">, <2, "b">}[1] == {"a"};
 		public test bool relationTest()={<1, "a">, <2, "b">}[2] == {"b"};
@@ -94,34 +72,21 @@ data NODE = f(int a, str b, real c);
 		public test bool  relationTest()={<1, "a", 10>, <2, "b", 20>, <1, "abc", 100>}[{1,2}] == {<"a", 10>, <"b", 20>, <"abc", 100>};
 	
 		public test bool relationTest()={<1, "a", 10>, <2, "b", 20>, <1, "abc", 100>}[1,_] == {10, 100};
-//	}
-
-	@expected{UninitializedVariable}
-	public test bool UninitializedRelVariable(){
-		rel[int,int] R; R[1];return false;
-	}
 	
+//	relationMultiIndex
 
-	// Changed: no support for relation updates
-	//@expected{UninitializedVariable}
-	//public test bool UninitializedRelVariable(){
-	//	rel[int,int] R; R[1] = 10; return false;
-	//}
-
-//	@Test public test bool relationMultiIndex() {
 		public test bool relationMultiIndex()={<1,"a",1.0>,<2,"b",2.0>,<3,"c",3.0>}[0] == {};
 		public test bool relationMultiIndex()={<1,"a",1.0>,<2,"b",2.0>,<3,"c",3.0>}[1] == {<"a",1.0>};
 		public test bool relationMultiIndex()={<1,"a",1.0>,<2,"b",2.0>,<3,"c",3.0>}[2, "b"] == {2.0};
 		public test bool relationMultiIndex()= {<1,10,10.5>, <2,20,20.5>, <3,20,30.5>, <2,10,100.5>}[{1},{10,20}] == {10.5};
-//	}
 
+//	boolnode
 
-//	@Test public test boolnode() {
 		public test bool nodeTest()= f(0, "a", 3.5)[0] == 0;
 		public test bool nodeTest()= f(0, "a", 3.5)[1] == "a";
 		public test bool nodeTest()= f(0, "a", 3.5)[2] == 3.5;
-//		public test bool nodeTest() {NODE T = f(0, "a", 3.5); T[0] = 10; return  T == f(10, "a", 3.5);}
-//	}
+		/* structure assignment no longer allowed; */
+		//public test bool nodeTest() {NODE T = f(0, "a", 3.5); T[0] = 10; return  T == f(10, "a", 3.5);}
 	
 	@expected{IndexOutOfBounds}
 	public test bool nodeBoundsError() = f(0, "a", 3.5)[3] == 3.5;
