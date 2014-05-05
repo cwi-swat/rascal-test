@@ -1,37 +1,18 @@
 module tests::functionality::AnnotationTCTests
 
-@expected{UndeclaredAnnotation}
-  	public test bool annotationNotAllowed1(){
-  		1 [@an=3]; return false;
-  	}
+import StaticTestingUtils;
+ 
+public test bool annotationNotAllowed1() = unexpectedType("1 [@an=3];");
+
+public test bool annotationNotAllowed2() = unexpectedType("1 @ ann;");
+
+public test bool annotationNotAllowed31() = unexpectedType("f()[@pos=true];", initialDecls=["data F = f() | f(int n) | g(int n) | deep(F f);", "anno int F @ pos;"]); 
   	
-  	@expected{UnsupportedOperation}
-  	public test bool annotationNotAllowed21(){
-  		1 @ ann; return false;
-  	}
+public test bool annotationNotAllowed41() = unexpectedType("f() [@wrongpos=true];", initialDecls=["data F = f() | f(int n) | g(int n) | deep(F f);", "anno int F @ pos;"]); 
+ 
+public test bool UndefinedValueError11() = uninitialized("F someF; someF @ pos;", initialDecls=["data F = f() | f(int n) | g(int n) | deep(F f);", "anno int F @ pos;"]); 
+ 
+public test bool UndefinedValueError21() = uninitialized("F someF; someF [@pos=3];", initialDecls=["data F = f() | f(int n) | g(int n) | deep(F f);", "anno int F @ pos;"]); 
   	
-  	@expected{UnsupportedOperation}
-  	public test bool annotationNotAllowed31(){
-  		f[@pos=true]; return false;
-  	}
-  	
-  	@expected{UndeclaredAnnotation}
-  	public test bool annotationNotAllowed41(){
-  		f() [@wrongpos=true]; return false;
-  	}
-  	
-  	@expected{UninitializedVariable}
-  	public test bool UndefinedValueError11(){
-  		F someF; someF @ pos; return false;
-  	}
-  	
-  	@expected{UninitializedVariable}
-  	public test bool UndefinedValueError21(){
-  		F someF; someF [@pos=3]; return false;
-  	}
-  	
-  	@expected{UninitializedVariable}
-  	public test bool UninitializedVariableError1(){
-  		F someF; someF @ pos = 3;
-  	}
+public test bool UninitializedVariableError1() = uninitialized("F someF; someF @ pos = 3;", initialDecls=["data F = f() | f(int n) | g(int n) | deep(F f);", "anno int F @ pos;"]); 
   	

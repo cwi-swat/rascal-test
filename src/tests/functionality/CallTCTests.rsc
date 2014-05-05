@@ -2,23 +2,9 @@ module tests::functionality::CallTCTests
 
 import StaticTestingUtils;
 
-//data D = d(int x, int y = 3);
-
 public test bool testUninit1() = undeclaredVariable("zap(1,2);");
 
 public test bool callError2() = argumentMismatch("f(\"abc\");", initialDecls = ["int f(int n) {return 2*n;}"]);
-
-  /*	
-  
-  // qualifiedNameType
-  		prepareModule("M", "module M\n" +
-  		         "data X = x();");
-  
-  		prepareMore("import M;");
-  		prepareMore("M::X f() { return x(); }");
-  		runTestInSameEvaluator("f() == x();"));
-  	}
-  */	
 
 public test bool callError3() = undeclaredVariable("zip::zap(1,2);");
 
