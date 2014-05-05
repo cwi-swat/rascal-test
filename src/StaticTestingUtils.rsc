@@ -16,13 +16,17 @@ import lang::rascal::types::TestChecker;
 bool check(str stmts, list[str] expected, list[str] importedModules = [], list[str] initialDecls = []){
      errors = getAllMessages(checkStatementsString(stmts, importedModules=importedModules, initialDecls=initialDecls));
      println(errors);
-     return any(error <- errors, exp <- expected, contains(error.msg, exp));
+     if(any(error <- errors, exp <- expected, contains(error.msg, exp)))
+        return true;
+     throw errors;
 }
 
 bool checkOK(str stmts, list[str] importedModules = [], list[str] initialDecls = []){
      errors = getAllMessages(checkStatementsString(stmts, importedModules=importedModules, initialDecls=initialDecls));
      println(errors);
-     return size(errors) == 0;
+     if(size(errors) == 0)
+        return true;
+     throw errors;
 }
 
 bool unexpectedType(str stmts, list[str] importedModules = [], list[str] initialDecls = []) = 
@@ -43,6 +47,6 @@ bool outOfBounds(str stmts, list[str] importedModules = [], list[str] initialDec
 
 bool redeclaredVariable(str stmts, list[str] importedModules = [], list[str] initialDecls = []) = check(stmts, ["re-declare"], importedModules=importedModules, initialDecls=initialDecls);
 
-bool cannotMatch(str stmts, list[str] importedModules = [], list[str] initialDecls = []) = check(stmts, ["Cannot match an expression of type", "Cannot assign pattern of type"], importedModules=importedModules, initialDecls=initialDecls);
+bool cannotMatch(str stmts, list[str] importedModules = [], list[str] initialDecls = []) = check(stmts, ["Cannot match an expression of type", "Cannot assign pattern of type", "is not enumerable"], importedModules=importedModules, initialDecls=initialDecls);
 
 bool declarationError(str stmts, list[str] importedModules = [], list[str] initialDecls = []) = check(stmts, ["Constructor overlaps", "Initializer type"], importedModules=importedModules, initialDecls=initialDecls);
