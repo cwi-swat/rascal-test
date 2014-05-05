@@ -28,4 +28,8 @@ public test bool ifThenError1() = unexpectedType("if(3){n = 4;};");
 public test bool ifThenElseError1() = unexpectedType("if(\"abc\") {n = 4;} else {n=5;}");
   
 public test bool solveError1() = unexpectedType("rel[int,int] R1 = {\<1,2\>, \<2,3\>, \<3,4\>}; rel[int,int] T = R1; solve (T; true)  T = T + (T o R1);");
+
+public test bool doWhileError1() = unexpectedType("do {n = 4;} while(3);");
+
+public test bool whileError1() = unexpectedType("while(3){n = 4;}");	
   	

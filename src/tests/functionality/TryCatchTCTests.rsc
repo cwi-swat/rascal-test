@@ -49,19 +49,29 @@ import StaticTestingUtils;
 //public test bool noSuchAnnotationException1() = functionA();
 
 public test bool noSuchAnnotationException1() = unexpectedType(
-" bool functionA() {
+"functionA();",
+
+initialDecls = ["data NODEA = fA(int N);",
+"public bool functionA() {
        NODEA l = fA(3);
   	   l@pos;
   	   return false;
-}",
-
-initialDecls = ["data NODEA = fA(int N);"]
+}"]
 );
 
 @expected{UnsupportedSubscriptArity}
-public test bool assertTrue1()=functionB();
+public test bool assertTrue1()= unexpectedType(
 
+"functionB();"
 
+initialDecls =[
+"bool functionB() { 
+  		  try { 
+  		      [1,2,3][1,2]; 
+  		  } catch SubscriptException(str e): 
+  		      return true; 
+  		  return false; 
+  		}"]);
 
 
 @expected{UndeclaredVariable}
@@ -76,8 +86,3 @@ public test bool assertTrue2()=functionE();
 @expected{UndeclaredVariable}
 public test bool assertTrue3()=ffunctionZ();
 
-
-
-public test bool doWhileError1() = unexpectedType("do {n = 4;} while(3);");
-
-public test bool whileError1() = unexpectedType("while(3){n = 4;}");	

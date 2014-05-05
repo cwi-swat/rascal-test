@@ -41,11 +41,11 @@ public test bool keywordError4() = argumentMismatch("incr(3,d=5);", initialDecls
 public test bool keywordError5() = argumentMismatch("add1(3,delta=5);", initialDecls = ["int add1(int x) = x + 1;"]);  	
   	data D = d(int x, int y = 3);
   	
-public test bool keywordInConstructorError1() = undeclaredVariable("d1();", initialDecls = ["data D = d(int x, int y = 3);", "data D1 = d1(int x);"]);  	
+public test bool keywordInConstructorError1() = argumentMismatch("d1();", initialDecls = ["data D = d(int x, int y = 3);", "data D1 = d1(int x);"]);  	
   	
-public test bool keywordInConstructorError2() = undeclaredVariable("d(y=4);", initialDecls = ["data D = d(int x, int y = 3);", "data D1 = d1(int x);"]);  	
+public test bool keywordInConstructorError2() = argumentMismatch("d(y=4);", initialDecls = ["data D = d(int x, int y = 3);", "data D1 = d1(int x);"]);  	
 
-public test bool keywordInConstructorError3() = undeclaredVariable("d(1,4);", initialDecls = ["data D = d(int x, int y = 3);", "data D1 = d1(int x);"]);  	
+public test bool keywordInConstructorError3() = argumentMismatch("d(1,4);", initialDecls = ["data D = d(int x, int y = 3);", "data D1 = d1(int x);"]);  	
   	
 public test bool keywordInConstructorError4() = argumentMismatch("d(1,y=\"a\");", initialDecls = ["data D = d(int x, int y = 3);", "data D1 = d1(int x);"]);  	
 

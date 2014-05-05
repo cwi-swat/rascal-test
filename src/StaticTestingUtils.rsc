@@ -27,7 +27,7 @@ bool checkOK(str stmts, list[str] importedModules = [], list[str] initialDecls =
 
 bool unexpectedType(str stmts, list[str] importedModules = [], list[str] initialDecls = []) = 
 	check(stmts, ["not defined for", "not defined on", "Invalid type", "Expected", "Unable to bind", "not assignable to","Cannot use type", "expected return type",
-	"Expected subscript of type", "Cannot subscript assignable of type", "Unexpected type", "Type of bound should be", "incomparable"]);
+	"Expected subscript of type", "Cannot subscript assignable of type", "Unexpected type", "Type of bound should be", "incomparable", "must have an actual type"]);
 	
 // NOTE: type checker does not yet support this, this check always suvveeds, for now.
 bool uninitialized(str stmts, list[str] importedModules = [], list[str] initialDecls = []) = true;
@@ -37,7 +37,7 @@ bool undeclaredVariable(str stmts, list[str] importedModules = [], list[str] ini
 
 bool undefinedField(str stmts, list[str] importedModules = [], list[str] initialDecls = []) = check(stmts, ["does not exist on type"], importedModules=importedModules, initialDecls=initialDecls);
 
-bool argumentMismatch(str stmts, list[str] importedModules = [], list[str] initialDecls = []) = check(stmts, ["cannot be called with argument types"], importedModules=importedModules, initialDecls=initialDecls);
+bool argumentMismatch(str stmts, list[str] importedModules = [], list[str] initialDecls = []) = check(stmts, ["cannot be called with argument types", "cannot be built with argument types"], importedModules=importedModules, initialDecls=initialDecls);
 
 bool outOfBounds(str stmts, list[str] importedModules = [], list[str] initialDecls = []) = check(stmts, ["Tuple index must be between", "out of range"], importedModules=importedModules, initialDecls=initialDecls);
 
