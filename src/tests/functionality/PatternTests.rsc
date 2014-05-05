@@ -86,6 +86,8 @@
   		
   		
   		@ignore{investigate} public test bool matchList() {([1, list[int] L, [10, list[int] M, 100], list[int] N, 1000] := [1, [10,100],1000]);}
+  		
+  		public test bool matchListFalse1() {list[value] l = [1,2,3]; return [1, str S, 2] !:= l; }
   
 //	matchNestedList
 
@@ -523,6 +525,9 @@
           
   		/*comp*///public test bool matchVariableBecomesEquality1() {int N = 5; return N : 3 !:= 3 && N != 3;}
   		/*comp*///public test bool matchVariableBecomesEquality2() {int N = 3; return N : 3 := 3 && N == 3;}
+  		
+  		public test bool doubleVariableBecomes1() = !(([N : 3, N : 4] := [3,4]) && N == 3);
+  		public test bool doubleVariableBecomes2() = [N : 3, N : 3] := [3,3] && N == 3;
   	
 // antiPattern
 

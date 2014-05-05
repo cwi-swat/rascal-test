@@ -15,8 +15,11 @@
   
   // testAssert
   
-       public test bool testAssert1() {return assert 3 > 2;}
-  	   public test bool testAssert2() {return assert 3 > 2: "Yes assert succeeds";}
+        public test bool testAssert1() {return assert 3 > 2;}
+  	    public test bool testAssert2() {return assert 3 > 2: "Yes assert succeeds";}
+  	   
+  	    @expected{AssertionFailed}
+  		public test bool assertError1() {assert 1 == 2;return false;}
   
   // assignment
   
@@ -130,3 +133,10 @@
   		  solve (j) if (j < 1000) j += 1;
   		  return j == 1000;
         }	
+        
+         @expected{IndexOutOfBounds}
+  		public test bool solveIndexOutOfBounds1() {
+  		rel[int,int] T =    R1;
+  		solve (T; -1)  T = T + (T o R1);
+  		return T =={<1,2>, <1,3>,<1,4>,<2,3>,<2,4>,<3,4>};
+  		}

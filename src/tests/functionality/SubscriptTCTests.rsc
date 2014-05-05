@@ -1,102 +1,43 @@
 module tests::functionality::SubscriptTCTests
 
-data NODE = f(int a, str b, real c);
+import StaticTestingUtils; 
 
-@expected{UnexpectedType}
-	public test bool WrongMapIndex(){
-		map[int,int] M = (1:10,2:20); M["abc"];return false;
-	}
+public test bool WrongMapIndex1() = unexpectedType("map[int,int] M = (1:10,2:20); M[\"abc\"];");
+
+public test bool WrongMapIndex2() = unexpectedType("map[int,int] M = (1:10,2:20); M[\"abc\"] = 3;");
+
+public test bool WrongMapAssignment() = unexpectedType("map[int,int] M = (1:10,2:20); M[2] = \"abc\";");
+
+public test bool tupleIndexError1() = unexpectedType("\<0, \"a\", 3.5\>[\"abc\"];");
+
+public test bool tupleIndexError2() = unexpectedType("T = \<0, \"a\", 3.5\>[\"abc\"]; T[1] = 3;");
+
+public test bool nodeIndexError() = unexpectedType("f(0, \"a\", 3.5)[\"abc\"];", initialDecls = ["data NODE = f(int a, str b, real c);"]);
 	
-	@expected{UnexpectedType}
-	public test bool WrongMapIndex(){
-		map[int,int] M  = (1:10,2:20); M["abc"] = 3;return false;
-	}
+public test bool nodeAssignmentError() = unexpectedType("NODE N = f(0, \"a\", 3.5); N.b = 3;", initialDecls = ["data NODE = f(int a, str b, real c);"]);
+
+public test bool WrongListIndex1() = unexpectedType("list[int] L = [0,1,2,3]; L[\"abc\"];");
 	
-	@expected{UndeclaredVariable}
-	public test bool WrongMapAssignment(){
-		runTest("{map[int,int] M = (1:10,2:20); M[2] = \"abc\";}");
-	}
+public test bool WrongListIndex2() = unexpectedType("list[int] L = [0,1,2,3]; L[\"abc\"] = 44;");
+
+public test bool WrongListAssignment() = unexpectedType("list[int] L = [0,1,2,3]; L[2] = \"abc\";");
+
+public test bool UninitializedTupleVariable1() = uninitialized("tuple[int,int] T; T[1];");
+
+public test bool UninitializedTupleVariable2() = uninitialized("tuple[int,int] T; T[1] = 10;");
+
+public test bool tupleBoundsError() = outOfBounds("\<0, \"a\", 3.5\>[3] == 3.5;");
 	
-	@expected{UnsupportedSubscript}
-	public test bool tupleIndexError(){
-		<0, "a", 3.5>["abc"];return false;
-	}
+public test bool UninitializedRelVariable() = uninitialized("rel[int,int] R; R[1,2];");
 	
-	@expected{UnsupportedSubscript}
-	public test bool tupleAssignmentError(){
-		T = <0, "a", 3.5>["abc"]; T[1] = 3; return false;
-	}
+public test bool UninitializedListVariable1() = uninitialized("list[int] L; L[4];");
 	
-	@expected{UnexpectedType}
-	public test bool nodeIndexError() {
-		f(0, "a", 3.5)["abc"];return false;
-	}
+public test bool UninitializedListVariable2() = uninitialized("list[int] L; L[4] = 44;");
+
+public test bool UninitializedMapVariable1() = uninitialized("map[int,int] M; M[4];");
 	
-	@expected{UnexpectedType}
-	public test bool nodeAssignmentError(){
-		NODE N = f(0, "a", 3.5); N.b = 3; return false;
-	}
-	
-	@expected{UnexpectedType}
-	public test bool WrongListIndex(){
-		list[int] L = [0,1,2,3]; L["abc"]; return false;
-	}
-	
-	@expected{UnsupportedSubscript}
-	public test bool WrongListIndex(){
-		list[int] L = [0,1,2,3]; L["abc"] = 44;return false;
-	}
-	
-	@expected{UnexpectedType}
-	public test bool WrongListAssignment(){
-		list[int] L = [0,1,2,3]; L[2] = "abc";return false;
-	}
-	
-		@expected{UninitializedVariable}
-	public test bool UninitializedTupleVariable(){
-		tuple[int,int] T; T[1];return false;
-	}
-	
-	@expected{UninitializedVariable}
-	public test bool UninitializedTupleVariable(){
-		tuple[int,int] T; T[1] = 10; return false;
-	}
-	
-		@expected{IndexOutOfBounds}
-	public test bool tupleBoundsError(){
-		<0, "a", 3.5>[3] == 3.5;
-	}
-	
-		@expected{UninitializedVariable}
-	public test bool UninitializedRelVariable(){
-		rel[int,int] R; R[1,2];return false;
-	}
-	
-	@expected{UninitializedVariable}
-	public test bool UninitializedListVariable(){
-		list[int] L; L[4]; return false;
-	}
-	
-	@expected{UninitializedVariable}
-	public test bool UninitializedListVariable(){
-		list[int] L; L[4] = 44;return false;
-		}
+public test bool UninitializedMapVariable1() = uninitialized("map[int,int] M; M[4] = 44;");
 		
-			
-	@expected{UninitializedVariable}
-	public test bool UninitializedMapVariable() {
-		map[int,int] M; M[4]; return false;
-	}
-	
-	@expected{UninitializedVariable}
-	public test bool UninitializedMapVariable(){
-		map[int,int] M; M[4] = 44; return false;
-	}
-	
-	@expected{UninitializedVariable}
-	public test bool UninitializedRelVariable(){
-		rel[int,int] R; R[1];return false;
-	}
 	
 	// Changed: no support for relation updates
 	//@expected{UninitializedVariable}

@@ -13,55 +13,19 @@ module tests::functionality::StatementTCTests
  *   * Bert Lisser - Bert.Lisser@cwi.nl - CWI
 *******************************************************************************/
 
+import StaticTestingUtils;
 
-@expected{UnexpectedType}
-  	// public test bool assertError2() {
-public test bool assertError2() {assert 3.5;return false;}
-  	// }
+public test bool assertError2() = unexpectedType("assert 3.5;");
+
+public test bool assertError3() = unexpectedType("assert 3.5: \"Wrong expression type\";");
+
+public test bool assertError4() = undeclaredVariable("assert X;");
+ 
+public test bool assertError5() = undeclaredVariable("assert X: \"Wrong expression type\";");
   	
-@expected{UnexpectedType}
-public test bool assertError3() {
-  		assert 3.5 : "Wrong expression type";return false;
-  	}
-  	
-@expected{UndeclaredVariable}
-  	// public test bool assertError4() {
-public test bool assertError4() {return assert X;}
-  	// }
-  	
-@expected{UndeclaredVariable}
-public test bool assertError5() {
-  		assert X : "Wrong expression type";return false;
-  	}
-  	
- @expected{UnexpectedType}
-  //	public test bool ifThenError() {
- public test bool ifThenError1() {return if(3){n = 4;}}
-  //	}
+public test bool ifThenError1() = unexpectedType("if(3){n = 4;};");
+
+public test bool ifThenElseError1() = unexpectedType("if(\"abc\") {n = 4;} else {n=5;}");
   
-  rel[int,int] R1 =  {<1,2>, <2,3>, <3,4>};
-  
-  @expected{UnexpectedType}	
-  public test bool unexpectedType1() {
-  		rel[int,int] T =    R1;
-  		solve (T; true)  T = T + (T o R1);
-  		return T =={<1,2>, <1,3>,<1,4>,<2,3>,<2,4>,<3,4>};
-  		}
-  		
-  @expected{UnexpectedType}
-  public test bool ifThenElseError1() {
-  		if("abc") {n = 4;} else {n=5;}; return false;
-  	}
+public test bool solveError1() = unexpectedType("rel[int,int] R1 = {\<1,2\>, \<2,3\>, \<3,4\>}; rel[int,int] T = R1; solve (T; true)  T = T + (T o R1);");
   	
-  	
- @expected{AssertionFailed}
-  	// public test bool assertError1() {
-  		public test bool assertError1() {assert 1 == 2;return false;}
-  	// }
-  	
-  @expected{IndexOutOfBounds}
-  public test bool indexOutOfBounds1() {
-  		rel[int,int] T =    R1;
-  		solve (T; -1)  T = T + (T o R1);
-  		return T =={<1,2>, <1,3>,<1,4>,<2,3>,<2,4>,<3,4>};
-  		}

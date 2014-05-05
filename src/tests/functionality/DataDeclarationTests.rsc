@@ -38,7 +38,10 @@
   		public test bool bool10() {Bool b = band(btrue(),bfalse()).right; return b == bfalse();}
   //	}
   
-  	
+   
+  //	boolError()	
+  		
+  //	}	
   	
   //	@Test  public void boolFieldUpdate() {
   		 public test bool boolFieldUpdate1() {
@@ -49,7 +52,7 @@
   		public test bool boolFieldUpdate4() {Bool b = bor(btrue(),bfalse());b.right=btrue();  return b == bor(btrue(),btrue());}
   		public test bool boolFieldUpdate5() {Bool b = bor(bfalse(),bfalse()); b.left=btrue(); b.right=btrue(); return b == bor(btrue(),btrue());}
   //	}
-  	
+  		public test bool boolFieldUpdate6() {Bool b = btrue(); return b.left == btrue();}
   
   
   //	@Test
