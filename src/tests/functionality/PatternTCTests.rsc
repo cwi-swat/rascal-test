@@ -126,7 +126,7 @@ public test bool matchListError55() = cannotMatch("list[str] S = [\"a\"]; list[i
 public test bool NoDataDecl() = 
 	undeclaredVariable("f(1) := 1;", initialDecls=["data Prop = f();", "data Bool = and(list[Prop], list[Prop]) | t();"]);  
 
-@Ignored{The following test requires deeper analysis of the data signature}
+@ignore{The following test requires deeper analysis of the data signature}
 public test bool descendantWrongType() = 
 	undeclaredVariable("/true := f(g(1),f(g(2),g(3)));", initialDecls=["data F = f(F left, F right) | g(int N);"]);  
  
