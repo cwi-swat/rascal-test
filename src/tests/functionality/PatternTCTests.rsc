@@ -137,11 +137,16 @@ public test bool typedVariableBecomesWrongType() = cannotMatch("str N : 3 := 3;"
   	
 public test bool redeclaredTypedVariableBecomesShadowsAnother() = redeclaredVariable("int N = 5; int N : 3 := 3 && N == 3;");  
   	
-  	
-  	//@Ignore("we can't find this bug anymore due to pattern dispatch") @Test(expected=StaticError.class)
-  	//public void doubleTypedVariableBecomes(){
-  	//	public test bool assertTrue() {{[int N : 3, int N : 4] := [3,4] && N == 3;}}
-  	//}
+public test bool doubleTypedVariableBecomes() = redeclaredVariable("[int N : 3, int N : 4] := [3,4] && N == 3;");  
   	
 public test bool matchListExternalVar1() = checkOK("list[int] S; [1, *S, 2] !:= [1,2,3] && S != [3];");
+
+public test bool listExpressions1() = unexpectedType("value n = 1; list[int] l = [ *[n, n] ];");  
+
+public test bool listExpressions2() = unexpectedType("value n = 1; list[int] l = [ 1, *[n, n], 2 ];");  
+
+public test bool setExpressions1() = unexpectedType("value n = 1; set[int] l = { *[n, n] };");  
+
+public test bool setExpressions2() = unexpectedType("value n = 1; set[int] l = { 1, *[n, n], 2 };");  
+ 
   		
