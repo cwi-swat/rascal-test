@@ -12,10 +12,7 @@ module tests::functionality::ProjectionTests
  *   * Bert Lisser - Bert.Lisser@cwi.nl - CWI
 *******************************************************************************/
 
-// empty()
-		/*changed: type incorrect */
-		//public test bool empty1()={}<0> == {};
-		//public test bool empty2()={}<1> == {};
+
 
 	
 //	nonEmpty

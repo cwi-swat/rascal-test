@@ -26,7 +26,7 @@ public test bool UninitializedTupleVariable1() = uninitialized("tuple[int,int] T
 
 public test bool UninitializedTupleVariable2() = uninitialized("tuple[int,int] T; T[1] = 10;");
 
-public test bool tupleBoundsError() = outOfBounds("\<0, \"a\", 3.5\>[3] == 3.5;");
+public test bool tupleBoundsError() = unexpectedType("\<0, \"a\", 3.5\>[3] == 3.5;");
 	
 public test bool UninitializedRelVariable() = uninitialized("rel[int,int] R; R[1,2];");
 	
