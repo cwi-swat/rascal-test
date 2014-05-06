@@ -38,11 +38,11 @@
   
   // getOneFromError
   
-  @expected{EmptyList}
-  	public test bool getOneFromError1() {
-  		getOneFrom([]);
-  		return false;
-  	}
+	  @expected{EmptyList}
+	  	public test bool getOneFromError1() {
+	  		getOneFrom([]);
+	  		return false;
+	  	}
   
   // head
   
@@ -57,23 +57,23 @@
   		public test bool head8() = head([1, 2, 3, 4], 4) == [1,2,3,4];
   	
   
-  @expected{EmptyList}
-  	public test bool head9() {
-  		head([]);
-  		return false;
-  		}
-  	
-  @expected{IndexOutOfBounds}
-  	public test bool head10() {
-  		head([], 3);
-  		return false;
-  		}	
-  		
-  @expected{IndexOutOfBounds}
-  	public test bool head11() {
-  		head([1,2,3], 4);
-  		return false;
-  		}
+	  	@expected{EmptyList}
+	  	public test bool head9() {
+	  		head([]);
+	  		return false;
+	  		}
+	  	
+	  	@expected{IndexOutOfBounds}
+	  	public test bool head10() {
+	  		head([], 3);
+	  		return false;
+	  		}	
+	  		
+	 	 @expected{IndexOutOfBounds}
+	  	public test bool head11() {
+	  		head([1,2,3], 4);
+	  		return false;
+	  		}
   
   		
   // insertAt
@@ -85,22 +85,22 @@
   		public test bool insertAt5() =List::insertAt([2,3], 2, 1) == [2,3,1];
   		public test bool insertAt6() =insertAt([2,3], 2, 1) == [2, 3, 1];
   	
-  @expected{IndexOutOfBounds}
-  	   public test bool insertAt7() {insertAt([1,2,3], 4, 5); return false;}
+  	  	@expected{IndexOutOfBounds}
+  	   	public test bool insertAt7() {insertAt([1,2,3], 4, 5); return false;}
   	
   // isEmpty
   
-  	   public test bool isEmpty1()  =isEmpty([]);
-  	   public test bool isEmpty2()  =isEmpty([1,2]) == false;
+  	   	public test bool isEmpty1()  =isEmpty([]);
+  	   	public test bool isEmpty2()  =isEmpty([1,2]) == false;
   	
   // mapper 
   
-  	   public test bool mapper1() {int inc(int n) {return n + 1;} return mapper([1, 2, 3], inc) == [2, 3, 4];}
+  	   	public test bool mapper1() {int inc(int n) {return n + 1;} return mapper([1, 2, 3], inc) == [2, 3, 4];}
   
   // max
   
-  	   public test bool max1() = List::max([1, 2, 3, 2, 1]) == 3;
-  	   public test bool max2() = max([1, 2, 3, 2, 1]) == 3;
+  	   	public test bool max1() = List::max([1, 2, 3, 2, 1]) == 3;
+  	   	public test bool max2() = max([1, 2, 3, 2, 1]) == 3;
   	
   // min
   
@@ -201,26 +201,26 @@
   		public test bool tail11() { L1 = [1,2]; L2 = [3]; return tail(tail(L1)) == tail(L2);}
   		public test bool tail12() { L1 = [1,2]; L2 = [3]; return {tail(tail(L1)), tail(L2)} == {[]};}
   			
-  @expected{EmptyList}
-  	public test bool tail13() {
-  		tail([]); return false;
-  		}
-  
-  @expected{IndexOutOfBounds}
-  	public test bool tail14() {
-  		tail([1,2,3], 4); return false;
-  		}
+  		@expected{EmptyList}
+	  	public test bool tail13() {
+	  		tail([]); return false;
+	  		}
+	  
+	  	@expected{IndexOutOfBounds}
+	  	public test bool tail14() {
+	  		tail([1,2,3], 4); return false;
+	  		}
   	
   // takeOneFrom
   
   		public test bool takeOneFrom1() {<E, L> = takeOneFrom([1]); return (E == 1) && (L == []);}
   		public test bool takeOneFrom2() {<E, L> = List::takeOneFrom([1,2]); return ((E == 1) && (L == [2])) || ((E == 2) && (L == [1]));}
   	
-  @expected{EmptyList}
-  	public test bool takeOneFrom3() {
-  		takeOneFrom([]);
-  		return false;
-  		}
+	 	@expected{EmptyList}
+	  	public test bool takeOneFrom3() {
+	  		takeOneFrom([]);
+	  		return false;
+	  		}
   	
   // toMap
   
@@ -228,10 +228,9 @@
   		public test bool toMapUnique2() = toMapUnique([]) == ();
   		public test bool toMapUnique3() = List::toMapUnique([<1,10>, <2,20>]) == (1:10, 2:20);
   
-  @expected{MultipleKey}		
+  		@expected{MultipleKey}		
   		public test bool toMapUnique4() = List::toMapUnique([<1,10>, <1,20>]) == (1:10, 2:20);
 
-  
   // toMap
   
   		public test bool toMap5() = List::toMap([]) == ();
@@ -246,6 +245,7 @@
   		public test bool toMap13() = List::toSet([1, 2, 1]) == {1, 2};
   	
   // testToString
+  
   		public test bool toString1() = List::toString([]) == "[]";
   		public test bool toString2() = toString([]) == "[]";
   		public test bool toString3() = List::toString([1]) == "[1]";
@@ -261,8 +261,8 @@
   		}
   	
   	
-  	// Tests related to the correctness of the dynamic types of lists produced by the library functions;
-  	// incorrect dynamic types make pattern matching fail;
+  // Tests related to the correctness of the dynamic types of lists produced by the library functions;
+  // incorrect dynamic types make pattern matching fail;
   
   	
   // testDynamicTypes

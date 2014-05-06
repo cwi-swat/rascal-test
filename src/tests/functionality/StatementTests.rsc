@@ -15,10 +15,10 @@
   
   // testAssert
   
-        public test bool testAssert1() {return assert 3 > 2;}
-  	    public test bool testAssert2() {return assert 3 > 2: "Yes assert succeeds";}
+  public test bool testAssert1() {return assert 3 > 2;}
+  	public test bool testAssert2() {return assert 3 > 2: "Yes assert succeeds";}
   	   
-  	    @expected{AssertionFailed}
+  	@expected{AssertionFailed}
   		public test bool assertError1() {assert 1 == 2;return false;}
   
   // assignment
@@ -75,7 +75,7 @@
   	
   data D = d(int i) | d();
   
-  //D d(int i) { if (i % 2 == 0) fail d; else return d();}
+  //D d(int i) { if (i % 2 == 0) fail d; else return d();}  // <==========
   
   // fail
   

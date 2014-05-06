@@ -14,6 +14,7 @@
   *******************************************************************************/
   
   // rangeInt
+  
   		public test bool rangeInt1() = [1..1] == []; 
   		public test bool rangeInt2() = [1..-1] == [1, 0]; 
   		public test bool rangeInt3() = [1..0] == [1]; 
@@ -24,12 +25,14 @@
 
   	
   // rangeNum
+  
   		public test bool rangeNum1() {{num n1 = 1; return [n1..n1] == []; }}
   		public test bool rangeNum2() {{num n1 = 1; num n2 = 2; return [n1..n2] == [1]; }}
   		public test bool rangeNum3() {{num n1 = 1; num n5 = 5; return [n1..n5] == [1,2,3,4]; }}
   		public test bool rangeNum4() {{num n1 = 1; num n3 = 3; num n10 = 10; return [n1, n3..n10] == [1, 3, 5, 7, 9 ]; }}
   
-  // rangeReals()
+  // rangeReals
+  
   		public test bool rangeReals1() = [1.0 .. .1] == [1.0]; 
   		public test bool rangeReals2() = [1.0 .. 1.0] == []; 
   		public test bool rangeReals3() = [1.0 .. 5.0] == [1.0, 2.0, 3.0, 4.0]; 
@@ -38,6 +41,7 @@
   		public test bool rangeReals6() = [1.0, -2.0 .. -10.0] == [1.0, -2.0, -5.0, -8.0]; 
   	
   // rangeMixed
+  
   		public test bool rangeMixed1() = [1 .. .1] == [1]; 
   		public test bool rangeMixed2() = [1 .. 1.0] == []; 
   		@ignore{not allowed in compiler}public test bool rangeMixed3() = [1 .. 5.0] == [1, 2.0, 3.0, 4.0]; 

@@ -23,7 +23,7 @@
   	
   // getOneFromError1
   
-  @expected{EmptyMap}
+  		@expected{EmptyMap}
   		public test bool getOneFrom3()=getOneFrom(());
   	
   // invertUnique
@@ -35,7 +35,7 @@
   	
   // invertError
   
-  @expected{MultipleKey}
+  		@expected{MultipleKey}
   		public test bool invertError1() { invertUnique((1:10, 2:10)); return true; }
   	
   // invert
@@ -95,6 +95,7 @@
  
   	
   // mapExpressions
+  
   		public test bool mapExpressions1() { value n = 1; value s = "string"; return map[int, int] _ := ( n : n ) && map[str, str] _ := ( s : s ) && map[int, str] _ := ( n : s ); }
  
   	

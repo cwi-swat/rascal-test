@@ -3,6 +3,7 @@ module tests::functionality::PatternTestsList3
  data DATA = a() | b() | c() | d() | e(int N) | f(list[DATA] L) | f(set[DATA] S)| s(set[DATA] S)|g(int N)|h(int N)| f(DATA left, DATA right);
  
   // matchList3
+  
   		public test bool matchList48() = [a(), b()] := [a(), b()];
   		public test bool matchList49() = ([DATA X1, b()] := [a(), b()]) && (X1 == a());
   

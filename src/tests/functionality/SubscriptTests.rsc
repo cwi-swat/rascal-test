@@ -27,15 +27,15 @@ data NODE = f(int a, str b, real c);
 		public test bool listTest() {list[int] L = [0,1,2,3]; L[2] = 22; return L == [0,1,22,3];}
 		public test bool listTest() {list[int] L = [0,1,2,3]; L[3] = 33; return L == [0,1,2,33];}
 	
-	@expected{IndexOutOfBounds}
-	public test bool listError(){
-		[0,1,2,3][4] == 3;
-	}
+		@expected{IndexOutOfBounds}
+		public test bool listError(){
+			[0,1,2,3][4] == 3;
+		}
 	
-	@expected{IndexOutOfBounds}
-	public test bool listError(){
-		list[int] L = [0,1,2,3]; L[4] = 44; L == [0,1,2,3,44]; return false;
-	}
+		@expected{IndexOutOfBounds}
+		public test bool listError(){
+			list[int] L = [0,1,2,3]; L[4] = 44; L == [0,1,2,3,44]; return false;
+		}
 	
 //	boolmap
 
@@ -54,6 +54,7 @@ data NODE = f(int a, str b, real c);
 	
 
 //	tuple
+
 		public test bool  tupleTest()=<0, "a", 3.5>[0] == 0;
 		public test bool  tupleTest()=<0, "a", 3.5>[1] == "a";
 		public test bool  tupleTest()=<0, "a", 3.5>[2] == 3.5;
@@ -88,8 +89,8 @@ data NODE = f(int a, str b, real c);
 		/* structure assignment no longer allowed; */
 		//public test bool nodeTest() {NODE T = f(0, "a", 3.5); T[0] = 10; return  T == f(10, "a", 3.5);}
 	
-	@expected{IndexOutOfBounds}
-	public test bool nodeBoundsError() = f(0, "a", 3.5)[3] == 3.5;
+		@expected{IndexOutOfBounds}
+		public test bool nodeBoundsError() = f(0, "a", 3.5)[3] == 3.5;
 	
 	
 

@@ -100,8 +100,8 @@
   		 public test bool rangeX()=rangeX({<1,10>,<2,20>}, {}) == {<1,10>,<2,20>};
   		 public test bool rangeX1()=rangeX({<1,10>,<2,20>}, {20}) == {<1,10>};
   
-  	// Tests related to the correctness of the dynamic types of relations produced by the library functions;
-  	// incorrect dynamic types make pattern matching fail;
+  // Tests related to the correctness of the dynamic types of relations produced by the library functions;
+  // incorrect dynamic types make pattern matching fail;
   
   // testDynamicTypes
   

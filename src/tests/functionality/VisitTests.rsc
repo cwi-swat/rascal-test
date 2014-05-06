@@ -15,95 +15,95 @@ module tests::functionality::VisitTests
  *   * Bert Lisser - Bert.Lisser@cwi.nl - CWI
 *******************************************************************************/
 
-data NODE1 = f(value V) | f(value V1, value V2) | f(value V1, value V2, value V3) | g(value V1, value V2) | h(value V1, value V2)|h(value V1, value V2, value V3);
-data T = knot(int i, T l, T r) | tip(int i);
-// data NODE2 = f(value V) | f(value V1, value V2) | f(value V1, value V2, value V3) | g(value V1, value V2) | h(value V1, value V2);
-// data NODE3 = f(value V) | f(value V1, value V2) | f(value V1, value V2, value V3) | g(value V1, value V2) | h(value V1, value V2);
-// data NODE4 = f(value V) | f(value V1, value V2) | f(value V1, value V2, value V3) | g(value V1, value V2) | h(value V1, value V2);
-// data NODE5 = f5(value V) | f5(value V1, value V2) | f5(value V1, value V2, value V3) | g5(value V1, value V2) | h5(value V1, value V2) | h(value V1, value V2, value V3);
-// data NODE6 = f(value V) | f(value V1, value V2) | f(value V1, value V2, value V3) | g(value V1, value V2) | h(value V1, value V2) | h(value V1, value V2, value V3);
-// data NODE7 = f(value V) | f(value V1, value V2) | f(value V1, value V2, value V3) | g(value V1, value V2) | h(value V1, value V2);
-// data NODE8 = f(value V) | f(value V1, value V2) | f(value V1, value V2, value V3) | g(value V1, value V2) | h(value V1, value V2);
-// data NODE9 = f(value V) | f(value V1, value V2) | f(value V1, value V2, value V3) | g(value V1, value V2) | h(value V1, value V2);
-data NODE10 = f1(int I) | g1(list[NODE10] L) | h1(NODE10 N1, NODE10 N2);
-
-int cnt(NODE1 t) {
-     int C = 0;
-     visit(t) {
-        case int N: C = C + 1;
-        }
-     return C;
-     }
-     
-NODE1 walk(NODE1 t) {
-     return visit(t) {
-        case int N=>x when x:=N*2, x>=1
-        };
-     }
-     
-NODE1 drepl(NODE1 T) {
-		return bottom-up-break visit (T) {
-		     case g(value T1, value T2) =>  h(T1, T2)
-		     };
-	   }
-	   
-NODE1 frepa(NODE1 T) {
-		return visit (T) {
-		    case g(value T1, value T2):
-		          insert h(T1, T2);
-		   };
-		}
+		data NODE1 = f(value V) | f(value V1, value V2) | f(value V1, value V2, value V3) | g(value V1, value V2) | h(value V1, value V2)|h(value V1, value V2, value V3);
+		data T = knot(int i, T l, T r) | tip(int i);
+		// data NODE2 = f(value V) | f(value V1, value V2) | f(value V1, value V2, value V3) | g(value V1, value V2) | h(value V1, value V2);
+		// data NODE3 = f(value V) | f(value V1, value V2) | f(value V1, value V2, value V3) | g(value V1, value V2) | h(value V1, value V2);
+		// data NODE4 = f(value V) | f(value V1, value V2) | f(value V1, value V2, value V3) | g(value V1, value V2) | h(value V1, value V2);
+		// data NODE5 = f5(value V) | f5(value V1, value V2) | f5(value V1, value V2, value V3) | g5(value V1, value V2) | h5(value V1, value V2) | h(value V1, value V2, value V3);
+		// data NODE6 = f(value V) | f(value V1, value V2) | f(value V1, value V2, value V3) | g(value V1, value V2) | h(value V1, value V2) | h(value V1, value V2, value V3);
+		// data NODE7 = f(value V) | f(value V1, value V2) | f(value V1, value V2, value V3) | g(value V1, value V2) | h(value V1, value V2);
+		// data NODE8 = f(value V) | f(value V1, value V2) | f(value V1, value V2, value V3) | g(value V1, value V2) | h(value V1, value V2);
+		// data NODE9 = f(value V) | f(value V1, value V2) | f(value V1, value V2, value V3) | g(value V1, value V2) | h(value V1, value V2);
+		data NODE10 = f1(int I) | g1(list[NODE10] L) | h1(NODE10 N1, NODE10 N2);
 		
-NODE1 frepb(NODE1 T) { 
-		return visit (T) {
-		     case g(value T1, value T2) => h(T1, T2)
-	          };
-		}
+		int cnt(NODE1 t) {
+		     int C = 0;
+		     visit(t) {
+		        case int N: C = C + 1;
+		        }
+		     return C;
+		     }
+		     
+		NODE1 walk(NODE1 t) {
+		     return visit(t) {
+		        case int N=>x when x:=N*2, x>=1
+		        };
+		     }
+		     
+		NODE1 drepl(NODE1 T) {
+				return bottom-up-break visit (T) {
+				     case g(value T1, value T2) =>  h(T1, T2)
+				     };
+			   }
+			   
+		NODE1 frepa(NODE1 T) {
+				return visit (T) {
+				    case g(value T1, value T2):
+				          insert h(T1, T2);
+				   };
+				}
+				
+		NODE1 frepb(NODE1 T) { 
+				return visit (T) {
+				     case g(value T1, value T2) => h(T1, T2)
+			          };
+				}
+				
+		NODE1 frepG2H3a(NODE1 T) {
+				return visit (T) {
+				    case g(value T1, value T2):
+				         insert h(T1, T2, 0);
+				   };
+				}
+				
+		NODE1 frepG2H3b(NODE1 T) {
+				return visit (T) {
+				   case g(value T1, value T2) => h(T1, T2, 0)
+				   };
+				}
+				
+		NODE1 inc(NODE1 T) {
+				return visit(T) {
+				     case int N: insert N + 1;
+				   }
+				}
+				
 		
-NODE1 frepG2H3a(NODE1 T) {
-		return visit (T) {
-		    case g(value T1, value T2):
-		         insert h(T1, T2, 0);
-		   };
-		}
+				
+		tuple[int, NODE1] inc_and_count(NODE1 T, int D) {
+				int C = 0;
+				T = visit (T) {
+				        case int N: { C = C + 1;
+				                      insert N + D;
+				                    }
+				       };
+				return <C, T>;
+			}
 		
-NODE1 frepG2H3b(NODE1 T) {
-		return visit (T) {
-		   case g(value T1, value T2) => h(T1, T2, 0)
-		   };
-		}
-		
-NODE1 inc(NODE1 T) {
-		return visit(T) {
-		     case int N: insert N + 1;
-		   }
-		}
-		
-
-		
-tuple[int, NODE1] inc_and_count(NODE1 T, int D) {
-		int C = 0;
-		T = visit (T) {
-		        case int N: { C = C + 1;
-		                      insert N + D;
-		                    }
-		       };
-		return <C, T>;
-	}
-
-NODE1 srepl(NODE1 T) {
-		return top-down-break visit (T) {
-		     case g(value T1, value T2) =>  h(T1, T2)
-	     };
-	  }	
+		NODE1 srepl(NODE1 T) {
+				return top-down-break visit (T) {
+				     case g(value T1, value T2) =>  h(T1, T2)
+			     };
+			  }	
 	  
-list[int] order(NODE10 T) {
-		res = [];
-		visit (T) {
-		   case int N:  res += N;
-		};
-		return res;
-		}	
+		list[int] order(NODE10 T) {
+				res = [];
+				visit (T) {
+				   case int N:  res += N;
+				};
+				return res;
+				}	
      
 //  Cnt()
 		public test bool Cnt1()= cnt(f(3)) == 1;
@@ -126,8 +126,8 @@ list[int] order(NODE10 T) {
 	public test bool NewTreeVisibleBottomUp() =
 		visit(knot(0,tip(0),tip(0))) { case tip(int i) => tip(i+1) case knot(int i, T l, T r) => knot(i + l.i + r.i, l, r) } == knot(2,tip(1),tip(1));
 	
-	
 //	Drepl
+
 		public test bool Drepl1()= drepl(f(3)) == f(3);
 		public test bool Drepl2()= drepl(g(1,2)) == h(1,2);
 		public test bool Drepl3()= drepl(g(1,f(g(2,3)))) == g(1,f(h(2,3)));
@@ -139,6 +139,7 @@ list[int] order(NODE10 T) {
 
 
 //	FrepA	
+
 		public test bool FrepA1()= frepa(f(3)) == f(3);
 		public test bool FrepA2()= frepa(f(1,2,3)) == f(1,2,3);
 		public test bool FrepA3()= frepa(f(1,g(2,3))) == f(1,h(2,3));

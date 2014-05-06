@@ -25,13 +25,13 @@
   		public test bool getOneFrom6() {real D = Set::getOneFrom({1.0,2.0}); return  (D == 1.0) || (D == 2.0);}
   		public test bool getOneFrom7() {str S = Set::getOneFrom({"abc","def"}); return  (S == "abc") || (S == "def");}
   		
-  @expected{EmptySet}
+  		@expected{EmptySet}
   		public test bool getOneFrom8() {Set::getOneFrom({});return false;}
   	
-  @expected{EmptySet}
-  	public test bool getOneFromError1() {
-  		getOneFrom({});return false;
-  	}
+	  	@expected{EmptySet}
+	  	public test bool getOneFromError1() {
+	  		getOneFrom({});return false;
+	  	}
   	
   // isEmpty
   
@@ -86,10 +86,10 @@
   		public test bool takeOneFrom1() {<E, SI> = Set::takeOneFrom({1}); return (E == 1) && (SI == {}) ;}
   		public test bool takeOneFrom2() {<E, SI> = Set::takeOneFrom({1,2}); return ((E == 1) && (SI == {2})) || ((E == 2) && (SI == {1}));}
           
-    @expected{EmptySet}
-  	public test bool takeOneFromError1() {
-  		getOneFrom({});return false;
-  	}  
+	    @expected{EmptySet}
+	  	public test bool takeOneFromError1() {
+	  		getOneFrom({});return false;
+	  	}  
   	    
   // toList
   
@@ -112,10 +112,10 @@
   		public test bool toMapUnique3() = Set::toMapUnique({<1, "a">}) == (1 : "a");
   		public test bool toMapUnique4() = Set::toMapUnique({<1, "a">, <2, "b">}) == (1 : "a", 2 : "b");
   		
-  	@expected{MultipleKey}
-  	public void toMapUniqueError1(){
-  		toMapUnique({<1,10>,<1,20>}) == (1:20);		
-  	}
+	  	@expected{MultipleKey}
+	  	public void toMapUniqueError1(){
+	  		toMapUnique({<1,10>,<1,20>}) == (1:20);		
+	  	}
   	
   // testToString 
   
@@ -126,14 +126,14 @@
   	
   // setExpressions3 
   
-  public test bool setExpressions1() {
-  		value n = 1; 
-  		value s = "string"; 
-  		return set[int] _ := { n } && set[str] _ := { s, s, *{ s, s } };
-  		}
+	  public test bool setExpressions1() {
+	  		value n = 1; 
+	  		value s = "string"; 
+	  		return set[int] _ := { n } && set[str] _ := { s, s, *{ s, s } };
+	  		}
   	
-  	// Tests related to the correctness of the dynamic types of sets produced by the library functions;
-  	// incorrect dynamic types make pattern matching fail;
+  // Tests related to the correctness of the dynamic types of sets produced by the library functions;
+  // incorrect dynamic types make pattern matching fail;
   
   // testDynamicTypes
   

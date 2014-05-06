@@ -68,8 +68,6 @@ module tests::functionality::ScopeTests
 	//	assertTrue(runTestInSameEvaluator("{int n = 2; n == 2;}"));
 	//}
 	
-	
-	
 	public test bool RedeclaredLocal(){
 		int n = 1; {int m = 2;}; int m = 3; return n == 1 && m == 3;
 	}

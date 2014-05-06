@@ -18,15 +18,11 @@
  import Exception;
  import List;
   	
-  //	@Test public void emptySetGeneratorError1(){
+  // set comprehension
+  
   		public test bool emptySetGeneratorError1()  = { X | int X <- {} } == {};
-  //	}
-  	
-  //	@Test public void emptySetGeneratorError2(){
+  
   		public test bool emptySetGeneratorError2()  = { X | int X <- [] } == {};
-  //	}
-  	
-  //	@Test public void setComprehension1() {
   		
   		public test bool setComprehension1()  = { X | int X <- {1}} == {1};
   		public test bool setComprehension2()  = { X | int X <- [1]} == {1};
@@ -65,10 +61,7 @@
   		public test bool setComprehension24()  = {  X | int X <- [1,2,3], X >= 2, X < 3} == {2};
   		
   		public test bool setComprehension25()  = {  X, 10*X | int X <- [1,2,3]} == {1,2,3,10,20,30};
-  		public test bool setComprehension26()  = {  X, 10*X, 100*X | int X <- [1,2,3]} == {1,2,3,10,20,30, 100,200,300};
-  //	}
-  	
-  //	@Test public void setComprehension2() {	
+  		public test bool setComprehension26()  = {  X, 10*X, 100*X | int X <- [1,2,3]} == {1,2,3,10,20,30, 100,200,300};	
   		
   		public test bool setComprehension27()  = {  {} | int X <- {1,2,3}} == {{}};
   		public test bool setComprehension28()  = {  {} | int X <- [1,2,3]} == {{}};
@@ -94,13 +87,8 @@
   		public test bool setComprehension41()  = { Y | list[int] Y <- [[1,2,3],[10,20,30],[100,200,300]] } == { [1,2,3],[10,20,30],[100,200,300]};
   		public test bool setComprehension42()  = {1 | 3 > 2} == {1} ;
   		public test bool setComprehension43()  = {1 | 2 > 3} == {} ;
-  //	}
   	
-  
-  	
-  
-  	
-  //	@Test public void any()  {
+  // any
   		
   		public test bool any1()  = any(int X <- {1,2,3}, X > 2);
   		public test bool any2()  = any(    X <- {1,2,3}, X > 2);
@@ -124,12 +112,8 @@
   		public test bool any15()  = !(any(_ <- []));
   		public test bool any16()  = !(any(_ <- {}));
   		public test bool any17()  = !(any(_ <- ()));
-  //	}
   	
-  
-  	
-  	
-  //	@Test  public void all() {
+  // all
   		
   		public test bool all1()  = all(int X <- {1,2,3}, X >= 1);
   		public test bool all2()  = all(int X <- {1,2,3}, X >= 1, X < 10);
@@ -163,12 +147,11 @@
   		public test bool all20()  = !(all(_ <- ()));
   		
   		public test bool all21()  = all(k <- [1,2,3], (k % 2 == 0 || k % 2 == 1)?true:false);
-  //	}
   	
   
   
   
-  //	@Test public void setComprehension3() {	
+  // setComprehension
   		
   		public test bool setComprehension44()  = {X + 1 | int X <- {1,2,3}} == {2,3,4};
   		public test bool setComprehension45()  = {X + 1 | int X <- [1,2,3]} == {2,3,4};
@@ -188,10 +171,10 @@
   		
   		public test bool setComprehension54()  = {*[X * 2] | int X <- {1,2,3}} == {2,4,6};
   		public test bool setComprehension55()  = {*[X * 2, X * 2 + 1] | int X <- {1,2,3}} == {2,3,4,5,6,7};
-  //	}
   
   set[int] fset(int n) { return {n, 3*n}; }	
-  //	@Test public void setComprehension4(){
+  
+  // setComprehension
   		
   		public test bool setComprehension56() = {fset(n) | n <- [ 1 .. 4 ]} == {{1,3},{2,6},{3,9}};
   		public test bool setComprehension57() = {*fset(n) | n <- [ 1 .. 4 ]} == {1,3,2,6,3,9};
@@ -209,30 +192,29 @@
   		public test bool setComprehension66() = {{5*n, *fset(n)} | n <- [ 1 .. 4 ]} == {{5,1,3},{10,2,6},{15,3,9}};
   		public test bool setComprehension67() = {5*n, fset(n) | n <- [ 1 .. 4 ]} == {5,{1,3},10,{2,6},15,{3,9}};
   		public test bool setComprehension68() = {5*n, *fset(n) | n <- [ 1 .. 4 ]} == {5,1,3,10,2,6,15,3,9};
-  //	}
   	
-  //	@Test public void setComprehensionNested() {
+  // setComprehensionNested
+  
   		public test bool setComprehensionNested1()  = { {X + y | int y <- [1..X+1]} | int X <- {1,2,3}} == {{2}, {3,4}, {4,5,6}};
   		public test bool setComprehensionNested2()  = { *{X + y | int y <- [1..X+1]} | int X <- {1,2,3}} == {2, 3, 4, 5, 6};
   		public test bool setComprehensionNested3()  = { {X + y | int y <- [1..X+1], X < 2} | int X <- [1,2,3]} == {{2}, {}};
   		public test bool setComprehensionNested4()  = { *{X + y | int y <- [1..X+1], X < 2} | int X <- [1,2,3]} == {2};
   		public test bool setComprehensionNested5()  = { {X + y | int y <- [1..X+1], X > 2} | int X <- [1,2,3]} == {{}, {4,5,6}};
   		public test bool setComprehensionNested6()  = { *{X + y | int y <- [1..X+1], X > 2} | int X <- [1,2,3]} == {4, 5, 6};
-  //	}
   	
-  //	@Test public void emptySetGeneratorError(){
+  // emptySetGeneratorError
+  
   		public test bool emptySetGeneratorError3()  = [ X | int X <- {} ] == [];
-  //	}
   	
-  //	@Test public void emptyListGeneratorError1(){
+  // emptyListGeneratorError1
+  
   		public test bool emptyListGeneratorError1()  = [ X | int X <- [] ] == [];
-  //	}
   	
-  //	@Test public void emptyListGeneratorError2(){
+  // emptyListGeneratorError
+  
   		public test bool emptyListGeneratorError2()  = [ X |     X <- [] ] == [];
-  //	}
   	
-  //	@Test public void listComprehension1()  {
+  // listComprehension1
   		
   		public test bool listComprehension1()  = [ X | int X <- {1}] == [1];
   		public test bool listComprehension2()  = [ X | int X <- [1]] == [1];
@@ -268,9 +250,8 @@
   		
   		public test bool listComprehension23()  = [  X, 10*X | int X <- [1,2,3]] == [1,10,2,20,3,30];
   		public test bool listComprehension24()  = [  X, 10*X, 100*X | int X <- [1,2,3]] == [1,10,100,2,20,200,3,30,300];
-  //	}
   	
-  //	@Test public void listComprehension2() {
+  // listComprehension
   		
   		public test bool listComprehension25()  = [  [] | int X <- {1,2,3}] == [[], [], []];
   		public test bool listComprehension26()  = [  [] | int X <- [1,2,3]] == [[], [], []];
@@ -292,9 +273,8 @@
   		
   		public test bool listComprehension37()  = [ <1,2,3> | int X <- {1,2,3}, false]	== [] ;
   		public test bool listComprehension38()  = [ <1,2,3> | int X <- [1,2,3], false]	== [] ;
-  //	}
   	
-  //	@Test public void listComprehension3()  {
+  // listComprehension
   		
   		public test bool listComprehension39()  = [ [Y] | list[int] Y <- [[1,2,3],[10,20,30],[100,200,300]] ] == [ [[1,2,3]], [[10,20,30]],[[100,200,300]]];
   		public test bool listComprehension40()  = [ Y | list[int] Y <- [[1,2,3],[10,20,30],[100,200,300]] ] == [ [1,2,3], [10,20,30],[100,200,300]];
@@ -321,10 +301,12 @@
   		public test bool listComprehension54()  = [*{X * 2} | int X <- [1,2,3]] == [2,4,6];
   		
   		public test bool listComprehension55() = toSet([*{X * 2, X * 2 + 1} | int X <- [1,2,3]]) == {2,3,4,5, 6, 7};
-  //	}
+
   
   list[int] flist(int n) { return [n, 3*n];}	
-  //	@Test public void listComprehension4(){
+  
+  // listComprehension
+  
   		public test bool listComprehension56() = [flist(n) | n <- [ 1 .. 4 ]] == [[1,3],[2,6],[3,9]];
   		public test bool listComprehension57() = [*flist(n) | n <- [ 1 .. 4 ]] == [1,3,2,6,3,9];
   
@@ -335,20 +317,17 @@
   		
   		public test bool listComprehension61() = [[5*n, flist(n)] | n <- [ 1 .. 4 ]] == [[5,[1,3]],[10,[2,6]],[15,[3,9]]];
   		public test bool listComprehension62() = [[5*n, *flist(n)] | n <- [ 1 .. 4 ]] == [[5,1,3],[10,2,6],[15,3,9]];
-  // 	}
-  //	@Test public void listComprehensionNested() {
+  
+  // listComprehensionNested
+  
   		public test bool listComprehension63()  = [  [y | int y <- [0..X+1]] | int X <- [1,2,3]] == [[0,1], [0,1,2], [0,1,2,3]];
   		public test bool listComprehension64()  = [ *[y | int y <- [0..X+1]] | int X <- [1,2,3]] == [0,1, 0,1,2, 0,1,2,3];
   		public test bool listComprehension65()  = [ [y | int y <- [0..X+1], X < 2] | int X <- [1,2,3]] == [[0,1], [], []];
   		public test bool listComprehension66()  = [ *[y | int y <- [0..X+1], X < 2] | int X <- [1,2,3]] == [0,1];
   		public test bool listComprehension67()  = [ [y | int y <- [0..X+1], X > 2] | int X <- [1,2,3]] == [[], [], [0,1,2,3]];
   		public test bool listComprehension68()  = [ *[y | int y <- [0..X+1], X > 2] | int X <- [1,2,3]] == [0,1,2,3];
-  		
-  //	}
   	
- 
-  	
-  //	@Test public void relationComprehension() {	
+  // relationComprehension
   		
   		public test bool relationComprehension1()  = {<X,Y> | int X <- {1}, int Y <- {2}} == {<1,2>};
   		public test bool relationComprehension2()  = {<X,Y> | int X <- [1,1,1], int Y <- [2,2,2]} == {<1,2>};
@@ -374,18 +353,16 @@
   		
   		public test bool relationComprehension15()  = {<X,Y> | int X <- {1,2,3}, <X, str Y> <- {<1,"a">, <7,"b">, <3,"c">,<5,"d">}} == {<1, "a">, <3, "c">};
   		public test bool relationComprehension16()  = {<X,Y> | int X <- [1,2,3], <X, str Y> <- [<1,"a">, <7,"b">, <3,"c">,<5,"d">]} == {<1, "a">, <3, "c">};
-  		
-  //		}
   
-  //	@Test public void emptyMapGeneratorError1(){
+  // emptyMapGeneratorError1
+  
   		public test bool emptyMapGeneratorError1()  = ( X : 2 * X | int X <- {} ) == ();
-  //	}
   
-  //	@Test public void emptyMapGeneratorError2(){
+  // emptyMapGeneratorError2
+  
   		public test bool emptyMapGeneratorError2()  = ( X : 2 * X | int X <- [] ) == ();
-  //	}
   	
-  //	@Test public void mapComprehension()  {
+  // mapComprehension
   		
   		public test bool mapComprehension1()  = ( X : 2 * X | int X <- {1}) == (1:2);
   		public test bool mapComprehension2()  = ( X : 2 * X | int X <- [1]) == (1:2);
@@ -394,16 +371,16 @@
   		public test bool mapComprehension4()  = ( X : 2 * X | int X <- [1, 2]) == (1:2,2:4);
   		
   		public test bool mapComprehension5()  = ( X: 2 * X| int X<- [1,2,3] ) == (1:2,2:4,3:6);
-  //	}
   	
-  //	@Test public void mapComprehensionNested() {
+  // mapComprehensionNested
+  
   		public test bool mapComprehensionNested1()  = ( X: (2 * X + y : y | int y <- [1..X+1]) | int X <- [1,2,3] ) == (1:(3:1),2:(5:1,6:2),3:(7:1,8:2,9:3));
   		public test bool mapComprehensionNested2()  = ( X: (2 * X + y : y | int y <- [1..X+1], X < 2) | int X <- [1,2,3] ) == (1:(3:1), 2:(), 3:());
   		public test bool mapComprehensionNested3()  = ( X: (2 * X + y : y | int y <- [1..X+1], X > 2) | int X <- [1,2,3] ) == (1:(),2:(),3:(7:1,8:2,9:3));
-  //	}
   
-  data TREE = i(int N) | f(TREE a,TREE b) | g(TREE a, TREE b);	
-  //	@Test public void nodeGenerator()  {
+  data TREE = i(int N) | f(TREE a,TREE b) | g(TREE a, TREE b);
+  	
+  // nodeGenerator()
   		
   		public test bool nodeGenerator1() = [ X | /int X <- f(i(1),g(i(2),i(3))) ] == [1,2,3];
   		
@@ -425,15 +402,12 @@
   		public test bool nodeGenerator12() = [N | TREE N <- f(i(1),g(i(2),i(3)))] == [i(1),g(i(2),i(3))];
   		
   		public test bool nodeGenerator13() = [N | /int N <- f(i(1),g(i(2),i(3)))] == [1,2,3];
-  //	}
-  	
-  	
-  //	@Test public void regularGenerators() {
+ 	
+  // regularGenerators
   		
   		public test bool regularGenerators1()  = [S | /@<S:[a-z]+>@/ <- ["@abc@", "@def@"]] == ["abc","def"];
   		public test bool regularGenerators2()  = {S | /@<S:[a-z]+>@/ <- ["@abc@", "@def@"]} == {"abc", "def"};
   		public test bool regularGenerators3()  = {S | /@<S:[a-z]+>@/ <- {"@abc@", "@def@"}} == {"abc", "def"};
-  //	}
  
   
  

@@ -1,31 +1,30 @@
 module tests::functionality::RegExpTests
 
-//	@Test public void match() {
-		public test bool match()=/abc/ := "abc";
-		public test bool match()=/def/ !:= "abc";
-		public test bool match()=/def/ !:= "abc";
-		public test bool match()=/[a-z]+/ := "abc";
-		public test bool match()=/.*is.*/ := "Rascal is marvelous";
-		public test bool match()=/@.*@/ := "@ abc @";
+//	match 
+		public test bool match1()=/abc/ := "abc";
+		public test bool match2()=/def/ !:= "abc";
+		public test bool match3()=/def/ !:= "abc";
+		public test bool match4()=/[a-z]+/ := "abc";
+		public test bool match5()=/.*is.*/ := "Rascal is marvelous";
+		public test bool match6()=/@.*@/ := "@ abc @";
 		
-		public test bool match()=(/<x:[a-z]+>/ := "abc") && (x == "abc");
-		public test bool match()=(/if<tst:.*>then<th:.*>fi/ := "if a \> b then c fi") 
+		public test bool match7()=(/<x:[a-z]+>/ := "abc") && (x == "abc");
+		public test bool match8()=(/if<tst:.*>then<th:.*>fi/ := "if a \> b then c fi") 
 				           && (tst == " a \> b ") && (th == " c ");
 
-		public test bool match()=(/<l:.*>[Rr][Aa][Ss][Cc][Aa][Ll]<r:.*>/ := "RASCAL is marvelous")
+		public test bool match9()=(/<l:.*>[Rr][Aa][Ss][Cc][Aa][Ll]<r:.*>/ := "RASCAL is marvelous")
 				            && (l == "") && (r == " is marvelous");
 		
-		public test bool match(){str x = "abc"; return /<x>/ := "abc";}
-		public test bool match() {str x = "abc"; int n = 3; return /<x><n>/ := "abc3";}
+		public test bool match10(){str x = "abc"; return /<x>/ := "abc";}
+		public test bool match11() {str x = "abc"; int n = 3; return /<x><n>/ := "abc3";}
 		
-		public test bool match()=(/<x:[a-z]+>-<x>/ := "abc-abc") && (x == "abc");
-		public test bool match()=(/<x:[a-z]+>-<x>-<x>/ := "abc-abc-abc") && (x == "abc");
-		public test bool match()=/<x:[a-z]+>-<x>/ !:= "abc-def";
+		public test bool match12()=(/<x:[a-z]+>-<x>/ := "abc-abc") && (x == "abc");
+		public test bool match13()=(/<x:[a-z]+>-<x>-<x>/ := "abc-abc-abc") && (x == "abc");
+		public test bool match14()=/<x:[a-z]+>-<x>/ !:= "abc-def";
 
-		public test bool match()=/\// := "/";
-		public test bool match()=/<x:\/>/ := "/";
-		public test bool match()=/<x:\/>/ := "/" && x == "/";
-//	}
+		public test bool match15()=/\// := "/";
+		public test bool match16()=/<x:\/>/ := "/";
+		public test bool match17()=/<x:\/>/ := "/" && x == "/";
 	
 
 	
