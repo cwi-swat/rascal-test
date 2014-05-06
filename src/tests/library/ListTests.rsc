@@ -182,6 +182,12 @@
   		public test bool sortWithCompare1() = sort([1, 2, 3]) == [1,2,3];
   		public test bool sortWithCompare2() = sort([1, 2, 3], bool(int a, int b){return a < b;}) == [1,2,3];
   		public test bool sortWithCompare3() = sort([1, 2, 3], bool(int a, int b){return a > b;}) == [3,2,1];
+  		
+  		@expected{IllegalArgument}
+         public test bool sortWithCompare4() {sort([1, 2, 3], bool(int a, int b){return a <= b;}); return false ;}
+          
+  		@expected{IllegalArgument}
+         public test bool sortWithCompare5() {sort([1, 0, 1], bool(int a, int b){return a <= b;});  return false;}
  
   // tail
   
