@@ -327,9 +327,9 @@
     		public test bool testStringEscapes9() = "\"\<" == "\"\<";
     		public test bool testStringEscapes10() = "\"\>" == "\"\>";
     		
-    		public test bool assertTrue() = "\a20" == " ";
-    		public test bool assertTrue() = "\U01F35D" == "🍝";
-    		public test bool assertTrue() = "\u2713" == "✓";
+    		public test bool testStringEscapes11() = "\a20" == " ";
+    		public test bool testStringEscapes12() = "\U01F35D" == "🍝";
+    		public test bool testStringEscapes13() = "\u2713" == "✓";
     	
     //	stringInterpolation
     
@@ -358,22 +358,22 @@
     		public test bool testLocation2() =  Loc == Loc;
     		public test bool testLocation3() = Loc != Loc2;
     		
-    		public test bool testLocation4() = Loc.uri == "file:///home/paulk/pico.trm";
-    		public test bool testLocation5() = Loc.offset == 0;
-    		public test bool testLocation6() = Loc.length == 1;
-    		public test bool testLocation7() = Loc.begin.line == 2;
-    		public test bool testLocation8() = Loc.begin.column == 3;
-    		public test bool testLocation9() = Loc.end.line == 4;
-    		public test bool testLocation10() = Loc.end.column == 5;
-    		public test bool testLocation11() = Loc.path == "/home/paulk/pico.trm";
+    		public test bool testLocationFieldUse1() = Loc.uri == "file:///home/paulk/pico.trm";
+    		public test bool testLocationFieldUse2() = Loc.offset == 0;
+    		public test bool testLocationFieldUse3() = Loc.length == 1;
+    		public test bool testLocationFieldUse5() = Loc.begin.line == 2;
+    		public test bool testLocationFieldUse6() = Loc.begin.column == 3;
+    		public test bool testLocationFieldUse7() = Loc.end.line == 4;
+    		public test bool testLocationFieldUse8() = Loc.end.column == 5;
+    		public test bool testLocationFieldUse9() = Loc.path == "/home/paulk/pico.trm";
     		
-    		public test bool assertTrue() { loc l = Loc; l.uri = "file:///home/paulk/pico2.trm"; l.uri == "file:///home/paulk/pico2.trm";}
-    		public test bool assertTrue() { loc l = Loc; l.offset = 10; l.offset == 10;}
-    		public test bool assertTrue() { loc l = Loc; l.length = 11; l.length == 11;}
-    		public test bool assertTrue() { loc l = Loc; l.end.line = 14; l.end.line == 14;}
-    		public test bool assertTrue() { loc l = Loc; l.begin.line = 1; l.begin.line == 1;}
-    		public test bool assertTrue() { loc l = Loc; l.begin.column = 13; l.begin.column == 13;}
-    		public test bool assertTrue() { loc l = Loc; l.end.column = 15; l.end.column == 15;}
+    		public test bool testLocationFieldUpdate1() { loc l = Loc; l.uri = "file:///home/paulk/pico2.trm"; l.uri == "file:///home/paulk/pico2.trm";}
+    		public test bool testLocationFieldUpdate2() { loc l = Loc; l.offset = 10; l.offset == 10;}
+    		public test bool testLocationFieldUpdate3() { loc l = Loc; l.length = 11; l.length == 11;}
+    		public test bool testLocationFieldUpdate4() { loc l = Loc; l.end.line = 14; l.end.line == 14;}
+    		public test bool testLocationFieldUpdate5() { loc l = Loc; l.begin.line = 1; l.begin.line == 1;}
+    		public test bool testLocationFieldUpdate6() { loc l = Loc; l.begin.column = 13; l.begin.column == 13;}
+    		public test bool testLocationFieldUpdate7() { loc l = Loc; l.end.column = 15; l.end.column == 15;}
     		
     		public test bool assertTrue() {loc l = Loc[uri= "file:///home/paulk/pico.trm"]; l == |file:///home/paulk/pico.trm|(0,1,<2,3>,<4,5>);}
     		public test bool assertTrue() {loc l = Loc[offset = 10]; l == |file:///home/paulk/pico.trm|(10,1,<2,3>,<4,5>);}

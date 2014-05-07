@@ -216,7 +216,7 @@
   		             &T ident(&T x){ return x; }
   		            return ident("abc") == "abc";
   		            }
-  		  /*TC*/
+  		  /*TODO:TC*/
   		  //public test bool  ident() {
   		  //           &T ident(&T x){ return x; }
   		  //          return ident(f(1)) == f(1);
@@ -339,8 +339,8 @@
   		if(!(emptyFigure(lineColor="red", shrink=0.5).fillColor == "white")) return false;
   		
   		if(!(ellipse().fillColor == "white")) return false;
-  		/*TC*///if(!(ellipse(inner=emptyFigure(fillColor="red")).fillColor == "white")) return false;
-  		/*TC*///if(!(ellipse(inner=emptyFigure(fillColor="red")).inner.fillColor == "red")) return false;
+  		/*TODO:TC*///if(!(ellipse(inner=emptyFigure(fillColor="red")).fillColor == "white")) return false;
+  		/*TODO:TC*///if(!(ellipse(inner=emptyFigure(fillColor="red")).inner.fillColor == "red")) return false;
   		return true;
   	}
   
@@ -365,7 +365,7 @@
   
   // keywordMatchTest2
   
-  		/*TC*/// public test bool keywordMatchTest11() =point1(_, _, colors=["blue"]) := point1(1,2, colors=["blue"]);
-  		/*TC*/// public test bool keywordMatchTest12() =point1(_, _, colors=[*_,"blue",*_]) := point1(1,2, colors=["red","green","blue"]);
-  		/*TC*/// public test bool keywordMatchTest13() =point1(_, _, colors=[*_,*X,*_,*X, *_]) := point1(1,2, colors=["red","blue","green","blue"]);
+  		/*TODO:TC*/// public test bool keywordMatchTest11() =point1(_, _, colors=["blue"]) := point1(1,2, colors=["blue"]);
+  		/*TODO:TC*/// public test bool keywordMatchTest12() =point1(_, _, colors=[*_,"blue",*_]) := point1(1,2, colors=["red","green","blue"]);
+  		/*TODO:TC*/// public test bool keywordMatchTest13() =point1(_, _, colors=[*_,*X,*_,*X, *_]) := point1(1,2, colors=["red","blue","green","blue"]);
  

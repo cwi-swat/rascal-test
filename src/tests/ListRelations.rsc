@@ -16,7 +16,7 @@ public test bool composition(lrel[int, str]X, lrel[str, int] Y) =
   isEmpty(Y) ==> isEmpty(X o Y) ||
   all(<x, y> <- X o Y, z <- range(X), <x, z> in X, <z, y> in Y);
 
-/*TC*/  
+/*TODO:TC*/  
 //public test bool selection(lrel[&A fa, &B fb] X) =
 //  X.fa == domain(X) && X.fb == range(X) && X.fa == X<0> && X.fb == X<1>;
   
@@ -26,7 +26,7 @@ public test bool \join(lrel[&A, &B]X, lrel[&B, &C, &D] Y) =
   (X join Y)<0, 1> == X && (X join Y)<2,3,4> == Y;  
   
 // Note that all subscriptions are of the form X[{a}] to avoid that a is interpreted as an integer index.  
-/*TC*/
+/*TODO:TC*/
 //public test bool subscription(lrel[&A, &B, &C] X) =
 //  isEmpty(X) ||
 //  all(&A a <- domain(X), any(<&B b, &C c> <- X[{a}], <a, b, c> in X)) &&
@@ -66,7 +66,7 @@ public test bool tst_carrierX(lrel[int, int] X) {
    return isEmpty(XR) || all(<a, b> <- XR, a notin s, b notin s);
 }
 
-/*TC*/
+/*TODO:TC*/
 //public test bool tst_complement(lrel[int, int] X) = 
 //   isEmpty(complement(X)) || 
 //   complement(X) <= domain(X) * range(X) && all(<a, b> <- complement(X), <a, b> notin X);
