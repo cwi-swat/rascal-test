@@ -96,3 +96,7 @@ bool declarationError(str stmts, list[str] importedModules = [], list[str] initi
 		"Constructor overlaps", 
 		"Initializer type"
 	], importedModules=importedModules, initialDecls=initialDecls);
+	
+void makeModule(str name, str body){
+    writeFile(|project://rascal-test/src/<name>.rsc|, "module <name>\n<body>");
+}
