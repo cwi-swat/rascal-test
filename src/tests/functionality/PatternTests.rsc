@@ -293,7 +293,7 @@
   		public test bool matchADTwithKeywords3() = f1(1, B=false, M=10)    := f1(1);
   		public test bool matchADTwithKeywords4() = f1(1, M=20)             := f1(1, B=false, M=20);
   		
-  		/*TC*///public test bool matchADTwithKeywords5() = f1(1, M=X)             := f1(1, B=false, M=20) && X == 20;
+  		/*TODO:TC*///public test bool matchADTwithKeywords5() = f1(1, M=X)             := f1(1, B=false, M=20) && X == 20;
   	
 //	matchNode
   		
@@ -331,7 +331,7 @@
   		public test bool matchNodeWithKeywords14() ="f1"(1, M=_, B=false)  := "f1"(1, B=false, M=20);
   		public test bool matchNodeWithKeywords15() ="f1"(_, M=20, B=false) := "f1"(1, B=false, M=20);
   		
-  		/*TC*///public test bool matchNodeWithKeywords16() = "f1"(1, M=X) := "f1"(1, B=false, M=20) && X == 20;
+  		/*TODO:TC*///public test bool matchNodeWithKeywords16() = "f1"(1, M=X) := "f1"(1, B=false, M=20) && X == 20;
   	
 //	matchSet1
   		
@@ -523,11 +523,11 @@
   
 // variableBecomesEquality
           
-  		/*comp*///public test bool matchVariableBecomesEquality1() {int N = 5; return N : 3 !:= 3 && N != 3;}
-  		/*comp*///public test bool matchVariableBecomesEquality2() {int N = 3; return N : 3 := 3 && N == 3;}
+  		/*TODO:COMP*///public test bool matchVariableBecomesEquality1() {int N = 5; return N : 3 !:= 3 && N != 3;}
+  		/*TODO:COMP*///public test bool matchVariableBecomesEquality2() {int N = 3; return N : 3 := 3 && N == 3;}
   		
-  		public test bool doubleVariableBecomes1() = !(([N : 3, N : 4] := [3,4]) && N == 3);
-  		public test bool doubleVariableBecomes2() = [N : 3, N : 3] := [3,3] && N == 3;
+  		/*TODO:TC*///public test bool doubleVariableBecomes1() = !(([N : 3, N : 4] := [3,4]) && N == 3);
+  		/*TODO:TC*///public test bool doubleVariableBecomes2() = [N : 3, N : 3] := [3,3] && N == 3;
   	
 // antiPattern
 
