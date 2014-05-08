@@ -24,6 +24,7 @@ public test bool \join(rel[&A, &B]X, rel[&B, &C, &D] Y) =
   isEmpty(Y) ==> size(X join Y) == size(X) ||
   (X join Y)<0, 1> == X && (X join Y)<2,3,4> == Y;  
   
+ //TODO: {<{-32250185r13509016,-436505807r496778676},1799341299,{}>} 
 public test bool subscription(rel[&A, &B, &C] X) =
   isEmpty(X) ||
   all(&A a <- domain(X), any(<&B b, &C c> <- X[a], <a, b, c> in X)) &&
@@ -69,7 +70,7 @@ public test bool tst_complement(rel[int, int] X) =
    
 public test bool tst_domain(rel[int, int] X) = 
    isEmpty(X) || 
-   all(<a, b> <- X, a in domain(X)) && all(a <- domain(X), any(<x, y> <- X, x == a));
+   all(<num a, num b> <- X, a in domain(X)) && all(num c <- domain(X), any(<num x, num y> <- X, x == c));
    
 public test bool tst_domainR(rel[int, int] X) {
    s = sample(X);
@@ -89,7 +90,7 @@ public test bool tst_invert(rel[int, int] X) = invert(invert(X)) == X;
 
 public test bool tst_range(rel[int, int] X) = 
    isEmpty(X) || 
-   all(<a, b> <- X, b in range(X)) && all(a <- range(X), any(<x, y> <- X, y == a));
+   all(<num a, num b> <- X, b in range(X)) && all(num c <- range(X), any(<num x, num y> <- X, y == c));
    
 public test bool tst_rangeR(rel[int, int] X) {
    s = sample(X);
