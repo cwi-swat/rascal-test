@@ -134,7 +134,7 @@
   		  return j == 1000;
         }	
         
-         @expected{IndexOutOfBounds}
+        @expected{IndexOutOfBounds}
   		public test bool solveIndexOutOfBounds1() {
   		rel[int,int] T =    R1;
   		solve (T; -1)  T = T + (T o R1);

@@ -42,6 +42,8 @@ extend tests::functionality::StatementTCTests;
 
 extend tests::functionality::SubscriptTCTests;
 
+extend tests::functionality::TCIssues;
+
 extend tests::functionality::TryCatchTCTests;
 
 extend tests::functionality::VisitTCTests;
