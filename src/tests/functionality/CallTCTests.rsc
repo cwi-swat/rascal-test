@@ -39,4 +39,9 @@ public test bool keywordInConstructorError5() = argumentMismatch("d(1,z=4);", in
   	
 public test bool keywordInConstructorError6() = argumentMismatch("d1(1,y=4);", initialDecls = ["data D = d(int x, int y = 3);", "data D1 = d1(int x);"]);  	
 
-  	
+public test bool functionParameter() = 
+	checkOK("testSimp(SET(\"a\"), simp);",
+		initialDecls=["data TYPESET = SET(str name) | SUBTYPES(TYPESET tset) | INTERSECT(set[TYPESET] tsets);",
+					  "TYPESET simp(TYPESET  ts) = ts;",
+					  "bool testSimp(TYPESET ats, TYPESET aSimp(TYPESET  ts)) = ats == aSimp(ats);"
+		]);
