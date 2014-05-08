@@ -581,7 +581,7 @@
   
       int cnt(list[int] L){
        int count = 0;
-        while ([N, *int _] := L) {
+        while ([_, *int _] := L) {
                count = count + 1;
                L = tail(L);
         }
@@ -615,17 +615,17 @@
   	return cnt(S) == size(S);
   	}
   	
-  	 public test bool setCount3(set[int] S1){
+  	 public test bool setCount3(set[int] S){
   		      int cnt(set[int] S){
   		        int count = 0;
-  		        while ({N, *int _} := S) {
+  		        while ({int N, *int _} := S) {
   		               count = count + 1;
   		               S = S - {N};
   		        }
   		        return count;
   		      }
   	
-  		return cnt(S1) == size(S1);
+  		return cnt(S) == size(S);
   	}
   	
   	@ignore{*set[int] c does not work} public test bool nodeMatchBacktracking() {
