@@ -15,6 +15,8 @@
    *   * Bert Lisser - Bert.Lisser@cwi.nl - CWI
   *******************************************************************************/
 
+syntax XYZ = "x" | "y" | "z";
+
   // voidFun
   
   		public test bool assertTrue9() {void f(){ } f(); return true;}
@@ -216,20 +218,22 @@
   		             &T ident(&T x){ return x; }
   		            return ident("abc") == "abc";
   		            }
-  		  /*TODO:TC*/
-  		  //public test bool  ident() {
-  		  //           &T ident(&T x){ return x; }
-  		  //          return ident(f(1)) == f(1);
-  		  //         }
-  		 public test bool  ident5() {
+  		  
+  		  data DATA = f(int n);
+  		            
+  		  public test bool  ident5() {
+  		             &T ident(&T x){ return x; }
+  		            return ident(f(1)) == f(1);
+  		           }
+  		 public test bool  ident6() {
   		             &T ident(&T x){ return x; }
   		            return ident([1,2,3]) == [1,2,3];
   		            }
-  		 public test bool  ident6() {
+  		 public test bool  ident7() {
   		             &T ident(&T x){ return x; }
   		            return ident({1,2,3}) == {1,2,3};
   		            }
-  		  public test bool  ident7() {
+  		  public test bool  ident8() {
   		             &T ident(&T x){ return x; }
   		            return ident((1:10,2:20,3:30)) == (1:10,2:20,3:30);
   		            }
@@ -278,16 +282,16 @@
   		public default int f(int x) = x;
   		return [f(x()),f(y()),f(z()), f(4)] == [1,2,3, 4];
   	}
-  
-  //	@Ignore
-  //	 public void dispatchTest3() {
-  //		prepare("syntax X = "x" | "y" | "z";");
-  //		prepareMore("public int f((X) `x`) = 1;");
-  //		prepareMore("public int f((X) `y`) = 2;");
-  //		prepareMore("public int f((X) `z`) = 3;");
-  //
-  //		runTestInSameEvaluator("[f(`x`),f(`y`),f(`z`)] == [1,2,3]"));
-  //	}
+  	
+  /*TODO:COMP*/	
+  //public test bool  dispatchTest3() { 
+  //		int f((XYZ) `x`) = 1;
+  //		int f((XYZ) `y`) = 2;
+  //		int f((XYZ) `z`) = 3;
+  //		
+  //		return [f((XYZ)`x`),f((XYZ)`y`),f((XYZ)`z`)] == [1,2,3];
+  //	}	
+ 
   	
   //  keywordTest1
    
@@ -323,9 +327,7 @@
   data Figure (real shrink = 1.0, str fillColor = "white", str lineColor = "black")  =  emptyFigure() 
   | ellipse(Figure inner = emptyFigure()) 
   | box(Figure inner = emptyFigure());
-  
-  ////	//  public void keywordTest4(){
-  //
+ 
   
   public test bool  keywordTest2() { 
   		if(!(emptyFigure().fillColor == "white")) return false;

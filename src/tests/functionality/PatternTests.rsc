@@ -447,28 +447,6 @@
   		
   		public test bool matchListSetVariableScopes11() = [pair(PAIR L1, b1()), L1] := [pair(a1(), b1()), a1()];
   		public test bool matchListSetVariableScopes12() = [pair(PAIR L1, b1()), L1] !:= [pair(a1(), b1()), d1()];
-
-  
-  //	@Ignore @Test
-  //	public void matchConstructor1(){
-  //		prepare("data Bool = btrue() | bfalse() | band(Bool left, Bool right) | bor(Bool left, Bool right);");
-  //
-  //		public test bool assertTrue() = Bool::btrue b := btrue;
-  //		public test bool assertTrue() = btrue := btrue();
-  //		public test bool assertTrue() = Bool::band b := band(btrue, bfalse);
-  //		public test bool assertTrue() = band := band(btrue, bfalse);
-  //	}
-  //	
-  //	@Ignore @Test
-  //	public void matchConstructor2(){
-  //	
-  //		prepareModule("Bool", "module Bool " +
-  //				  "data Bool = btrue | bfalse | band(Bool left, Bool right) | bor(Bool left, Bool right);");
-  //
-  //		public test bool assertTrue() = import Bool;
-  //		public test bool assertTrue() = btrue := btrue;
-  //		public test bool assertTrue() = Bool::band := band(btrue, bfalse);
-  //	}
   
   
   // matchSetExternalVar
@@ -655,6 +633,7 @@
   	    return size(y) == 12;
   	}
   	
+  	/*TODO:TC*/
   	//public test bool tupleMatchBacktracking() {
   	//    y = for(<{int a, int b, *set[int] c}> := <{1,2,3,4}>) append <a,b>; 
   	//    return size(y) == 12;

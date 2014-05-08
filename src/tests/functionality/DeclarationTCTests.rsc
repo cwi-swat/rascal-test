@@ -37,9 +37,20 @@ public test bool DefaultVarDeclarationNotVisible(){
 	return undeclaredVariable("x;", importedModules=["M"]);
 }
 
-public test bool RedeclaredVarDeclaration(){ 	// PK: I am not sure
+public test bool RedeclaredVarDeclaration(){
 	makeModule("M", "public int x = 3;"); 
-	return redeclaredVariable("int x = 4;", importedModules=["M"]);
+	return checkOK("int x = 4;", importedModules=["M"]);
+}
+
+
+public test bool moduleRedeclarationError1(){ 
+	makeModule("M", "public int n = 1; public int n = 2;"); 
+	return redeclaredVariable("n == 1;", importedModules=["M"]);
+}
+
+public test bool qualifiedScopeTest(){ 
+	makeModule("M", "public int n = 1;"); 
+	return checkOK("M::n == 1;", importedModules=["M"]);
 }
 
 // Function declaration in imported module
@@ -76,9 +87,24 @@ public test bool QualifiedNonTerminalVisible(){
 	return checkOK("M::A a;", importedModules=["M"]);
 }
 
-public test bool UseNonTerminal(){ 
+public test bool UseNonTerminal1(){ 
 	makeModule("M", "syntax A = \"a\";"); 
 	return checkOK("[A]\"a\";", importedModules=["M"]);
+}
+
+public test bool UseNonTerminal2(){ 
+	makeModule("M", "syntax A = \"a\";"); 
+	return checkOK("A anA = [A]\"a\";", importedModules=["M"]);
+}
+
+public test bool UseNonTerminal3(){ 
+	makeModule("M", "syntax A = \"a\";"); 
+	return checkOK("(A)`a`;", importedModules=["M"]);
+}
+
+public test bool UseNonTerminal4(){ 
+	makeModule("M", "syntax A = \"a\";"); 
+	return checkOK("A anA = (A)`a`;", importedModules=["M"]);
 }
 
 public test bool ExtendNonTerminal(){ 
@@ -113,7 +139,7 @@ public test bool RedeclareConstructorError(){
 	return declarationError("DATA x = d();", initialDecls=["data DATA = d();"], importedModules=["M"]);
 }
 
-// Data declaration in imported module
+// Alias declaration in imported module
 
 public test bool UseImportedAlias(){ 
 	makeModule("M", "alias INT = int;"); 
@@ -121,5 +147,5 @@ public test bool UseImportedAlias(){
 }
 
 
-
+	
 	

@@ -15,9 +15,8 @@
      *   * Bert Lisser - Bert.Lisser@cwi.nl - CWI
     *******************************************************************************/
     
-    
     // bool
-    		
+    	
     		public test bool testBool1() = true == true;
     		public test bool testBool2() = !(true == false);
     		public test bool testBool3() = true != false;	
@@ -130,9 +129,11 @@
     		public test bool testInt48() = (3 > 2 ? 3 : 2) == 3;
     	
     //	valueEquals
+    
     		public test bool assertTrue1()  {value x = 1.0; value y = 2; return x != y; }
     	
     //	testReal	
+    
     		public test bool testReal1() = 1.0 == 1.0;
     		public test bool testReal2() = 1.0 != 2.0;
     		
@@ -375,11 +376,11 @@
     		public test bool testLocationFieldUpdate6() { loc l = Loc; l.begin.column = 13; l.begin.column == 13;}
     		public test bool testLocationFieldUpdate7() { loc l = Loc; l.end.column = 15; l.end.column == 15;}
     		
-    		public test bool assertTrue() {loc l = Loc[uri= "file:///home/paulk/pico.trm"]; l == |file:///home/paulk/pico.trm|(0,1,<2,3>,<4,5>);}
-    		public test bool assertTrue() {loc l = Loc[offset = 10]; l == |file:///home/paulk/pico.trm|(10,1,<2,3>,<4,5>);}
-    		public test bool assertTrue() {loc l = Loc[length = 11]; l ==  |file:///home/paulk/pico.trm|(0,11,<2,3>,<4,5>);}
-    		public test bool assertTrue() {loc l = Loc[begin = <1,4>]; l == |file:///home/paulk/pico.trm|(0,1,<1,4>,<4,5>);}
-    		public test bool assertTrue() {loc l = Loc[end = <14,38>]; l ==  |file:///home/paulk/pico.trm|(0,1,<2,3>,<14,38>);}
+    		public test bool testLocationFieldUpdate8() {loc l = Loc[uri= "file:///home/paulk/pico.trm"]; l == |file:///home/paulk/pico.trm|(0,1,<2,3>,<4,5>);}
+    		public test bool testLocationFieldUpdate9() {loc l = Loc[offset = 10]; l == |file:///home/paulk/pico.trm|(10,1,<2,3>,<4,5>);}
+    		public test bool testLocationFieldUpdate10() {loc l = Loc[length = 11]; l ==  |file:///home/paulk/pico.trm|(0,11,<2,3>,<4,5>);}
+    		public test bool testLocationFieldUpdate12() {loc l = Loc[begin = <1,4>]; l == |file:///home/paulk/pico.trm|(0,1,<1,4>,<4,5>);}
+    		public test bool testLocationFieldUpdate13() {loc l = Loc[end = <14,38>]; l ==  |file:///home/paulk/pico.trm|(0,1,<2,3>,<14,38>);}
     	
     		public test bool testLocation12() = |file:///home/paulk/pico.trm|(0,1,<2,3>,<4,5>) == |file:///home/paulk/pico.trm|(0,1,<2,3>,<4,5>);
     		public test bool testLocation13() = !(|file:///home/paulk/pico.trm|(0,1,<2,3>,<4,5>) == |file:///home/paulk/pico.trm|(0,2,<2,3>,<4,5>));
@@ -460,6 +461,8 @@
     		
     		public test bool testList29() = [] <= [];
     		public test bool testList30() = [] <= [1];
+    		
+    /*TODO:REMOVE?*/		
     // These commented out tests assume that <= etc. are ("half") ordering operations
     // Currently they are strictly subset implementations.
     //		public test bool testList() = [2, 1, 0] <= [2, 3];
@@ -684,8 +687,12 @@
     	// Anastassija's type constraint examples
     	// Tests for "simp" version
     	//
-    	
+   /*TODO:TC*/ 	
     //	private void simpTests(){
+    
+    	//bool simpTest1(TYPESET simp(TYPESET  ts)) = 
+    	//	simp(INTERSECT({ SUBTYPES(INTERSECT({  })), SET("s1") })) == INTERSECT({ SUBTYPES(INTERSECT({  })), SET("s1") });
+    	//
     //	
     //	assertTrue(auxTest("simp(INTERSECT({ SUBTYPES(INTERSECT({  })), SET("s1") }))",
     //							"INTERSECT({ SUBTYPES(INTERSECT({  })), SET("s1") })
@@ -806,6 +813,16 @@
     	// Version 1; with explicit simplification function, no non-linear constraints, fail to explore alternative matches
     	//
     	
+    	public TYPESET simp1(TYPESET ts){
+    			           for(INTERSECT({ SUBTYPES(INTERSECT({ TYPESET tset, *TYPESET rest})), TYPESET tset1, *TYPESET rest1 }) := ts){
+    			                if(tset == tset1) return simp1(INTERSECT({ SUBTYPES(INTERSECT(rest)), tset1, *rest1 }));
+    			                else  fail;
+    			           }
+    			           return ts;
+    		            }
+    		            
+    	//test bool s11() = simpTest1(simp1);
+    	
     	//@Test
     	//public void testSet()  {
     	//	prepare("data TYPESET = SET(str name) | SUBTYPES(TYPESET tset) | INTERSECT(set[TYPESET] tsets);");
@@ -873,36 +890,34 @@
     //
     //		funTests();
     //	}
-    //	
-    //	@Test
-    //	public void testSetMultiVariable()  {
-    //		public test bool assertTrue() = {*value S1, *value S2} := {} && (S1 == {}) && (S2 == {});
-    //		public test bool assertTrue() = {*S1, *S2} := {} && (S1 == {}) && (S2 == {});
-    //		
-    //		public test bool assertTrue() = {*int S1, *int S2} := {100} && ((S1 == {100} && S2 == {}) || (S1 == {} && S2 == {100}));
-    //		public test bool assertTrue() = {*S1, *S2} := {100} && ((S1 == {100} && S2 == {}) || (S1 == {} && S2 == {100}));
-    //		
-    //		public test bool assertTrue() = {R = for({*int S1, *int S2} := {100}) append <S1, S2>; R == [<{100}, {}>, <{}, {100}> ];}
-    //		public test bool assertTrue() = {R = for({*S1, *S2} := {100}) append <S1, S2>; R == [<{100}, {}>, <{}, {100}> ];}
-    //
-    //		public test bool assertTrue() = {R = for({*S1, *S2} := {100}) append <S1, S2>; R == [<{100}, {}>, <{}, {100}> ];}
-    //		//
-    //		// TODO: the following test requires a specific implementation specific
-    //		// set representation and, thus, should be refactored. To check
-    //		// splicing, without taking order into account, the list 'R' is now
-    //		// converted to a set.
-    //		//
-    //		public test bool assertTrue() = {R = for({*S1, *S2} := {100, 200}) append <S1, S2>; {*R} == {<{200,100}, {}>, <{200}, {100}>, <{100}, {200}>, <{}, {200,100}>};}
-    //		public test bool assertTrue() = {R = for({*int S1, *S2} := {100, "a"})  append <S1, S2>; R == [<{100}, {"a"}>, <{},{100,"a"}>];}
-    //		public test bool assertTrue() = {R = for({*int S1, *str S2} := {100, "a"}) append <S1, S2>; R == [<{100}, {"a"}>];}
-    //		
-    //		public test bool assertTrue() = {R = for({*str S1, *S2} := {100, "a"})  append <S1, S2>; R == [<{"a"},{100}>, <{},{100,"a"}>];}
-    //		public test bool assertTrue() = {R = for({*str S1, *int S2} := {100, "a"})  append <S1, S2>; R == [<{"a"},{100}>];}
-    //		
-    //		public test bool assertTrue() = !({*str S1, *str S2} := {100, "a"};
-    //		public test bool assertTrue() = !({*int S1, *int S2} := {100, "a"};
-    //
-    //	}
+    
+    // testSetMultiVariable
+    
+    		public test bool testSetMultiVariable1() = {*value S1, *value S2} := {} && (S1 == {}) && (S2 == {});
+    		public test bool testSetMultiVariable2() = {*S1, *S2} := {} && (S1 == {}) && (S2 == {});
+    		
+    		public test bool testSetMultiVariable3() = {*int S1, *int S2} := {100} && ((S1 == {100} && S2 == {}) || (S1 == {} && S2 == {100}));
+    		public test bool testSetMultiVariable4() = {*S1, *S2} := {100} && ((S1 == {100} && S2 == {}) || (S1 == {} && S2 == {100}));
+    		
+    		public test bool testSetMultiVariable5()  {R = for({*int S1, *int S2} := {100}) append <S1, S2>; R == [<{100}, {}>, <{}, {100}> ];}
+    		public test bool testSetMultiVariable6()  {R = for({*S1, *S2} := {100}) append <S1, S2>; R == [<{100}, {}>, <{}, {100}> ];}
+    
+    		public test bool testSetMultiVariable7()  {R = for({*S1, *S2} := {100}) append <S1, S2>; R == [<{100}, {}>, <{}, {100}> ];}
+    		//
+    		// TODO: the following test requires a specific implementation specific
+    		// set representation and, thus, should be refactored. To check
+    		// splicing, without taking order into account, the list 'R' is now
+    		// converted to a set.
+    		//
+    		public test bool testSetMultiVariable8()  {R = for({*S1, *S2} := {100, 200}) append <S1, S2>; {*R} == {<{200,100}, {}>, <{200}, {100}>, <{100}, {200}>, <{}, {200,100}>};}
+    		public test bool testSetMultiVariable9()  {R = for({*int S1, *S2} := {100, "a"})  append <S1, S2>; R == [<{100}, {"a"}>, <{},{100,"a"}>];}
+    		public test bool testSetMultiVariable10()  {R = for({*int S1, *str S2} := {100, "a"}) append <S1, S2>; R == [<{100}, {"a"}>];}
+    		
+    		public test bool testSetMultiVariable11()  {R = for({*str S1, *S2} := {100, "a"})  append <S1, S2>; R == [<{"a"},{100}>, <{},{100,"a"}>];}
+    		public test bool testSetMultiVariable12()  {R = for({*str S1, *int S2} := {100, "a"})  append <S1, S2>; R == [<{"a"},{100}>];}
+    		
+    		public test bool testSetMultiVariable13() = !({*str S1, *str S2} := {100, "a"});
+    		public test bool testSetMultiVariable14() = !({*int S1, *int S2} := {100, "a"});
     
       
     	public test bool addSetError1() {

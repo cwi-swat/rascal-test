@@ -75,7 +75,7 @@
   	
   data D = d(int i) | d();
   
-  //D d(int i) { if (i % 2 == 0) fail d; else return d();}  // <==========
+  /*TODO:?*/ //D d(int i) { if (i % 2 == 0) fail d; else return d();}  // <==========
   
   // fail
   

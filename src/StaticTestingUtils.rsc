@@ -81,7 +81,8 @@ bool argumentMismatch(str stmts, list[str] importedModules = [], list[str] initi
 
 bool redeclaredVariable(str stmts, list[str] importedModules = [], list[str] initialDecls = []) = 
 	check(stmts, [
-		"re-declare"
+		"re-declare",
+		"redeclaration"
 	], importedModules=importedModules, initialDecls=initialDecls);
 
 bool cannotMatch(str stmts, list[str] importedModules = [], list[str] initialDecls = []) = 

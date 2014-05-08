@@ -249,10 +249,10 @@ public test bool assignStep() { L = [0,1,2,3,4,5,6,7,8,9]; L[8,6..3] = [10]; ret
 public test bool assignStep() { L = [0,1,2,3,4,5,6,7,8,9]; L[-1,-2..] = [10,20,30,40,50]; return L == [50,40,30,20,10,50,40,30,20,10];}
 public test bool assignStep() { L = [0,1,2,3,4,5,6,7,8,9]; L[-1,-3..] = [10,20,30,40,50]; return L == [0,50,2,40,4,30,6,20,8,10];}
 
-/*CMP*///public test bool assignAdd() { L = [0,1,2,3,4,5,6,7,8,9]; L[..] += [10]; return L == [10,11,12,13,14,15,16,17,18,19]; }
-/*CMP*///public test bool assignAdd() { L = [0,1,2,3,4,5,6,7,8,9]; L[2..] += [10]; return L == [0,1,12,13,14,15,16,17,18,19]; }
-/*CMP*///public test bool assignAdd() { L = [0,1,2,3,4,5,6,7,8,9]; L[2..6] += [10]; return L == [0,1,12,13,14,15,6,7,8,9];}
-/*CMP*///public test bool assignAdd() { L = [0,1,2,3,4,5,6,7,8,9]; L[8..3] += [10]; return L == [0,1,2,3,14,15,16,17,18,9];}
+/*TODO:COMP*///public test bool assignAdd() { L = [0,1,2,3,4,5,6,7,8,9]; L[..] += [10]; return L == [10,11,12,13,14,15,16,17,18,19]; }
+/*TODO:COMP*///public test bool assignAdd() { L = [0,1,2,3,4,5,6,7,8,9]; L[2..] += [10]; return L == [0,1,12,13,14,15,16,17,18,19]; }
+/*TODO:COMP*///public test bool assignAdd() { L = [0,1,2,3,4,5,6,7,8,9]; L[2..6] += [10]; return L == [0,1,12,13,14,15,6,7,8,9];}
+/*TODO:COMP*///public test bool assignAdd() { L = [0,1,2,3,4,5,6,7,8,9]; L[8..3] += [10]; return L == [0,1,2,3,14,15,16,17,18,9];}
 
 
 // Library functions
@@ -430,7 +430,7 @@ public test bool tstToRel(list[&T] L) = isEmpty(L) || toRel(L) == {<elementAt(L,
 
 public test bool tstToSet(list[&T] L) = toSet(L) == {x | x <- L};
 
-// TODO public test bool tstToString(list[&T] L) = toString(L) == "[" + intercalate(",", L) + "]";
+/*TODO:?*/ // TODO public test bool tstToString(list[&T] L) = toString(L) == "[" + intercalate(",", L) + "]";
 
 public test bool tstUnzip2(list[tuple[&A, &B]] L) = unzip(L) == <[a | <a,b> <- L], [b | <a,b> <- L]>;
 
