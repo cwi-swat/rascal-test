@@ -501,6 +501,7 @@
   
 // variableBecomesEquality
           
+          //* NoSuchKey in TypeUtils
   		/*TODO:COMP*///public test bool matchVariableBecomesEquality1() {int N = 5; return N : 3 !:= 3 && N != 3;}
   		/*TODO:COMP*///public test bool matchVariableBecomesEquality2() {int N = 3; return N : 3 := 3 && N == 3;}
   		
@@ -628,16 +629,15 @@
   		return cnt(S) == size(S);
   	}
   	
-  	@ignore{*set[int] c does not work} public test bool nodeMatchBacktracking() {
-  	    y = for("f"({int a, int b, *set[int] c}) := "f"({1,2,3,4})) append <a,b>; 
+  	public test bool nodeMatchBacktracking() {
+  	    y = for("f"({int a, int b, *int c}) := "f"({1,2,3,4})) append <a,b>; 
   	    return size(y) == 12;
   	}
   	
-  	/*TODO:TC*/
-  	//public test bool tupleMatchBacktracking() {
-  	//    y = for(<{int a, int b, *set[int] c}> := <{1,2,3,4}>) append <a,b>; 
-  	//    return size(y) == 12;
-  	//}
+  	public test bool tupleMatchBacktracking() {
+  	    y = for(<{int a, int b, *int c}> := <{1,2,3,4}>) append <a,b>; 
+  	    return size(y) == 12;
+  	}
   	
   	 public test bool switchListOnValue1() {
   	      value yy = []; switch(yy) { case [] : return true; default: return false; }

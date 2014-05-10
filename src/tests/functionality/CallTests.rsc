@@ -282,7 +282,8 @@ syntax XYZ = "x" | "y" | "z";
   		public default int f(int x) = x;
   		return [f(x()),f(y()),f(z()), f(4)] == [1,2,3, 4];
   	}
-  	
+  
+  /* translateConcreteParsed gives error */
   /*TODO:COMP*/	
   //public test bool  dispatchTest3() { 
   //		int f((XYZ) `x`) = 1;
@@ -341,6 +342,7 @@ syntax XYZ = "x" | "y" | "z";
   		if(!(emptyFigure(lineColor="red", shrink=0.5).fillColor == "white")) return false;
   		
   		if(!(ellipse().fillColor == "white")) return false;
+  		/* The following give NoSuhcKey errors: TC info is missing or not found in the compiler */
   		/*TODO:TC*///if(!(ellipse(inner=emptyFigure(fillColor="red")).fillColor == "white")) return false;
   		/*TODO:TC*///if(!(ellipse(inner=emptyFigure(fillColor="red")).inner.fillColor == "red")) return false;
   		return true;
@@ -367,7 +369,8 @@ syntax XYZ = "x" | "y" | "z";
   
   // keywordMatchTest2
   
-  		/*TODO:TC*/// public test bool keywordMatchTest11() =point1(_, _, colors=["blue"]) := point1(1,2, colors=["blue"]);
-  		/*TODO:TC*/// public test bool keywordMatchTest12() =point1(_, _, colors=[*_,"blue",*_]) := point1(1,2, colors=["red","green","blue"]);
-  		/*TODO:TC*/// public test bool keywordMatchTest13() =point1(_, _, colors=[*_,*X,*_,*X, *_]) := point1(1,2, colors=["red","blue","green","blue"]);
+  		/* Runtime error in translatePatKWValue
+  		/*TODO:COMP*///public test bool keywordMatchTest11() =point1(_, _, colors=["blue"]) := point1(1,2, colors=["blue"]);
+  		/*TODO:COMP*/// public test bool keywordMatchTest12() =point1(_, _, colors=[*_,"blue",*_]) := point1(1,2, colors=["red","green","blue"]);
+  		/*TODO:COMP*/// public test bool keywordMatchTest13() =point1(_, _, colors=[*_,*X,*_,*X, *_]) := point1(1,2, colors=["red","blue","green","blue"]);
  

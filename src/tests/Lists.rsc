@@ -249,7 +249,8 @@ public test bool assignStep() { L = [0,1,2,3,4,5,6,7,8,9]; L[8,6..3] = [10]; ret
 public test bool assignStep() { L = [0,1,2,3,4,5,6,7,8,9]; L[-1,-2..] = [10,20,30,40,50]; return L == [50,40,30,20,10,50,40,30,20,10];}
 public test bool assignStep() { L = [0,1,2,3,4,5,6,7,8,9]; L[-1,-3..] = [10,20,30,40,50]; return L == [0,50,2,40,4,30,6,20,8,10];}
 
-/*TODO:COMP*///public test bool assignAdd() { L = [0,1,2,3,4,5,6,7,8,9]; L[..] += [10]; return L == [10,11,12,13,14,15,16,17,18,19]; }
+/*TODO:COMP*///
+public test bool assignAdd() { L = [0,1,2,3,4,5,6,7,8,9]; L[..] += [10]; return L == [10,11,12,13,14,15,16,17,18,19]; }
 /*TODO:COMP*///public test bool assignAdd() { L = [0,1,2,3,4,5,6,7,8,9]; L[2..] += [10]; return L == [0,1,12,13,14,15,16,17,18,19]; }
 /*TODO:COMP*///public test bool assignAdd() { L = [0,1,2,3,4,5,6,7,8,9]; L[2..6] += [10]; return L == [0,1,12,13,14,15,6,7,8,9];}
 /*TODO:COMP*///public test bool assignAdd() { L = [0,1,2,3,4,5,6,7,8,9]; L[8..3] += [10]; return L == [0,1,2,3,14,15,16,17,18,9];}
@@ -445,60 +446,60 @@ public test bool tstZip(list[&T] L) = zip(L, L) == [<x, x> | x <- L];
 // incorrect dynamic types make pattern matching fail;
 
 public test bool dtstSlice(list[&T] lst) {
-if(isEmpty(lst)) return true;
-int b = 0;
-if(size(lst) != 1) b = arbInt(size(lst) - 1);
-int len = arbInt(size(lst) - b);
-if(len == 0) return true;
-lhs = slice(lst, b, len);
-rhs = lst[b..(len + b)];
-return lhs == rhs && typeOf(lhs) == typeOf(rhs);
+	if(isEmpty(lst)) return true;
+	int b = 0;
+	if(size(lst) != 1) b = arbInt(size(lst) - 1);
+	int len = arbInt(size(lst) - b);
+	if(len == 0) return true;
+	lhs = slice(lst, b, len);
+	rhs = lst[b..(len + b)];
+	return lhs == rhs && typeOf(lhs) == typeOf(rhs);
 }
 
 public test bool dtstDelete(list[&T] lst) {
-if(isEmpty(lst)) return true;
-int index = 0;
-if(size(lst) != 1) index = arbInt(size(lst) - 1);
-lhs = delete(lst, index);
-rhs = [ lst[i] | int i <- [0..size(lst)], i != index ];
-return lhs == rhs && typeOf(lhs) == typeOf(rhs);
+	if(isEmpty(lst)) return true;
+	int index = 0;
+	if(size(lst) != 1) index = arbInt(size(lst) - 1);
+	lhs = delete(lst, index);
+	rhs = [ lst[i] | int i <- [0..size(lst)], i != index ];
+	return lhs == rhs && typeOf(lhs) == typeOf(rhs);
 }
 
 public test bool dtstDrop(list[&T] lst) {
-if(isEmpty(lst)) return true;
-int n = 0;
-if(size(lst) != 1) n = arbInt(size(lst) - 1);
-lhs = drop(n, lst);
-rhs = [ lst[i] | int i <- [n..size(lst)] ];
-return lhs == rhs && typeOf(lhs) == typeOf(rhs);
+	if(isEmpty(lst)) return true;
+	int n = 0;
+	if(size(lst) != 1) n = arbInt(size(lst) - 1);
+	lhs = drop(n, lst);
+	rhs = [ lst[i] | int i <- [n..size(lst)] ];
+	return lhs == rhs && typeOf(lhs) == typeOf(rhs);
 }
 
 public test bool dtstHead(list[&T] lst) {
-if(isEmpty(lst)) return true;
-int n = 0;
-if(size(lst) != 1) n = arbInt(size(lst) - 1);
-if(n == 0) return true;
-lhs = head(lst, n);
-rhs1 = [ lst[i] | int i <- [0..n] ];
-rhs2 = take(n, lst);
-return lhs == rhs1 && lhs == rhs2 && typeOf(lhs) == typeOf(rhs1) && typeOf(lhs) == typeOf(rhs2);
+	if(isEmpty(lst)) return true;
+	int n = 0;
+	if(size(lst) != 1) n = arbInt(size(lst) - 1);
+	if(n == 0) return true;
+	lhs = head(lst, n);
+	rhs1 = [ lst[i] | int i <- [0..n] ];
+	rhs2 = take(n, lst);
+	return lhs == rhs1 && lhs == rhs2 && typeOf(lhs) == typeOf(rhs1) && typeOf(lhs) == typeOf(rhs2);
 }
 
 public test bool dtstTail(list[&T] lst) {
-if(isEmpty(lst)) return true;
-int n = 0;
-if(size(lst) != 1) n = arbInt(size(lst) - 1);
-if(n == 0) return true;
-lhs = tail(lst, n);
-rhs = [ lst[i] | int i <- [(size(lst) - n)..size(lst)] ];
-return lhs == rhs && typeOf(lhs) == typeOf(rhs);
+	if(isEmpty(lst)) return true;
+	int n = 0;
+	if(size(lst) != 1) n = arbInt(size(lst) - 1);
+	if(n == 0) return true;
+	lhs = tail(lst, n);
+	rhs = [ lst[i] | int i <- [(size(lst) - n)..size(lst)] ];
+	return lhs == rhs && typeOf(lhs) == typeOf(rhs);
 }
 
 public test bool dtstPrefix(list[&T] lst) {
-if(isEmpty(lst) || size(lst) == 1) return true;
-lhs = prefix(lst);
-rhs = [ lst[i] | int i <- [0..(size(lst) - 1)] ];
-return lhs == rhs && typeOf(lhs) == typeOf(rhs);
+	if(isEmpty(lst) || size(lst) == 1) return true;
+	lhs = prefix(lst);
+	rhs = [ lst[i] | int i <- [0..(size(lst) - 1)] ];
+	return lhs == rhs && typeOf(lhs) == typeOf(rhs);
 }
 
 public test bool dtstDifference(list[&T] lst) {
@@ -517,12 +518,12 @@ public test bool dtstIntersection(list[&T] lst) {
 	if(isEmpty(lst)) return true;
 	bool check = true;
 	for([*l1, *l2] := lst) {
-	lhs1 = lst & l1;
-	rhs1 = [ el | &T el <- lst, el in l1 ];
-	lhs2 = lst & l2;
-	rhs2 = [ el | &T el <- lst, el in l2 ];
-check = check && lhs1 == rhs1 && typeOf(lhs1) == typeOf(rhs1) && lhs2 == rhs2 && typeOf(lhs2) == typeOf(rhs2);
-}
+	    lhs1 = lst & l1;
+	    rhs1 = [ el | &T el <- lst, el in l1 ];
+	    lhs2 = lst & l2;
+	    rhs2 = [ el | &T el <- lst, el in l2 ];
+        check = check && lhs1 == rhs1 && typeOf(lhs1) == typeOf(rhs1) && lhs2 == rhs2 && typeOf(lhs2) == typeOf(rhs2);
+    }
 	return check;
 }
 

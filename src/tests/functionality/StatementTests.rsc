@@ -75,12 +75,13 @@
   	
   data D = d(int i) | d();
   
-  /*TODO:?*/ //D d(int i) { if (i % 2 == 0) fail d; else return d();}  // <==========
+  /* Undefined label FAIL_d */
+  /*TODO:COMP*/ // D d(int i) { if (i % 2 == 0) fail d; else return d();}
   
   // fail
   
   		public test bool fail1() = d(2) := d(2);
-  		@ignore{redefined constructor does not work in compiler} public test bool fail2() = d(3) == d();
+  		//@ignore{redefined constructor does not work in compiler} public test bool fail2() = d(3) == d();
   		
   
   // testFor
