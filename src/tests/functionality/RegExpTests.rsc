@@ -121,8 +121,8 @@ module tests::functionality::RegExpTests
 	}
 	*/
 
+	/*TODO: this gives now a compiler error, should be RegExpSyntaxError */
 	public test bool RegExpSyntaxError1() = /[a-/ := "abc";
-
 
 // modifiers
 
