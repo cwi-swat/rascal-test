@@ -66,6 +66,7 @@ public test bool tst_carrierX(lrel[int, int] X) {
    return isEmpty(XR) || all(<a, b> <- XR, a notin s, b notin s);
 }
 
+/* conflict with domain function on list */
 /*TODO:TC*/
 //public test bool tst_complement(lrel[int, int] X) = 
 //   isEmpty(complement(X)) || 

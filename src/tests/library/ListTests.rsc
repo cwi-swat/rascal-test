@@ -21,11 +21,13 @@
   		public test bool delete2() = delete([0,1,2], 1) == [0,2];
   		public test bool delete3() = delete([0,1,2], 2) == [0,1];
   
-  // domain
+  /*
+  // domain on Lists has been removed
   
   		public test bool domain1() = domain([]) == {};
   		public test bool domain2()  = domain([1]) == {0};
   		public test bool domain3() = domain([1, 2]) == {0, 1};
+ */
   	
   // getOneFrom
   

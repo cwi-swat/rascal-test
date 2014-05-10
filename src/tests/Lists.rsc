@@ -2,6 +2,7 @@ module tests::Lists
 
 import IO;
 import List;
+import ListRelation;
 import Set;
 import String;
 import Boolean;
@@ -249,8 +250,7 @@ public test bool assignStep() { L = [0,1,2,3,4,5,6,7,8,9]; L[8,6..3] = [10]; ret
 public test bool assignStep() { L = [0,1,2,3,4,5,6,7,8,9]; L[-1,-2..] = [10,20,30,40,50]; return L == [50,40,30,20,10,50,40,30,20,10];}
 public test bool assignStep() { L = [0,1,2,3,4,5,6,7,8,9]; L[-1,-3..] = [10,20,30,40,50]; return L == [0,50,2,40,4,30,6,20,8,10];}
 
-/*TODO:COMP*///
-public test bool assignAdd() { L = [0,1,2,3,4,5,6,7,8,9]; L[..] += [10]; return L == [10,11,12,13,14,15,16,17,18,19]; }
+/*TODO:COMP*///public test bool assignAdd() { L = [0,1,2,3,4,5,6,7,8,9]; L[..] += [10]; return L == [10,11,12,13,14,15,16,17,18,19]; }
 /*TODO:COMP*///public test bool assignAdd() { L = [0,1,2,3,4,5,6,7,8,9]; L[2..] += [10]; return L == [0,1,12,13,14,15,16,17,18,19]; }
 /*TODO:COMP*///public test bool assignAdd() { L = [0,1,2,3,4,5,6,7,8,9]; L[2..6] += [10]; return L == [0,1,12,13,14,15,6,7,8,9];}
 /*TODO:COMP*///public test bool assignAdd() { L = [0,1,2,3,4,5,6,7,8,9]; L[8..3] += [10]; return L == [0,1,2,3,14,15,16,17,18,9];}
@@ -268,7 +268,9 @@ public test bool tstDelete(list[&T] L) {
    
 // TODO: distribution
 
+/* domain has been removed from List
 public test bool tstDomain(list[&T] L) = domain(L) == toSet([0..size(L)]);
+*/
 
 public test bool tstDrop(list[&T] L) {
  if(size(L) > 1){
@@ -423,7 +425,7 @@ public test bool tstTakeWhile(list[int] L){
 public test bool tstToMap(list[tuple[&A, &B]] L) = toMap(L) == toMap(toSet(L));
 
 public test bool tstToMapUnique(list[tuple[&A, &B]] L) =
-  domain(L) == toSet(L<0>) ==> toMapUnique(L) == toMapUnique(toSet(L));
+  (toSet(domain(L)) == toSet(L<0>)) ==> (toMapUnique(L) == toMapUnique(toSet(L)));
 
 public test bool tstTop(list[&T] L) = isEmpty(L) || top(L) == elementAt(L,0);
 
