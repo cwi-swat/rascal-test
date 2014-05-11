@@ -1,3 +1,4 @@
+@bootstrapParser
 module StaticTestingUtils
 
 /*
@@ -11,14 +12,22 @@ import IO;
 import String;
 import Message;
 import Set;
+import util::Reflective;
+import ParseTree;
+import lang::rascal::checker::ParserHelper;
 import lang::rascal::types::TestChecker;
+import lang::rascal::types::CheckTypes;
+import lang::rascal::types::CheckerConfig;
+import lang::rascal::\syntax::Rascal;
+
+str abbrev(str s) { return size(s) < 100 ? s : "<s[0..97]> ..."; }
 
 bool check(str stmts, list[str] expected, list[str] importedModules = [], list[str] initialDecls = []){
      errors = getAllMessages(checkStatementsString(stmts, importedModules=importedModules, initialDecls=initialDecls));
      println(errors);
      if(any(error <- errors, exp <- expected, contains(uncapitalize(error.msg), uncapitalize(exp))))
         return true;
-     throw errors;
+     throw abbrev("<errors>");
 }
 
 bool checkOK(str stmts, list[str] importedModules = [], list[str] initialDecls = []){
@@ -26,7 +35,26 @@ bool checkOK(str stmts, list[str] importedModules = [], list[str] initialDecls =
      println(errors);
      if(size(errors) == 0)
         return true;
-     throw errors;
+     throw abbrev("<errors>");
+}
+
+bool checkModuleOK(loc moduleToCheck){
+	c = newConfiguration();							// Copied from checkStatementsString
+	try {
+		pt = parse(#start[Module],moduleToCheck);
+		if (pt has top && Module m := pt.top) {
+			c = checkModule(m, c);
+		} else {
+			c = addScopeError(c, "Unexpected parse result for module to check", moduleToCheck); 
+		}
+	} catch perror : {
+		c = addScopeError(c, "Could not parse and prepare config for base module to check: <perror>", moduleToCheck);
+	}
+     errors = c.messages;
+     println(errors);
+     if(size(errors) == 0)
+        return true;
+     throw abbrev("<errors>");
 }
 
 bool unexpectedType(str stmts, list[str] importedModules = [], list[str] initialDecls = []) = 

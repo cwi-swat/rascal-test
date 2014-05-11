@@ -261,12 +261,12 @@ public test bool Issue480(){
 // https://github.com/cwi-swat/rascal/issues/482
 
 public test bool Issue482() =
-	checkOK("true;", importedModules=["APIGen"]);
+	checkModuleOK(|rascal:///APIGen.rsc|);
 	
 // https://github.com/cwi-swat/rascal/issues/483
 
 public test bool Issue483() =
-	checkOK("true;", importedModules=["Ambiguity"]);
+	checkModuleOK(|rascal:///Ambiguity.rsc|);
 	
 	
 // https://github.com/cwi-swat/rascal/issues/491
@@ -289,18 +289,18 @@ public test bool Issue491() =
 // https://github.com/cwi-swat/rascal/issues/494
 	
 public test bool Issue494() =
-	checkOK("true;", importedModules=["demo::lang::Func::Test"]);
+	checkModuleOK(|rascal:///demo/lang/Func/Test.rsc|);
 	
 // https://github.com/cwi-swat/rascal/issues/495
 
 public test bool Issue495() =
-	checkOK("true;", importedModules=["demo::lang::Func::Parse"]);
+	checkModuleOK(|rascal:///demo/lang/Func/Parse.rsc|);
 
 // https://github.com/cwi-swat/rascal/issues/496
 
 public test bool Issue496a(){
 	makeModule("M", "import lang::java::m3::AST;");
-	return checkOK("true;", importedModules=["M"]);
+	return checkModuleOK("true;", importedModules=["M"]);
 } 
 
 public test bool Issue496b(){
