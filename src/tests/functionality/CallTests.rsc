@@ -341,7 +341,7 @@ syntax XYZ = "x" | "y" | "z";
   		if(!(emptyFigure(lineColor="red", shrink=0.5).fillColor == "white")) return false;
   		
   		if(!(ellipse().fillColor == "white")) return false;
-  		/* The following give NoSuhcKey errors: TC info is missing or not found in the compiler */
+  		/* The following give NoSuchKey errors: TC info is missing or not found in the compiler */
   		/*TODO:TC*///if(!(ellipse(inner=emptyFigure(fillColor="red")).fillColor == "white")) return false;
   		/*TODO:TC*///if(!(ellipse(inner=emptyFigure(fillColor="red")).inner.fillColor == "red")) return false;
   		return true;
@@ -368,8 +368,9 @@ syntax XYZ = "x" | "y" | "z";
   
   // keywordMatchTest2
   
-  		/* Runtime error in translatePatKWValue
-  		/*TODO:COMP*///public test bool keywordMatchTest11() =point1(_, _, colors=["blue"]) := point1(1,2, colors=["blue"]);
-  		/*TODO:COMP*/// public test bool keywordMatchTest12() =point1(_, _, colors=[*_,"blue",*_]) := point1(1,2, colors=["red","green","blue"]);
-  		/*TODO:COMP*/// public test bool keywordMatchTest13() =point1(_, _, colors=[*_,*X,*_,*X, *_]) := point1(1,2, colors=["red","blue","green","blue"]);
+  		public test bool keywordMatchTest11() =point1(_, _, colors=["blue"]) := point1(1,2, colors=["blue"]);
+  		
+  		// Only basic patterns are supported in translatePatKWValue
+  		/*TODO:COMP*/// 		public test bool keywordMatchTest12() =point1(_, _, colors=[*_,"blue",*_]) := point1(1,2, colors=["red","green","blue"]);
+  		/*TODO:COMP*/// 		public test bool keywordMatchTest13() =point1(_, _, colors=[*_,*X,*_,*X, *_]) := point1(1,2, colors=["red","blue","green","blue"]);
  
