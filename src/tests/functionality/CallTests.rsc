@@ -15,6 +15,7 @@
    *   * Bert Lisser - Bert.Lisser@cwi.nl - CWI
   *******************************************************************************/
 
+import ParseTree;
 syntax XYZ = "x" | "y" | "z";
 
   // voidFun
@@ -283,15 +284,13 @@ syntax XYZ = "x" | "y" | "z";
   		return [f(x()),f(y()),f(z()), f(4)] == [1,2,3, 4];
   	}
   
-  /* translateConcreteParsed gives error */
-  /*TODO:COMP*/	
-  //public test bool  dispatchTest3() { 
-  //		int f((XYZ) `x`) = 1;
-  //		int f((XYZ) `y`) = 2;
-  //		int f((XYZ) `z`) = 3;
-  //		
-  //		return [f((XYZ)`x`),f((XYZ)`y`),f((XYZ)`z`)] == [1,2,3];
-  //	}	
+  public test bool  dispatchTest3() { 
+  		int f((XYZ) `x`) = 1;
+  		int f((XYZ) `y`) = 2;
+  		int f((XYZ) `z`) = 3;
+  		
+  		return [f((XYZ)`x`),f((XYZ)`y`),f((XYZ)`z`)] == [1,2,3];
+  	}	
  
   	
   //  keywordTest1
