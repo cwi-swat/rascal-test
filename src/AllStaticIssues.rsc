@@ -83,7 +83,7 @@ public test bool Issue449() =
     										return a() := pt && pt is a;
 										 }"]);
 										 
-// 	https://github.com/cwi-swat/rascal/issues/450	
+// https://github.com/cwi-swat/rascal/issues/450
 
 public test bool Issue450() =
 	checkOK("true;", importedModules = ["Exception", "List", "ParseTree"],

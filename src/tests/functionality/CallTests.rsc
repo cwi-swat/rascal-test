@@ -89,7 +89,8 @@ syntax XYZ = "x" | "y" | "z";
   	       return false;
   	    return true;
   	    }
-  
+  	    
+  /*TODO?*/
   /*	
   	 public void closuresVariables1() {
   		prepareModule("M", "module M\n" +
@@ -191,6 +192,7 @@ syntax XYZ = "x" | "y" | "z";
   		    real max(real a, real b) { return a > b ? a : b; }
   		    return max(3,4) == 4 && max(3.0,4.0) == 4.0;
   		    }
+  		    
   		 /*changed: overloading is ambiguous */   
   		//public test bool max3() { 
   		//    int max(int a, int b) { return a > b ? a : b; } 
@@ -246,24 +248,6 @@ syntax XYZ = "x" | "y" | "z";
   		map[&K,&V] put(map[&K,&V] m, &K k, &V v) { m[k] = v; return m; }
   		return put((),1,"1") == (1:"1");
   	}
-  /*	
-  	@Ignore
-  	 public void add1() {
-  		
-  		String add = "list[&T] java add(&T elm, list[&T] lst) { return lst.insert(elm); }";
-  		
-  		public test bool  assertTrue31() {{" + add + " add(1, [2,3]) == [1,2,3];}"));
-  		public test bool  assertTrue32() {{" + add + " add("a", ["b","c"]) == ["a","b", "c"];}"));
-  	}
-  	
-  	@Ignore
-  	 public void putAt1() {
-  		
-  		String putAt = "list[&T] java putAt(&T elm, int n, list[&T] lst){return lst.put(n.intValue(), elm);}";
-  		
-  		public test bool  assertTrue33() {{" + putAt + " putAt(1, 0, [2,3]) == [1,3];}"));
-  	}
-  */
   
   data X = x() | y() | z();	
   
@@ -292,7 +276,6 @@ syntax XYZ = "x" | "y" | "z";
   		return [f((XYZ)`x`),f((XYZ)`y`),f((XYZ)`z`)] == [1,2,3];
   	}	
  
-  	
   //  keywordTest1
    
   	 public test bool  keywordTest11() { 
@@ -353,22 +336,22 @@ syntax XYZ = "x" | "y" | "z";
   
   // keywordMatchTest1
   	
-  		public test bool keywordMatchTest1() =point(_,_,color=_) := point(1,2); /*fixed*/
-  		public test bool keywordMatchTest2() =point(_,_,color="red") := point(1,2); /*fixed */
-  		public test bool keywordMatchTest3() =point(_,_,color="green") !:= point(1,2, color="red"); /* fixed */
-  		public test bool keywordMatchTest4() =point(_,_,color="green") := point(1,2, color="green");
-  		public test bool keywordMatchTest5() =point(1,2) := point(1,2);
-  		public test bool keywordMatchTest6() =point(1,2) !:= point(1,3);
-  		public test bool keywordMatchTest7() =point(1,2) := point(1,2,color="red");
-  		public test bool keywordMatchTest8() =point(1,2,color="red") := point(1,2,color="red");
-  		public test bool keywordMatchTest9() =point(1,2,color="green") !:= point(1,2);
+  		public test bool keywordMatchTest1() = point(_,_,color=_) := point(1,2);
+  		public test bool keywordMatchTest2() = point(_,_,color="red") := point(1,2);
+  		public test bool keywordMatchTest3() = point(_,_,color="green") !:= point(1,2, color="red");
+  		public test bool keywordMatchTest4() = point(_,_,color="green") := point(1,2, color="green");
+  		public test bool keywordMatchTest5() = point(1,2) := point(1,2);
+  		public test bool keywordMatchTest6() = point(1,2) !:= point(1,3);
+  		public test bool keywordMatchTest7() = point(1,2) := point(1,2,color="red");
+  		public test bool keywordMatchTest8() = point(1,2,color="red") := point(1,2,color="red");
+  		public test bool keywordMatchTest9() = point(1,2,color="green") !:= point(1,2);
   		public test bool keywordMatchTest10() =point(1,2,color="green") !:= point(1,2);
   
   data POINT1 = point1(int x, int y, int z = 3, list[str] colors = []);	
   
   // keywordMatchTest2
   
-  		public test bool keywordMatchTest11() =point1(_, _, colors=["blue"]) := point1(1,2, colors=["blue"]);
+  		public test bool keywordMatchTest11() = point1(_, _, colors=["blue"]) := point1(1,2, colors=["blue"]);
   		
   		// Only basic patterns are supported in translatePatKWValue
   		/*TODO:COMP*/// 		public test bool keywordMatchTest12() =point1(_, _, colors=[*_,"blue",*_]) := point1(1,2, colors=["red","green","blue"]);
