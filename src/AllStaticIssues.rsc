@@ -29,7 +29,7 @@ public test bool Issue430() =
 // https://github.com/cwi-swat/rascal/issues/432
 
 public test bool Issue432() =
-	checkOK("set[value] s := {} && s\<0\> == {};");
+	unexpectedType("set[value] s := {} && s\<0\> == {};");
 	
 // https://github.com/cwi-swat/rascal/issues/435
 
@@ -132,21 +132,21 @@ public test bool Issue459() =
 
 // https://github.com/cwi-swat/rascal/issues/458
 
-public test bool Issue458a() =												// https://github.com/cwi-swat/rascal/issues/458
+public test bool Issue458a() =
 	checkOK("\"f1\"(1, M=10) := \"f1\"(1, M=10);");
 
 data F1 = f1(int N, int M = 10, bool B = false) | f1(str S);
 
-public test bool Issue458b() =
+public test bool Issue458b() =                                              // TODO
 	checkOK("f1(1, M=X) := f1(1, B=false, M=20) && X == 20;", initialDecls=["data F1 = f1(int N, int M = 10, bool B = false) | f1(str S);"]);
 		
-public test bool Issue458c() = 
+public test bool Issue458c() =                                              // TODO
 	checkOK("\"f1\"(1, M=X) := \"f1\"(1, B=false, M=20) && X == 20;", initialDecls=["data F1 = f1(int N, int M = 10, bool B = false) | f1(str S);"]);
 
 
 // https://github.com/cwi-swat/rascal/issues/465
 
-public test bool Issue465(){												
+public test bool Issue465(){			                                     // TODO: not sure									
 	makeModule("M", "lexical IntegerLiteral = [0-9]+;           
 					 start syntax Exp = con: IntegerLiteral;
 					 data Exp = con(int n);");
@@ -200,7 +200,7 @@ public test bool Issue471h() =
 
 // https://github.com/cwi-swat/rascal/issues/472
 
-public test bool Issue472a() =
+public test bool Issue472a() =                                                      // TODO: EmptyList()
 	checkOK("[1, /f(/g(2), _), 3] := [1, f(g(1),f(g(2),g(3),true)), 3];", 
 					initialDecls = ["f(F left, F right) | g(int N);"]);
  
@@ -212,7 +212,6 @@ public test bool Issue472b() =
 
 public test bool Issue473() =
  	unexpectedType("[ \<s,r,L\> | list[int] L:[*str s, *str r] \<- [ [1,2], [\"3\",\"4\"] ]];");
-
 
 
 // https://github.com/cwi-swat/rascal/issues/477
@@ -260,12 +259,12 @@ public test bool Issue480(){
  
 // https://github.com/cwi-swat/rascal/issues/482
 
-public test bool Issue482() =
+public test bool Issue482() =                                       // TODO: it is possible that there are also real errors in APIGen
 	checkModuleOK(|rascal:///APIGen.rsc|);
 	
 // https://github.com/cwi-swat/rascal/issues/483
 
-public test bool Issue483() =
+public test bool Issue483() =                                       // TODO: it is possible that there are also real errors in Ambiguity
 	checkModuleOK(|rascal:///Ambiguity.rsc|);
 	
 	
@@ -288,7 +287,7 @@ public test bool Issue491() =
 
 // https://github.com/cwi-swat/rascal/issues/494
 	
-public test bool Issue494() =
+public test bool Issue494() =                                       // TODO
 	checkModuleOK(|rascal:///demo/lang/Func/Test.rsc|);
 	
 // https://github.com/cwi-swat/rascal/issues/495
@@ -298,10 +297,9 @@ public test bool Issue495() =
 
 // https://github.com/cwi-swat/rascal/issues/496
 
-public test bool Issue496a(){
-	makeModule("M", "import lang::java::m3::AST;");
-	return checkModuleOK("true;", importedModules=["M"]);
-} 
+public test bool Issue496a() = 
+	checkModuleOK(|rascal:///lang/java/m3/AST.rsc|);
+
 
 public test bool Issue496b(){
 	makeModule("M", "import lang::java::m3::AST;
