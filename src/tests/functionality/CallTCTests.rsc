@@ -27,14 +27,12 @@ public test bool keywordError4() = argumentMismatch("incr(3,d=5);", initialDecls
 public test bool keywordError5() = argumentMismatch("add1(3,delta=5);", initialDecls = ["int add1(int x) = x + 1;"]);  	
   	data D = d(int x, int y = 3);
 
-public test bool keywordError6() = undeclaredVariable("data KW = f(int i = j * 2);", []);
+public test bool keywordError6() = undeclaredVariable("int f(int i = j * 2) = 0", []);
 
-public test bool keywordError7() = undeclaredVariable("data KW = f(int i = j * 2, int j = 0);", []);
-  	
-public test bool keywordError8() = redeclaredVariable("int f(int i, int i = 0) { return i; }", []);
+public test bool keywordError6() = undeclaredVariable("int f(int i = j * 2, int j) = 0", []);
 
-public test bool keywordError9() = redeclaredVariable("data X x(int i, int i = 0) { return i; }", []);
- 	
+public test bool keywordError7() = redeclaredVariable("int f(int i, int i = 0) { return i; }", []);
+
 public test bool keywordInConstructorError1() = argumentMismatch("d1();", initialDecls = ["data D = d(int x, int y = 3);", "data D1 = d1(int x);"]);  	
   	
 public test bool keywordInConstructorError2() = argumentMismatch("d(y=4);", initialDecls = ["data D = d(int x, int y = 3);", "data D1 = d1(int x);"]);  	
@@ -47,6 +45,12 @@ public test bool keywordInConstructorError5() = argumentMismatch("d(1,z=4);", in
   	
 public test bool keywordInConstructorError6() = argumentMismatch("d1(1,y=4);", initialDecls = ["data D = d(int x, int y = 3);", "data D1 = d1(int x);"]);  	
 
+public test bool keywordInConstructorError7() = undeclaredVariable("data KW = f(int i = j * 2);", []);
+
+public test bool keywordInConstructorError8() = undeclaredVariable("data KW = f(int i = j * 2, int j = 0);", []);
+
+public test bool keywordInConstructorError9() = redeclaredVariable("data X x(int i, int i = 0) { return i; }", []);
+  	
 public test bool functionParameter() = 
 	checkOK("testSimp(SET(\"a\"), simp);",
 		initialDecls=["data TYPESET = SET(str name) | SUBTYPES(TYPESET tset) | INTERSECT(set[TYPESET] tsets);",
