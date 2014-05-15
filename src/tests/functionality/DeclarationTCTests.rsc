@@ -4,7 +4,7 @@ import StaticTestingUtils;
  
 public test bool localTypeInferenceNoEscape2() = undeclaredVariable("{ x = 1; x == 1; } x;");
 
-public test bool undeclaredType1() = undeclaredVariable("X N;");
+public test bool undeclaredType1() = undeclaredVariable("X N;");            // TODO Type X undeclared
 
 public test bool doubleDeclaration3() = redeclaredVariable("int f(int N){int N = 1; return N;}");
 
@@ -107,12 +107,12 @@ public test bool UseNonTerminal4(){
 	return checkOK("A anA = (A)`a`;", importedModules=["M"]);
 }
 
-public test bool ExtendNonTerminal(){ 
+public test bool ExtendNonTerminal(){            // TODO: EmptyList()
 	makeModule("M", "syntax A = \"a\";"); 
 	return checkOK("A a;", initialDecls=["syntax A = \"b\";"], importedModules=["M"]);
 }
 
-public test bool UseExtendedNonTerminal(){ 
+public test bool UseExtendedNonTerminal(){       // TODO: EmptyList()
 	makeModule("M", "syntax A = \"a\";"); 
 	return checkOK("A x = [A] \"b\";", initialDecls=["syntax A = \"b\";"], importedModules=["M"]);
 }

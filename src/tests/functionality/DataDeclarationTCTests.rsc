@@ -26,10 +26,10 @@ public test bool doubleFieldError4() =
 	declarationError("true;", initialDecls=["alias INTEGER = int;", "data D = d(int n) | d(INTEGER v);"]); 
 	
 public test bool exactDoubleDataDeclarationIsAllowed() = 
-	checkOK("true;", initialDecls=["data D = d(int n) | e();", "data D = d(int n);"]);  
+	checkOK("true;", initialDecls=["data D = d(int n) | e();", "data D = d(int n);"]);  // TODO: it seems that we allow exact redeclaration
   	
 public test bool undeclaredTypeError1() = 
-	declarationError("true;", initialDecls=["data D = anE(E e);"]);  
+	declarationError("true;", initialDecls=["data D = anE(E e);"]);                    // TODO E is not declared
   	
   
  

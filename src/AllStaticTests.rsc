@@ -2,7 +2,8 @@ module AllStaticTests
 
 /*
  * Tests for the Rascal Type Checker (To be executed using the Rascal interpreter -- for now).
- * - Open a Rascal Console;
+ * 
+ * - Open a Rascal Console in the context of rascal-test (Select rascal-test, right click and select Rascal Console)
  * - import this module
  * - :test
  *

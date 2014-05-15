@@ -4,7 +4,7 @@ import StaticTestingUtils;
 
 public test bool WrongMapIndex1() = unexpectedType("map[int,int] M = (1:10,2:20); M[\"abc\"];");
 
-public test bool WrongMapIndex2() = unexpectedType("map[int,int] M = (1:10,2:20); M[\"abc\"] = 3;");
+public test bool WrongMapIndex2() = unexpectedType("map[int,int] M = (1:10,2:20); M[\"abc\"] = 3;");    //TODO: getMapFieldsAsTuple called with unexpected type fail
 
 public test bool WrongMapAssignment() = unexpectedType("map[int,int] M = (1:10,2:20); M[2] = \"abc\";");
 

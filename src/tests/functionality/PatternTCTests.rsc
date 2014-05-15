@@ -77,16 +77,16 @@ public test bool matchSetErrorRedeclaredSpliceVar() = redeclaredVariable("set[in
   
 public test bool UndeclaredTypeError1() = cannotMatch( "STRANGE X := 123;");  // rename to UndefinedType?
  
-public test bool antiPatternDoesNotDeclare1() = undeclaredVariable("![1,int X,3] := [1,2,4] && (X ? 10) == 10;" ); 
+public test bool antiPatternDoesNotDeclare1() = undeclaredVariable("![1,int X,3] := [1,2,4] && (X ? 10) == 10;" ); // TODO
 
 
-public test bool matchADTStringError11() = 
+public test bool matchADTStringError11() =                                                              // TODO
 	cannotMatch("f(1) := \"abc\";", initialDecls=["data Prop = or(Prop, Prop) | f(int n);"]);
 	  	
 public test bool matchADTStringError21() = 
 	cannotMatch("\"abc\" := f(1);", initialDecls=["data Prop = or(Prop, Prop) | f(int n);"]);  	
  
-public test bool noMatchADTStringError11() = 
+public test bool noMatchADTStringError11() =                                                            // TODO
 	cannotMatch("f(1) !:= \"abc\";", initialDecls=["data Prop = or(Prop, Prop) | f(int n);"]); 
 	 	
 public test bool noMatchADTStringError21() = 

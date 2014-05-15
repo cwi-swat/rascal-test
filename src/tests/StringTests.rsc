@@ -18,32 +18,32 @@ public test bool ab8() = center("ab", 5, "-+") == "-ab-+";
 public test bool ab9() = center("ab", 6, "-+") == "-+ab-+";
 
 // charAt
-public test bool charAt0()= String::charAt("abc", 0) == 97;
-public test bool charAt1() =String::charAt("abc", 1) == 98;
-public test bool charAt2() =String::charAt("abc", 2) == 99;
-public test bool charAt00() = charAt("abc", 0) == 97;
+public test bool charAt0() = String::charAt("abc", 0) == 97;
+public test bool charAt1() = String::charAt("abc", 1) == 98;
+public test bool charAt2() = String::charAt("abc", 2) == 99;
+public test bool charAt3() = charAt("abc", 0) == 97;
 
 //endsWith
-public test bool endsWith() =String::endsWith("abc", "abc");
-public test bool endsWith() =endsWith("abc", "abc");
-public test bool endsWith() =String::endsWith("abcdef", "def");
-public test bool endsWith() =!String::endsWith("abcdef", "abc");
+public test bool endsWith1() = String::endsWith("abc", "abc");
+public test bool endsWith2() = endsWith("abc", "abc");
+public test bool endsWith3() = String::endsWith("abcdef", "def");
+public test bool endsWith4() = !String::endsWith("abcdef", "abc");
 
 // left
-public test bool left1() =left("a", 0) == "a";
-public test bool left2() =left("a", 1) == "a";
-public test bool left3() =left("a", 2) == "a ";
+public test bool left1() = left("a", 0) == "a";
+public test bool left2() = left("a", 1) == "a";
+public test bool left3() = left("a", 2) == "a ";
 
-public test bool left4() =left("ab", 0, "-") == "ab";
-public test bool left5() =left("ab", 1, "-") == "ab";
-public test bool left6() =left("ab", 2, "-") == "ab";
-public test bool left7() =left("ab", 3, "-") == "ab-";
-public test bool left8() =left("ab", 4, "-") == "ab--";
+public test bool left4() = left("ab", 0, "-") == "ab";
+public test bool left5() = left("ab", 1, "-") == "ab";
+public test bool left6() = left("ab", 2, "-") == "ab";
+public test bool left7() = left("ab", 3, "-") == "ab-";
+public test bool left8() = left("ab", 4, "-") == "ab--";
 
-public test bool left9() =left("ab", 3, "-+") == "ab-";
-public test bool left10() =left("ab", 4, "-+") == "ab-+";
-public test bool left11() =left("ab", 5, "-+") == "ab-+-";
-public test bool left12() =left("ab", 6, "-+") == "ab-+-+";
+public test bool left9() = left("ab", 3, "-+") == "ab-";
+public test bool left10() = left("ab", 4, "-+") == "ab-+";
+public test bool left11() = left("ab", 5, "-+") == "ab-+-";
+public test bool left12() = left("ab", 6, "-+") == "ab-+-+";
 
 // isEmpty		
 public test bool isEmpty1() =isEmpty("");

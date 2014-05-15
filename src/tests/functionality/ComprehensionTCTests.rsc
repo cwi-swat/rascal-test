@@ -18,7 +18,7 @@ public test bool WrongStringType() = cannotMatch(" int N \<- \"abc\";");
 
 public test bool WrongADTType1() = cannotMatch("int N \<- [true, true, false];", initialDecls=["data Bool = btrue() | bfalse() | band(Bool lhs, Bool rhs) | bor(Bool lhs, Bool rhs);"]);  
   
-public test bool nodeGeneratorTypeError() = unexpectedType("[N | int N \<- f(i(1),g(i(2),i(3)))];", initialDecls=["data TREE = i(int N) | f(TREE a,TREE b) | g(TREE a, TREE b);"]);  
+public test bool nodeGeneratorTypeError() = unexpectedType("[N | int N \<- f(i(1),g(i(2),i(3)))];", initialDecls=["data TREE = i(int N) | f(TREE a,TREE b) | g(TREE a, TREE b);"]);  // TODO
   
 public test bool anyError() = unexpectedType("any(x \<- [1,2,3], \"abc\");");
 
@@ -34,6 +34,6 @@ public test bool emptyTupleGeneratorError1() = cannotMatch("{\<X,Y\> | \<int X, 
   	
 public test bool emptyTupleGeneratorError2() = cannotMatch("{\<X,Y\> | \<int X, int Y\> \<- []} == {};");  	
   
-public test bool emptyTupleGeneratorError3() = cannotMatch("{\<X,Y\> | int X \<- {}, int Y \<- {}} == {};");  	
+public test bool emptyTupleGeneratorError3() = cannotMatch("{\<X,Y\> | int X \<- {}, int Y \<- {}} == {};");  // TODO:?	
    
-public test bool emptyTupleGeneratorError4() = cannotMatch("{\<X,Y\> | int X \<- [], int Y \<- []} == {};");  	
+public test bool emptyTupleGeneratorError4() = cannotMatch("{\<X,Y\> | int X \<- [], int Y \<- []} == {};");  // TODO:?	

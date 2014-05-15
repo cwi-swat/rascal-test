@@ -169,6 +169,23 @@ syntax XYZ = "x" | "y" | "z";
    			int add(int i, int j...) { return i + j[0]; }
    			return add(1,[2,3]) == 3;
    		}
+   		
+   // varArgs3
+   		
+   		public test bool varArgs31(){
+            list[int] add(int i, int j...) = j;
+            return add(1) == [];
+        }
+        
+        public test bool varArgs32(){
+            list[int] add(int i, int j...) = j;
+            return add(1, 2) == [2];
+        }
+        
+         public test bool varArgs33(){
+            list[int] add(int i, int j...) = j;
+            return add(1, 2, 3) == [2, 3];
+        }
   
   // sideEffect
   	
