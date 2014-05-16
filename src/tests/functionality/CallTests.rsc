@@ -370,7 +370,7 @@ syntax XYZ = "x" | "y" | "z";
   
   		public test bool keywordMatchTest11() = point1(_, _, colors=["blue"]) := point1(1,2, colors=["blue"]);
   		
-  		// Only basic patterns are supported in translatePatKWValue
-  		/*TODO:COMP*/// 		public test bool keywordMatchTest12() =point1(_, _, colors=[*_,"blue",*_]) := point1(1,2, colors=["red","green","blue"]);
-  		/*TODO:COMP*/// 		public test bool keywordMatchTest13() =point1(_, _, colors=[*_,*X,*_,*X, *_]) := point1(1,2, colors=["red","blue","green","blue"]);
+  	
+  		public test bool keywordMatchTest12() =point1(_, _, colors=[*_,"blue",*_]) := point1(1,2, colors=["red","green","blue"]);
+  		/*TODO:TC+COMP*///public test bool keywordMatchTest13() =point1(_, _, colors=[*_,*X,*_,*X, *_]) := point1(1,2, colors=["red","blue","green","blue"]);
  
