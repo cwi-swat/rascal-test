@@ -4,10 +4,12 @@ import IO;
 import List;
 import ListRelation;
 import Set;
+import Map;
 import String;
 import Boolean;
 import util::Math;
 import Type;
+import ValueIO;
 
 // is A + B == C?
 bool isConcat(list[&T] A, list[&T] B, list[&T] C) =
@@ -34,11 +36,11 @@ bool isEqual(list[&T] A, list[&T] B) =
 bool isEqual(list[&T] A, list[&T] B) = 
      size(A) == size(B) && (true | (it && (A[i] == B[i])) | int i <- index(A));
 
-public test bool equal(list[&T] A) = A == A;
-public test bool equal(list[&T] A, list[&T] B) = (A == B) ? isEqual(A,B) : !isEqual(A, B);
+public test bool equal1(list[&T] A) = A == A;
+public test bool equal2(list[&T] A, list[&T] B) = (A == B) ? isEqual(A,B) : !isEqual(A, B);
 
-public test bool notEqual(list[&T] A) = !(A != A);
-public test bool notEqual(list[&T] A, list[&T] B) = (A != B) ? !isEqual(A,B) : isEqual(A,B);
+public test bool notEqual1(list[&T] A) = !(A != A);
+public test bool notEqual2(list[&T] A, list[&T] B) = (A != B) ? !isEqual(A,B) : isEqual(A,B);
       
 // x in L?
 bool isIn(&T x, list[&T] L) = (false | it || (x == e) | e <- L);
@@ -100,7 +102,7 @@ public test bool greater(list[int] A, list[int] B)  = isEmpty(B) || mergeOrdered
    
 public test bool splicing(list[&T] A, list[&T] B) = [*A, *B] == A + B && [A, *B] == [A] + B && [*A, B] == A + [B];
 
-public test bool subscription(list[&T] L){
+public test bool subscription(list[int] L){
   R = L;
   for(int i <- index(L)){
       if(head(R) != L[i])
@@ -110,7 +112,7 @@ public test bool subscription(list[&T] L){
   return true;  
 }
 
-public test bool subscriptionWrapped(list[&T] L){
+public test bool subscriptionWrapped(list[int] L){
   for(int i <- index(L)){
       if(L[i] != L[i - size(L)]){
       	 return false;
@@ -250,13 +252,13 @@ public test bool assignStep11() { L = [0,1,2,3,4,5,6,7,8,9]; L[8,6..3] = [10]; r
 public test bool assignStep12() { L = [0,1,2,3,4,5,6,7,8,9]; L[-1,-2..] = [10,20,30,40,50]; return L == [50,40,30,20,10,50,40,30,20,10];}
 public test bool assignStep13() { L = [0,1,2,3,4,5,6,7,8,9]; L[-1,-3..] = [10,20,30,40,50]; return L == [0,50,2,40,4,30,6,20,8,10];}
 
+// The following tests fail in the interpreter
+
 public test bool assignAdd1() { L = [0,1,2,3,4,5,6,7,8,9]; L[..] += [10]; return L == [10,11,12,13,14,15,16,17,18,19]; }
 public test bool assignAdd2() { L = [0,1,2,3,4,5,6,7,8,9]; L[2..] += [10]; return L == [0,1,12,13,14,15,16,17,18,19]; }
 public test bool assignAdd3() { L = [0,1,2,3,4,5,6,7,8,9]; L[2..6] += [10]; return L == [0,1,12,13,14,15,6,7,8,9];}
 public test bool assignAdd4() { L = [0,1,2,3,4,5,6,7,8,9]; L[8..3] += [10]; return L == [0,1,2,3,14,15,16,17,18,9];}
 
-
-// The following tests fail in the interpreter
 public test bool assignSub1() { L = [0,1,2,3,4,5,6,7,8,9]; L[..] -= [10]; return L == [-10,1-10,2-10,3-10,4-10,5-10,6-10,7-10,8-10,9-10]; }
 public test bool assignSub2() { L = [0,1,2,3,4,5,6,7,8,9]; L[2..] -= [10]; return L == [0,1,2-10,3-10,4-10,5-10,6-10,7-10,8-10,9-10]; }
 public test bool assignSub3() { L = [0,1,2,3,4,5,6,7,8,9]; L[2..6] -= [10]; return L == [0,1,2-10,3-10,4-10,5-10,6,7,8,9];}
@@ -313,7 +315,7 @@ public test bool tstHeadN(list[&T] L) {
 
 public test bool tstHeadTail(list[&T] L) = isEmpty(L) || headTail(L) == <elementAt(L,0), size(L) == 1 ? [] : L[1..]>;
    
-public test bool tstIndex(list[&T] L) = index(L) == [0..size(L)];
+public test bool tstIndex(list[int] L) = (index(L) == [0..size(L)]);
 
 public test bool tstIndexOf(list[int] L) {
   int n = -1;
@@ -446,7 +448,8 @@ public test bool tstToRel(list[&T] L) = isEmpty(L) || toRel(L) == {<elementAt(L,
 
 public test bool tstToSet(list[&T] L) = toSet(L) == {x | x <- L};
 
-/*TODO:?*/ // TODO public test bool tstToString(list[&T] L) = toString(L) == "[" + intercalate(",", L) + "]";
+public test bool tstToString(list[&T] L) = (readTextValueString(#list[&T], toString(L)) == L);
+
 
 public test bool tstUnzip2(list[tuple[&A, &B]] L) = unzip(L) == <[a | <a,b> <- L], [b | <a,b> <- L]>;
 

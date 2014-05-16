@@ -655,12 +655,7 @@
     		public test bool testSet60() = ((3 > 2) ? {1,2} : {1,2,3}) == {1,2};
     		
     		public test bool testSet61() = {<"a", [1,2]>, <"b", []>, <"c", [4,5,6]>} != {};
-    
-    /*
-    	private boolean auxTest(String S1, String S2){
-    		return runTestInSameEvaluator(S1 + "==" + S2);
-    	}
-    */	
+   
     	//
     	// Some nested set patterns to test backtracking behaviour.
     	//

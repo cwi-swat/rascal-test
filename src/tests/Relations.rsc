@@ -24,13 +24,12 @@ public test bool \join(rel[&A, &B]X, rel[&B, &C, &D] Y) =
   isEmpty(Y) ==> size(X join Y) == size(X) ||
   (X join Y)<0, 1> == X && (X join Y)<2,3,4> == Y;  
   
- //TODO: {<{-32250185r13509016,-436505807r496778676},1799341299,{}>} 
 public test bool subscription(rel[&A, &B, &C] X) =
   isEmpty(X) ||
   all(&A a <- domain(X), any(<&B b, &C c> <- X[a], <a, b, c> in X)) &&
   all(<&A a, &B b, &C c> <- X, <b, c> in X[a]);
   
-public test bool tclosure(rel[int, int] X) =   // TODO: Fix test framework to handle type parameters
+public test bool tclosure(rel[&A, &A] X) = 
   isEmpty(X) ||
   X <= (X+) && (X+) + (X+) o X == (X+);
   
