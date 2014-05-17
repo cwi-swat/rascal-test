@@ -16,6 +16,9 @@
   *******************************************************************************/
 
 import ParseTree;
+
+import tests::functionality::CallTestsAux;
+
 syntax XYZ = "x" | "y" | "z";
 
   // voidFun
@@ -90,21 +93,15 @@ syntax XYZ = "x" | "y" | "z";
   	    return true;
   	    }
   	    
-  /*TODO?*/
-  /*	
-  	 public void closuresVariables1() {
-  		prepareModule("M", "module M\n" +
-  		         "bool() x = bool() { return false; } ;\n" +
-  		         "public void changeX(bool() newX) { x = newX; }\n" +
-  		         "public bool getX() = x();");
+  // closuresVariables
   
-  		prepareMore("import M;");
-  		assertFalse(runTestInSameEvaluator("getX();"));
-  		prepareMore("changeX(bool() { return true; });");
-  		runTestInSameEvaluator("getX();"));
-  	}
+         public test bool closureVariables1() = getX() == false;
+   
+         public test bool closureVariables2() {
+  		    changeX(bool() { return true; });
+  		    return getX();
+  	     }
   	
-  */	
   
    // varArgs0
    
