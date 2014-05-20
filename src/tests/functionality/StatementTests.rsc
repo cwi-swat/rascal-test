@@ -81,7 +81,7 @@
   // fail
   
   		public test bool fail1() = d(2) := d(2);
-  		//@ignore{redefined constructor does not work in compiler} public test bool fail2() = d(3) == d();
+  		 /*TODO:COMP*/ //@ignore{redefined constructor does not work in compiler} public test bool fail2() = d(3) == d();
   		
   
   // testFor
