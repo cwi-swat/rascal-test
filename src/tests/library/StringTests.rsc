@@ -42,13 +42,45 @@
   	
   		@expected{IndexOutOfBounds}
   		public test bool charAtError1()=String::charAt("abc", 3) == 99;
+  		
+  		 // contains
   
+  		public test bool contains1()=contains("abc", "a");
+  		public test bool contains2()=contains("abc", "c");
+  		public test bool contains3()=!contains("abc", "x");
+  		public test bool contains4()=!contains("abc", "xyzpqr");
+  		public test bool contains5()=contains("abracadabra", "bra");
+  		
   // endsWith
 
   		public test bool endsWith1()=String::endsWith("abc", "abc");
   		public test bool endsWith2()=endsWith("abc", "abc");
   		public test bool endsWith3()=String::endsWith("abcdef", "def");
   		public test bool endsWith4()=!String::endsWith("abcdef", "abc");
+  	
+  // findAll
+  
+  		public test bool findAll1()=findAll("abc", "a") == [0];
+  		public test bool findAll2()=findAll("abc", "c") == [2];
+  		public test bool findAll3()=findAll("abc", "x") == [];
+  		public test bool findAll4()=findAll("abc", "xyzpqr") == [];
+  		public test bool findAll5()=findAll("abracadabra", "bra") == [1, 8];
+  	
+  // findFirst
+  
+  		public test bool findFirst1()=findFirst("abc", "a") == 0;
+  		public test bool findFirst2()=findFirst("abc", "c") == 2;
+  		public test bool findFirst3()=findFirst("abc", "x") == -1;
+  		public test bool findFirst4()=findFirst("abc", "xyzpqr") == -1;
+  		public test bool findFirst5()=findFirst("abracadabra", "bra") == 1;
+  	
+  // findLast
+  
+  		public test bool findLast1()=findLast("abc", "a") == 0;
+  		public test bool findLast2()=findLast("abc", "c") == 2;
+  		public test bool findLast3()=findLast("abc", "x") == -1;
+  		public test bool findLast4()=findLast("abc", "xyzpqr") == -1;
+  		public test bool findLast5()=findLast("abracadabra", "bra") == 8;
   
   // left
   
@@ -189,36 +221,4 @@
   		public test bool replaceLast5()=replaceLast("abracadabra", "a", "AA") == "abracadabrAA";
   		public test bool replaceLast6()=replaceLast("abracadabra", "ab", "AB") == "abracadABra";
   	
-  // contains
-  
-  		public test bool contains1()=contains("abc", "a");
-  		public test bool contains2()=contains("abc", "c");
-  		public test bool contains3()=!contains("abc", "x");
-  		public test bool contains4()=!contains("abc", "xyzpqr");
-  		public test bool contains5()=contains("abracadabra", "bra");
-  	
-  // findAll
-  
-  		public test bool findAll1()=findAll("abc", "a") == [0];
-  		public test bool findAll2()=findAll("abc", "c") == [2];
-  		public test bool findAll3()=findAll("abc", "x") == [];
-  		public test bool findAll4()=findAll("abc", "xyzpqr") == [];
-  		public test bool findAll5()=findAll("abracadabra", "bra") == [1, 8];
-  	
-  // findFirst
-  
-  		public test bool findFirst1()=findFirst("abc", "a") == 0;
-  		public test bool findFirst2()=findFirst("abc", "c") == 2;
-  		public test bool findFirst3()=findFirst("abc", "x") == -1;
-  		public test bool findFirst4()=findFirst("abc", "xyzpqr") == -1;
-  		public test bool findFirst5()=findFirst("abracadabra", "bra") == 1;
-  	
-  // findLast
-  
-  		public test bool findLast1()=findLast("abc", "a") == 0;
-  		public test bool findLast2()=findLast("abc", "c") == 2;
-  		public test bool findLast3()=findLast("abc", "x") == -1;
-  		public test bool findLast4()=findLast("abc", "xyzpqr") == -1;
-  		public test bool findLast5()=findLast("abracadabra", "bra") == 8;
-
  
