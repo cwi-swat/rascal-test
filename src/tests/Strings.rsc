@@ -208,6 +208,8 @@ public test bool tstIsValidCharacter(str S) = isEmpty(S) || all(i <- [0 .. size(
 
 public test bool tstLeft1(str S) { l = left(S, size(S) + 5); return startsWith(l, S) && endsWith(l, " "); }
 public test bool tstLeft2(str S) { l = left(S, size(S) + 5, "x"); return startsWith(l, S) && endsWith(l, "x"); }
+public test bool tstLeft1_s(str S) { l = left(S, size(S) + 1); return startsWith(l, S) && endsWith(l, " "); }
+public test bool tstLeft2_s(str S) { l = left(S, size(S) + 1, "x"); return startsWith(l, S) && endsWith(l, "x"); }
 
 
 public test bool tstReplaceAll(str S1, str S2, str S3) {
