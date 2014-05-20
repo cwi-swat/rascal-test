@@ -172,7 +172,7 @@ public test bool tstContains(str S1, str S2, str S3) = contains(S1+S2+S3, S1) &&
 public test bool tstEndsWith(str S1, str S2) = endsWith(S1+S2, S2);
 
 public test bool tstEscape(str S, str K1, str R1, str K2, str R2){
-  if(isEmpty(K1) || isEmpty(K2) || K1[0] == K2[0]) return true;
+  if(isEmpty(K1) || isEmpty(K2) || K1[0] == K2[0] || contains(S, K1[0]) || contains(S, K2[0])) return true;
   T = K1[0] + S + K2[0] + S + K2[0] + S + K1[0];
   return escape(T, (K1[0] : R1, K2[0] : R2)) == R1 + S + R2 + S + R2 + S + R1;
 }
